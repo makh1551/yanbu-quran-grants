@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>منح وقف الربدي — تحفيظ ينبع</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<style>
+:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+/* Layout: ملف منحة رسمي — غلاف زمردي بزخرفة هندسية ذهبية، شريط أقسام لاصق، بطاقات مشاريع، مصفوفة معايير */
+:root{
+  --bg:#f7f5ef; --surface:#ffffff; --surface-2:#fbfaf6; --ink:#16241f; --muted:#5b6a64; --line:#e3ddcf;
+  --emerald:#0d4a3a; --emerald-2:#0a3a2d; --on-emerald:#f3efe2; --gold:#b38a3c; --gold-soft:#f3ead6; --gold-ink:#7a5a1c; --ok:#1f7a55;
+  --display:"Reem Kufi","IBM Plex Sans Arabic",Tahoma,sans-serif;
+  --body:"IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e1714; --surface:#14201c; --surface-2:#18261f; --ink:#e8ece6; --muted:#9aaaa2; --line:#26362f;
+  --emerald:#0b3b2e; --emerald-2:#072a21; --on-emerald:#f0ebdc; --gold:#d2ac5e; --gold-soft:#2a2618; --gold-ink:#e2c27e; --ok:#58c493; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0e1714; --surface:#14201c; --surface-2:#18261f; --ink:#e8ece6; --muted:#9aaaa2; --line:#26362f;
+  --emerald:#0b3b2e; --emerald-2:#072a21; --on-emerald:#f0ebdc; --gold:#d2ac5e; --gold-soft:#2a2618; --gold-ink:#e2c27e; --ok:#58c493; color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.8;direction:rtl}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.4;margin:0;font-weight:700}
+h2{font-size:1.7rem;color:var(--emerald)}
+:root:not([data-theme="light"]) h2{}
+h3{font-size:1.12rem}
+p{margin:0}
+.num{font-variant-numeric:tabular-nums}
+a{color:var(--gold-ink)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) h2{color:var(--gold)}}
+:root[data-theme="dark"] h2{color:var(--gold)}
+
+/* hero */
+header.hero{position:relative;background:linear-gradient(160deg,var(--emerald) 0%,var(--emerald-2) 100%);color:var(--on-emerald);overflow:hidden;border-bottom:4px solid var(--gold)}
+header.hero::before{content:"";position:absolute;inset:0;opacity:.13;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23d9b56a' stroke-width='1.2'%3E%3Cpath d='M40 6l9.9 24.1L74 40l-24.1 9.9L40 74l-9.9-24.1L6 40l24.1-9.9z'/%3E%3Crect x='22' y='22' width='36' height='36' transform='rotate(45 40 40)'/%3E%3Ccircle cx='40' cy='40' r='9'/%3E%3C/g%3E%3C/svg%3E");background-size:80px 80px}
+.hero .wrap{position:relative;padding-block:56px 44px;display:grid;gap:22px}
+.brand{display:flex;align-items:center;gap:14px}
+.seal{width:58px;height:58px;flex:none;border-radius:50%;border:1.5px solid var(--gold);display:grid;place-items:center;background:rgba(0,0,0,.15)}
+.seal svg{width:34px;height:34px}
+.eyebrow{font-size:.86rem;letter-spacing:.02em;color:var(--gold);font-weight:600}
+.hero h1{font-size:clamp(1.9rem,4.8vw,3rem)}
+.hero p.lead{max-width:64ch;opacity:.92;font-size:1.05rem}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:6px}
+.fact{background:rgba(255,255,255,.06);border:1px solid rgba(217,181,106,.35);border-radius:12px;padding:16px 18px;display:grid;gap:2px;backdrop-filter:blur(2px)}
+.fact b{font-family:var(--display);font-size:1.7rem;color:var(--gold);line-height:1.2}
+.fact span{font-size:.86rem;opacity:.88}
+.deadline{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;background:rgba(0,0,0,.18);border-radius:10px;padding:12px 16px;justify-self:start}
+.pill{display:inline-block;padding:2px 12px;border-radius:999px;background:var(--gold);color:#1d1606;font-weight:700;font-size:.85rem}
+
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--emerald)}
+nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:8px}
+nav.toc a{white-space:nowrap;text-decoration:none;color:var(--muted);padding:6px 14px;border-radius:999px;font-size:.92rem;font-weight:500;transition:background .15s,color .15s}
+nav.toc a:hover{background:var(--gold-soft);color:var(--gold-ink)}
+
+section{padding-block:56px}
+section:nth-of-type(even){background:var(--surface-2);border-block:1px solid var(--line)}
+section .wrap{display:grid;gap:22px}
+.sec-head{display:grid;gap:6px}
+.sec-head h2{display:flex;align-items:center;gap:12px}
+.sec-head h2::before{content:"";width:12px;height:12px;transform:rotate(45deg);background:var(--gold);border-radius:2px;flex:none}
+.sub{color:var(--muted);max-width:68ch}
+
+/* association */
+.kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0}
+.kv div{display:grid;grid-template-columns:8.5rem 1fr;gap:12px;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.kv dt{color:var(--gold-ink);font-size:.88rem;font-weight:600}
+.kv dd{margin:0;font-weight:500;min-width:0}
+
+/* projects */
+.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.tab{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:16px 18px;border-radius:12px;text-align:right;display:grid;gap:4px;transition:border-color .15s,transform .15s,box-shadow .15s}
+.tab:hover{border-color:var(--gold);transform:translateY(-1px)}
+.tab .t{font-family:var(--display);font-size:1.15rem}
+.tab small{color:var(--muted);font-size:.85rem}
+.tab small b{color:var(--gold-ink);font-weight:700}
+.tab[aria-selected="true"]{background:var(--emerald);color:var(--on-emerald);border-color:var(--gold);box-shadow:0 8px 24px -14px rgba(13,74,58,.7)}
+.tab[aria-selected="true"] small{color:var(--on-emerald);opacity:.85}
+.tab[aria-selected="true"] small b{color:var(--gold)}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:grid}
+.proj-head{display:grid;gap:10px;padding:26px 28px;background:linear-gradient(180deg,var(--gold-soft),transparent);border-bottom:1px solid var(--line)}
+.proj-head h3{font-size:1.5rem;color:var(--emerald)}
+.ask{display:inline-flex;gap:8px;align-items:baseline;justify-self:start;background:var(--emerald);color:var(--on-emerald);padding:6px 14px;border-radius:8px;font-weight:600}
+.ask b{font-family:var(--display);color:var(--gold);font-size:1.25rem}
+.proj-body{padding:26px 28px;display:grid;gap:30px}
+.block{display:grid;gap:12px}
+.block h3{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.crit{font-family:var(--body);font-size:.74rem;font-weight:700;color:var(--gold-ink);background:var(--gold-soft);border-radius:999px;padding:1px 10px}
+.problem{border-inline-start:3px solid var(--gold);background:var(--surface-2);padding:10px 14px;border-radius:0 8px 8px 0}
+ol,ul{margin:0;padding-inline-start:1.3rem;display:grid;gap:6px}
+li::marker{color:var(--gold)}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:.93rem}
+th,td{padding:10px 14px;text-align:right;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--emerald);color:var(--on-emerald);font-weight:600}
+tbody tr:nth-child(even) td{background:var(--surface-2)}
+tr:last-child td{border-bottom:0}
+tr.total td{font-weight:700;background:var(--gold-soft)!important;color:var(--gold-ink)}
+td.amt,th.amt{text-align:left;font-variant-numeric:tabular-nums;white-space:nowrap}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+.grid2>*{min-width:0}
+.note{font-size:.9rem;color:var(--muted)}
+.ratios{display:flex;flex-wrap:wrap;gap:8px}
+.ratios span{background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:.86rem}
+
+/* matrix */
+.matrix td.c{text-align:center}
+.chk{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--ok);color:#fff;font-size:.8rem;font-weight:700}
+
+/* requirements */
+.reqs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.req{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:grid;gap:8px;align-content:start;border-top:3px solid var(--line)}
+.req.done{border-top-color:var(--ok)} .req.todo{border-top-color:var(--gold)}
+.req .st{font-size:.8rem;font-weight:700;justify-self:start;padding:1px 10px;border-radius:999px}
+.st.done{color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent)} .st.later{color:var(--muted);background:var(--surface-2)} .st.todo{color:var(--gold-ink);background:var(--gold-soft)}
+
+/* letters */
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px}
+details[open]{border-color:var(--gold)}
+summary{cursor:pointer;padding:16px 20px;font-weight:700;font-family:var(--display);color:var(--emerald)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) summary,:root:not([data-theme="light"]) .proj-head h3{color:var(--gold)}}
+:root[data-theme="dark"] summary,:root[data-theme="dark"] .proj-head h3{color:var(--gold)}
+.letter{padding:4px 24px 24px;display:grid;gap:12px;max-width:70ch}
+.letter .sig{color:var(--muted);font-size:.92rem;border-top:1px dashed var(--line);padding-top:10px}
+button.copy{font:inherit;cursor:pointer;justify-self:start;background:var(--emerald);border:0;color:var(--on-emerald);padding:8px 16px;border-radius:8px;font-size:.88rem;font-weight:600}
+
+footer{background:var(--emerald-2);color:var(--on-emerald);border-top:3px solid var(--gold)}
+footer .wrap{padding-block:28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:.9rem}
+footer b{color:var(--gold)}
+
+@media (max-width:820px){
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kv,.grid2,.reqs,.tabs{grid-template-columns:1fr}
+  .kv div{grid-template-columns:7.5rem 1fr}
+  .proj-head,.proj-body{padding:20px}
+}
+@media (prefers-reduced-motion:no-preference){.proj-body{animation:in .3s ease}@keyframes in{from{opacity:.4;transform:translateY(6px)}to{opacity:1;transform:none}}}
+</style>
+
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">
+      <div class="seal" aria-hidden="true"><svg viewBox="0 0 40 40"><g fill="none" stroke="#d9b56a" stroke-width="1.6"><path d="M20 3l5 12 12 5-12 5-5 12-5-12-12-5 12-5z"/><rect x="11" y="11" width="18" height="18" transform="rotate(45 20 20)"/><circle cx="20" cy="20" r="4.5"/></g></svg></div>
+      <span class="eyebrow">طلبات منح وقف محمد بن عبدالرحمن الربدي<br>مجال العناية بالوحيين</span>
+    </div>
+    <h1>الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع</h1>
+    <p class="lead">ثلاثة مشاريع قائمة ومجرّبة: تصل بتعليم القرآن الكريم إلى قرى ينبع، وتصنع مُقرئين مجازين بالسند، وتؤهل معلمي الحلقات. كل مشروع مبني على معايير الوقف الثمانية بدراسة فنية ومالية كاملة.</p>
+    <div class="facts">
+      <div class="fact"><b class="num">3</b><span>مشاريع مقدمة</span></div>
+      <div class="fact"><b class="num">365,000</b><span>ريال إجمالي الدعم المطلوب</span></div>
+      <div class="fact"><b class="num">395</b><span>مستفيدًا مباشرًا</span></div>
+      <div class="fact"><b class="num">47</b><span>عامًا من العمل القرآني</span></div>
+    </div>
+    <div class="deadline"><span class="pill">فترة التقديم</span><span class="num">من الثلاثاء 1448/05/09هـ (2026/10/20م) إلى الخميس 1448/05/11هـ (2026/10/22م)</span></div>
+  </div>
+</header>
+
+<nav class="toc" aria-label="أقسام الصفحة"><div class="wrap">
+  <a href="#entity">الجهة المتقدمة</a><a href="#projects">المشاريع</a><a href="#criteria">مصفوفة المعايير</a><a href="#reqs">المتطلبات</a><a href="#letters">خطابات الطلب</a>
+</div></nav>
+
+<main>
+<section id="entity"><div class="wrap">
+  <div class="sec-head"><h2>الجهة المتقدمة</h2></div>
+  <p class="sub">جهة رسمية غير ربحية مرخّصة، تعمل في تعليم القرآن الكريم منذ 1398هـ، وتغطي المحافظة وثمانية مراكز تابعة.</p>
+  <dl class="kv">
+    <div><dt>الترخيص</dt><dd>وزارة الشؤون الإسلامية، رقم 3/2 بتاريخ 15/7/1419هـ</dd></div>
+    <div><dt>التسجيل</dt><dd class="num">المركز الوطني لتنمية القطاع غير الربحي، رقم 3165</dd></div>
+    <div><dt>بداية النشاط</dt><dd>1398هـ، وتأسست جمعيةً عام 1419هـ</dd></div>
+    <div><dt>الخطة الاستراتيجية</dt><dd>2024–2028، أول أهدافها تحقيق الاستدامة في تحفيظ القرآن</dd></div>
+    <div><dt>الرؤية</dt><dd>الريادة في تعليم القرآن الكريم</dd></div>
+    <div><dt>الرسالة</dt><dd>تعليم القرآن الكريم بجودة عالية وشراكة مجتمعية</dd></div>
+    <div><dt>النطاق</dt><dd>ينبع، ينبع النخل، تلعة نزا، وادي رخو، الفقعلي، الهيم، نبط، خمال، الجابرية</dd></div>
+    <div><dt>الحجم الحالي</dt><dd>أكثر من 4,000 مستفيد سنويًا، وأكثر من 20 برنامجًا قائمًا</dd></div>
+  </dl>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <div class="sec-head"><h2>المشاريع المقدمة</h2></div>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <article class="proj" id="proj" role="tabpanel" aria-live="polite"></article>
+</div></section>
+
+<section id="criteria"><div class="wrap">
+  <div class="sec-head"><h2>مصفوفة معايير الوقف</h2></div>
+  <p class="sub">موضع استيفاء كل معيار من معايير دراسة المشاريع في كل وثيقة.</p>
+  <div class="tbl"><table class="matrix" id="matrix"></table></div>
+</div></section>
+
+<section id="reqs"><div class="wrap">
+  <div class="sec-head"><h2>المتطلبات الأساسية</h2></div>
+  <div class="reqs" id="reqList"></div>
+</div></section>
+
+<section id="letters"><div class="wrap">
+  <div class="sec-head"><h2>خطابات طلب الدعم</h2></div>
+  <p class="sub">تُطبع على ورق الجمعية وتُوقّع وتُختم من رئيس مجلس الإدارة، ثم تُرفع مع كل طلب.</p>
+  <div id="letterList" style="display:grid;gap:12px"></div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>للتواصل مع الوقف: <span class="num">mobadarat@alrebdi.org</span> · التقديم عبر بوابة المنح alrebdi.sa</span>
+  <span>إعداد وتصميم: <b>عبدالمجيد السيد</b></span>
+</div></footer>
+
+<script>
+const P=[
+{id:"p1",short:"نور القرى",name:"«نور القرى»: الحلقات القرآنية بقرى ينبع وإعداد معلميها",ask:250000,months:12,ben:220,
+ lead:"يوصل تعليم القرآن الكريم إلى 220 طالبًا وطالبة في قرى ينبع خلال 12 شهرًا، ويؤهل 20 معلمًا ومعلمة من أبناء القرى ليستمر التعليم بعد انتهاء الدعم.",
+ problem:"سكان القرى بعيدون عن المجمعات القرآنية في المدينة، ويصعب استقطاب معلمين من خارجها بشكل دائم.",
+ goals:["تشغيل 12 حلقة قرآنية منتظمة في قرى ومراكز المحافظة.","تصحيح تلاوة 220 طالبًا وطالبة على الأقل وفق أحكام التجويد.","تحفيظ كل مستفيد جزأين على الأقل خلال مدة المشروع.","تأهيل 20 معلمًا ومعلمة من أبناء القرى لقيادة الحلقات مستقبلًا.","ربط الأسر في القرى بالجمعية وبرامجها المتقدمة."],
+ target:["المباشرون: 220 طالبًا وطالبة، و20 معلمًا ومعلمة متدربين.","غير المباشرين: نحو 1,000 فرد من أسر الطلاب.","النطاق: نبط، الهيم، الفقعلي، خمال، الجابرية، تلعة نزا، وادي رخو، ينبع النخل.","يقع خارج المدن الرئيسة، فيدعم التوزيع الجغرافي لمنح الوقف."],
+ plan:["التهيئة (الشهر 1): حصر القرى، التعاقد مع المعلمين، تجهيز المواقع والمنصة.","الإطلاق (الشهر 2): تسجيل الطلاب واختبار تحديد المستوى وبدء الحلقات.","التنفيذ والتأهيل (الأشهر 2–11): الحلقات مستمرة، وإعداد المعلمين بالتوازي.","القياس (الأشهر 4 و8 و11): اختبارات فصلية وتقارير متابعة.","الختام (الشهر 12): الاختبار النهائي، حفل التكريم، التقرير الختامي."],
+ kpi:[["عدد المستفيدين المنتظمين","220","سجل الحضور الإلكتروني"],["نسبة الانتظام","80% فأكثر","سجل الحضور"],["تصحيح تلاوة الفاتحة وقصار السور","95%","اختبار قبلي وبعدي"],["متوسط الحفظ لكل مستفيد","جزءان","الاختبارات الفصلية"],["معلمون مؤهلون من أبناء القرى","20","شهادة إتمام البرنامج"],["رضا الأسر","85%","استبانة ختامية"]],
+ sust:["المعلمون المؤهلون من أهل القرى يقلّلون تكلفة النقل ويضمنون بقاء الحلقات.","تُدرج الحلقات في برنامج كفالة الحلقات القائم بعد سنة الدعم.","شراكة مع أئمة المساجد في القرى لتوفير المواقع مجانًا.","تبقى المنصة والمحتوى الرقمي للسنوات التالية."],
+ vision:[["مجتمع حيوي","ترسيخ القيم الإسلامية والهوية وتعزيز ترابط الأسرة في القرى"],["اقتصاد مزدهر","فرص عمل جزئي لأبناء القرى معلمين ومعلمات"],["وطن طموح","رفع أثر القطاع غير الربحي وتفعيل الشراكة المجتمعية"]],
+ budget:[["مكافآت معلمي ومعلمات الحلقات","12 × 1,200 × 10 أشهر",144000],["مشرف ميداني ومتابعة","1 × 2,500 × 10 أشهر",25000],["برنامج إعداد معلمي القرى","20 متدربًا: مدربون ومواد وشهادات",24000],["نقل ومواصلات بين القرى","للمعلمين والمشرف",20000],["حوافز الطلاب وحفل الختام","جوائز وتكريم الحفاظ",15000],["مواد تعليمية ومصاحف","مصاحف ومذكرات تجويد",10000],["المنصة الرقمية","اشتراكات وتجهيزات التعليم عن بُعد",7000],["القياس والتقارير","اختبارات وتقرير الأثر والتقرير الختامي",5000]],
+ direct:168000,
+ risks:[["انقطاع معلم في قرية بعيدة","معلم احتياطي، والتحويل المؤقت إلى الحلقة عن بُعد"],["ضعف انتظام الطلاب","تواصل مع الأسر وحوافز شهرية للانتظام"],["ضعف الاتصال بالإنترنت","تسجيلات صوتية ومتابعة عبر الواتساب"]]},
+{id:"p2",short:"سند",name:"«سند»: مسار الإتقان والإجازة بالسند المتصل",ask:70000,months:12,ben:75,
+ lead:"يرفع 45 حافظًا وحافظة إلى الضبط الكامل، ويمنح 30 منهم الإجازة برواية حفص عن عاصم بالسند المتصل إلى النبي ﷺ خلال 12 شهرًا.",
+ problem:"كثير من الحفاظ يتمّون الحفظ دون ضبط متقن أو سند، فيضعف المحفوظ ولا يتحولون إلى مُقرئين.",
+ goals:["تثبيت المحفوظ لدى 45 حافظًا وحافظة حتى الضبط الكامل.","منح 30 مشاركًا ومشاركة الإجازة برواية حفص بالسند المتصل.","تخريج نواة من المجازين القادرين على الإقراء داخل الجمعية.","ترسيخ منهج التلقي والسند في تعليم القرآن بالمحافظة."],
+ target:["مسار التثبيت: 45 حافظًا وحافظة دون شهادات حفظ معتمدة.","مسار الإجازة: 30 من المتقنين، من خريجي التثبيت والحفاظ الجاهزين.","الأثر الممتد: كل مجاز يُقرئ 5 طلاب سنويًا على الأقل بعد التخرج.","البرنامجان سبق تنفيذهما: التثبيت 4 مرات والإجازة 3 مرات."],
+ plan:["الشهر 1: اختبار تحديد مستوى وتوزيع المشاركين على المسارين.","الأشهر 2–7: حلقات التثبيت حضوريًا وعن بُعد بمراجعة مجدولة.","الأشهر 3–11: العرض على المقرئين المجازين ختمةً كاملة لكل مشارك.","الشهر 11: اختبار الإجازة أمام لجنة من المقرئين.","الشهر 12: حفل منح الإجازات والتقرير الختامي."],
+ kpi:[["حفاظ أتموا التثبيت بإتقان","40 من 45","اختبار الضبط النهائي"],["مجازون بالسند المتصل","30","الإجازة الموثقة"],["متوسط الأخطاء في الجزء الواحد","خطأ واحد أو أقل","سجل العرض على المقرئ"],["مجازون يلتحقون بالإقراء في الجمعية","10","سجل المعلمين"]],
+ sust:["المجازون الجدد يتولون إقراء الدفعات التالية بتكلفة أقل.","تبقى سلاسل السند وقاعدة المشاركين لبرامج القراءات المتقدمة.","يندمج المسار في برنامج «ارتقاء» ضمن الخطة الاستراتيجية."],
+ vision:[["مجتمع حيوي","حفظ القرآن الكريم ونقله بالسند الصحيح من قيم المجتمع الراسخة"],["وطن طموح","بناء كفاءات وطنية مؤهلة علميًا تقود العمل القرآني"]],
+ budget:[["مقرئون مجازون","3 × 900 × 10 أشهر",27000],["معلمو ومعلمات التثبيت","3 × 800 × 10 أشهر",24000],["لجان الاختبار والتحكيم","اختبارات الضبط والإجازة",6000],["حفل منح الإجازات والحوافز","تكريم المجازين والمتميزين",6000],["توثيق السند وطباعة الإجازات","30 إجازة موثقة",3000],["المنصة والتسجيلات","التعليم عن بُعد",2000],["الإدارة والتقارير","المتابعة والتقرير الختامي",2000]],
+ direct:51000,
+ risks:[["انسحاب مشاركين قبل الختم","جدولة مرنة وعرض عن بُعد ومتابعة أسبوعية"],["محدودية وقت المقرئين","توزيع المشاركين على 3 مقرئين بجدول ثابت"]]},
+{id:"p3",short:"مُعلّم",name:"«مُعلّم»: إعداد المعلمين والمعلمات لتحفيظ القرآن الكريم",ask:45000,months:9,ben:100,
+ lead:"يؤهل 100 معلم ومعلمة في التجويد وطرائق التحفيظ وإدارة الحلقات خلال 9 أشهر، فيرتفع أثره على أكثر من 4,000 طالب وطالبة.",
+ problem:"جودة الحلقة تتوقف على كفاءة معلمها، وكثير من المعلمين متقنون للحفظ دون تأهيل تربوي أو تدريب على إدارة الحلقة.",
+ goals:["تأهيل 100 معلم ومعلمة في التجويد التطبيقي وطرائق التحفيظ الحديثة.","تدريبهم على إدارة الحلقة وتحفيز الطلاب ومتابعة التقدم.","رفع متوسط أداء المعلمين في التقييم الصفي بنسبة 25%.","إعداد حقيبة تدريبية محكّمة تبقى ملكًا للجمعية."],
+ target:["المباشرون: 100 معلم ومعلمة، منهم 30 من القرى على الأقل.","غير المباشرين: أكثر من 4,000 طالب وطالبة في حلقات الجمعية.","البرنامج قائم ويؤهل 80 معلمًا ومعلمة سنويًا."],
+ plan:["الشهر 1: إعداد الحقيبة وتحكيمها، وتسجيل المتدربين واختبار قبلي.","الأشهر 2–7: تنفيذ المحاور على دفعتين (بنين، بنات) — 120 ساعة.","الأشهر 6–8: التطبيق الميداني والزيارات الصفية.","الشهر 9: الاختبار البعدي، حفل التخريج، التقرير الختامي."],
+ kpi:[["متدربون أتموا البرنامج","90 من 100","سجل الحضور والشهادات"],["تحسن الأداء في التقييم الصفي","+25%","بطاقة الملاحظة قبل وبعد"],["اجتياز اختبار التجويد","85%","الاختبار البعدي"],["تحسن تقدم طلاب المتدربين","+15% في معدل الحفظ","سجلات الحلقات"]],
+ sust:["تبقى الحقيبة والمحتوى المسجل لتأهيل الدفعات القادمة بتكلفة منخفضة.","يُختار أفضل 10 خريجين مدربين مساعدين، فيصبح التأهيل ذاتيًا داخل الجمعية."],
+ vision:[["مجتمع حيوي","تعليم قرآني بجودة أعلى يعزز القيم والهوية"],["اقتصاد مزدهر","تنمية رأس المال البشري وتأهيل كفاءات مهنية"],["وطن طموح","رفع كفاءة القطاع غير الربحي وجودة مخرجاته"]],
+ budget:[["مدربون متخصصون","120 ساعة × 150",18000],["التطبيق الميداني والإشراف","زيارات صفية وبطاقات ملاحظة",6000],["الحقيبة التدريبية وتحكيمها","تأليف وتحكيم وطباعة",5000],["المنصة وتسجيل المحتوى","للاستخدام المستقبلي",4000],["اختبارات الإتقان","قبلي وبعدي",4000],["الشهادات وحفل التخريج","100 شهادة وتكريم",4000],["الإدارة والتقارير","المتابعة والتقرير الختامي",4000]],
+ direct:24000,
+ risks:[["تعارض التدريب مع أوقات الحلقات","جلسات مسائية ومحتوى مسجل عن بُعد"],["ضعف نقل التدريب إلى الحلقة","تطبيق ميداني مشرف عليه بزيارات صفية"]]}
+];
+const fmt=n=>n.toLocaleString("en-US");
+const esc=s=>String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+const li=a=>a.map(x=>`<li>${esc(x)}</li>`).join("");
+const tbl=(h,rows)=>`<div class="tbl"><table><thead><tr>${h.map(x=>`<th>${x}</th>`).join("")}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+
+function render(p){
+  const total=p.budget.reduce((s,b)=>s+b[2],0);
+  document.getElementById("proj").innerHTML=`
+  <div class="proj-head"><span class="eyebrow">مدة التنفيذ ${p.months} شهرًا · ${p.ben} مستفيدًا مباشرًا</span><h3>${esc(p.name)}</h3><span class="ask num">المبلغ المطلوب <b>${fmt(p.ask)}</b> ريال</span><p>${esc(p.lead)}</p></div>
+  <div class="proj-body">
+  <div class="block"><h3>فكرة المشروع وأهدافه <span class="crit">المعيار 1</span></h3><p class="problem"><b>المشكلة:</b> ${esc(p.problem)}</p><ol>${li(p.goals)}</ol></div>
+  <div class="grid2">
+    <div class="block"><h3>الفئة المستهدفة والنطاق <span class="crit">المعياران 2 و6</span></h3><ul>${li(p.target)}</ul></div>
+    <div class="block"><h3>خطة التنفيذ <span class="crit">المعيار 3</span></h3><ol>${li(p.plan)}</ol></div>
+  </div>
+  <div class="block"><h3>مؤشرات الأثر التنموي <span class="crit">المعياران 2 و8</span></h3>${tbl(["المؤشر","المستهدف","أداة القياس"],p.kpi)}</div>
+  <div class="grid2">
+    <div class="block"><h3>الاستدامة بعد الدعم <span class="crit">المعيار 4</span></h3><ul>${li(p.sust)}</ul></div>
+    <div class="block"><h3>المواءمة مع رؤية 2030 <span class="crit">المعيار 5</span></h3>${tbl(["المحور","وجه المواءمة"],p.vision)}</div>
+  </div>
+  <div class="block"><h3>الدراسة المالية <span class="crit">المعيار 7</span></h3>
+    <div class="tbl"><table><thead><tr><th>البند</th><th>التفصيل</th><th class="amt">المبلغ (ريال)</th></tr></thead><tbody>
+    ${p.budget.map(b=>`<tr><td>${esc(b[0])}</td><td>${esc(b[1])}</td><td class="amt">${fmt(b[2])}</td></tr>`).join("")}
+    <tr class="total"><td>الإجمالي</td><td></td><td class="amt">${fmt(total)}</td></tr></tbody></table></div>
+    <div class="ratios num"><span>تكلفة المستفيد ≈ ${fmt(Math.round(total/p.ben))} ريال</span><span>${Math.round(p.direct/total*100)}% للتعليم والتأهيل المباشر</span><span>تقارير مالية ربعية</span><span>صرف وفق البنود المعتمدة</span></div>
+  </div>
+  <div class="block"><h3>المخاطر والمعالجة</h3>${tbl(["الخطر","المعالجة"],p.risks)}</div></div>`;
+  document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.id===p.id));
+}
+const tabs=document.getElementById("tabs");
+P.forEach(p=>{const b=document.createElement("button");b.className="tab";b.id="tab-"+p.id;b.setAttribute("role","tab");b.dataset.id=p.id;
+  b.innerHTML=`<span class="t">${esc(p.short)}</span><small class="num"><b>${fmt(p.ask)}</b> ريال · ${p.ben} مستفيدًا</small>`;b.onclick=()=>render(p);tabs.appendChild(b);});
+const start=P.find(p=>"#"+p.id===location.hash)||P[0];render(start);
+
+const C=["وضوح فكرة وأهداف المشروع","الأثر التنموي على الفئة المستهدفة","جاهزية الجهة المنفذة","الاستدامة بعد الدعم","المواءمة مع رؤية 2030","التوزيع الجغرافي","جودة التخطيط المالي","التركيز على الأثر التنموي"];
+const W=["الفكرة والأهداف","الفئة المستهدفة + المؤشرات","خطة التنفيذ + سجل التنفيذ السابق","قسم الاستدامة","جدول محاور الرؤية","النطاق: قرى ومراكز ينبع","الدراسة المالية التفصيلية","مؤشرات أثر قابلة للقياس"];
+document.getElementById("matrix").innerHTML=`<thead><tr><th>المعيار</th><th>موضعه في الوثيقة</th>${P.map(p=>`<th style="text-align:center">${esc(p.short)}</th>`).join("")}</tr></thead><tbody>${C.map((c,i)=>`<tr><td><span class="num">${i+1}.</span> ${c}</td><td>${W[i]}</td>${P.map(()=>`<td class="c"><span class="chk" aria-label="مستوفى">✓</span></td>`).join("")}</tr>`).join("")}</tbody>`;
+
+const R=[["جهة رسمية غير ربحية ومرخصة","مستوفى","done","ترخيص 3/2 وتسجيل المركز الوطني 3165."],["توافق المشروع مع أحد المجالات","مستوفى","done","المشاريع الثلاثة ضمن مجال العناية بالوحيين."],["وثيقة مشروع فنية ومالية","جاهزة","done","لكل مشروع وثيقة كاملة في هذه الصفحة."],["خطاب طلب دعم","يحتاج توقيعًا وختمًا","todo","ثلاثة خطابات جاهزة للطباعة أدناه."],["تقرير ختامي بعد التنفيذ","بعد القبول","later","مضمّن في المرحلة الأخيرة من كل خطة."],["توقيع الاتفاقية إلكترونيًا","بعد القبول","later","يوقعها رئيس مجلس الإدارة عبر البوابة."]];
+document.getElementById("reqList").innerHTML=R.map(r=>`<div class="req ${r[2]}"><b>${r[0]}</b><span class="st ${r[2]}">${r[1]}</span><span class="note">${r[3]}</span></div>`).join("");
+
+const words={250000:"مائتين وخمسين ألف ريال",70000:"سبعين ألف ريال",45000:"خمسة وأربعين ألف ريال"};
+const L=document.getElementById("letterList");
+P.forEach(p=>{
+  const body=[
+    "أصحاب الفضيلة / القائمون على وقف محمد بن عبدالرحمن الربدي — سلمهم الله",
+    "السلام عليكم ورحمة الله وبركاته، وبعد:",
+    `فتتقدم الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع، المسجلة لدى المركز الوطني لتنمية القطاع غير الربحي برقم (3165)، بطلب دعم مشروع ${p.name}، ضمن مجال العناية بالوحيين، بمبلغ (${fmt(p.ask)}) ${words[p.ask]}.`,
+    p.lead,
+    "ونرفق لفضيلتكم وثيقة المشروع بدراستيه الفنية والمالية، وتلتزم الجمعية بالصرف وفق الميزانية المعتمدة وتقديم التقارير الدورية والتقرير الختامي.",
+    "جزاكم الله خيرًا، وجعل ذلك في موازين حسناتكم."];
+  const d=document.createElement("details");
+  d.innerHTML=`<summary>خطاب مشروع ${esc(p.short)} — ${fmt(p.ask)} ريال</summary><div class="letter">${body.map(x=>`<p>${esc(x)}</p>`).join("")}<p class="sig">رئيس مجلس الإدارة: ____________ · التوقيع: ________ · الختم</p><button class="copy" id="copy-${p.id}">نسخ نص الخطاب</button></div>`;
+  L.appendChild(d);
+  const btn=d.querySelector("button");
+  btn.onclick=()=>{const t=body.join("\n\n");
+    navigator.clipboard?.writeText(t).then(()=>btn.textContent="تم النسخ").catch(()=>{const r=document.createRange();r.selectNodeContents(d.querySelector(".letter"));const s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent="حدّد النص وانسخه";});};
+});
+</script>
+
+</body>
+</html>
