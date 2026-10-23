@@ -3,102 +3,257 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>الخطة التشغيلية لحملة المؤثرين</title>
+<title>مركز قرار الحملة</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#08303E">
 <link rel="icon" href="../assets/img/logo_mark.png">
 <link rel="stylesheet" href="../assets/fonts.css">
 <style>
+/* التخطيط: شريط هوية، ثم تبويبات مقطّعة؛ «اليوم» لوحة قرار، و«الأدوات» شبكة بطاقات تفتح أداة واحدة في كل مرة */
 :root{--deep:#08303E;--navy:#0D495D;--sky:#42B5D1;--green:#0E8A4A;--paper:#F6F8F7;--card:#FFFFFF;--ink:#1F3A45;--muted:#5E7883;--line:#DCE8EC;--pale:#EEF6F8;--link:#0D6E8A;
---sans:'Tajawal',Tahoma,'Segoe UI',sans-serif;--serif:'Amiri','Traditional Arabic',serif}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#071F28;--card:#0C2C37;--ink:#E4EFF2;--muted:#93AEB8;--line:#1C4250;--pale:#0F3644;--link:#6CCBE2;color-scheme:dark}}
-:root[data-theme="dark"]{--paper:#071F28;--card:#0C2C37;--ink:#E4EFF2;--muted:#93AEB8;--line:#1C4250;--pale:#0F3644;--link:#6CCBE2;color-scheme:dark}
+--ok:#0E8A4A;--ok-bg:#E4F3EA;--warn:#A86A12;--warn-bg:#FBF0DC;--bad:#B4382C;--bad-bg:#FBE6E3;--accent:var(--navy);
+--sans:'Tajawal',Tahoma,'Segoe UI',sans-serif;--serif:'Amiri','Traditional Arabic',serif;--r:14px;--shadow:0 1px 2px rgba(8,48,62,.06),0 4px 14px rgba(8,48,62,.05)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#071F28;--card:#0C2C37;--ink:#E4EFF2;--muted:#93AEB8;--line:#1C4250;--pale:#0F3644;--link:#6CCBE2;--ok:#3DBB78;--ok-bg:#103B2A;--warn:#E2A54A;--warn-bg:#3A2C12;--bad:#EF7A6D;--bad-bg:#3E1A16;--accent:var(--sky);--shadow:none;color-scheme:dark}}
+:root[data-theme="dark"]{--paper:#071F28;--card:#0C2C37;--ink:#E4EFF2;--muted:#93AEB8;--line:#1C4250;--pale:#0F3644;--link:#6CCBE2;--ok:#3DBB78;--ok-bg:#103B2A;--warn:#E2A54A;--warn-bg:#3A2C12;--bad:#EF7A6D;--bad-bg:#3E1A16;--accent:var(--sky);--shadow:none;color-scheme:dark}
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.85;padding-top:env(safe-area-inset-top,0px)}
-.wrap{max-width:1160px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;padding-top:env(safe-area-inset-top,0px)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
 a{color:var(--link)}
-:focus-visible{outline:2px solid var(--sky);outline-offset:2px}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--sky);outline-offset:2px;border-radius:6px}
+.num{font-variant-numeric:tabular-nums}
+[hidden]{display:none!important}
+
 .brandbar{background:var(--deep);color:#fff;position:relative;overflow:hidden}
 .brandbar::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 100% 0%,rgba(66,181,209,.18),transparent 60%);pointer-events:none}
-.brandbar .wrap{position:relative;z-index:1;padding-block:16px 44px;display:flex;flex-direction:column;gap:18px}
+.brandbar .wrap{position:relative;z-index:1;padding-block:14px 34px;display:flex;flex-direction:column;gap:14px}
 .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .brand{display:flex;align-items:center;gap:12px}
-.brand .mark{width:50px;height:auto}
+.brand .mark{width:48px;height:auto}
 .brand .word{height:22px;width:auto;max-width:100%}
-.back{color:#fff;text-decoration:none;font-size:14px;font-weight:700;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:6px 14px;background:rgba(255,255,255,.06)}
-.hero h1{font-family:var(--serif);font-size:clamp(28px,5vw,42px);line-height:1.35;margin:0;font-weight:700;text-wrap:balance}
-.hero p{margin:6px 0 0;color:#BFE3EC;font-size:14.5px}
-.waves{position:absolute;bottom:0;left:0;width:100%;height:26px;display:block}
-.layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:32px;padding-block:28px 60px}
-@media (max-width:900px){.layout{grid-template-columns:minmax(0,1fr);gap:16px}}
-nav.toc{min-width:0;position:sticky;top:16px;align-self:start;max-height:calc(100vh - 32px);overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 10px}
-nav.toc b{display:block;font-size:13px;color:var(--muted);padding:0 8px 8px}
-nav.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:1px}
+.pillbtn{color:#fff;text-decoration:none;font-size:13.5px;font-weight:700;border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:5px 14px;background:rgba(255,255,255,.06);cursor:pointer}
+.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap}
+.hero h1{font-family:var(--serif);font-size:clamp(28px,5vw,40px);line-height:1.3;margin:0;font-weight:700}
+.hero p{margin:2px 0 0;color:#BFE3EC;font-size:14px}
+.me{display:flex;align-items:center;gap:8px;font-weight:700}
+.avatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;background:linear-gradient(145deg,var(--sky),var(--navy));flex:none}
+.waves{position:absolute;bottom:0;left:0;width:100%;height:24px;display:block}
+
+.tabsbar{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+.tabs{display:flex;gap:4px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{border:0;background:transparent;padding:8px 16px;border-radius:999px;color:var(--muted);font-weight:700;font-size:14.5px;white-space:nowrap;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--navy);color:#fff}
+main{padding-block:22px 60px}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:0 0 12px}
+.sec-h h2,.sec-h h3{margin:0;font-size:19px;font-weight:800;display:flex;align-items:center;gap:10px}
+.sec-h h2::before,.sec-h h3::before{content:"";width:4px;height:18px;border-radius:2px;background:linear-gradient(var(--sky),var(--green))}
+.sec-h p{margin:0;color:var(--muted);font-size:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);min-width:0}
+.notice{border:1px solid var(--warn);background:var(--warn-bg);border-radius:12px;padding:10px 14px;font-size:14px;margin-bottom:14px}
+
+/* اليوم */
+.today{display:grid;grid-template-columns:1.1fr 1fr;gap:16px}
+@media (max-width:860px){.today{grid-template-columns:minmax(0,1fr)}}
+.daycard{padding:18px;display:flex;flex-direction:column;gap:12px;overflow:hidden;position:relative}
+.daycard .eyebrow{font-size:12.5px;font-weight:800;letter-spacing:.3px;color:var(--muted)}
+.daycard h3{margin:0;font-size:24px;font-weight:800;line-height:1.35}
+.track-f,[data-track="فتية المحراب"]{--tc:#D4A23C;--tcb:#FBF3DF}
+.track-w,[data-track="وقف الأم"]{--tc:#42B5D1;--tcb:#E3F4F9}
+.track-n,[data-track="مشترك"],[data-track=""]{--tc:#93AEB8;--tcb:var(--pale)}
+:root[data-theme="dark"] .track-f,:root[data-theme="dark"] [data-track="فتية المحراب"]{--tcb:#3A3014}
+:root[data-theme="dark"] .track-w,:root[data-theme="dark"] [data-track="وقف الأم"]{--tcb:#0F3A48}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .track-f,:root:not([data-theme="light"]) [data-track="فتية المحراب"]{--tcb:#3A3014}:root:not([data-theme="light"]) .track-w,:root:not([data-theme="light"]) [data-track="وقف الأم"]{--tcb:#0F3A48}}
+.panel[data-track]{border-top:5px solid var(--tc)}
+.trk{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:800;border-radius:999px;padding:2px 10px;background:var(--tcb);white-space:nowrap}
+.trk::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--tc)}
+.legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.daycard::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:var(--tc)}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;border-radius:999px;padding:3px 12px;background:var(--pale)}
+.tag i{width:8px;height:8px;border-radius:50%;background:var(--tc);display:inline-block}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.fact{background:var(--pale);border-radius:10px;padding:8px 10px}
+.fact b{display:block;font-size:20px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.2}
+.fact span{font-size:12px;color:var(--muted)}
+.planned{border-inline-start:4px solid var(--tc);background:var(--pale);border-radius:10px;padding:10px 14px}
+.planned b{display:block;font-size:12.5px;color:var(--muted)}
+.setdate{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:14px}
+.alerts{display:flex;flex-direction:column;gap:10px}
+.alert{padding:14px 16px;display:flex;flex-direction:column;gap:8px;border-inline-start:5px solid var(--sev)}
+.alert.s-bad{--sev:var(--bad)} .alert.s-warn{--sev:var(--warn)} .alert.s-ok{--sev:var(--ok)}
+.alert .h{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.alert .h b{font-size:15.5px;font-weight:800}
+.sev{font-size:12px;font-weight:800;border-radius:999px;padding:2px 10px;white-space:nowrap}
+.s-bad .sev{background:var(--bad-bg);color:var(--bad)} .s-warn .sev{background:var(--warn-bg);color:var(--warn)} .s-ok .sev{background:var(--ok-bg);color:var(--ok)}
+.alert p{margin:0;font-size:14px;color:var(--muted)}
+.alert .sug{font-size:14px;color:var(--ink)}
+.alert .sug::before{content:"القرار المقترح: ";font-weight:800}
+.alert ul{margin:0;padding-inline-start:20px;font-size:13.5px}
+.decide-row{display:flex;gap:8px;flex-wrap:wrap}
+.decide-row input{flex:1;min-width:180px}
+
+/* الأدوات */
+.toolgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:860px){.toolgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.toolgrid{grid-template-columns:minmax(0,1fr)}}
+.tool{padding:14px 16px;text-align:right;cursor:pointer;display:flex;flex-direction:column;gap:4px;transition:border-color .15s}
+.tool:hover,.tool[aria-pressed="true"]{border-color:var(--sky)}
+.tool[aria-pressed="true"]{background:var(--pale)}
+.tool b{font-size:16px;font-weight:800}
+.tool span{font-size:13px;color:var(--muted)}
+.tool .q{font-size:12.5px;font-weight:700;color:var(--green)}
+.panel{margin-top:16px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.panel h3{margin:0;font-size:19px;font-weight:800}
+.panel .lead{margin:0;color:var(--muted);font-size:14px}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+label.f{display:flex;flex-direction:column;gap:5px;font-size:13px;color:var(--muted);font-weight:700}
+input,select,textarea{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 10px;font-size:15px;min-width:0}
+input:hover,select:hover{border-color:var(--sky)}
+.checks{display:flex;flex-direction:column;gap:6px}
+.chk{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;font-size:14.5px}
+.chk input{margin-top:5px;accent-color:var(--green);width:18px;height:18px;flex:none}
+.chk.on{background:var(--ok-bg);border-color:transparent}
+.slider{display:grid;grid-template-columns:minmax(0,1fr) 120px 54px;gap:10px;align-items:center;font-size:14.5px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.slider input{accent-color:var(--navy);padding:0}
+.slider output{font-weight:800;font-variant-numeric:tabular-nums;text-align:left}
+@media (max-width:480px){.slider{grid-template-columns:minmax(0,1fr) 54px}.slider input{grid-column:1/-1;grid-row:2}}
+.verdict{border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.verdict.v-ok{background:var(--ok-bg)} .verdict.v-warn{background:var(--warn-bg)} .verdict.v-bad{background:var(--bad-bg)} .verdict.v-idle{background:var(--pale)}
+.verdict .vt{font-size:21px;font-weight:800;line-height:1.35}
+.v-ok .vt{color:var(--ok)} .v-warn .vt{color:var(--warn)} .v-bad .vt{color:var(--bad)} .v-idle .vt{color:var(--muted);font-size:17px}
+.verdict p,.verdict ul{margin:0;font-size:14.5px}
+.verdict ul{padding-inline-start:20px}
+.big{font-size:30px;font-weight:800;font-variant-numeric:tabular-nums}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:0;border-radius:11px;padding:10px 18px;font-weight:800;cursor:pointer;background:var(--navy);color:#fff}
+.btn:hover{background:var(--deep)}
+.btn.green{background:var(--green)}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.btn[disabled]{opacity:.45;cursor:default}
+.toast{position:fixed;inset-inline:0;bottom:calc(18px + env(safe-area-inset-bottom,0px));margin:auto;width:max-content;max-width:calc(100% - 32px);background:var(--deep);color:#fff;border-radius:999px;padding:10px 18px;font-weight:700;font-size:14px;z-index:20;box-shadow:0 6px 20px rgba(0,0,0,.2)}
+.tpl{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.tpl-h{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 12px;background:var(--pale);font-size:13px;font-weight:700}
+.tpl pre{margin:0;padding:12px 14px;white-space:pre-wrap;font-family:var(--sans);font-size:14.5px;line-height:1.8}
+.steps{margin:0;padding-inline-start:22px;display:flex;flex-direction:column;gap:6px;font-size:14.5px}
+.meter{height:10px;background:var(--pale);border-radius:5px;overflow:hidden}
+.meter i{display:block;height:100%;background:linear-gradient(90deg,var(--sky),var(--navy));border-radius:5px}
+.meter.over i{background:var(--bad)}
+
+/* السجل */
+.log{display:flex;flex-direction:column}
+.logrow{border-inline-start:4px solid var(--tc);display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:start;padding:12px 16px;border-bottom:1px solid var(--line)}
+.logrow:last-child{border-bottom:0}
+.kind{font-size:12px;font-weight:800;border-radius:8px;padding:3px 9px;background:var(--pale);white-space:nowrap}
+.logrow b{font-weight:800}
+.logrow .res{font-size:14px}
+.logrow .meta{font-size:12.5px;color:var(--muted)}
+.del{border:0;background:transparent;color:var(--muted);font-size:13px;padding:4px 8px;border-radius:8px;cursor:pointer}
+.del.confirm{color:var(--bad);background:var(--bad-bg)}
+.empty{padding:22px;text-align:center;color:var(--muted)}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+
+/* الخطة المرجعية */
+.layout{display:grid;grid-template-columns:250px minmax(0,1fr);gap:24px}
+@media (max-width:900px){.layout{grid-template-columns:minmax(0,1fr);gap:14px}}
+nav.toc{min-width:0;position:sticky;top:64px;align-self:start;max-height:calc(100vh - 80px);overflow:auto;padding:12px 8px}
+nav.toc summary{cursor:pointer;font-weight:800;padding:2px 8px;list-style:none}
+nav.toc summary::-webkit-details-marker{display:none}
+nav.toc ol{list-style:none;margin:8px 0 0;padding:0}
 nav.toc a{display:block;text-decoration:none;color:var(--ink);font-size:14px;line-height:1.5;padding:6px 10px;border-radius:8px}
-nav.toc a:hover,nav.toc a.on{background:var(--pale);color:var(--navy);font-weight:700}
-:root[data-theme="dark"] nav.toc a.on,:root[data-theme="dark"] nav.toc a:hover{color:var(--sky)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) nav.toc a.on,:root:not([data-theme="light"]) nav.toc a:hover{color:var(--sky)}}
-@media (max-width:900px){nav.toc{position:static;max-height:none} nav.toc details summary{cursor:pointer;font-weight:800;padding:2px 8px;list-style:none} nav.toc details summary::-webkit-details-marker{display:none}}
-@media (min-width:901px){nav.toc details summary{display:none}}
-article{min-width:0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:8px clamp(18px,4vw,44px) 36px}
-article h2{font-size:23px;font-weight:800;color:var(--navy);margin:40px 0 12px;padding-top:12px;border-top:1px solid var(--line);scroll-margin-top:16px;display:flex;align-items:center;gap:10px;text-wrap:balance}
-article h2::before{content:"";width:5px;height:22px;border-radius:3px;background:linear-gradient(var(--sky),var(--green));flex:none}
-article h2:first-child{border-top:0;margin-top:20px}
-:root[data-theme="dark"] article h2{color:var(--sky)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) article h2{color:var(--sky)}}
-article h3{font-size:18px;font-weight:800;margin:26px 0 8px}
+nav.toc a:hover{background:var(--pale)}
+@media (max-width:900px){nav.toc{position:static;max-height:none}}
+article{min-width:0;padding:6px clamp(16px,4vw,40px) 30px;line-height:1.85}
+article h2{font-size:22px;font-weight:800;color:var(--accent);margin:36px 0 10px;padding-top:12px;border-top:1px solid var(--line);scroll-margin-top:70px}
+article h2:first-child{border-top:0;margin-top:16px}
+article h3{font-size:17.5px;font-weight:800;margin:22px 0 8px}
 article p{margin:0 0 12px;max-width:72ch;overflow-wrap:break-word}
-article li{overflow-wrap:break-word}
 article ul,article ol{margin:0 0 14px;padding-inline-start:24px;max-width:76ch}
-article li{margin-bottom:5px}
+article li{overflow-wrap:break-word;margin-bottom:4px}
 article blockquote{margin:14px 0;padding:12px 16px;background:var(--pale);border-inline-start:4px solid var(--sky);border-radius:10px}
 article blockquote p{margin:0}
-strong{font-weight:800}
 .tw{overflow-x:auto;margin:10px 0 18px;border:1px solid var(--line);border-radius:12px}
 table{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.65;font-variant-numeric:tabular-nums}
+table.wide{min-width:640px}
 th,td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--line);vertical-align:top}
 th{background:var(--pale);font-size:13px;color:var(--muted);font-weight:800;white-space:nowrap}
 tr:last-child td{border-bottom:0}
-table.wide{min-width:640px}
-td,th{word-break:normal;overflow-wrap:normal}
 @media (max-width:640px){
-  .tw{overflow:visible;border:0;border-radius:0}
-  table,table.wide{min-width:0;display:block}
-  thead{display:none}
+  .tw{overflow:visible;border:0}
+  table,table.wide{min-width:0;display:block} thead{display:none}
   tbody{display:flex;flex-direction:column;gap:10px}
   tr{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
-  td{display:grid;grid-template-columns:minmax(84px,34%) 1fr;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line);overflow-wrap:break-word}
+  td{display:grid;grid-template-columns:minmax(84px,34%) 1fr;gap:10px;padding:7px 0;border-bottom:1px dashed var(--line)}
   td:last-child{border-bottom:0}
-  td::before{content:attr(data-label);font-size:12.5px;font-weight:800;color:var(--muted);line-height:1.6}
-  td:first-child{display:block;font-weight:800;font-size:15.5px;color:var(--navy);padding-top:2px}
-  td:first-child::before{display:none}
-  td[data-label=""]{display:block} td[data-label=""]::before{display:none}
+  td::before{content:attr(data-label);font-size:12.5px;font-weight:800;color:var(--muted)}
+  td:first-child{display:block;font-weight:800;font-size:15.5px;color:var(--accent)} td:first-child::before{display:none}
 }
-:root[data-theme="dark"] td:first-child{color:var(--sky)}
-footer{text-align:center;color:var(--muted);font-size:13px;padding-block:0 32px}
+footer{text-align:center;color:var(--muted);font-size:12.5px;padding-block:0 30px}
+.who-pick{display:flex;gap:8px;flex-wrap:wrap}
+.who-pick button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-weight:700;cursor:pointer}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 <header class="brandbar">
   <div class="wrap">
     <div class="top">
-      <div class="brand"><img class="mark" src="../assets/img/logo_mark.png" alt="شعار الجمعية" width="50" height="33"><img class="word" src="../assets/img/logo_word_light.png" alt="الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع" width="151" height="22"></div>
-      <a class="back" href="./">العودة إلى غرفة الحملة</a>
+      <div class="brand"><img class="mark" src="../assets/img/logo_mark.png" alt="شعار الجمعية" width="48" height="31"><img class="word" src="../assets/img/logo_word_light.png" alt="الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع" width="151" height="22"></div>
+      <a class="pillbtn" href="./">غرفة الحملة</a>
     </div>
     <div class="hero">
-      <h1>الخطة التشغيلية لحملة المؤثرين</h1>
-      <p>مساران متوازيان: فتية المحراب ووقف الأم · آخر تحديث: 23 أكتوبر 2026م · إعداد: عبدالمجيد السيد</p>
+      <div><h1>مركز قرار الحملة</h1><p>فتية المحراب · وقف الأم · قرارات مبنية على قواعد الخطة وبيانات الفريق</p></div>
+      <div class="me" id="meBox" hidden><span class="avatar" id="meAv"></span><span id="meName"></span></div>
     </div>
   </div>
-  <svg class="waves" viewBox="0 0 1200 26" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0 17 C260 3 520 27 820 11 C980 3 1100 7 1200 13 L1200 26 L0 26Z" fill="#0E8A4A" opacity=".9"/>
-    <path d="M0 20 C280 8 560 29 860 15 C1010 9 1110 12 1200 17 L1200 26 L0 26Z" fill="#42B5D1"/>
-    <path d="M0 23 C300 14 600 30 900 20 C1040 16 1120 18 1200 21 L1200 26 L0 26Z" fill="var(--paper)"/>
+  <svg class="waves" viewBox="0 0 1200 24" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 16 C260 2 520 26 820 10 C980 2 1100 6 1200 12 L1200 24 L0 24Z" fill="#0E8A4A" opacity=".9"/>
+    <path d="M0 19 C280 7 560 28 860 14 C1010 8 1110 11 1200 16 L1200 24 L0 24Z" fill="#42B5D1"/>
+    <path d="M0 22 C300 13 600 29 900 19 C1040 15 1120 17 1200 20 L1200 24 L0 24Z" fill="var(--paper)"/>
   </svg>
 </header>
-<div class="wrap layout">
-  <nav class="toc" aria-label="محتويات الخطة"><details open><summary>محتويات الخطة</summary><b>محتويات الخطة</b><ol><li><a href="#sec-1">الملخص التنفيذي</a></li><li><a href="#sec-2">المساران: فتية المحراب ووقف الأم</a></li><li><a href="#sec-3">النموذج الأساسي المعتمد: «واتساب أولاً»</a></li><li><a href="#sec-4">1- تحليل الجمهور المحلي</a></li><li><a href="#sec-5">2- اختيار المؤثرين ومعايير الاختيار</a></li><li><a href="#sec-6">3- استراتيجيات المحتوى</a></li><li><a href="#sec-7">4- جدول النشر والتقويم</a></li><li><a href="#sec-8">5- آلية التعويض والميزانية</a></li><li><a href="#sec-9">6- قياس الأداء والمؤشرات</a></li><li><a href="#sec-10">7- آليات التنفيذ القانونية والتشغيلية</a></li><li><a href="#sec-11">8- إدارة المخاطر والأزمات</a></li><li><a href="#sec-12">9- أدوات ومصادر تنفيذية</a></li><li><a href="#sec-13">إعلانات قوقل وتيك توك</a></li><li><a href="#sec-14">الظهور في محركات البحث: تعريف «العناكب» بموقعَي المشروعين</a></li><li><a href="#sec-15">10- خطوات البدء في أول 14 يوماً</a></li><li><a href="#sec-16">المصادر</a></li></ol></details></nav>
-  <article><h2 id="sec-1">الملخص التنفيذي</h2>
+
+<div class="tabsbar"><nav class="tabs wrap" role="tablist" id="tabs">
+  <button role="tab" data-tab="today" aria-selected="true">اليوم</button>
+  <button role="tab" data-tab="tools" aria-selected="false">أدوات القرار</button>
+  <button role="tab" data-tab="log" aria-selected="false">سجل القرارات</button>
+  <button role="tab" data-tab="plan" aria-selected="false">الخطة المرجعية</button>
+</nav></div>
+
+<main class="wrap">
+  <div class="notice" id="notice" hidden></div>
+  <div class="notice" id="whoNotice" hidden><b>من أنت؟</b> اختر اسمك ليُسجَّل القرار باسمك: <span class="who-pick" id="whoPick"></span></div>
+
+  <!-- اليوم -->
+  <section data-view="today">
+    <div class="today">
+      <div class="card daycard" id="dayCard"></div>
+      <div>
+        <div class="sec-h"><h2>تنبيهات تحتاج قراراً</h2><p id="alertCount"></p></div>
+        <div class="alerts" id="alerts"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- الأدوات -->
+  <section data-view="tools" hidden>
+    <div class="sec-h"><h2>أدوات القرار</h2><p>اختر السؤال الذي أمامك، واحصل على الحكم وفق قواعد الخطة</p></div>
+    <div class="legend"><span class="trk" data-track="فتية المحراب">فتية المحراب</span><span class="trk" data-track="وقف الأم">وقف الأم</span><span class="trk" data-track="مشترك">مشترك</span><span class="sev" style="background:var(--ok-bg);color:var(--ok)">نفّذ</span><span class="sev" style="background:var(--warn-bg);color:var(--warn)">بحذر</span><span class="sev" style="background:var(--bad-bg);color:var(--bad)">أوقف</span></div>
+    <div class="toolgrid" id="toolgrid"></div>
+    <div class="card panel" id="panel" hidden></div>
+  </section>
+
+  <!-- السجل -->
+  <section data-view="log" hidden>
+    <div class="sec-h"><h2>سجل القرارات</h2><p id="logCount"></p></div>
+    <div class="toolbar"><select id="logKind" aria-label="نوع القرار"></select><select id="logTrack" aria-label="المسار"><option value="">كل المسارات</option><option>فتية المحراب</option><option>وقف الأم</option><option>مشترك</option></select></div>
+    <div class="card log" id="logList"></div>
+  </section>
+
+  <!-- الخطة -->
+  <section data-view="plan" hidden>
+    <div class="layout">
+      <nav class="card toc" aria-label="محتويات الخطة"><details id="tocD" open><summary>محتويات الخطة</summary><ol><li><a href="#sec-1">الملخص التنفيذي</a></li><li><a href="#sec-2">المساران: فتية المحراب ووقف الأم</a></li><li><a href="#sec-3">النموذج الأساسي المعتمد: «واتساب أولاً»</a></li><li><a href="#sec-4">1- تحليل الجمهور المحلي</a></li><li><a href="#sec-5">2- اختيار المؤثرين ومعايير الاختيار</a></li><li><a href="#sec-6">3- استراتيجيات المحتوى</a></li><li><a href="#sec-7">4- جدول النشر والتقويم</a></li><li><a href="#sec-8">5- آلية التعويض والميزانية</a></li><li><a href="#sec-9">6- قياس الأداء والمؤشرات</a></li><li><a href="#sec-10">7- آليات التنفيذ القانونية والتشغيلية</a></li><li><a href="#sec-11">8- إدارة المخاطر والأزمات</a></li><li><a href="#sec-12">9- أدوات ومصادر تنفيذية</a></li><li><a href="#sec-13">إعلانات قوقل وتيك توك</a></li><li><a href="#sec-14">الظهور في محركات البحث: تعريف «العناكب» بموقعَي المشروعين</a></li><li><a href="#sec-15">10- خطوات البدء في أول 14 يوماً</a></li><li><a href="#sec-16">المصادر</a></li></ol></details></nav>
+      <article class="card"><h2 id="sec-1">الملخص التنفيذي</h2>
 <p>حملة محلية مدتها 12 أسبوعاً بمسارين متوازيين لا يلتقيان في منشور واحد: <strong>فتية المحراب</strong> و<strong>وقف الأم</strong>، وكلاهما يبلغ ذروته قبل رمضان 1448هـ. تُدار الحملة بنموذج «واتساب أولاً» (22,000 ريال)، ويتابع الفريق تنفيذها يومياً في <a href="https://makh1551.github.io/yanbu-quran-grants/team/" target="_blank" rel="noopener">غرفة فريق الحملة</a>، وفيها دليل مكتوب لكل خطوة.</p>
 <p><strong>الأهداف الرقمية للحملة (قابلة للتعديل بعد أسبوعَي القياس الأولين):</strong></p>
 <div class="tw"><table class="">
@@ -2030,19 +2185,292 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding-block:0 32px}
 <li><a href="https://www.wam.ae/ar/article/b2gcuup-حملة-وقف-الأم-تحقق-أكثر-14-مليار-درهم-وباب" target="_blank" rel="noopener">حملة وقف الأم في الإمارات — وام</a></li>
 <li><a href="https://waqfalomm.netlify.app" target="_blank" rel="noopener">موقع وقف الأم</a> · <a href="https://fityat-almihrab.netlify.app" target="_blank" rel="noopener">موقع فتية المحراب</a> · <a href="https://store.yq.org.sa" target="_blank" rel="noopener">متجر الجمعية</a></li>
 </ul></article>
-</div>
+    </div>
+  </section>
+</main>
 <footer class="wrap">الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع · إعداد وتطوير: عبدالمجيد السيد</footer>
+<div class="toast" id="toast" hidden></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
 <script>
 (function(){
-  var mq=matchMedia("(max-width:900px)"),d=document.querySelector("nav.toc details");
-  function sync(){ if(mq.matches) d.removeAttribute("open"); else d.setAttribute("open",""); }
-  sync(); mq.addEventListener("change",sync);
-  var links=[].slice.call(document.querySelectorAll("nav.toc a")),secs=links.map(function(a){return document.querySelector(a.getAttribute("href"))});
-  if("IntersectionObserver" in window){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var i=secs.indexOf(e.target);links.forEach(function(l,j){l.classList.toggle("on",i===j)})}})},{rootMargin:"0px 0px -75% 0px"});
-    secs.forEach(function(s){s&&io.observe(s)});
-  }
-  links.forEach(function(a){a.addEventListener("click",function(){ if(mq.matches) d.removeAttribute("open"); })});
+const SB_URL="https://kpsuwxzsjsqngcvdachb.supabase.co", SB_KEY="sb_publishable_RomoZzNVoVTVfnYenZ1Ofw_t08oRSl9";
+const MEMBERS=["خالد","سعد","غازي","عبدالمجيد"];
+const TRACKS={f:"فتية المحراب",w:"وقف الأم"};
+/* أيام النشر: 0 الأحد … 6 السبت */
+const DAY_TRACK={0:"f",3:"f",4:"f",6:"w",2:"w",5:"w",1:"n"};
+const DAYS=["الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
+const BUDGET=22000;
+const COMPONENTS=[["سفراء واتساب (تكريم)",2000],["سناب الممول",7000],["الحساب الإخباري",7500],["المؤثرون الصغار",4000],["تيك توك",1000],["الفعاليات",500]];
+const TRACK_BUDGET={"فتية المحراب":10000,"وقف الأم":12000};
+const TARGET_COST=40;
+const PHASES=[[1,2,"التمهيد"],[3,6,"الإطلاق"],[7,10,"التعميق"],[11,11,"الحصاد"],[12,12,"الختام"]];
+const CAL=[null,
+ {f:"سلسلة إكس: «من الحلقة.. إلى المحراب»",w:"قصة الوقف في 60 ثانية + نسبة الإنجاز",i:"موجة تعريف: الحساب الإخباري + إمام"},
+ {f:"ستوري: يوم في دورة إعداد الأئمة",w:"إنفوجرافيك: ريع الوقف لمن يذهب",i:""},
+ {f:"رحلة الفتى (1): الحفظ والتجويد",w:"«أهدِ أمك سهماً» + رسالة واتساب",i:"زيارة ميدانية لفتية المحراب"},
+ {f:"تغريدة الشركات: رعاية 5 فتية",w:"خطابات إغلاق للشركات المرشحة",i:""},
+ {f:"رحلة الفتى (2): أحكام الإمامة",w:"قصة أم واقفة (بصوت ابنها)",i:"موجة وقف الأم: مؤثرتان أسريتان"},
+ {f:"رسالة صوتية من إمام عن الفتية",w:"عدّاد المتبقي (من «زاد»)",i:""},
+ {f:"الفتى في مسجد حيّه (تدريب عملي)",w:"سهم الوالدين: قصة برّ",i:"موجة فتية المحراب: مؤثرا أحياء"},
+ {f:"«إمامك هذا العام من أبنائنا»",w:"تحديث المتبقي + شكر للواقفين",i:""},
+ {f:"منشور الأثر: أكثر من 30,000 مصلٍّ",w:"خطاب إغلاق ثانٍ للشركات المترددة",i:"زيارة ميدانية لوقف الأم"},
+ {f:"حملة قوقل لكلمات رمضان",w:"حملة قوقل «وقف لأمي»",i:""},
+ {f:"العدّ التنازلي (الأحد والأربعاء)",w:"«آخر الأسهم قبل رمضان» (السبت والثلاثاء)",i:"موجة كبرى بيومين منفصلين"},
+ {f:"الشكر وإعلان أسماء الفتية (بموافقة أهلهم)",w:"إعلان اكتمال الوقف أو المتبقي بشفافية",i:"شكر علني للمؤثرين"}];
+const KIND={post:"فحص منشور",influencer:"تقييم مؤثر",channel:"قرار قناة",ab:"اختبار A/B",spend:"صرف",crisis:"أزمة",alert:"تنبيه"};
+
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const nf=new Intl.NumberFormat("en-US");const fmt=n=>nf.format(Math.round(Number(n||0)));
+const cnt=(n,one,two,few,many)=>n===1?one:n===2?two:n>=3&&n<=10?`${fmt(n)} ${few}`:`${fmt(n)} ${many}`;
+const fmt1=n=>new Intl.NumberFormat("en-US",{maximumFractionDigits:1}).format(n);
+let sb=null,me=null,S={tasks:[],weeks:[],areas:[],decisions:[],settings:{}},openTool=null;
+
+function load(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function store(k,v){try{v==null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch(e){}}
+function toast(m){const t=$("#toast");t.textContent=m;t.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>t.hidden=true,2200)}
+function notice(m){const n=$("#notice");n.hidden=!m;if(m)n.textContent=m}
+
+/* الهوية */
+function setMe(n){me=n;store("member",n);$("#meBox").hidden=false;$("#meName").textContent=n;$("#meAv").textContent=n.charAt(0);$("#whoNotice").hidden=true}
+$("#whoPick").innerHTML=MEMBERS.map(m=>`<button type="button" data-me="${esc(m)}">${esc(m)}</button>`).join("");
+$("#whoPick").addEventListener("click",e=>{const b=e.target.closest("[data-me]");if(b){setMe(b.dataset.me);render()}});
+const saved=load("member");if(saved&&MEMBERS.includes(saved))setMe(saved);else $("#whoNotice").hidden=false;
+
+/* التبويبات */
+$("#tabs").addEventListener("click",e=>{const b=e.target.closest("[data-tab]");if(!b)return;
+  document.querySelectorAll("#tabs button").forEach(x=>x.setAttribute("aria-selected",x===b));
+  document.querySelectorAll("[data-view]").forEach(v=>v.hidden=v.dataset.view!==b.dataset.tab);scrollTo({top:0})});
+const mq=matchMedia("(max-width:900px)");const syncToc=()=>{mq.matches?$("#tocD").removeAttribute("open"):$("#tocD").setAttribute("open","")};syncToc();mq.addEventListener("change",syncToc);
+
+/* التاريخ بتوقيت الرياض */
+function riyadhParts(d){const p=new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Riyadh",year:"numeric",month:"2-digit",day:"2-digit",weekday:"short"}).formatToParts(d);const o={};p.forEach(x=>o[x.type]=x.value);return o}
+function todayISO(){const o=riyadhParts(new Date());return `${o.year}-${o.month}-${o.day}`}
+function dow(iso){return new Date(iso+"T12:00:00Z").getUTCDay()}
+function daysBetween(a,b){return Math.round((new Date(b+"T12:00:00Z")-new Date(a+"T12:00:00Z"))/864e5)}
+function hijri(iso){try{return new Intl.DateTimeFormat("ar-SA-u-ca-islamic-umalqura-nu-latn",{day:"numeric",month:"long",year:"numeric"}).format(new Date(iso+"T12:00:00Z"))}catch(e){return ""}}
+function daysToRamadan(iso){try{const f=new Intl.DateTimeFormat("en-u-ca-islamic-umalqura-nu-latn",{month:"numeric",year:"numeric"});const d=new Date(iso+"T12:00:00Z");
+  for(let i=0;i<400;i++){const x=new Date(d.getTime()+i*864e5);const p={};f.formatToParts(x).forEach(t=>p[t.type]=t.value);if(+p.month===9&&parseInt(p.year)>=1448)return i}}catch(e){}return null}
+function campaignWeek(){const s=S.settings.start_date;if(!s)return null;const d=daysBetween(s,todayISO());return d<0?{pre:-d}:{w:Math.min(12,Math.floor(d/7)+1),over:d>=84}}
+const phaseOf=w=>{const p=PHASES.find(([a,b])=>w>=a&&w<=b);return p?p[2]:""};
+
+/* البيانات */
+async function q(table){const{data,error}=await sb.from(table).select("*");if(error)throw error;return data||[]}
+async function loadAll(){if(!sb)return;try{
+  const [t,w,a,d,s]=await Promise.all(["camp_tasks","camp_weeks","camp_areas","camp_decisions","camp_settings"].map(q));
+  S.tasks=t;S.weeks=w;S.areas=a;S.decisions=d.sort((x,y)=>String(y.created_at).localeCompare(String(x.created_at)));S.settings=Object.fromEntries(s.map(r=>[r.key,r.value]));notice("");render()}
+  catch(e){notice("تعذّر تحميل بيانات الفريق. تحقق من الاتصال ثم حدّث الصفحة.");render()}}
+async function logDecision(o){if(!me){$("#whoNotice").hidden=false;toast("اختر اسمك أولاً");return false}
+  if(!sb){toast("لا اتصال بقاعدة البيانات");return false}
+  const{error}=await sb.from("camp_decisions").insert(Object.assign({track:"",result:"",detail:{},amount:0,component:""},o,{decided_by:me}));
+  if(error){toast("لم يُحفظ القرار: "+error.message);return false}toast("اعتُمد القرار وسُجِّل باسمك");await loadAll();return true}
+
+/* ===== اليوم ===== */
+function renderToday(){
+  const iso=todayISO(),d=dow(iso),tk=DAY_TRACK[d],cw=campaignWeek(),dr=daysToRamadan(iso);
+  const cls=tk==="f"?"track-f":tk==="w"?"track-w":"track-n";
+  const name=tk==="n"?"يوم إنتاج ومراجعة":`يوم مسار ${TRACKS[tk]}`;
+  let planned="";
+  if(cw&&cw.w&&!cw.over){const c=CAL[cw.w];planned=tk==="n"?`<div class="planned"><b>اليوم بلا نشر للمسارين</b>جهّز محتوى الأيام القادمة، وراجع المسودات المعلقة.</div>`:`<div class="planned"><b>منشور الأسبوع ${fmt(cw.w)} لهذا المسار</b>${esc(c[tk])}${c.i?`<div style="margin-top:6px;font-size:13.5px;color:var(--muted)">المؤثرون هذا الأسبوع: ${esc(c.i)}</div>`:""}</div>`}
+  const wk=cw?(cw.pre?`<div class="fact"><b>${fmt(cw.pre)}</b><span>أيام حتى الإطلاق</span></div>`:`<div class="fact"><b>${fmt(cw.w)}<small style="font-size:13px"> / 12</small></b><span>الأسبوع · ${esc(phaseOf(cw.w))}</span></div>`):`<div class="fact"><b>—</b><span>لم يُحدد موعد الإطلاق</span></div>`;
+  const done=S.tasks.filter(t=>t.status===2).length;
+  $("#dayCard").className="card daycard "+cls;
+  $("#dayCard").innerHTML=`<span class="eyebrow">${esc(DAYS[d])} · ${esc(hijri(iso))}</span>
+    <h3>${esc(name)}</h3>
+    <div><span class="tag"><i></i>${tk==="n"?"لا نشر اليوم":"انشر لهذا المسار وحده اليوم"}</span></div>
+    <div class="facts">${wk}<div class="fact"><b>${dr==null?"—":fmt(dr)}</b><span>أيام حتى رمضان (أم القرى)</span></div><div class="fact"><b>${fmt(done)}<small style="font-size:13px"> / ${fmt(S.tasks.length)}</small></b><span>مهام منجزة</span></div></div>
+    ${planned}
+    <div class="setdate"><label for="startDate">موعد إطلاق الحملة:</label><input type="date" id="startDate" value="${esc(S.settings.start_date||"")}"><button class="btn ghost" type="button" id="saveStart">حفظ</button></div>`;
+  $("#saveStart").onclick=async()=>{const v=$("#startDate").value;if(!v){toast("اختر التاريخ أولاً");return}
+    const{error}=await sb.from("camp_settings").upsert({key:"start_date",value:v,updated_by:me||"",updated_at:new Date().toISOString()});
+    if(error)toast("لم يُحفظ: "+error.message);else{toast("حُفظ موعد الإطلاق");loadAll()}};
+  renderAlerts(cw);
+}
+function areaOwner(a){return (S.areas.find(x=>x.area===a)||{}).owner||""}
+function renderAlerts(cw){const A=[];const w=cw&&cw.w?cw.w:0;
+  if(!S.settings.start_date)A.push({s:"warn",t:"لم يُحدَّد موعد إطلاق الحملة",p:"لا يمكن حساب الأسبوع الحالي ولا المهام المتأخرة بدونه.",sug:"حدّد موعد الإطلاق في اجتماع السبت واحفظه في بطاقة اليوم."});
+  const free=S.areas.filter(a=>!a.owner);if(free.length)A.push({s:free.length>3?"bad":"warn",t:`${cnt(free.length,"مجال واحد","مجالان","مجالات","مجالاً")} بلا مسؤول`,list:free.map(a=>a.area),sug:"يتولى كل عضو مجالاً إضافياً من تبويب «خطتي» في غرفة الحملة."});
+  if(w){const late=S.tasks.filter(t=>t.status!==2&&(t.week||0)<w);if(late.length)A.push({s:late.length>5?"bad":"warn",t:`${cnt(late.length,"مهمة واحدة متأخرة","مهمتان متأخرتان","مهام متأخرة","مهمة متأخرة")} عن موعدها`,list:late.slice(0,5).map(t=>`${t.title} — ${t.owner||areaOwner(t.area)||"بلا مسؤول"}`),sug:"أعد إسناد المتأخر أو حدّد له موعداً جديداً، وأوقف فتح مهام جديدة في المجال نفسه حتى يُغلق."});
+    if(w>1&&!S.weeks.some(x=>x.week===w-1))A.push({s:"warn",t:`أرقام الأسبوع ${fmt(w-1)} لم تُسجَّل`,p:"لا قرار على القنوات بلا أرقام.",sug:"يُدخل مسؤول القياس أرقام الأسبوع في تبويب «الأرقام الأسبوعية» اليوم."});
+    const spend=S.weeks.reduce((a,x)=>a+(+x.spend||0),0),pace=BUDGET*w/12;if(spend>pace*1.1)A.push({s:spend>pace*1.3?"bad":"warn",t:"الصرف أسرع من خطة الميزانية",p:`المصروف ${fmt(spend)} ريال، والمتوقع حتى الأسبوع ${fmt(w)} نحو ${fmt(pace)} ريال.`,sug:"جمّد الصرف على القناة الأعلى كلفة للتبرع حتى مراجعة السبت."})}
+  const last=S.weeks.slice().sort((a,b)=>b.week-a.week)[0];if(last&&last.spend>0){const c=last.don?last.spend/last.don:Infinity;
+    if(c>60)A.push({s:"bad",t:`كلفة التبرع في الأسبوع ${fmt(last.week)}: ${isFinite(c)?fmt(c)+" ريالاً":"بلا تبرعات"}`,p:`المستهدف ${TARGET_COST} ريالاً أو أقل.`,sug:"افتح أداة «قرار القناة» لكل قناة صرفت هذا الأسبوع، وأوقف ما تجاوز 60 ريالاً للمرة الثانية."});
+    else if(c>TARGET_COST)A.push({s:"warn",t:`كلفة التبرع ${fmt(c)} ريالاً فوق المستهدف`,p:`المستهدف ${TARGET_COST} ريالاً أو أقل.`,sug:"حسّن الرسالة أو الاستهداف للقناة الأضعف قبل زيادة صرفها."})}
+  if(!A.length)A.push({s:"ok",t:"لا تنبيهات الآن",p:"كل المؤشرات ضمن الخطة. التزم بمسار اليوم."});
+  const na=A.filter(a=>a.s!=="ok").length;$("#alertCount").textContent=na?cnt(na,"تنبيه واحد","تنبيهان","تنبيهات","تنبيهاً"):"";
+  $("#alerts").innerHTML=A.map((a,i)=>`<div class="card alert s-${a.s}"><div class="h"><b>${esc(a.t)}</b><span class="sev">${a.s==="bad"?"عاجل":a.s==="warn"?"مهم":"سليم"}</span></div>${a.p?`<p>${esc(a.p)}</p>`:""}${a.list?`<ul>${a.list.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}${a.sug?`<div class="sug">${esc(a.sug)}</div><div class="decide-row"><input id="ad${i}" placeholder="القرار المعتمد (اختياري: عدّل المقترح)" value="${esc(a.sug)}"><button class="btn green" type="button" data-alert="${i}">اعتماد القرار</button></div>`:""}</div>`).join("");
+  $("#alerts").onclick=e=>{const b=e.target.closest("[data-alert]");if(!b)return;const a=A[+b.dataset.alert];logDecision({kind:"alert",track:"مشترك",title:a.t,result:$("#ad"+b.dataset.alert).value.trim()||a.sug})};
+}
+
+/* ===== الأدوات ===== */
+const TOOLS=[
+ {id:"post",q:"قبل النشر",t:"هل أنشر هذا المنشور؟",d:"فحص المنشور وفق ضوابط المسار ويومه"},
+ {id:"influencer",q:"قبل التعاقد",t:"هل نتعاقد مع هذا المؤثر؟",d:"مقياس المئة درجة والشرطان الإلزاميان"},
+ {id:"channel",q:"كل أسبوعين",t:"نضاعف القناة أم نوقفها؟",d:"كلفة التبرع مقابل قواعد إعادة التوزيع"},
+ {id:"ab",q:"بعد الاختبار",t:"أي النسختين فازت؟",d:"قاعدة 20% و300 نقرة لكل نسخة"},
+ {id:"spend",q:"قبل الصرف",t:"هل يُسمح بهذا الصرف؟",d:"سقف البند والمتبقي والموافقات"},
+ {id:"crisis",q:"عند الأزمة",t:"ماذا نفعل الآن؟",d:"خطوات الاستجابة والنص الجاهز"}];
+function renderTools(){$("#toolgrid").innerHTML=TOOLS.map(t=>`<button class="card tool" type="button" data-tool="${t.id}" aria-pressed="${openTool===t.id}"><span class="q">${esc(t.q)}</span><b>${esc(t.t)}</b><span>${esc(t.d)}</span></button>`).join("")}
+$("#toolgrid").addEventListener("click",e=>{const b=e.target.closest("[data-tool]");if(!b)return;openTool=openTool===b.dataset.tool?null:b.dataset.tool;renderTools();renderPanel();if(openTool)$("#panel").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"})});
+function verdict(cls,title,body){return `<div class="verdict v-${cls}"><div class="vt">${title}</div>${body||""}</div>`}
+function trackSelect(id){return `<label class="f">المسار<select id="${id}"><option value="فتية المحراب">فتية المحراب</option><option value="وقف الأم">وقف الأم</option></select></label>`}
+function renderPanel(){const P=$("#panel");if(!openTool){P.hidden=true;P.innerHTML="";return}P.hidden=false;({post:toolPost,influencer:toolInf,channel:toolChannel,ab:toolAB,spend:toolSpend,crisis:toolCrisis})[openTool](P);
+  const ts=P.querySelector("select[id$=Track]");const sync=()=>P.dataset.track=ts?ts.value:"مشترك";sync();if(ts)ts.addEventListener("change",sync)}
+
+/* 1) فحص المنشور */
+function toolPost(P){
+  P.innerHTML=`<h3>هل أنشر هذا المنشور؟</h3><p class="lead">أشّر على ما تحقق فعلاً. يظهر الحكم فوراً.</p>
+  <div class="fields">${trackSelect("pTrack")}<label class="f">تاريخ النشر<input type="date" id="pDate" value="${todayISO()}"></label><label class="f">نوعه<select id="pType"><option value="don">طلب تبرع</option><option value="aw">توعية</option></select></label><label class="f">الناشر<select id="pBy"><option value="org">حساب الجمعية</option><option value="inf">مؤثر</option></select></label><label class="f" style="grid-column:1/-1">عنوان المنشور<input id="pTitle" placeholder="مثال: رحلة الفتى (1)"></label></div>
+  <div class="checks" id="pChecks"></div><div id="pV"></div>
+  <div class="actions"><button class="btn green" type="button" id="pSave">اعتماد القرار</button></div>`;
+  const items=()=>{const tr=$("#pTrack").value,ty=$("#pType").value,by=$("#pBy").value;const L=[["one","المنشور عن مشروع واحد فقط"]];
+    if(tr==="وقف الأم")L.push(["waqf","لا يُذكر وقف الأم مع أي مشروع آخر، ولا يُشارك رابطه"]);
+    if(tr==="فتية المحراب")L.push(["fit","لا تُذكر التكلفة الإجمالية للبرنامج ولا «رعاية الدفعة كاملة»"]);
+    if(ty==="don")L.push(["link","الرابط هو الرابط الرسمي المعتمد لهذا المشروع، وجُرّب"]);
+    if(by==="inf")L.push(["disc","الإفصاح ظاهر في أول لقطة أو التغريدة الأولى"],["lic","رخصة «موثوق» للمؤثر سارية"]);
+    L.push(["nums","الأرقام مطابقة لآخر تحديث في «زاد»"],["quran","الآيات والأحاديث بنصها الصحيح وعزوها"],["kids","كل طالب ظاهر ضمن قائمة الموافقات"],["lang","خالٍ من الأخطاء اللغوية والإملائية"],["brand","الشعار والألوان والخط وفق الهوية"]);return L};
+  const draw=()=>{const prev=new Set([...document.querySelectorAll("#pChecks input:checked")].map(x=>x.value));
+    $("#pChecks").innerHTML=items().map(([k,t])=>`<label class="chk ${prev.has(k)?"on":""}"><input type="checkbox" value="${k}" ${prev.has(k)?"checked":""}><span>${esc(t)}</span></label>`).join("");judge()};
+  const judge=()=>{const tr=$("#pTrack").value,iso=$("#pDate").value||todayISO(),dk=DAY_TRACK[dow(iso)];const L=items();
+    const miss=L.filter(([k])=>!document.querySelector(`#pChecks input[value="${k}"]`)?.checked).map(x=>x[1]);
+    document.querySelectorAll("#pChecks .chk").forEach(c=>c.classList.toggle("on",c.querySelector("input").checked));
+    const wantK=tr==="فتية المحراب"?"f":"w";const dayOk=dk===wantK;
+    const dayMsg=dayOk?"":`${DAYS[dow(iso)]} ${dk==="n"?"يوم إنتاج بلا نشر":"يوم مسار "+TRACKS[dk]}. أيام ${tr}: ${tr==="فتية المحراب"?"الأحد والأربعاء والخميس":"السبت والثلاثاء والجمعة"}.`;
+    let h;if(!miss.length&&dayOk)h=verdict("ok","صالح للنشر","<p>كل الضوابط متحققة، واليوم يوم هذا المسار.</p>");
+    else if(!miss.length)h=verdict("warn","المحتوى سليم، لكن اليوم ليس يوم هذا المسار",`<p>${esc(dayMsg)} انقل النشر لأقرب يوم مخصص.</p>`);
+    else h=verdict("bad",`لا يُنشر: ${cnt(miss.length,"ضابط واحد غير متحقق","ضابطان غير متحققين","ضوابط غير متحققة","ضابطاً غير متحقق")}`,`<ul>${miss.map(m=>`<li>${esc(m)}</li>`).join("")}</ul>${dayOk?"":`<p>وأيضاً: ${esc(dayMsg)}</p>`}`);
+    $("#pV").innerHTML=h;P._res={ok:!miss.length&&dayOk,miss,dayOk}};
+  ["pTrack","pType","pBy"].forEach(i=>$("#"+i).onchange=draw);$("#pDate").onchange=judge;$("#pChecks").onchange=judge;draw();
+  $("#pSave").onclick=()=>{const r=P._res;logDecision({kind:"post",track:$("#pTrack").value,title:$("#pTitle").value.trim()||"منشور بلا عنوان",result:r.ok?"صالح للنشر":"لا يُنشر",detail:{date:$("#pDate").value,missing:r.miss,day_ok:r.dayOk}})};
+}
+
+/* 2) تقييم المؤثر */
+function toolInf(P){const C=[["local","الجمهور المحلي (ينبع والمدينة 40% فأكثر)",25],["eng","معدل التفاعل",20],["rep","السمعة والقيم (آخر 90 يوماً)",20],["fit","ملاءمة المحتوى",15],["reach","الوصول الفعلي",10],["rel","المصداقية والالتزام",10]];
+  P.innerHTML=`<h3>هل نتعاقد مع هذا المؤثر؟</h3><p class="lead">قيّم كل معيار. الحد الأدنى 70 درجة، مع اجتياز الشرطين الإلزاميين.</p>
+  <div class="fields"><label class="f">اسم الحساب<input id="iName" placeholder="مثال: حساب أخبار ينبع"></label>${trackSelect("iTrack")}<label class="f">المنصة<select id="iPlat"><option>سناب</option><option>إكس</option><option>واتساب</option><option>تيك توك</option></select></label><label class="f">الأجر المقترح (ريال)<input id="iCost" type="number" min="0" step="50" value="0" inputmode="numeric"></label></div>
+  <div>${C.map(([k,t,m])=>`<div class="slider"><span>${esc(t)} <small style="color:var(--muted)">(من ${m})</small></span><input type="range" id="i_${k}" min="0" max="${m}" value="0" aria-label="${esc(t)}"><output id="o_${k}">0</output></div>`).join("")}</div>
+  <div class="checks"><label class="chk"><input type="checkbox" id="iLic"><span>رخصة «موثوق» سارية وتحققنا منها</span></label><label class="chk"><input type="checkbox" id="iTerms"><span>قبل البنود: الرابط الرسمي وحده، ولا جمع شخصي، وموافقة مسبقة، وأجر ثابت لا نسبة</span></label></div>
+  <div id="iV"></div><div class="actions"><button class="btn green" type="button" id="iSave">اعتماد القرار</button><button class="btn ghost" type="button" id="iAdd">إضافته إلى قائمة المؤثرين</button></div>`;
+  const judge=()=>{let s=0;C.forEach(([k])=>{const v=+$("#i_"+k).value;$("#o_"+k).textContent=v;s+=v});const lic=$("#iLic").checked,te=$("#iTerms").checked;
+    document.querySelectorAll("#panel .chk").forEach(c=>c.classList.toggle("on",c.querySelector("input").checked));
+    const why=[];if(s<70)why.push(`الدرجة ${s} أقل من 70`);if(!lic)why.push("لا رخصة «موثوق» متحقق منها");if(!te)why.push("لم يقبل البنود الإلزامية");
+    const rep=+$("#i_rep").value;if(rep<12)why.push("درجة السمعة منخفضة؛ أي ملاحظة على السمعة تستبعده");
+    $("#iV").innerHTML=!why.length?verdict("ok",`مقبول: ${s} من 100`,`<p>انقله إلى مرحلة «موافق»، وأرسل له العقد المعتمد والموجز.</p>`):verdict("bad",`غير مقبول: ${s} من 100`,`<ul>${why.map(w=>`<li>${esc(w)}</li>`).join("")}</ul>`);
+    P._res={s,ok:!why.length,why}};
+  P.oninput=judge;judge();
+  $("#iSave").onclick=()=>{const r=P._res;logDecision({kind:"influencer",track:$("#iTrack").value,title:$("#iName").value.trim()||"مؤثر بلا اسم",result:r.ok?`مقبول (${r.s})`:`غير مقبول (${r.s})`,detail:{score:r.s,reasons:r.why,platform:$("#iPlat").value,cost:+$("#iCost").value||0}})};
+  $("#iAdd").onclick=async()=>{const n=$("#iName").value.trim();if(!n){toast("اكتب اسم الحساب أولاً");return}if(!sb)return;const r=P._res;
+    const{error}=await sb.from("camp_partners").insert({name:n,type:"مؤثر",plat:$("#iPlat").value,owner:me||"",stage:r.ok?"موافق":"مرشح",cost:Math.max(0,+$("#iCost").value||0),code:"",updated_by:me||""});
+    toast(error?"لم يُضف: "+error.message:"أُضيف إلى قائمة المؤثرين في غرفة الحملة")};
+}
+
+/* 3) قرار القناة */
+function toolChannel(P){const tot=S.weeks.reduce((a,x)=>({s:a.s+(+x.spend||0),d:a.d+(+x.don||0)}),{s:0,d:0});const avg=tot.d?tot.s/tot.d:null;
+  P.innerHTML=`<h3>نضاعف القناة أم نوقفها؟</h3><p class="lead">أدخل صرف القناة وتبرعاتها المنسوبة لآخر أسبوعين.</p>
+  <div class="fields"><label class="f">القناة<select id="cCh"><option>سناب الممول</option><option>الحساب الإخباري</option><option>مؤثر صغير</option><option>تيك توك</option><option>إعلانات قوقل</option><option>سفراء واتساب</option></select></label>${trackSelect("cTrack")}<label class="f">الصرف (ريال)<input id="cS" type="number" min="0" value="0" inputmode="numeric"></label><label class="f">التبرعات المكتملة المنسوبة<input id="cD" type="number" min="0" value="0" inputmode="numeric"></label></div>
+  <label class="chk"><input type="checkbox" id="cTwice"><span>هذه المراجعة الثانية على التوالي فوق 60 ريالاً</span></label>
+  <p class="lead">متوسط كلفة التبرع في الحملة حتى الآن: <b>${avg==null?"لا أرقام بعد":fmt(avg)+" ريال"}</b> · المستهدف ${TARGET_COST} ريالاً أو أقل.</p>
+  <div id="cV"></div><div class="actions"><button class="btn green" type="button" id="cSave">اعتماد القرار</button></div>`;
+  const judge=()=>{const s=+$("#cS").value||0,d=+$("#cD").value||0,ch=$("#cCh").value,tw=$("#cTwice").checked;
+    document.querySelectorAll("#panel .chk").forEach(c=>c.classList.toggle("on",c.querySelector("input").checked));let h,res;
+    if(ch==="إعلانات قوقل"){h=verdict("ok","استمر: إعلانات المنحة مجانية","<p>راقب النقرات والتحويل فقط، وحسّن الكلمات ذات النقر المنخفض.</p>");res="استمر"}
+    else if(!s){h=verdict("idle","أدخل الصرف والتبرعات");res=""}
+    else if(!d){h=verdict(tw?"bad":"warn",tw?"أوقف القناة":"إنذار: لا تبرعات منسوبة",tw?"<p>صرفت أسبوعين دون تبرع. انقل ميزانيتها إلى أفضل قناة.</p>":"<p>تحقق من الرابط والكلمة الدلالية قبل أي صرف جديد. إن تكرر الأسبوع القادم تُوقف.</p>");res=tw?"أوقف":"إنذار"}
+    else{const c=s/d;const inf=(ch==="مؤثر صغير"||ch==="الحساب الإخباري")&&avg&&c>2*avg;
+      if(c<=30){h=verdict("ok",`ضاعف: ${fmt(c)} ريالاً للتبرع`,"<p>أقل من 30 ريالاً. ارفع نصيبها بمبلغ يُنقل من القناة الأضعف.</p>");res="ضاعف"}
+      else if(c<=TARGET_COST){h=verdict("ok",`استمر: ${fmt(c)} ريالاً للتبرع`,"<p>ضمن المستهدف. لا تغيير في الميزانية.</p>");res="استمر"}
+      else if(c<=60&&!inf){h=verdict("warn",`استمر بحذر: ${fmt(c)} ريالاً للتبرع`,"<p>فوق المستهدف. غيّر عنصراً واحداً (الافتتاحية أو الطلب أو الاستهداف) قبل المراجعة القادمة.</p>");res="استمر بحذر"}
+      else if(tw||inf){h=verdict("bad",`أوقف: ${fmt(c)} ريالاً للتبرع`,`<p>${inf?"كلفته أكثر من ضعف متوسط الحملة. ":""}انقل ميزانيتها إلى القناة الأقل كلفة.</p>`);res="أوقف"}
+      else{h=verdict("warn",`إنذار: ${fmt(c)} ريالاً للتبرع`,"<p>فوق 60 ريالاً. إن تكرر في المراجعة القادمة تُوقف القناة.</p>");res="إنذار"}}
+    $("#cV").innerHTML=h;P._res={res,s,d}};
+  P.oninput=judge;judge();
+  $("#cSave").onclick=()=>{const r=P._res;if(!r.res){toast("أدخل الأرقام أولاً");return}logDecision({kind:"channel",track:$("#cTrack").value,title:$("#cCh").value,result:r.res,detail:{spend:r.s,donations:r.d,cost:r.d?Math.round(r.s/r.d):null}})};
+}
+
+/* 4) اختبار A/B */
+function toolAB(P){
+  P.innerHTML=`<h3>أي النسختين فازت؟</h3><p class="lead">الفوز بفرق 20% فأكثر، مع 300 نقرة على الأقل لكل نسخة.</p>
+  <div class="fields"><label class="f" style="grid-column:1/-1">ما الذي اختبرناه؟<input id="aName" placeholder="مثال: صيغة الطلب: «تبرّع الآن» مقابل «ساهم بـ 10 ريالات»"></label>${trackSelect("aTrack")}<label class="f">المقياس<select id="aM"><option value="ctr">معدل النقر (نقرات ÷ مشاهدات)</option><option value="cvr">التحويل (تبرعات ÷ نقرات)</option></select></label></div>
+  <div class="fields"><label class="f">(أ) المشاهدات<input id="aV1" type="number" min="0" value="0" inputmode="numeric"></label><label class="f">(أ) النقرات<input id="aC1" type="number" min="0" value="0" inputmode="numeric"></label><label class="f">(أ) التبرعات<input id="aD1" type="number" min="0" value="0" inputmode="numeric"></label>
+  <label class="f">(ب) المشاهدات<input id="aV2" type="number" min="0" value="0" inputmode="numeric"></label><label class="f">(ب) النقرات<input id="aC2" type="number" min="0" value="0" inputmode="numeric"></label><label class="f">(ب) التبرعات<input id="aD2" type="number" min="0" value="0" inputmode="numeric"></label></div>
+  <div id="aV"></div><div class="actions"><button class="btn green" type="button" id="aSave">اعتماد النتيجة</button></div>`;
+  const judge=()=>{const g=i=>+$("#"+i).value||0,m=$("#aM").value;const r1=m==="ctr"?(g("aV1")?g("aC1")/g("aV1"):0):(g("aC1")?g("aD1")/g("aC1"):0),r2=m==="ctr"?(g("aV2")?g("aC2")/g("aV2"):0):(g("aC2")?g("aD2")/g("aC2"):0);
+    const need=[];if(g("aC1")<300)need.push(`(أ) تحتاج ${fmt(300-g("aC1"))} نقرة إضافية`);if(g("aC2")<300)need.push(`(ب) تحتاج ${fmt(300-g("aC2"))} نقرة إضافية`);
+    const hi=Math.max(r1,r2),lo=Math.min(r1,r2),diff=lo?((hi-lo)/lo*100):(hi?Infinity:0);const lbl=r1>=r2?"أ":"ب";let h,res;
+    const rates=`<p>(أ) ${fmt1(r1*100)}% · (ب) ${fmt1(r2*100)}% · الفرق ${isFinite(diff)?fmt1(diff)+"%":"—"}</p>`;
+    if(!r1&&!r2){h=verdict("idle","أدخل نتائج النسختين");res=""}
+    else if(need.length){h=verdict("warn","استمر في الاختبار",rates+`<ul>${need.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`);res="استمر في الاختبار"}
+    else if(diff>=20){h=verdict("ok",`فازت النسخة (${lbl})`,rates+"<p>اعتمدها في كل المنشورات القادمة لهذا المسار.</p>");res=`فازت (${lbl})`}
+    else{h=verdict("warn","لا فائز واضح",rates+"<p>الفرق أقل من 20%. اختر الأسهل إنتاجاً، واختبر متغيراً آخر.</p>");res="لا فائز"}
+    $("#aV").innerHTML=h;P._res={res,r1,r2}};
+  P.oninput=judge;judge();
+  $("#aSave").onclick=()=>{const r=P._res;if(!r.res){toast("أدخل النتائج أولاً");return}logDecision({kind:"ab",track:$("#aTrack").value,title:$("#aName").value.trim()||"اختبار A/B",result:r.res,detail:{a:r.r1,b:r.r2,metric:$("#aM").value}})};
+}
+
+/* 5) الصرف */
+function toolSpend(P){const spent=c=>S.decisions.filter(d=>d.kind==="spend"&&d.component===c&&String(d.result).startsWith("مسموح")).reduce((a,d)=>a+(+d.amount||0),0);
+  const spentTrack=t=>S.decisions.filter(d=>d.kind==="spend"&&d.track===t&&String(d.result).startsWith("مسموح")).reduce((a,d)=>a+(+d.amount||0),0);
+  const total=S.decisions.filter(d=>d.kind==="spend"&&String(d.result).startsWith("مسموح")).reduce((a,d)=>a+(+d.amount||0),0);
+  P.innerHTML=`<h3>هل يُسمح بهذا الصرف؟</h3><p class="lead">يُحسب المصروف من قرارات الصرف المعتمدة في السجل. الصرف من ميزانية التسويق المعتمدة، لا من التبرعات المقيدة.</p>
+  <div class="fields"><label class="f">البند<select id="sC">${COMPONENTS.map(([c])=>`<option>${esc(c)}</option>`).join("")}</select></label>${trackSelect("sTrack")}<label class="f">المبلغ (ريال)<input id="sA" type="number" min="0" step="50" value="0" inputmode="numeric"></label><label class="f" style="grid-column:1/-1">الوصف<input id="sDesc" placeholder="مثال: تعزيز إعلان رحلة الفتى أسبوعاً"></label></div>
+  <div class="checks"><label class="chk"><input type="checkbox" id="sInv"><span>يوجد عقد أو فاتورة أو أمر شراء</span></label></div>
+  <div id="sV"></div><div class="actions"><button class="btn green" type="button" id="sSave">اعتماد القرار</button></div>`;
+  const judge=()=>{const c=$("#sC").value,cap=COMPONENTS.find(x=>x[0]===c)[1],a=+$("#sA").value||0,tr=$("#sTrack").value,inv=$("#sInv").checked;
+    document.querySelectorAll("#panel .chk").forEach(x=>x.classList.toggle("on",x.querySelector("input").checked));
+    const used=spent(c),after=used+a,tUsed=spentTrack(tr),tCap=TRACK_BUDGET[tr];const pct=Math.min(100,after/cap*100);
+    const bar=`<div class="meter ${after>cap?"over":""}"><i style="width:${pct}%"></i></div><p>البند: ${fmt(used)} مصروف + ${fmt(a)} = ${fmt(after)} من ${fmt(cap)} ريال · المسار: ${fmt(tUsed+a)} من ${fmt(tCap)} · الحملة: ${fmt(total+a)} من ${fmt(BUDGET)}</p>`;
+    let h,res;if(!a){h=verdict("idle","أدخل المبلغ")+bar;res=""}
+    else if(!inv){h=verdict("bad","لا يُصرف بلا عقد أو فاتورة",bar);res="مرفوض: بلا فاتورة"}
+    else if(after>cap*1.1||total+a>BUDGET){h=verdict("bad","يحتاج موافقة مكتوبة من رئيس اللجنة",bar+"<p>يتجاوز سقف البند بأكثر من 10% أو يتجاوز ميزانية الحملة.</p>");res="يحتاج موافقة"}
+    else if(after>cap||tUsed+a>tCap){h=verdict("warn","مسموح مع تنبيه: تجاوز طفيف",bar+"<p>انقل الفرق من بند أقل استخداماً، وسجّله في سجل الصرف.</p>");res="مسموح بتنبيه"}
+    else{h=verdict("ok","مسموح ضمن البند",bar);res="مسموح"}
+    $("#sV").innerHTML=h;P._res={res,a,c,tr}};
+  P.oninput=judge;judge();
+  $("#sSave").onclick=()=>{const r=P._res;if(!r.res){toast("أدخل المبلغ أولاً");return}logDecision({kind:"spend",track:r.tr,title:$("#sDesc").value.trim()||r.c,result:r.res,amount:r.a,component:r.c})};
+}
+
+/* 6) الأزمات */
+const CRISES=[
+ {t:"حساب مزيّف أو رابط تبرع احتيالي باسم الجمعية",lvl:"عالٍ",time:"ساعتان",steps:["خذ لقطة شاشة ورابط الحساب.","بلّغ المنصة والجهات المختصة.","انشر التحذير أدناه من كل حسابات الجمعية، واطلب من المؤثرين والسفراء إعادة نشره."],tpl:"تنبيه: لا تجمع جمعية تحفيظ القرآن الكريم بينبع أي تبرع إلا عبر رابطها الرسمي المعتمد. أي حساب بنكي شخصي أو رابط آخر لا يمثلنا، ونرجو الإبلاغ عنه."},
+ {t:"مؤثر متعاون يقع في إساءة أو جدل عام",lvl:"عالٍ",time:"ساعتان",steps:["أوقف أي محتوى مجدول معه.","اطلب حذف محتوى الجمعية من حسابه.","استبدله من قائمة الاحتياط، وانشر البيان أدناه إن لزم."],tpl:"توقف تعاون الجمعية مع الحساب (  ) اعتباراً من تاريخه، ولا يمثل ما يصدر عنه الجمعية."},
+ {t:"منشور جمع وقف الأم مع مشروع آخر",lvl:"متوسط",time:"3 ساعات",steps:["اطلب حذف المنشور فوراً.","أعد نشره بنسخة معتمدة منفردة.","سجّل الحادثة، وذكّر الفريق بضابط فصل المشاريع."]},
+ {t:"رقم خاطئ أو قديم في منشور",lvl:"متوسط",time:"6 ساعات",steps:["تحقق من الرقم في «زاد».","عدّل المنشور، وانشر التصحيح أدناه."],tpl:"تصحيحاً لما ورد في منشور سابق، الرقم الصحيح هو (  ) وفق آخر تحديث بتاريخ (  ). نشكر لكم متابعتكم وحرصكم."},
+ {t:"ظهور طالب بلا موافقة ولي أمره",lvl:"عالٍ",time:"ساعة واحدة",steps:["احذف المحتوى فوراً من كل المنصات.","تواصل مع ولي الأمر واعتذر.","راجع قائمة الموافقات مع المصوّر قبل التصوير القادم."]},
+ {t:"تشكيك: «أين تذهب التبرعات؟»",lvl:"متوسط",time:"6 ساعات",steps:["لا تجادل علناً.","رد مرة واحدة بالنص أدناه.","تواصل خاصاً مع المعترض إن استمر."],tpl:"نقدّر سؤالك وحرصك. الجمعية مرخّصة، والتبرع عبر رابط رسمي موثّق، ونرحّب بزيارتك لأي مجمع لترى الأثر بنفسك."},
+ {t:"خطأ في آية أو حديث",lvl:"عالٍ",time:"ساعة واحدة",steps:["احذف المنشور فوراً.","راجعه مع المسؤول الشرعي.","أعد نشره مصححاً."]},
+ {t:"مؤثر لم ينشر في الموعد أو نشر غير المعتمد",lvl:"منخفض",time:"24 ساعة",steps:["أرسل تنبيهاً رسمياً بالبند المخالف.","اطلب الحذف إن كان غير معتمد.","عند التكرار: خصم أو إنهاء وفق العقد."]},
+ {t:"تعليقات سلبية جماعية",lvl:"متوسط",time:"6 ساعات",steps:["لا ترد على كل تعليق.","انشر رداً واحداً موحّداً هادئاً.","احذف المسيء والاحتيالي فقط."]},
+ {t:"بلاغ أو استفسار من جهة رقابية",lvl:"عالٍ",time:"24 ساعة",steps:["أوقف المحتوى المعني مؤقتاً.","جهّز العقد والفواتير والموافقات.","سلّم الملف كاملاً عبر المدير التنفيذي."]}];
+function toolCrisis(P){
+  P.innerHTML=`<h3>ماذا نفعل الآن؟</h3><p class="lead">اختر ما حدث. البيان يصدر من حساب الجمعية فقط، والمؤثرون يعيدون نشره دون اجتهاد.</p>
+  <label class="f">ما الذي حدث؟<select id="kS">${CRISES.map((c,i)=>`<option value="${i}">${esc(c.t)}</option>`).join("")}</select></label>${trackSelect("kTrack")}
+  <div id="kV"></div><label class="f">ماذا فعلنا؟<input id="kNote" placeholder="ملخص ما اتُّخذ"></label><div class="actions"><button class="btn green" type="button" id="kSave">تسجيل الحادثة</button></div>`;
+  const draw=()=>{const c=CRISES[+$("#kS").value];const cls=c.lvl==="عالٍ"?"bad":c.lvl==="متوسط"?"warn":"ok";
+    $("#kV").innerHTML=verdict(cls,`مستوى ${c.lvl} · استجب خلال ${c.time}`,`<ol class="steps">${c.steps.map(s=>`<li>${esc(s)}</li>`).join("")}</ol>`)+(c.tpl?`<div class="tpl"><div class="tpl-h"><span>النص الجاهز</span><button class="btn" type="button" id="kCopy" style="padding:4px 12px;font-size:12.5px">نسخ</button></div><pre id="kTpl">${esc(c.tpl)}</pre></div>`:"");
+    const cp=$("#kCopy");if(cp)cp.onclick=()=>{const t=c.tpl;const fb=()=>{const r=document.createRange();r.selectNodeContents($("#kTpl"));const s=getSelection();s.removeAllRanges();s.addRange(r)};try{navigator.clipboard.writeText(t).then(()=>toast("نُسخ النص"),fb)}catch(_){fb()}}};
+  $("#kS").onchange=draw;draw();
+  $("#kSave").onclick=()=>{const c=CRISES[+$("#kS").value];logDecision({kind:"crisis",track:$("#kTrack").value,title:c.t,result:$("#kNote").value.trim()||"فُتحت الحادثة",detail:{level:c.lvl}})};
+}
+
+/* ===== السجل ===== */
+$("#logKind").innerHTML=`<option value="">كل الأنواع</option>`+Object.entries(KIND).map(([k,v])=>`<option value="${k}">${esc(v)}</option>`).join("");
+["logKind","logTrack"].forEach(i=>$("#"+i).onchange=renderLog);
+const whenFmt=new Intl.DateTimeFormat("ar-SA-u-nu-latn",{timeZone:"Asia/Riyadh",weekday:"long",day:"numeric",month:"long",hour:"numeric",minute:"2-digit"});
+function resCls(r){r=String(r);return /^(صالح|مقبول|ضاعف|استمر$|مسموح$|فازت)/.test(r)?"ok":/^(لا يُنشر|غير مقبول|أوقف|مرفوض|يحتاج)/.test(r)?"bad":"warn"}
+function renderLog(){const k=$("#logKind").value,t=$("#logTrack").value;const L=S.decisions.filter(d=>(!k||d.kind===k)&&(!t||d.track===t));
+  $("#logCount").textContent=L.length?cnt(L.length,"قرار واحد","قراران","قرارات","قراراً"):"";
+  $("#logList").innerHTML=L.length?L.map(d=>`<div class="logrow" data-track="${esc(d.track||"")}"><span class="kind">${esc(KIND[d.kind]||d.kind)}</span><div><b>${esc(d.title)}</b><div class="res" style="color:var(--${resCls(d.result)==="ok"?"ok":resCls(d.result)==="bad"?"bad":"warn"})">${esc(d.result)}${d.amount?` · ${fmt(d.amount)} ريال`:""}</div><div class="meta">${d.track?`<span class="trk" data-track="${esc(d.track)}">${esc(d.track)}</span> `:""}${esc(d.decided_by||"—")} · ${esc(whenFmt.format(new Date(d.created_at)))}</div></div><button class="del" type="button" data-del="${esc(d.id)}">حذف</button></div>`).join(""):`<div class="empty">لا قرارات مسجلة بعد. كل قرار تعتمده من «اليوم» أو «أدوات القرار» يظهر هنا باسم من اتخذه.</div>`}
+$("#logList").addEventListener("click",async e=>{const b=e.target.closest("[data-del]");if(!b)return;if(!b.classList.contains("confirm")){b.classList.add("confirm");b.textContent="تأكيد الحذف";setTimeout(()=>{b.classList.remove("confirm");b.textContent="حذف"},3000);return}
+  const{error}=await sb.from("camp_decisions").delete().eq("id",b.dataset.del);toast(error?"لم يُحذف":"حُذف القرار");loadAll()});
+
+function render(){renderToday();renderTools();renderLog()}
+
+/* التشغيل */
+try{sb=window.supabase.createClient(SB_URL,SB_KEY)}catch(e){sb=null;notice("تعذّر تحميل مكتبة الاتصال. حدّث الصفحة.")}
+render();
+if(sb){loadAll();const ch=sb.channel("camp-decide");["camp_tasks","camp_weeks","camp_areas","camp_decisions","camp_settings"].forEach(t=>ch.on("postgres_changes",{event:"*",schema:"public",table:t},()=>{clearTimeout(loadAll.t);loadAll.t=setTimeout(loadAll,400)}));ch.subscribe();
+  document.addEventListener("visibilitychange",()=>{if(!document.hidden)loadAll()})}
 })();
 </script>
 </body>
