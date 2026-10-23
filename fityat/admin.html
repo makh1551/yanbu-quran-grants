@@ -159,7 +159,7 @@ var IMAGES=["01-x-post","02-wa-status","03-wa-square","04-journey","05-impact","
 var AUD={ind:"الأفراد",corp:"الشركات",season:"مواسم رمضان",donor:"ما بعد التبرع",parents:"أولياء الأمور",team:"قوالب الفريق"};
 var STAGES={lead:"مستهدفة",letter:"أُرسل الخطاب",meeting:"موعد أو اجتماع",approved:"موافقة",paid:"تم السداد",declined:"اعتذرت"};
 var PKG={"1":["تأهيل فتى",1500],"5":["رعاية 5 فتية",7500],"10":["رعاية 10 فتية",15000],"other":["أخرى",null]};
-var CH=["واتساب","X","إنستغرام","لينكدإن","سناب شات"];
+var CH=["واتساب","X","إنستغرام","سناب شات"];
 var AR_DAYS=["الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
 function fmt(n){return Number(n||0).toLocaleString("en-US");}
@@ -385,7 +385,7 @@ VIEWS.reports=async function(){
   var txt="تقرير فتية المحراب: آخر "+repDays+" يومًا\n"+r.by_member.map(function(m,i){return (i+1)+". "+m.full_name+": "+m.total+" نشر، "+m.clicks+" زيارة من رابطه";}).join("\n")+
     (r.top_content.length?"\n\nالأكثر نشرًا:\n"+r.top_content.map(function(c){return "- "+c.title+" ("+c.n+")";}).join("\n"):"");
   $("main").innerHTML=head("التقارير","نشاط الفريق، جاهز للنسخ وإرساله للإدارة.",'<div class="row">'+[7,30,90].map(function(d){return '<button type="button" class="btn btn-sm '+(repDays===d?"btn-night":"btn-line")+'" data-d="'+d+'">'+d+' يومًا</button>';}).join("")+'<button class="btn btn-gold btn-sm" type="button" id="cp">نسخ التقرير</button></div>')+
-  '<div class="panel"><div class="card"><h2>حسب العضو</h2><div class="tw" style="margin-top:10px"><table><thead><tr><th>العضو</th><th>الإجمالي</th><th>واتساب</th><th>X</th><th>إنستغرام</th><th>لينكدإن</th><th>أخرى</th><th>زيارات رابطه</th></tr></thead><tbody>'+
+  '<div class="panel"><div class="card"><h2>حسب العضو</h2><div class="tw" style="margin-top:10px"><table><thead><tr><th>العضو</th><th>الإجمالي</th><th>واتساب</th><th>X</th><th>إنستغرام</th><th>سناب شات</th><th>أخرى</th><th>زيارات رابطه</th></tr></thead><tbody>'+
   (r.by_member.map(function(m){return '<tr><td><b>'+esc(m.full_name)+'</b></td><td class="num"><b>'+m.total+'</b></td><td class="num">'+m.wa+'</td><td class="num">'+m.x+'</td><td class="num">'+m.ig+'</td><td class="num">'+m.li+'</td><td class="num">'+m.other+'</td><td class="num">'+m.clicks+'</td></tr>';}).join("")||'<tr><td colspan="8" class="empty">لا أعضاء مفعّلون بعد.</td></tr>')+'</tbody></table></div></div>'+
   '<div class="g2"><div class="card"><h2>المحتوى الأكثر نشرًا</h2><div style="margin-top:10px">'+(r.top_content.map(function(c){return '<div class="row between" style="border-bottom:1px dashed var(--line);padding-block:6px"><span>'+esc(c.title)+'</span><b class="num">'+c.n+'</b></div>';}).join("")||'<p class="help">لا بيانات بعد.</p>')+'</div></div>'+
   '<div class="card"><h2>آخر ما نُشر</h2><div style="margin-top:10px">'+(r.recent.map(function(p){return '<div class="row between" style="border-bottom:1px dashed var(--line);padding-block:6px;font-size:.86rem"><span>'+esc(p.title||"منشور")+' · '+esc(p.channel)+' <span class="pill">'+esc((p.full_name||"").split(" ")[0])+'</span>'+(p.link?' <a href="'+esc(p.link)+'" target="_blank" rel="noopener">الرابط</a>':'')+'</span><span class="help">'+day(p.posted_at)+'</span></div>';}).join("")||'<p class="help">لا نشر بعد.</p>')+'</div></div></div></div>';

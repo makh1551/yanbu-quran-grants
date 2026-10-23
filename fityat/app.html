@@ -280,6 +280,10 @@ td select{padding:4px 8px;width:auto}
       <div class="card">
         <h2>مكتبة المحتوى</h2>
         <p class="sub">التصاميم المعتمدة ونصوصها. انسخ النص، واحفظ التصميم، ثم اضغط «نشرتُ».</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+          <a class="btn btn-gold btn-sm" href="files/marketing-guide-16.pdf" target="_blank" rel="noopener">دليل مشرف التسويق (PDF)</a>
+          <a class="btn btn-line btn-sm" href="files/media-library-16.zip" download>تنزيل مكتبة الوسائط كاملة (ZIP)</a>
+        </div>
         <div class="filters" id="libFilters" style="margin-top:12px">
           <button type="button" data-f="all" aria-pressed="true">الكل</button>
           <button type="button" data-f="design" aria-pressed="false">التصاميم</button>
@@ -361,7 +365,7 @@ td select{padding:4px 8px;width:auto}
           <h2>إضافة مهمة</h2>
           <div class="grid2" style="gap:10px;margin-top:10px">
             <div><label for="atDate">التاريخ</label><input id="atDate" type="date"></div>
-            <div><label for="atCh">المنصة</label><select id="atCh"><option>واتساب</option><option>X</option><option>إنستغرام</option><option>لينكدإن</option><option>سناب شات</option></select></div>
+            <div><label for="atCh">المنصة</label><select id="atCh"><option>واتساب</option><option>X</option><option>إنستغرام</option><option>سناب شات</option></select></div>
           </div>
           <div class="field" style="margin-top:10px"><label for="atWho">لمن؟</label><select id="atWho"></select></div>
           <div class="field" style="margin-top:10px"><label for="atContent">المحتوى</label><select id="atContent"></select></div>
@@ -382,7 +386,7 @@ td select{padding:4px 8px;width:auto}
       <div class="card">
         <div class="row between"><h2>التقرير الأسبوعي</h2><button class="btn btn-line btn-sm" type="button" id="repCopy">نسخ التقرير</button></div>
         <p class="sub" id="repRange"></p>
-        <div class="tblwrap" style="margin-top:10px"><table><thead><tr><th>العضو</th><th>الإجمالي</th><th>واتساب</th><th>X</th><th>إنستغرام</th><th>لينكدإن</th><th>أخرى</th></tr></thead><tbody id="repBody"></tbody></table></div>
+        <div class="tblwrap" style="margin-top:10px"><table><thead><tr><th>العضو</th><th>الإجمالي</th><th>واتساب</th><th>X</th><th>إنستغرام</th><th>سناب شات</th><th>أخرى</th></tr></thead><tbody id="repBody"></tbody></table></div>
       </div>
       <div class="card">
         <h2>إضافة نص إلى المكتبة</h2>
@@ -403,7 +407,7 @@ td select{padding:4px 8px;width:auto}
 <dialog id="postDlg"><form method="dialog" id="postForm">
   <h2 style="font-size:1.1rem;color:var(--night)">تسجيل نشر</h2>
   <p class="sub" id="postWhat" style="margin-bottom:14px"></p>
-  <div class="field"><label for="pCh">أين نشرت؟</label><select id="pCh"><option>واتساب</option><option>X</option><option>إنستغرام</option><option>لينكدإن</option><option>سناب شات</option><option>أخرى</option></select></div>
+  <div class="field"><label for="pCh">أين نشرت؟</label><select id="pCh"><option>واتساب</option><option>X</option><option>إنستغرام</option><option>سناب شات</option><option>أخرى</option></select></div>
   <div class="field"><label for="pLink">رابط المنشور (اختياري)</label><input id="pLink" dir="ltr" placeholder="https://"></div>
   <div class="row"><button class="btn btn-gold" value="ok" id="pSave">تسجيل</button><button class="btn btn-line" value="cancel" formnovalidate>إلغاء</button></div>
   <div class="err" id="pErr"></div>
@@ -594,7 +598,7 @@ async function loadHome(){
 /* ---------- post log ---------- */
 var postCtx=null;
 function openPost(c,t){postCtx={c:c,t:t};$("postWhat").textContent=c.title||"";$("pCh").value=(t&&t.channel)||(c.channel||"واتساب").split(" ")[0];
-  if(["واتساب","X","إنستغرام","لينكدإن","سناب شات"].indexOf($("pCh").value)<0)$("pCh").value="أخرى";
+  if(["واتساب","X","إنستغرام","سناب شات"].indexOf($("pCh").value)<0)$("pCh").value="أخرى";
   $("pLink").value="";$("pErr").textContent="";$("postDlg").showModal();}
 $("postForm").addEventListener("submit",async function(e){
   if(e.submitter&&e.submitter.value!=="ok")return;
@@ -789,10 +793,10 @@ async function loadAdmin(){
   var since=new Date(Date.now()-7*864e5);
   $("repRange").textContent="من "+dayName(localDate(since))+" إلى "+dayName(localDate());
   var p=await sb.from("fit_posts").select("member_id,channel").gte("posted_at",since.toISOString());
-  var agg={};(p.data||[]).forEach(function(x){var a=agg[x.member_id]=agg[x.member_id]||{t:0,"واتساب":0,"X":0,"إنستغرام":0,"لينكدإن":0,o:0};a.t++;if(a[x.channel]!==undefined)a[x.channel]++;else a.o++;});
+  var agg={};(p.data||[]).forEach(function(x){var a=agg[x.member_id]=agg[x.member_id]||{t:0,"واتساب":0,"X":0,"إنستغرام":0,"سناب شات":0,o:0};a.t++;if(a[x.channel]!==undefined)a[x.channel]++;else a.o++;});
   var name=memName;
   var ids=Object.keys(agg).sort(function(a,b){return agg[b].t-agg[a].t;});
-  $("repBody").innerHTML=ids.length?ids.map(function(id){var a=agg[id];return '<tr><td>'+esc(name(id))+'</td><td><b>'+a.t+'</b></td><td>'+a["واتساب"]+'</td><td>'+a.X+'</td><td>'+a["إنستغرام"]+'</td><td>'+a["لينكدإن"]+'</td><td>'+a.o+'</td></tr>';}).join(""):'<tr><td colspan="7" class="sub">لا نشر مسجّل هذا الأسبوع.</td></tr>';
+  $("repBody").innerHTML=ids.length?ids.map(function(id){var a=agg[id];return '<tr><td>'+esc(name(id))+'</td><td><b>'+a.t+'</b></td><td>'+a["واتساب"]+'</td><td>'+a.X+'</td><td>'+a["إنستغرام"]+'</td><td>'+a["سناب شات"]+'</td><td>'+a.o+'</td></tr>';}).join(""):'<tr><td colspan="7" class="sub">لا نشر مسجّل هذا الأسبوع.</td></tr>';
   $("repCopy").onclick=function(){var total=ids.reduce(function(s,id){return s+agg[id].t;},0);
     var txt="تقرير نشر فتية المحراب الأسبوعي\n"+$("repRange").textContent+"\nإجمالي النشر: "+total+"\n"+ids.map(function(id,i){return (i+1)+". "+name(id)+": "+agg[id].t;}).join("\n");copy(txt,$("repCopy"));};
   $("acSave").onclick=async function(){var t=$("acTitle").value.trim(),b=$("acBody").value.trim();if(!t||!b){toast("اكتب العنوان والنص");return;}
