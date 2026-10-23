@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#16133A">
+<meta name="description" content="فتية المحراب: برنامج إعداد أئمة التراويح من طلاب حلقات الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع. النسخة 16، رمضان 1448هـ.">
+<meta property="og:title" content="فتية المحراب · النسخة 16"><meta property="og:description" content="من الحلقة.. إلى المحراب. أهِّل فتًى للمحراب بـ1,500 ريال."><meta property="og:image" content="img/d/16-ad.jpg">
+<link rel="icon" href="img/logo.png">
+<title>فتية المحراب</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap">
+<style>
+/* Layout: brand site for فتية المحراب, edition 16. Night bands (hero, journey of editions, donate) alternate with ground bands, as in the program's approved identity. Growth = 16 rising mihrab arches. */
+:root{
+  --night:#16133A; --night2:#241F57; --violet:#3A3480;
+  --gold:#D4A23C; --gold2:#F0CC74; --ground:#FAF5EA;
+  --ink:#1D1A3D; --ink2:#5A5680; --line:#E8DFC9; --card:#FFFFFF;
+  --soft:#CFCBEA; --mute:#9A95C8; --edge:#2E2966;
+  --kufi:"Noto Kufi Arabic","IBM Plex Sans Arabic",Tahoma,sans-serif;
+  --plex:"IBM Plex Sans Arabic",Tahoma,"Segoe UI",sans-serif;
+  --amiri:"Amiri","Traditional Arabic",serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--plex);font-size:17px;line-height:1.85;direction:rtl}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--night)}
+h1,h2,h3{font-family:var(--kufi);line-height:1.4;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+img{max-width:100%}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1140px;margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+section{padding-block:88px}
+.dark{background:var(--night);color:#fff}
+.sec-head{max-width:720px;margin-bottom:44px}
+.sec-head h2{font-size:clamp(1.75rem,3.6vw,2.6rem);font-weight:800;color:var(--night)}
+.dark .sec-head h2{color:#fff}
+.sec-head p{color:var(--ink2);font-size:1.12rem;margin-top:12px}
+.dark .sec-head p{color:var(--soft)}
+.kick{display:inline-flex;align-items:center;gap:10px;font-family:var(--kufi);font-weight:700;font-size:.92rem;color:var(--violet);margin-bottom:10px}
+.kick::before{content:"";width:28px;height:2px;background:var(--gold)}
+.dark .kick{color:var(--gold2)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;text-decoration:none;font-family:var(--kufi);font-weight:700;font-size:1rem;padding:12px 26px;border-radius:999px;border:0;cursor:pointer;transition:transform .15s ease,filter .2s ease,background .2s ease}
+.btn:active{transform:translateY(1px) scale(.98)}
+.btn:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.btn-gold{background:var(--gold);color:var(--night)}
+.btn-gold:hover{filter:brightness(1.07)}
+.btn-line{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35)}
+.btn-line:hover{box-shadow:inset 0 0 0 1.5px var(--gold2)}
+.btn-night{background:var(--night);color:#fff}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(22,19,58,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--edge)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:68px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:#fff}
+.brand .lc{background:#fff;border-radius:10px;padding:5px 8px;display:flex}
+.brand img{height:30px}
+.brand b{font-family:var(--kufi);font-weight:800;font-size:1.05rem}
+.links{display:flex;gap:22px;font-size:.95rem}
+.links a{text-decoration:none;color:var(--soft)}
+.links a:hover{color:var(--gold2)}
+.nav .btn{padding:9px 20px;font-size:.92rem}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding-block:56px 0}
+.hero .stars{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:end}
+.hero .ed{display:inline-flex;align-items:baseline;gap:12px;font-family:var(--kufi);font-weight:700;color:var(--gold2)}
+.hero .ed b{font-size:3.4rem;font-weight:800;line-height:1;color:transparent;-webkit-text-stroke:1.6px var(--gold)}
+.hero h1{font-size:clamp(2.8rem,6.6vw,4.9rem);font-weight:800;line-height:1.25;margin-top:6px}
+.hero .slogan{font-family:var(--kufi);font-weight:700;color:var(--gold);font-size:clamp(1.2rem,2.4vw,1.6rem)}
+.hero .sub{color:var(--soft);font-size:1.15rem;margin-top:16px;max-width:34ch}
+.hero .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;padding-bottom:56px}
+.skyline{display:block;width:100%;height:auto}
+.skyline .a{transform-box:fill-box;transform-origin:50% 100%}
+@media (prefers-reduced-motion:no-preference){
+  .skyline .a{animation:grow .9s cubic-bezier(.16,1,.3,1) both;animation-delay:calc(var(--i) * 55ms)}
+  @keyframes grow{from{transform:scaleY(.35)}to{transform:none}}
+}
+.hadith{background:var(--night2);text-align:center;padding:16px 20px;font-family:var(--amiri);font-size:1.35rem;color:var(--gold2)}
+.hadith small{font-family:var(--plex);font-size:.85rem;color:var(--mute);margin-inline-start:10px}
+
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;background:var(--card);border:1px solid var(--line);border-radius:18px;margin-top:-1px}
+.facts div{padding:26px 24px;border-inline-start:1px solid var(--line);min-width:0}
+.facts div:first-child{border:0}
+.facts small{display:block;color:var(--ink2);font-size:.85rem}
+.facts b{display:block;font-family:var(--kufi);font-weight:800;font-size:2.1rem;color:var(--night);line-height:1.35}
+.facts span{color:var(--ink2);font-size:.95rem}
+.facts-sec{padding-block:44px 0}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:32px;min-width:0}
+.card h3{font-size:1.2rem;font-weight:700;color:var(--night);margin-bottom:10px}
+.card p{color:var(--ink)}
+.kv{margin-top:18px;display:grid;gap:8px;font-size:.95rem}
+.kv div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:8px}
+.kv div:last-child{border:0}
+.kv span{color:var(--ink2)}
+.ambition{margin-top:28px;background:var(--night);color:#fff;border-radius:22px;padding:36px 40px;display:flex;gap:28px;align-items:center}
+.ambition svg{flex:none;width:58px}
+.ambition small{font-family:var(--kufi);font-weight:700;color:var(--gold2)}
+.ambition p{font-family:var(--kufi);font-weight:700;font-size:clamp(1.2rem,2.4vw,1.6rem);line-height:1.75;margin-top:4px}
+.pillars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin-top:36px}
+.pillars div{border-top:2px solid var(--gold);padding-top:16px}
+.pillars h3{font-size:1.1rem;font-weight:700;color:var(--night)}
+.pillars p{color:var(--ink2);margin-top:4px}
+
+/* journey of editions */
+.chart-wrap{display:grid;grid-template-columns:1.5fr 1fr;gap:36px;align-items:end}
+.editions{display:block;width:100%;height:auto;overflow:visible}
+.editions .e{cursor:pointer}
+.editions .e:focus{outline:none}
+.editions .e:focus-visible path{stroke:var(--gold2);stroke-width:2.5}
+.editions text{font-family:var(--plex);font-size:13px}
+.panel{border:1px solid var(--edge);border-radius:18px;padding:28px;min-height:220px}
+.panel small{display:block;color:var(--mute);font-size:.88rem}
+.panel h3{font-size:1.7rem;font-weight:800;color:var(--gold2);margin-top:4px}
+.panel p{color:var(--soft);margin-top:8px}
+.panel .hint{margin-top:18px;font-size:.85rem;color:var(--mute)}
+.mile{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:36px}
+.mile div{border:1px solid var(--edge);border-radius:16px;padding:20px 22px;min-width:0}
+.mile small{color:var(--mute);font-size:.85rem}
+.mile b{display:block;font-family:var(--kufi);font-weight:800;font-size:1.25rem;color:#fff;line-height:1.6}
+.mile span{color:var(--soft);font-size:.95rem}
+.mile .g{border-color:var(--gold)}
+.mile .g b{color:var(--gold2)}
+.mile .f{background:var(--gold);border-color:var(--gold)}
+.mile .f small,.mile .f span,.mile .f b{color:var(--night)}
+.src{margin-top:22px;font-size:.82rem;color:var(--mute)}
+
+/* path */
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;list-style:none;margin:0;padding:0}
+.path li{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px 24px;min-width:0;position:relative}
+.path .n{width:52px;height:42px;display:flex;align-items:center;justify-content:center;font-family:var(--kufi);font-weight:800;color:var(--night);border:1.5px solid var(--gold);border-radius:26px 26px 6px 6px;margin-bottom:16px}
+.path li:last-child{background:var(--night);border-color:var(--night);color:#fff}
+.path li:last-child .n{background:var(--gold);border-color:var(--gold)}
+.path li:last-child h3{color:#fff}
+.path li:last-child p{color:var(--soft)}
+.path h3{font-size:1.1rem;font-weight:700;color:var(--night)}
+.path p{color:var(--ink2);font-size:.97rem;margin-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chips span{font-size:.85rem;background:var(--ground);border:1px solid var(--line);border-radius:999px;padding:2px 12px}
+
+/* partner */
+.pk-grid{display:grid;grid-template-columns:1fr 1fr 1.15fr;gap:20px;align-items:end}
+.pk{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px 26px;text-align:center;display:flex;flex-direction:column;position:relative;min-width:0}
+.pk svg{height:48px;margin:0 auto 12px;display:block}
+.pk h3{font-size:1.15rem;font-weight:700;color:var(--night)}
+.pk .amt{font-family:var(--kufi);font-weight:800;font-size:2.4rem;line-height:1.35;color:var(--night);margin-top:4px}
+.pk .amt small{font-family:var(--plex);font-weight:400;font-size:.95rem;color:var(--ink2);margin-inline-start:6px}
+.pk .w{color:var(--ink2);font-size:.95rem}
+.pk ul{list-style:none;padding:18px 0 0;margin:18px 0 0;border-top:1px solid var(--line);text-align:right;display:grid;gap:8px;font-size:.95rem}
+.pk li{position:relative;padding-right:18px}
+.pk li::before{content:"";position:absolute;right:0;top:.75em;width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.pk .btn{margin-top:22px}
+.pk.top{background:var(--night);border:1.5px solid var(--gold);color:#fff;padding-top:42px;padding-bottom:34px}
+.pk.top h3{color:#fff}
+.pk.top .amt{color:var(--gold2)}
+.pk.top .amt small,.pk.top .w{color:var(--soft)}
+.pk.top ul{border-color:var(--violet)}
+.ribbon{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--night);font-family:var(--kufi);font-weight:700;font-size:.82rem;border-radius:999px;padding:3px 16px;white-space:nowrap}
+.note{font-size:.88rem;color:var(--ink2);margin-top:18px}
+
+.calc{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.calc .in{padding:32px}
+.calc .in h3{font-size:1.2rem;font-weight:700;color:var(--night)}
+.calc .in p{color:var(--ink2);font-size:.95rem;margin-top:4px}
+.stepper{display:flex;align-items:center;gap:14px;margin-top:22px}
+.stepper button{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--line);background:var(--ground);font-size:1.5rem;line-height:1;color:var(--night);cursor:pointer}
+.stepper button:hover{border-color:var(--gold)}
+.stepper output{font-family:var(--kufi);font-weight:800;font-size:2.2rem;min-width:2.6ch;text-align:center;color:var(--night)}
+.stepper span{color:var(--ink2)}
+.quick{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.quick button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 16px;font-family:var(--plex);font-size:.92rem;cursor:pointer;color:var(--ink)}
+.quick button[aria-pressed="true"]{background:var(--night);color:#fff;border-color:var(--night)}
+.calc .out{background:var(--night);color:#fff;padding:32px;display:flex;flex-direction:column;justify-content:center;gap:6px;position:relative;overflow:hidden}
+.calc .out small{color:var(--mute)}
+.calc .out b{font-family:var(--kufi);font-weight:800;font-size:2.8rem;color:var(--gold2);line-height:1.3}
+.calc .out p{color:var(--soft)}
+.calc .out .row{display:flex;gap:4px;margin-top:10px;flex-wrap:wrap;min-height:30px}
+.calc .out .row i{display:block;width:12px;height:26px;border-radius:7px 7px 2px 2px;background:var(--gold)}
+.calc .out .btn{align-self:flex-start;margin-top:14px}
+
+.corp{margin-top:28px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;background:#FFFBF1;border:1px solid var(--gold);border-radius:18px;padding:24px 30px}
+.corp h3{font-size:1.15rem;font-weight:700;color:var(--night)}
+.corp p{color:var(--ink2);font-size:.95rem}
+.corp .acts{display:flex;gap:10px;flex-wrap:wrap}
+
+/* plan */
+.plan{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;position:relative}
+.plan::before{content:"";position:absolute;top:18px;right:0;left:0;height:2px;background:var(--line)}
+.plan li{position:relative;padding-top:44px;padding-inline-end:18px;min-width:0}
+.plan li::before{content:"";position:absolute;top:10px;right:0;width:18px;height:18px;border-radius:50%;background:var(--ground);border:3px solid var(--violet)}
+.plan li.hl::before{background:var(--gold);border-color:var(--gold)}
+.plan b{font-family:var(--kufi);font-weight:700;color:var(--night);display:block}
+.plan li.hl b{color:var(--gold)}
+.plan small{color:var(--ink2);font-size:.82rem;display:block}
+.plan p{font-size:.95rem;margin-top:8px}
+
+/* campaign */
+.camp{display:grid;grid-template-columns:.8fr 1.2fr;gap:36px;align-items:start}
+.ad{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--night)}
+.ad img{display:block;width:100%;height:auto}
+.ad-cap{font-size:.85rem;color:var(--ink2);margin-top:10px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tabs button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:7px 18px;font-family:var(--kufi);font-weight:700;font-size:.9rem;color:var(--ink2);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--night);color:#fff;border-color:var(--night)}
+.msgs{display:grid;gap:14px;margin-top:18px}
+.msg{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;min-width:0}
+.msg .top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.msg .ch{font-family:var(--kufi);font-weight:700;font-size:.85rem;color:var(--violet)}
+.msg pre{white-space:pre-wrap;font-family:var(--plex);font-size:.97rem;line-height:1.85;margin:10px 0 0;overflow-wrap:anywhere}
+.copy{border:1px solid var(--line);background:var(--ground);border-radius:999px;padding:5px 14px;font-family:var(--plex);font-size:.85rem;cursor:pointer;color:var(--ink)}
+.copy.ok{background:var(--night);color:#fff;border-color:var(--night)}
+.tags{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap}
+.tags span{font-size:.88rem;color:var(--violet);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:2px 12px;direction:rtl}
+
+/* faq */
+.faq{display:grid;gap:12px;max-width:860px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 24px}
+.faq summary{cursor:pointer;font-family:var(--kufi);font-weight:700;color:var(--night);padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--gold);font-size:1.3rem;line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding-bottom:16px;color:var(--ink2)}
+
+/* donate */
+.donate .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.qrs{display:grid;gap:16px}
+.qr{background:#fff;color:var(--ink);border-radius:18px;padding:18px 22px;display:flex;gap:20px;align-items:center;text-decoration:none;min-width:0}
+.qr img{width:104px;height:104px;flex:none}
+.qr b{font-family:var(--kufi);font-weight:800;font-size:1.15rem;color:var(--night);display:block}
+.qr span{color:var(--ink2);font-size:.92rem;display:block}
+.qr em{font-style:normal;direction:ltr;display:block;text-align:right;font-size:.85rem;color:var(--violet);overflow-wrap:anywhere}
+.contact{display:flex;gap:28px;flex-wrap:wrap;margin-top:26px}
+.contact small{display:block;color:var(--mute);font-size:.85rem}
+.contact b{font-weight:600;direction:ltr;display:inline-block}
+
+footer{background:var(--night2);color:var(--soft);font-size:.88rem;padding-block:26px calc(26px + env(safe-area-inset-bottom,0px))}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+footer .lc{background:#fff;border-radius:10px;padding:6px 10px;display:inline-flex}
+footer img{height:34px}
+
+@media (max-width:980px){
+  .links{display:none}
+  .hero .wrap,.about,.chart-wrap,.camp,.donate .wrap,.calc{grid-template-columns:1fr}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts div:nth-child(3){border:0}
+  .facts div:nth-child(n+3){border-top:1px solid var(--line)}
+  .path{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pk-grid{grid-template-columns:1fr;align-items:stretch}
+  .plan{grid-template-columns:1fr;gap:18px}
+  .plan::before{top:0;bottom:0;right:8px;left:auto;width:2px;height:auto}
+  .plan li{padding-top:0;padding-right:36px}
+  .plan li::before{top:6px}
+  .camp .ad{max-width:420px}
+}
+@media (max-width:600px){
+  section{padding-block:64px}
+  .nav .brand b{display:none}
+  .facts,.path,.pillars,.mile{grid-template-columns:1fr}
+  .facts div{border:0 !important;border-top:1px solid var(--line) !important}
+  .facts div:first-child{border-top:0 !important}
+  .ambition{flex-direction:column;align-items:flex-start;padding:28px}
+  .hero .acts{padding-bottom:36px}
+  .qr img{width:84px;height:84px}
+}
+
+/* gift + share + sticky donate */
+.giftbox{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.gf{margin-bottom:14px}
+.gf label{display:block;font-weight:600;font-size:.92rem;margin-bottom:6px}
+.gf input,.gf select{width:100%;border:1px solid #D9CFB6;border-radius:12px;padding:10px 14px;font:inherit;background:#fff}
+.gacts{display:flex;gap:10px;flex-wrap:wrap}
+#gCanvas{width:100%;height:auto;border-radius:18px;display:block;max-width:100%}
+.share{margin-top:28px;background:var(--night);color:#fff;border-radius:20px;padding:26px 30px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.share h3{font-size:1.25rem;font-weight:800;color:var(--gold2)}
+.share p{color:var(--soft)}
+.btn-line-d{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35)}
+.sticky-give{display:none}
+@media (max-width:760px){
+  .giftbox{grid-template-columns:1fr}
+  .sticky-give{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--night);border-top:1px solid var(--edge);padding:10px max(16px,env(safe-area-inset-left)) calc(10px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-right));align-items:center;justify-content:space-between;gap:12px}
+  .sticky-give span{color:var(--soft);font-size:.9rem}
+  .sticky-give b{color:var(--gold2);font-family:var(--kufi)}
+  footer{padding-bottom:calc(90px + env(safe-area-inset-bottom))}
+}
+.notice{background:var(--gold);color:var(--night);text-align:center;font-family:var(--kufi);font-weight:700;font-size:.95rem;padding:8px 16px}
+</style>
+
+<div class="notice" id="siteNotice" hidden></div>
+<nav class="nav" aria-label="القائمة الرئيسية">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="lc"><img src="img/logo.png" alt="الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع"></span><b>فتية المحراب</b></a>
+    <div class="links">
+      <a href="#about">البرنامج</a><a href="#journey">المسيرة</a><a href="#path">التأهيل</a><a href="#partner">الشراكة</a><a href="#campaign">الحملة</a><a href="#gift">أهدِ الأجر</a><a href="#faq">الأسئلة</a>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center"><a class="btn btn-line" href="app.html" style="padding:9px 16px;font-size:.88rem">دخول الفريق</a><a class="btn btn-gold" href="https://store.yq.org.sa/mQNmWOK" target="_blank" rel="noopener">أهِّل فتًى</a></div>
+  </div>
+</nav>
+
+<header class="hero dark" id="top">
+  <svg class="stars" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+    <g fill="#F0CC74"><circle cx="8" cy="14" r=".25" opacity=".7"/><circle cx="22" cy="40" r=".18" opacity=".5"/><circle cx="64" cy="10" r=".22" opacity=".6"/><circle cx="88" cy="28" r=".2" opacity=".5"/><circle cx="46" cy="22" r=".16" opacity=".45"/><circle cx="94" cy="60" r=".18" opacity=".4"/><circle cx="4" cy="70" r=".18" opacity=".4"/><circle cx="34" cy="8" r=".2" opacity=".55"/><circle cx="74" cy="46" r=".15" opacity=".35"/></g>
+  </svg>
+  <div class="wrap">
+    <div>
+      <div class="ed">النسخة <b class="num">16</b> رمضان 1448هـ</div>
+      <h1>فتية المحراب</h1>
+      <div class="slogan">من الحلقة.. إلى المحراب</div>
+      <p class="sub">نؤهّل نخبة من طلاب الحلقات لإمامة المصلين في صلاة التراويح بمساجد ينبع.</p>
+      <div class="acts">
+        <a class="btn btn-gold" href="https://store.yq.org.sa/mQNmWOK" target="_blank" rel="noopener">أهِّل فتًى</a>
+        <a class="btn btn-line" href="#partner">فرص الشراكة</a>
+      </div>
+    </div>
+    <svg class="skyline" id="heroSky" viewBox="0 0 520 300" role="img" aria-label="ستة عشر محرابًا متصاعدًا، من النسخة الأولى إلى النسخة السادسة عشرة"></svg>
+  </div>
+  <div class="hadith">«يَؤُمُّ القَوْمَ أَقْرَؤُهُمْ لِكِتَابِ اللَّهِ»<small>رواه مسلم</small></div>
+</header>
+
+<div class="facts-sec">
+  <div class="wrap">
+    <div class="facts">
+      <div><small>أكثر من</small><b class="num">30,000</b><span>مصلٍّ سنويًا في التراويح</span></div>
+      <div><small>أكثر من</small><b class="num">40</b><span>فتًى يُؤهَّلون سنويًا</span></div>
+      <div><small>نُفّذ البرنامج</small><b class="num">14 مرة</b><span>حتى 1446هـ</span></div>
+      <div><small>التكلفة التقديرية</small><b class="num">1,500</b><span>ريال لتأهيل الفتى</span></div>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick">التعريف بالبرنامج</div>
+      <h2>نُعِدّ أئمة المستقبل من حلقات ينبع</h2>
+      <p>برنامج نوعي يؤهّل نخبة من طلاب الحلقات المتميزين علميًا وعمليًا لإمامة المصلين في صلاة التراويح، بالتعاون مع إدارة المساجد والدعوة والإرشاد بمحافظة ينبع.</p>
+    </div>
+    <div class="about">
+      <div class="card">
+        <h3>عن فتية المحراب</h3>
+        <p>يتحوّل فيه حفظ الطالب في الحلقة إلى إمامة يسمعها الناس في رمضان. يختار البرنامج المتميزين في الحفظ والأداء، ويؤهّلهم بدورات علمية وتدريب عملي في المساجد بإشراف معلم من الجمعية، ثم يؤمّون المصلين في صلاة التراويح.</p>
+      </div>
+      <div class="card">
+        <h3>عن الجمعية</h3>
+        <p>الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع، تُعنى بتعليم القرآن الكريم لجميع فئات المجتمع في ينبع وقراها.</p>
+        <div class="kv">
+          <div><span>ترخيص المركز الوطني لتنمية القطاع غير الربحي</span><b class="num">3165</b></div>
+          <div><span>الرقم الموحد</span><b class="num">7001396840</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="ambition">
+      <svg viewBox="0 0 40 64" aria-hidden="true"><path d="M20 1 V8" stroke="#D4A23C" stroke-width="1.6"/><path d="M13 12 H27 L25 8 H15 Z" fill="#D4A23C"/><path d="M13 12 L9 19 V39 L20 52 L31 39 V19 L27 12 Z" fill="none" stroke="#D4A23C" stroke-width="1.8" stroke-linejoin="round"/><path d="M15 21 H25 V37 L20 43 L15 37 Z" fill="#5C4E52"/><path d="M20 52 V60" stroke="#D4A23C" stroke-width="1.6"/></svg>
+      <div><small>طموح البرنامج</small><p>أن يكون في كل حيّ من أحياء ينبع إمامٌ شاب متقن، تخرّج من حلقات الجمعية.</p></div>
+    </div>
+    <div class="pillars">
+      <div><h3>للطالب</h3><p>ثقة ومسؤولية، وثمرة حيّة لسنوات الحفظ في الحلقة.</p></div>
+      <div><h3>للمسجد</h3><p>إمام متقن مؤهّل في التجويد وأحكام الإمامة والصلاة.</p></div>
+      <div><h3>للمجتمع</h3><p>جيل من الأئمة يحمل القرآن ويقدّمه لأهل ينبع.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="journey">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick">المسيرة</div>
+      <h2>16 نسخة.. ومحرابٌ يكبر كل عام</h2>
+      <p>اختر نسخة لتعرف محطتها في مسيرة البرنامج.</p>
+    </div>
+    <div class="chart-wrap">
+      <svg class="editions" id="edSky" viewBox="0 0 640 300" role="group" aria-label="نسخ البرنامج من 1 إلى 16"></svg>
+      <div class="panel" id="edPanel" aria-live="polite">
+        <small id="pSmall">النسخة 16</small>
+        <h3 id="pTitle">رمضان 1448هـ</h3>
+        <p id="pText">النسخة القادمة، وتبدأ بشراكتكم.</p>
+        <div class="hint">ارتفاع المحاريب رمزي يعبّر عن نمو البرنامج.</div>
+      </div>
+    </div>
+    <div class="mile">
+      <div><small>من النسخة 1 إلى 14</small><b>حتى 1446هـ</b><span>14 نسخة منفّذة بالتعاون مع إدارة المساجد</span></div>
+      <div class="g"><small>النسخة 15</small><b>رمضان 1447هـ</b><span>50 طالبًا أمّوا المصلين في التراويح</span></div>
+      <div class="f"><small>النسخة 16</small><b>رمضان 1448هـ</b><span id="liveQual">النسخة القادمة، وتبدأ بشراكتكم</span></div>
+    </div>
+    <p class="src">المصادر: دليل برامج الجمعية، وصفحة البرنامج في متجر الجمعية لرمضان 1447هـ.</p>
+  </div>
+</section>
+
+<section id="path">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick">رحلة التأهيل</div>
+      <h2>كيف يُعَدّ فتى المحراب؟</h2>
+      <p>لا يقف الفتى في المحراب إلا بعد اختيار دقيق، وتأهيل علمي، وتدريب عملي في المسجد.</p>
+    </div>
+    <ol class="path">
+      <li><div class="n">1</div><h3>الاختيار</h3><p>يُرشَّح الفتية من نخبة طلاب الحلقات المتميزين في الحفظ والأداء.</p></li>
+      <li><div class="n">2</div><h3>التأهيل العلمي</h3><p>دورات يقدّمها معلمو الجمعية:</p>
+        <div class="chips"><span>أحكام التجويد</span><span>مخارج الحروف وصفاتها</span><span>الوقف والابتداء</span><span>أحكام الإمامة</span><span>أحكام الصلاة</span><span>التعامل مع المصلين</span></div></li>
+      <li><div class="n">3</div><h3>التدريب العملي</h3><p>تدريب في المساجد بإشراف معلم من الجمعية قبل بداية البرنامج.</p></li>
+      <li><div class="n">4</div><h3>الإمامة في التراويح</h3><p>يؤمّ الفتى المصلين في المساجد المحددة بالتنسيق مع إدارة المساجد والدعوة والإرشاد، مع متابعة ميدانية.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="partner" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick">فرص الشراكة</div>
+      <h2>كونوا جزءًا من النسخة 16</h2>
+      <p>التكلفة التقديرية لتأهيل الفتى الواحد 1,500 ريال حسب دليل برامج الجمعية، وتختار الجهة الداعمة حجم شراكتها.</p>
+    </div>
+    <div class="pk-grid">
+      <div class="pk">
+        <svg viewBox="0 0 14 24" aria-hidden="true"><path d="M2 24 V13 Q2 7.5 7 3 Q12 7.5 12 13 V24 Z" fill="none" stroke="#D4A23C" stroke-width="1"/></svg>
+        <h3>تأهيل فتى</h3><div class="amt num">1,500<small>ريال</small></div><div class="w">إمام واحد في رمضان</div>
+        <ul><li>خطاب شكر باسم الداعم</li><li>تقرير ختامي عن البرنامج</li></ul>
+        <a class="btn btn-night" href="https://store.yq.org.sa/mQNmWOK" target="_blank" rel="noopener">أهِّل فتًى</a>
+      </div>
+      <div class="pk">
+        <svg viewBox="0 0 40 24" aria-hidden="true" id="mini5"></svg>
+        <h3>رعاية 5 فتية</h3><div class="amt num">7,500<small>ريال</small></div><div class="w">خمسة أئمة في رمضان</div>
+        <ul><li>خطاب شكر باسم الجهة</li><li>شكر في حسابات الجمعية</li><li>تقرير ختامي بالأثر</li></ul>
+        <a class="btn btn-night" href="https://store.yq.org.sa/mQNmWOK" target="_blank" rel="noopener">أهِّل فتًى</a>
+      </div>
+      <div class="pk top">
+        <span class="ribbon">الشراكة الأوسع</span>
+        <svg viewBox="0 0 60 24" aria-hidden="true" id="mini10"></svg>
+        <h3>رعاية 10 فتية</h3><div class="amt num">15,000<small>ريال</small></div><div class="w">عشرة أئمة في رمضان</div>
+        <ul><li>شعار الجهة في تصاميم الحملة</li><li>شكر في حسابات الجمعية</li><li>تقرير أثر خاص بالجهة</li><li>تكريم الجهة في ختام البرنامج</li></ul>
+        <a class="btn btn-gold" href="https://store.yq.org.sa/mQNmWOK" target="_blank" rel="noopener">أهِّل فتًى</a>
+      </div>
+    </div>
+
+    <div class="calc">
+      <div class="in">
+        <h3>كم فتًى تؤهّل؟</h3>
+        <p>اختر العدد لترى قيمة الشراكة.</p>
+        <div class="stepper">
+          <button type="button" id="minus" aria-label="إنقاص">−</button>
+          <output id="count" class="num" aria-live="polite">1</output>
+          <button type="button" id="plus" aria-label="زيادة">+</button>
+          <span>فتى</span>
+        </div>
+        <div class="quick" id="quick">
+          <button type="button" data-n="1" aria-pressed="true">فتى</button>
+          <button type="button" data-n="5" aria-pressed="false">5 فتية</button>
+          <button type="button" data-n="10" aria-pressed="false">10 فتية</button>
+        </div>
+      </div>
+      <div class="out">
+        <small>قيمة الشراكة التقديرية</small>
+        <b class="num" id="total">1,500 ريال</b>
+        <p id="totalText">إمام شاب في محراب من محاريب ينبع هذا الرمضان.</p>
+        <div class="row" id="arches" aria-hidden="true"></div>
+        <a class="btn btn-gold" href="https://store.yq.org.sa/mQNmWOK" target="_blank" rel="noopener">أهِّل فتًى</a>
+      </div>
+    </div>
+
+    <div class="corp">
+      <div><h3>للشركات والجهات المانحة</h3><p>نسعد بموعد قصير لعرض ملف الشراكة وتفاصيل النسخة 16.</p></div>
+      <div class="acts">
+        <a class="btn btn-night" href="https://wa.me/966553671414?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D9%86%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%B1%D8%B9%D8%A7%D9%8A%D8%A9%20%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC%20%D9%81%D8%AA%D9%8A%D8%A9%20%D8%A7%D9%84%D9%85%D8%AD%D8%B1%D8%A7%D8%A8" target="_blank" rel="noopener">طلب موعد عبر واتساب</a>
+        <button type="button" class="copy" data-copy="0553671414">نسخ الرقم 0553671414</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0" id="plan">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick">الخطة التنفيذية</div>
+      <h2>طريق النسخة 16 إلى المحراب</h2>
+      <p>تكتمل الرعاية والتأهيل قبل نهاية شعبان، ويصل التقرير الختامي إلى الرعاة في شوال.</p>
+    </div>
+    <ol class="plan">
+      <li><b>جمادى 1448هـ</b><small>أكتوبر - ديسمبر 2026</small><p>عقد الشراكات واعتماد الرعايات.</p></li>
+      <li><b>رجب</b><small>ديسمبر 2026 - يناير 2027</small><p>ترشيح الفتية من المتميزين.</p></li>
+      <li><b>رجب - شعبان</b><small>يناير - فبراير 2027</small><p>الدورات العلمية والتدريب العملي.</p></li>
+      <li class="hl"><b>رمضان</b><small>فبراير - مارس 2027</small><p>الفتية في محاريب ينبع، بمتابعة ميدانية.</p></li>
+      <li><b>شوال</b><small>مارس 2027</small><p>تكريم الفتية والرعاة، وتقرير الأثر.</p></li>
+    </ol>
+    <p class="note">التواريخ الميلادية تقريبية.</p>
+  </div>
+</section>
+
+<section id="campaign" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick">مركز الحملة</div>
+      <h2>انشر الخير بضغطة</h2>
+      <p>رسائل جاهزة للنسخ، وإعلان النسخة 16 للمشاركة في واتساب ومنصات التواصل.</p>
+    </div>
+    <div class="camp">
+      <div>
+        <div class="ad"><img src="img/d/16-ad.jpg" alt="إعلان فتية المحراب النسخة 16: أهِّل فتًى للمحراب 1,500 ريال" width="1080" height="1350" loading="lazy"></div>
+        <p class="ad-cap">لحفظ الإعلان على الجوال: اضغط مطوّلًا على الصورة ثم اختر حفظ.</p>
+      </div>
+      <div>
+        <div class="tabs" role="tablist" aria-label="الجمهور">
+          <button type="button" role="tab" aria-selected="true" data-t="ind">الأفراد</button>
+          <button type="button" role="tab" aria-selected="false" data-t="corp">الشركات</button>
+          <button type="button" role="tab" aria-selected="false" data-t="season">مواسم رمضان</button>
+        </div>
+        <div class="msgs" id="msgs" role="tabpanel"></div>
+        <div class="tags"><span>#فتية_المحراب</span><span>#ينبع</span><span>#تحفيظ_القرآن</span><span>#التراويح</span><span>#رمضان</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gift" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kick">أهدِ الأجر</div>
+      <h2>اجعل تأهيل فتى هديةً لمن تحب</h2>
+      <p>تبرّع من صفحة البرنامج، ثم اصنع بطاقة إهداء باسم والديك أو من تحب، وأرسلها لهم.</p>
+    </div>
+    <div class="giftbox">
+      <div class="card">
+        <div class="gf"><label for="gTo">اسم المُهدى إليه</label><input id="gTo" placeholder="مثال: والدتي الغالية"></div>
+        <div class="gf"><label for="gFrom">من</label><input id="gFrom" placeholder="مثال: ابنك عبدالله"></div>
+        <div class="gf"><label for="gN">عدد الفتية</label><select id="gN"><option value="1">فتى واحد</option><option value="2">فتيان</option><option value="5">5 فتية</option><option value="10">10 فتية</option></select></div>
+        <div class="gacts">
+          <a class="btn btn-gold" href="https://store.yq.org.sa/mQNmWOK" target="_blank" rel="noopener">أهِّل فتًى</a>
+          <button type="button" class="btn btn-night" id="gSave">حفظ بطاقة الإهداء</button>
+        </div>
+        <p class="note">البطاقة للإهداء الشخصي، والتبرع يتم من متجر الجمعية.</p>
+      </div>
+      <canvas id="gCanvas" width="1080" height="1350" aria-label="معاينة بطاقة الإهداء"></canvas>
+    </div>
+    <div class="share">
+      <div><h3>شارك الأجر</h3><p>«الدالّ على الخير كفاعله» رواه الترمذي. أرسل البرنامج لأهلك وأصدقائك.</p></div>
+      <div class="gacts"><a class="btn btn-gold" id="shareWa" href="#" target="_blank" rel="noopener">مشاركة عبر واتساب</a><button type="button" class="btn btn-line-d" id="shareCopy">نسخ الرسالة</button></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><h2>أسئلة شائعة</h2></div>
+    <div class="faq">
+      <details><summary>من هم فتية المحراب؟</summary><p>نخبة من طلاب حلقات الجمعية المتميزين في الحفظ والأداء، يؤمّون المصلين في صلاة التراويح بعد تأهيل علمي وعملي.</p></details>
+      <details><summary>كيف يُؤهَّلون؟</summary><p>دورات في أحكام التجويد، ومخارج الحروف وصفاتها، والوقف والابتداء، وأحكام الإمامة، والتعامل مع المصلين، وأحكام الصلاة، ثم تدريب عملي في المساجد بإشراف معلم من الجمعية قبل بداية البرنامج.</p></details>
+      <details><summary>كم تكلفة تأهيل الفتى؟</summary><p>التكلفة التقديرية لتأهيل الفتى الواحد 1,500 ريال حسب دليل برامج الجمعية.</p></details>
+      <details><summary>كيف أدعم البرنامج؟</summary><p>عبر صفحة البرنامج في متجر الجمعية، وللتحقق من موثوقية الجمعية عبر منصة «تبرّع بأمان». وللاستفسار: 0553671414.</p></details>
+      <details><summary>نريد إمامًا لمسجد حيّنا في التراويح</summary><p>البرنامج بالتعاون مع إدارة المساجد والدعوة والإرشاد بمحافظة ينبع. للتنسيق: 0553671414.</p></details>
+      <details><summary>نحن شركة ونريد الرعاية</summary><p>نسعد بشراكتكم: رعاية 5 فتية بـ7,500 ريال، أو 10 فتية بـ15,000 ريال. للتنسيق: 0553671414.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="dark donate" id="donate">
+  <div class="wrap">
+    <div>
+      <div class="kick">ادعم النسخة 16</div>
+      <h2 style="font-size:clamp(1.8rem,3.8vw,2.7rem);font-weight:800">كن سببًا في صوتٍ يتلو القرآن هذا الرمضان</h2>
+      <div class="contact">
+        <div><small>جوال وواتساب الجمعية</small><b class="num">0553671414</b></div>
+        <div><small>البريد الإلكتروني</small><b>tahfez-q@hotmail.com</b></div>
+        <div><small>منصة X</small><b>@yanbu_quran</b></div>
+      </div>
+    </div>
+    <div class="qrs">
+      <a class="qr" href="https://store.yq.org.sa/mQNmWOK" target="_blank" rel="noopener"><img src="img/qr_store.png" alt="رمز صفحة البرنامج في المتجر"><div><b>صفحة البرنامج</b><span>متجر الجمعية الإلكتروني</span><em>store.yq.org.sa/mQNmWOK</em></div></a>
+      <a class="qr" href="https://dongovernance.ncnp.gov.sa/aman/c/4970" target="_blank" rel="noopener"><img src="img/qr_aman.png" alt="رمز تبرّع بأمان"><div><b>تبرّع بأمان</b><span>المركز الوطني لتنمية القطاع غير الربحي</span><em>dongovernance.ncnp.gov.sa/aman/c/4970</em></div></a>
+    </div>
+  </div>
+</section>
+
+<div class="sticky-give"><span>تأهيل فتى <b>1,500</b> ريال</span><a class="btn btn-gold" href="https://store.yq.org.sa/mQNmWOK" target="_blank" rel="noopener">أهِّل فتًى</a></div>
+
+<footer>
+  <div class="wrap">
+    <span class="lc"><img src="img/logo.png" alt="الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع"></span>
+    <span>ترخيص رقم <span class="num">3165</span>، الرقم الموحد <span class="num">7001396840</span></span>
+    <span>إعداد وتطوير: عبدالمجيد السيد</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var NS="http://www.w3.org/2000/svg", STORE="https://store.yq.org.sa/mQNmWOK";
+  function archPath(x,base,w,h){var r=w*.62,t=base-h;return "M"+x+" "+base+" V"+(t+r)+" Q"+x+" "+(t+r*.22)+" "+(x+w/2)+" "+t+" Q"+(x+w)+" "+(t+r*.22)+" "+(x+w)+" "+(t+r)+" V"+base+" Z";}
+  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+  function style(i,n){
+    if(i===n-1)return{fill:"#D4A23C",stroke:"#F0CC74",sw:1.4,op:1};
+    if(i===n-2)return{fill:"#3A3480",stroke:"#D4A23C",sw:1.3,op:1};
+    return{fill:"#241F57",stroke:"#3A3480",sw:1,op:.4+.55*(i/(n-3))};
+  }
+  function sky(svg,W,H,opts){
+    var n=16,gr=opts.gap||.24,u=W/(n+(n-1)*gr),g=u*gr,base=H-(opts.labels?24:0),hmin=opts.hmin||.22,out=[];
+    for(var i=0;i<n;i++){
+      var x=W-(i+1)*u-i*g,h=(base-(opts.top||6))*(hmin+(1-hmin)*Math.pow(i/(n-1),1.15)),s=style(i,n);
+      var grp=el("g",{"class":"e"});
+      var p=el("path",{d:archPath(x,base,u,h),fill:s.fill,stroke:s.stroke,"stroke-width":s.sw,opacity:s.op,"class":"a"});
+      p.style.setProperty("--i",i);grp.appendChild(p);
+      if(opts.labels){
+        var t=el("text",{x:x+u/2,y:H-4,"text-anchor":"middle",fill:i>=n-2?"#F0CC74":"#9A95C8","font-weight":i>=n-2?700:400});
+        t.textContent=String(i+1);grp.appendChild(t);
+      }
+      svg.appendChild(grp);out.push(grp);
+    }
+    return out;
+  }
+  sky(document.getElementById("heroSky"),520,300,{top:10});
+  var groups=sky(document.getElementById("edSky"),640,300,{labels:true,top:8});
+  var info=function(ed){
+    if(ed===16)return["النسخة 16","رمضان 1448هـ","النسخة القادمة، وتبدأ بشراكتكم."];
+    if(ed===15)return["النسخة 15","رمضان 1447هـ","دعمت الجمعية 50 طالبًا لإمامة المصلين في صلاة التراويح."];
+    if(ed===14)return["النسخة 14","رمضان 1446هـ","اكتملت 14 نسخة من البرنامج بالتعاون مع إدارة المساجد والدعوة والإرشاد."];
+    return["النسخة "+ed,"قبل 1446هـ","من النسخ الأولى التي بنت مسيرة البرنامج حتى 1446هـ."];
+  };
+  var pS=document.getElementById("pSmall"),pT=document.getElementById("pTitle"),pX=document.getElementById("pText");
+  groups.forEach(function(gp,i){
+    var ed=i+1;gp.setAttribute("tabindex","0");gp.setAttribute("role","button");gp.setAttribute("aria-label","النسخة "+ed);
+    var show=function(){var d=info(ed);pS.textContent=d[0];pT.textContent=d[1];pX.textContent=d[2];
+      groups.forEach(function(o,j){o.firstChild.setAttribute("stroke-width",j===i?2.4:style(j,16).sw);});};
+    gp.addEventListener("mouseenter",show);gp.addEventListener("click",show);gp.addEventListener("focus",show);
+    gp.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();show();}});
+  });
+
+  function mini(id,n,W){var s=document.getElementById(id),u=W/(n*1.3);for(var i=0;i<n;i++){var h=11+i*(11/n);s.appendChild(el("path",{d:archPath(W-(i+1)*u-i*u*.3,24,u,h),fill:i===n-1?"#D4A23C":"none",stroke:"#D4A23C","stroke-width":.8}));}}
+  mini("mini5",5,40);mini("mini10",10,60);
+
+  var n=1,cEl=document.getElementById("count"),tEl=document.getElementById("total"),xEl=document.getElementById("totalText"),aEl=document.getElementById("arches");
+  function render(){
+    cEl.textContent=n;tEl.textContent=(n*1500).toLocaleString("en-US")+" ريال";
+    xEl.textContent=n===1?"إمام شاب في محراب من محاريب ينبع هذا الرمضان.":n+" أئمة شباب في محاريب ينبع هذا الرمضان.";
+    if(n>2&&n<11){xEl.textContent=n+" أئمة شباب في محاريب ينبع هذا الرمضان.";}
+    else if(n>=11){xEl.textContent=n+" إمامًا شابًا في محاريب ينبع هذا الرمضان.";}
+    else if(n===2){xEl.textContent="إمامان شابان في محاريب ينبع هذا الرمضان.";}
+    aEl.innerHTML="";for(var i=0;i<Math.min(n,20);i++){aEl.appendChild(document.createElement("i"));}
+    document.querySelectorAll("#quick button").forEach(function(b){b.setAttribute("aria-pressed",String(+b.dataset.n===n));});
+  }
+  document.getElementById("plus").onclick=function(){if(n<20){n++;render();}};
+  document.getElementById("minus").onclick=function(){if(n>1){n--;render();}};
+  document.querySelectorAll("#quick button").forEach(function(b){b.onclick=function(){n=+b.dataset.n;render();};});
+  render();
+
+  var M={
+    ind:[["X","«يؤمُّ القومَ أقرؤُهم لكتابِ الله» رواه مسلم.\nأهِّل فتًى من طلاب الحلقات ليؤمّ المصلين في صلاة التراويح: 1,500 ريال.\n"+STORE],
+         ["X","فتية المحراب.. النسخة 16.\nيستفيد أكثر من 30,000 مصلٍّ سنويًا من فتية المحراب في صلاة التراويح.\nكن شريكًا في إعداد فتى جديد بـ1,500 ريال.\n"+STORE],
+         ["واتساب","فتية المحراب برنامج نوعي في الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع، يؤهّل نخبة من طلاب الحلقات المتميزين علميًا وعمليًا ليؤمّوا المصلين في صلاة التراويح.\nالتكلفة التقديرية لتأهيل الفتى الواحد 1,500 ريال.\n"+STORE],
+         ["واتساب · الجمعة","جمعة مباركة..\nاجعل لك سهمًا في إعداد إمام شاب لمساجد ينبع: تأهيل فتى للمحراب بـ1,500 ريال.\n"+STORE]],
+    corp:[["لينكدإن","فتية المحراب: برنامج نوعي نُفّذ 14 مرةً حتى 1446هـ، يؤهّل أكثر من 40 فتًى سنويًا لإمامة المصلين في صلاة التراويح، ويستفيد منه أكثر من 30,000 مصلٍّ سنويًا.\nنرحب بشراكة القطاع الخاص في رعاية فتية النسخة 16.\nللتواصل: 0553671414"],
+          ["واتساب · مسؤول الشركة","السلام عليكم،\nنعرض على شركتكم رعاية برنامج فتية المحراب في نسخته 16 لرمضان 1448هـ: رعاية 5 فتية بـ7,500 ريال، أو 10 فتية بـ15,000 ريال.\nهل يناسبكم موعد قصير هذا الأسبوع لعرض التفاصيل؟\nللتواصل: 0553671414"]],
+    season:[["قبل رمضان","اقترب رمضان، وفتية المحراب يستعدّون لمحاريب ينبع.\nأهِّل فتًى بـ1,500 ريال قبل دخول الشهر.\n"+STORE],
+            ["في رمضان","فتية المحراب في محاريب ينبع هذه الليالي.. تقبّل الله من الجميع.\nشكرًا لكل من أسهم في تأهيلهم.\n"+STORE],
+            ["بعد رمضان","بفضل الله ثم بدعمكم أمّ فتية المحراب المصلين في صلاة التراويح هذا العام.\nشكرًا لكل داعم، ونلقاكم في رمضان القادم بإذن الله.\n"+STORE]]
+  };
+  var box=document.getElementById("msgs");
+  function copyText(btn,text,label){
+    var done=function(){btn.classList.add("ok");btn.textContent="تم النسخ";setTimeout(function(){btn.classList.remove("ok");btn.textContent=label;},1600);};
+    try{navigator.clipboard.writeText(text).then(done,function(){fallback(text);done();});}catch(e){fallback(text);done();}
+  }
+  function fallback(text){var t=document.createElement("textarea");t.value=text;t.style.position="fixed";t.style.opacity="0";document.body.appendChild(t);t.select();try{document.execCommand("copy");}catch(e){}t.remove();}
+  function showTab(k){
+    box.innerHTML="";
+    M[k].forEach(function(m){
+      var d=document.createElement("div");d.className="msg";
+      d.innerHTML='<div class="top"><span class="ch"></span><button type="button" class="copy">نسخ النص</button></div><pre></pre>';
+      d.querySelector(".ch").textContent=m[0];d.querySelector("pre").textContent=m[1];
+      var b=d.querySelector(".copy");b.onclick=function(){copyText(b,m[1],"نسخ النص");};
+      box.appendChild(d);
+    });
+    document.querySelectorAll(".tabs button").forEach(function(b){b.setAttribute("aria-selected",String(b.dataset.t===k));});
+  }
+  document.querySelectorAll(".tabs button").forEach(function(b){b.onclick=function(){showTab(b.dataset.t);};});
+  showTab("ind");
+  document.querySelectorAll("[data-copy]").forEach(function(b){var l=b.textContent;b.onclick=function(){copyText(b,b.dataset.copy,l);};});
+})();
+</script>
+<script>
+fetch("https://kpsuwxzsjsqngcvdachb.supabase.co/rest/v1/rpc/fit_public_stats",{method:"POST",headers:{"apikey":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtwc3V3eHpzanNxbmdjdmRhY2hiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE5OTcwNTAsImV4cCI6MjEwNzU3MzA1MH0.FJXRTLR42pb6mauQzJDUSWnmSw0y3Q62F5xvD6nlHOM","Content-Type":"application/json"},body:"{}"})
+.then(function(r){return r.json();}).then(function(d){var n=d&&d[0]&&d[0].qualified_count;if(n>0){document.getElementById("liveQual").textContent=n.toLocaleString("en-US")+" فتى مؤهَّل حتى الآن، والتأهيل مستمر";}}).catch(function(){});
+</script>
+<script>
+(function(){
+  var STORE="https://store.yq.org.sa/mQNmWOK";
+  var msg="شاركت في برنامج فتية المحراب، الذي يؤهّل طلاب الحلقات ليؤمّوا المصلين في صلاة التراويح بمساجد ينبع.\nتأهيل الفتى 1,500 ريال، فشاركني الأجر:\n"+STORE;
+  var wa=document.getElementById("shareWa");wa.href="https://wa.me/?text="+encodeURIComponent(msg);
+  document.getElementById("shareCopy").onclick=function(){var b=this,l=b.textContent;var ok=function(){b.textContent="تم النسخ";setTimeout(function(){b.textContent=l;},1500);};
+    try{navigator.clipboard.writeText(msg).then(ok,function(){fb();ok();});}catch(e){fb();ok();}
+    function fb(){var t=document.createElement("textarea");t.value=msg;t.style.position="fixed";t.style.opacity="0";document.body.appendChild(t);t.select();try{document.execCommand("copy");}catch(e){}t.remove();}};
+  var logo=new Image();logo.src="img/logo.png";
+  function arch(c,x,b,w,h){var r=w*.62,t=b-h;c.beginPath();c.moveTo(x,b);c.lineTo(x,t+r);c.quadraticCurveTo(x,t+r*.22,x+w/2,t);c.quadraticCurveTo(x+w,t+r*.22,x+w,t+r);c.lineTo(x+w,b);c.closePath();}
+  function wrap(c,txt,x,y,mw,lh){var w=txt.split(" "),line="",n=0;w.forEach(function(s){var t=line?line+" "+s:s;if(c.measureText(t).width>mw&&line){c.fillText(line,x,y+n*lh);n++;line=s;}else line=t;});if(line){c.fillText(line,x,y+n*lh);n++;}return n;}
+  function draw(){
+    var cv=document.getElementById("gCanvas"),c=cv.getContext("2d"),W=1080,H=1350;
+    c.fillStyle="#16133A";c.fillRect(0,0,W,H);
+    c.fillStyle="#F0CC74";[[90,180,2.5],[220,90,1.8],[860,140,2.2],[980,320,1.6],[150,420,1.6],[620,70,1.6],[760,380,1.4]].forEach(function(s){c.globalAlpha=.6;c.beginPath();c.arc(s[0],s[1],s[2],0,7);c.fill();});c.globalAlpha=1;
+    c.fillStyle="#fff";c.fillRect(W/2-190,0,380,150);c.fillStyle="#D4A23C";c.fillRect(W/2-190,146,380,8);
+    if(logo.complete&&logo.naturalWidth){var lw=300,lh=lw*logo.naturalHeight/logo.naturalWidth;c.drawImage(logo,W/2-lw/2,22,lw,lh);}
+    arch(c,150,1130,780,860);c.fillStyle="#241F57";c.fill();c.strokeStyle="#D4A23C";c.lineWidth=5;c.stroke();
+    arch(c,180,1130,720,820);c.strokeStyle="#3A3480";c.lineWidth=2;c.stroke();
+    var to=document.getElementById("gTo").value.trim()||"اسم المُهدى إليه",from=document.getElementById("gFrom").value.trim(),n=+document.getElementById("gN").value;
+    var cnt=n===1?"فتى":n===2?"فتيين":n+" فتية";
+    c.direction="rtl";c.textAlign="center";
+    c.fillStyle="#F0CC74";c.font="700 40px 'Noto Kufi Arabic', sans-serif";c.fillText("إهداء",W/2,520);
+    c.fillStyle="#fff";c.font="800 74px 'Noto Kufi Arabic', sans-serif";wrap(c,to,W/2,640,640,94);
+    c.fillStyle="#CFCBEA";c.font="500 38px 'IBM Plex Sans Arabic', sans-serif";
+    wrap(c,"أُهدي إليكم أجر تأهيل "+cnt+" لإمامة المصلين في صلاة التراويح بمساجد ينبع."+(from?" من "+from+".":""),W/2,790,620,62);
+    c.fillStyle="#D4A23C";c.font="700 36px 'Noto Kufi Arabic', sans-serif";c.fillText("فتية المحراب",W/2,1100);
+    c.fillStyle="#241F57";c.fillRect(0,1180,W,170);
+    c.fillStyle="#F0CC74";c.font="700 34px 'Noto Kufi Arabic', sans-serif";c.fillText("من الحلقة.. إلى المحراب",W/2,1250);
+    c.fillStyle="#CFCBEA";c.font="500 26px 'IBM Plex Sans Arabic', sans-serif";c.fillText("الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع · النسخة 16",W/2,1305);
+  }
+  ["gTo","gFrom","gN"].forEach(function(id){document.getElementById(id).addEventListener("input",draw);});
+  logo.onload=draw;(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(draw);draw();
+  document.getElementById("gSave").onclick=function(){var a=document.createElement("a");a.download="إهداء-فتية-المحراب.png";a.href=document.getElementById("gCanvas").toDataURL("image/png");document.body.appendChild(a);a.click();a.remove();};
+})();
+</script>
+<script>
+(function(){
+  var U="https://kpsuwxzsjsqngcvdachb.supabase.co/rest/v1/",K="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtwc3V3eHpzanNxbmdjdmRhY2hiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE5OTcwNTAsImV4cCI6MjEwNzU3MzA1MH0.FJXRTLR42pb6mauQzJDUSWnmSw0y3Q62F5xvD6nlHOM";
+  var get=function(p){return fetch(U+p,{headers:{apikey:K}}).then(function(r){if(!r.ok)throw 0;return r.json();});};
+  var OLD_STORE="https://store.yq.org.sa/mQNmWOK";
+  get("fit_site?select=key,value").then(function(rows){
+    var S={};rows.forEach(function(r){S[r.key]=r.value;});
+    if(S.notice&&S.notice.on&&S.notice.text){var n=document.getElementById("siteNotice");n.textContent=S.notice.text;n.hidden=false;}
+    if(typeof S.hero_sub==="string"&&S.hero_sub){var hs=document.querySelector(".hero .sub");if(hs)hs.textContent=S.hero_sub;}
+    if(Array.isArray(S.facts)){document.querySelectorAll(".facts > div").forEach(function(d,i){var f=S.facts[i];if(!f)return;d.querySelector("small").textContent=f.pre;d.querySelector("b").textContent=f.val;d.querySelector("span").textContent=f.lbl;});}
+    if(Array.isArray(S.packages)){document.querySelectorAll(".pk-grid .pk").forEach(function(d,i){var p=S.packages[i];if(!p)return;
+      d.querySelector("h3").textContent=p.name;var a=d.querySelector(".amt");a.firstChild.nodeValue=p.amount;d.querySelector(".w").textContent=p.what;
+      var ul=d.querySelector("ul");ul.innerHTML="";(p.perks||[]).forEach(function(t){var li=document.createElement("li");li.textContent=t;ul.appendChild(li);});});}
+    var c=S.contact||{};
+    if(c.store&&c.store!==OLD_STORE){document.querySelectorAll('a[href="'+OLD_STORE+'"]').forEach(function(a){a.href=c.store;});}
+    var cb=document.querySelectorAll(".contact b");
+    if(cb.length>=3){if(c.phone)cb[0].textContent=c.phone;if(c.email)cb[1].textContent=c.email;if(c.x)cb[2].textContent=c.x;}
+    if(c.phone){var pb=document.querySelector("[data-copy]");if(pb){pb.dataset.copy=c.phone;pb.textContent="نسخ الرقم "+c.phone;}}
+  }).catch(function(){});
+  get("fit_faq?select=question,answer&order=sort").then(function(rows){
+    if(!rows||!rows.length)return;var box=document.querySelector(".faq");if(!box)return;box.innerHTML="";
+    rows.forEach(function(r){var d=document.createElement("details"),s=document.createElement("summary"),p=document.createElement("p");s.textContent=r.question;p.textContent=r.answer;p.style.whiteSpace="pre-line";p.style.overflowWrap="anywhere";d.appendChild(s);d.appendChild(p);box.appendChild(d);});
+  }).catch(function(){});
+})();
+</script>
+</body></html>
