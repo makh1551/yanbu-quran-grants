@@ -188,6 +188,73 @@ tfoot td{font-weight:800;border-top:2px solid var(--line);border-bottom:0}
 .link button{background:transparent;border:1px solid var(--line);color:var(--ink)}
 .rule{border-inline-start:4px solid var(--green);background:var(--ok-bg);border-radius:10px;padding:12px 14px;font-size:14px;margin-top:14px}
 
+/* ===== البداية ===== */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);min-width:0}
+button.card{font:inherit;color:inherit;width:100%}
+.start{--tc:#93AEB8;--tcb:var(--pale);display:flex;flex-direction:column;gap:18px}
+.start.tf{--tc:#D4A23C;--tcb:#FBF3DF}
+.start.tw{--tc:#42B5D1;--tcb:#E3F4F9}
+:root[data-theme="dark"] .start.tf{--tcb:#3A3014} :root[data-theme="dark"] .start.tw{--tcb:#0F3A48}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .start.tf{--tcb:#3A3014}:root:not([data-theme="light"]) .start.tw{--tcb:#0F3A48}}
+.welcome{position:relative;overflow:hidden;border-radius:20px;padding:22px 20px 20px;color:#fff;background:linear-gradient(150deg,var(--deep) 0%,var(--navy) 70%);box-shadow:var(--shadow)}
+.welcome::before{content:"";position:absolute;inset:auto -40px -60px auto;width:220px;height:220px;border-radius:50%;background:var(--tc);opacity:.22}
+.welcome::after{content:"";position:absolute;inset:0 0 auto 0;height:5px;background:var(--tc)}
+.welcome .greet{font-size:14px;color:#BFE3EC;font-weight:700}
+.welcome h2{margin:4px 0 6px;font-family:var(--serif);font-size:clamp(28px,6vw,38px);line-height:1.3;font-weight:700}
+.welcome .line{margin:0;font-size:15.5px;color:#E2F2F6;max-width:60ch;position:relative}
+.welcome .quote{margin:14px 0 0;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.08);border-inline-start:3px solid var(--tc);font-family:var(--serif);font-size:18px;line-height:1.7;position:relative}
+.welcome .quote small{display:block;font-family:var(--sans);font-size:12.5px;color:#BFE3EC;margin-top:2px}
+.welcome.compact .quote{display:none}
+.todayline{display:flex;flex-wrap:wrap;gap:8px}
+.todayline span{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:13.5px;font-weight:700}
+.todayline .trackchip{background:var(--tcb);border-color:transparent}
+.todayline .trackchip::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--tc)}
+.nowcard{padding:18px;display:flex;flex-direction:column;gap:10px;border-top:4px solid var(--green)}
+.nowcard .lbl{font-size:12.5px;font-weight:800;color:var(--green)}
+.nowcard h3{margin:0;font-size:19px;font-weight:800;line-height:1.5}
+.nowcard .meta{font-size:13px;color:var(--muted)}
+.row-btns{display:flex;gap:8px;flex-wrap:wrap}
+.btn-sec{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:10px 16px;font-weight:700;cursor:pointer}
+.pulse{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:620px){.pulse{grid-template-columns:minmax(0,1fr)}}
+.pcard{padding:16px;display:flex;flex-direction:column;gap:8px;border-top:5px solid var(--pc)}
+.pcard.pf{--pc:#D4A23C} .pcard.pw{--pc:#42B5D1}
+.pcard .h{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.pcard .h b{font-size:16px;font-weight:800}
+.pcard .big{font-size:30px;font-weight:800;line-height:1.15;font-variant-numeric:tabular-nums}
+.pcard .big small{font-size:13px;color:var(--muted);font-weight:700}
+.pcard .sub{font-size:13px;color:var(--muted)}
+.pcard .bar i{background:var(--pc)}
+.pcard .last{font-size:13px;border-top:1px dashed var(--line);padding-top:8px}
+.pcard .edit{border:0;background:transparent;color:var(--muted);font-size:12.5px;cursor:pointer;text-decoration:underline}
+.pcard form{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;align-items:end}
+.pcard form label{display:flex;flex-direction:column;gap:4px;font-size:12px;color:var(--muted);font-weight:700}
+.urgent{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 16px;border-radius:14px;border-inline-start:5px solid var(--sevc);background:var(--sevb)}
+.urgent.bad{--sevc:var(--bad);--sevb:#FBE6E3} .urgent.warn{--sevc:var(--run);--sevb:var(--run-bg)} .urgent.ok{--sevc:var(--ok);--sevb:var(--ok-bg)}
+:root[data-theme="dark"] .urgent.bad{--sevb:#3E1A16}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .urgent.bad{--sevb:#3E1A16}}
+.urgent b{font-weight:800}
+.urgent a{font-weight:800;text-decoration:none;background:var(--navy);color:#fff;border-radius:10px;padding:7px 14px;white-space:nowrap}
+.doors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:620px){.doors{grid-template-columns:minmax(0,1fr)}}
+.door{display:flex;flex-direction:column;gap:4px;padding:16px;text-align:right;text-decoration:none;color:var(--ink);cursor:pointer;transition:border-color .15s}
+.door:hover{border-color:var(--sky)}
+.door b{font-size:17px;font-weight:800}
+.door span{font-size:13px;color:var(--muted)}
+.door i{font-style:normal;font-size:22px;line-height:1}
+.quick{display:flex;gap:8px;flex-wrap:wrap}
+.quick a,.quick button{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:8px 14px;font-weight:700;font-size:14px;color:var(--ink);text-decoration:none;cursor:pointer}
+.quick a:hover,.quick button:hover{border-color:var(--sky)}
+.teamrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media (max-width:480px){.teamrow{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tm{display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 8px;text-align:center}
+.ring{--p:0;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--green) calc(var(--p)*1%),var(--line) 0)}
+.ring .avatar{width:48px;height:48px;font-size:18px}
+.tm b{font-size:14.5px}
+.tm span{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tm.me{background:var(--pale)}
+@media (prefers-reduced-motion:reduce){.door{transition:none}}
+
 /* ===== خطتي ===== */
 .hello{display:flex;flex-direction:column;gap:4px}
 .hello h2{margin:0;font-family:var(--serif);font-size:28px;line-height:1.3;color:var(--navy)}
@@ -294,7 +361,8 @@ footer{text-align:center;color:var(--muted);font-size:12.5px;padding-block:6px 3
 <div id="app" hidden>
   <div class="tabsbar">
     <nav class="tabs wrap" role="tablist" id="tabs">
-      <button role="tab" data-tab="mine" aria-selected="true">خطتي</button>
+      <button role="tab" data-tab="start" aria-selected="true">البداية</button>
+      <button role="tab" data-tab="mine" aria-selected="false">خطتي</button>
       <a href="plan.html" role="tab" style="text-decoration:none;padding:8px 16px;border-radius:999px;color:var(--green);font-weight:800;font-size:14.5px;white-space:nowrap">مركز القرار</a>
       <button role="tab" data-tab="home" aria-selected="false">اللوحة</button>
       <button role="tab" data-tab="plan" aria-selected="false">الخطة التنفيذية</button>
@@ -308,8 +376,11 @@ footer{text-align:center;color:var(--muted);font-size:12.5px;padding-block:6px 3
   <main class="wrap">
     <div class="notice" id="dbNotice" hidden></div>
 
+    <!-- البداية -->
+    <div data-view="start"><div class="start" id="startBody"></div></div>
+
     <!-- خطتي -->
-    <div data-view="mine">
+    <div data-view="mine" hidden>
       <div class="hello"><h2 id="helloT"></h2><p id="helloP"></p><p><a href="plan.html" style="font-weight:700;color:var(--green)">افتح مركز القرار ←</a></p></div>
       <div id="mineBody" style="display:flex;flex-direction:column;gap:22px;margin-top:20px"></div>
     </div>
@@ -447,13 +518,13 @@ const AREAS=["مسار فتية المحراب","مسار وقف الأم","ال
 const STATUS=["جديدة","قيد التنفيذ","منجزة"];
 const STAGES=["مرشح","تم التواصل","موافق","متعاقد","نشر","معتذر"];
 const TARGETS={don:900,clicks:9000,subs:2500,msgs:600,budget:22000};
-const TBL={tasks:"camp_tasks",partners:"camp_partners",weeks:"camp_weeks",areas:"camp_areas"};
+const TBL={tasks:"camp_tasks",partners:"camp_partners",weeks:"camp_weeks",areas:"camp_areas",settings:"camp_settings",decisions:"camp_decisions"};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const nf=new Intl.NumberFormat("en-US");
 const fmt=n=>nf.format(Number(n||0));
 const initial=n=>n.trim().charAt(0);
-let me=null,sb=null,state={tasks:[],partners:[],weeks:[],areas:[]},filter={area:"",owner:"",status:""};
+let me=null,sb=null,state={tasks:[],partners:[],weeks:[],areas:[],settings:[],decisions:[]},filter={area:"",owner:"",status:""};
 
 function store(k,v){try{v==null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch(e){}}
 function load(k){try{return localStorage.getItem(k)}catch(e){return null}}
@@ -463,7 +534,7 @@ function notice(m){const n=$("#dbNotice");n.hidden=!m;if(m)n.textContent=m}
 $("#names").innerHTML=MEMBERS.map(n=>`<button class="member" type="button" data-name="${esc(n)}"><span class="avatar">${esc(initial(n))}</span><span><b>${esc(n)}</b><small>عضو فريق الحملة</small></span><span class="go" aria-hidden="true">‹</span></button>`).join("");
 $("#names").addEventListener("click",e=>{const b=e.target.closest("[data-name]");if(b)enter(b.dataset.name)});
 $("#switchBtn").addEventListener("click",()=>{store("member",null);me=null;$("#app").hidden=true;$("#who").hidden=true;$("#login").hidden=false;scrollTo(0,0)});
-function enter(n){me=n;store("member",n);$("#login").hidden=true;$("#app").hidden=false;$("#who").hidden=false;$("#whoName").textContent=n;$("#whoAv").textContent=initial(n);render()}
+function enter(n){me=n;store("member",n);$("#login").hidden=true;$("#app").hidden=false;$("#who").hidden=false;$("#whoName").textContent=n;$("#whoAv").textContent=initial(n);showTab("start");render()}
 
 /* القوائم */
 const opts=(list,first,sel)=>(first!=null?`<option value="">${esc(first)}</option>`:"")+list.map(v=>`<option ${v===sel?"selected":""}>${esc(v)}</option>`).join("");
@@ -493,7 +564,7 @@ function totals(){const s=k=>state.weeks.reduce((a,x)=>a+(+x[k]||0),0);return{vi
 function bar(p){return `<div class="bar ${p>=100?"full":""}"><i style="width:${Math.min(100,p)}%"></i></div>`}
 function kpi(lbl,val,target,unit){const p=target?Math.round(val/target*100):0;
   return `<div class="kpi"><span class="lbl">${lbl}</span><span class="val">${fmt(val)}</span>${bar(p)}<span class="of"><span>المستهدف ${fmt(target)}${unit||""}</span><span>${fmt(p)}%</span></span></div>`}
-function render(){if(!me)return;renderMine();renderHome();renderPlan();renderTasks();renderPartners();renderWeeks()}
+function render(){if(!me)return;renderStart();renderMine();renderHome();renderPlan();renderTasks();renderPartners();renderWeeks()}
 function renderHome(){const t=totals();const done=state.tasks.filter(x=>x.status===2).length;
   $("#kpis").innerHTML=kpi("التبرعات المكتملة",t.don,TARGETS.don)+kpi("النقرات على الروابط",t.clicks,TARGETS.clicks)+kpi("مشتركو قناة واتساب",t.subs,TARGETS.subs)+kpi("رسائل واتساب الواردة",t.msgs,TARGETS.msgs)+kpi("الإنفاق",t.spend,TARGETS.budget," ريال")+kpi("المهام المنجزة",done,state.tasks.length||1);
   $("#members").innerHTML=MEMBERS.map(m=>{const mine=state.tasks.filter(x=>ownerOf(x)===m);const d=mine.filter(x=>x.status===2).length;const p=mine.length?Math.round(d/mine.length*100):0;
@@ -517,6 +588,92 @@ function guide(x){const st=(x.steps||"").split("\n").filter(Boolean);
   return `${st.length?`<ol class="steps">${st.map((t,i)=>`<li data-step="${esc(x.id)}:${i}" class="${stepDone(x.id,i)?"ok":""}"><span>${esc(t)}</span></li>`).join("")}</ol>`:""}
   ${x.template?`<div class="tpl"><div class="tpl-h"><span>نص جاهز للنسخ</span><button type="button" data-copytpl="${esc(x.id)}">نسخ النص</button></div><pre>${esc(x.template)}</pre></div>`:""}
   ${x.proof?`<div class="proof"><b>دليل الإنجاز:</b> ${esc(x.proof)}</div>`:""}`}
+/* البداية */
+const DAY_TRACK={0:"f",3:"f",4:"f",6:"w",2:"w",5:"w",1:"n"};
+const DAYS=["الأحد","الاثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
+const TNAME={f:"فتية المحراب",w:"وقف الأم"};
+const LINKS={f:"https://store.yq.org.sa/mQNmWOK",w:"https://dongovernance.ncnp.gov.sa/aman/c/4970"};
+const QUOTES={
+ f:["«يؤمُّ القومَ أقرؤُهم لكتابِ الله»","رواه مسلم"],
+ w:["«إذا مات الإنسانُ انقطع عنه عملُه إلا من ثلاثة: إلا من صدقةٍ جارية، أو علمٍ يُنتفَع به، أو ولدٍ صالحٍ يدعو له»","رواه مسلم"],
+ n:["«خيرُكم من تعلّم القرآنَ وعلّمه»","رواه البخاري"]};
+function rParts(){const o={};new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Riyadh",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",hourCycle:"h23"}).formatToParts(new Date()).forEach(x=>o[x.type]=x.value);return o}
+function rISO(){const o=rParts();return `${o.year}-${o.month}-${o.day}`}
+const dowOf=iso=>new Date(iso+"T12:00:00Z").getUTCDay();
+const dBetween=(a,b)=>Math.round((new Date(b+"T12:00:00Z")-new Date(a+"T12:00:00Z"))/864e5);
+function hijriOf(iso){try{return new Intl.DateTimeFormat("ar-SA-u-ca-islamic-umalqura-nu-latn",{day:"numeric",month:"long"}).format(new Date(iso+"T12:00:00Z"))}catch(e){return ""}}
+function toRamadan(iso){try{const f=new Intl.DateTimeFormat("en-u-ca-islamic-umalqura-nu-latn",{month:"numeric",year:"numeric"});const d=new Date(iso+"T12:00:00Z");for(let i=0;i<400;i++){const p={};f.formatToParts(new Date(d.getTime()+i*864e5)).forEach(t=>p[t.type]=t.value);if(+p.month===9&&parseInt(p.year)>=1448)return i}}catch(e){}return null}
+const setting=k=>(state.settings.find(x=>x.key===k)||{}).value||"";
+function curWeek(){const s=setting("start_date");if(!s)return null;const d=dBetween(s,rISO());return d<0?{pre:-d}:{w:Math.min(12,Math.floor(d/7)+1)}}
+let pulseEdit="";let FIRST_TODAY=null;
+function renderStart(){
+  const iso=rISO(),d=dowOf(iso),tk=DAY_TRACK[d],hr=+rParts().hour,cw=curWeek(),rd=toRamadan(iso);
+  if(FIRST_TODAY===null){FIRST_TODAY=load("welcomed")!==iso;store("welcomed",iso)}const first=FIRST_TODAY;
+  const greet=(hr<12?"صباح الخير":"مساء الخير")+(d===5?" · جمعة مباركة":"");
+  const weekAgo=Date.now()-7*864e5;
+  const doneWeek=state.tasks.filter(t=>t.status===2&&t.updated_by===me&&Date.parse(t.updated_at||0)>weekAgo).length;
+  const myOpen=state.tasks.filter(t=>ownerOf(t)===me&&t.status!==2).sort(byWeek);
+  const myAreas=state.areas.filter(a=>a.owner===me);
+  let line;
+  if(!myAreas.length&&!myOpen.length)line="حيّاك الله في فريق الحملة. ابدأ باختيار مجالاتك، فبها تظهر لك خطوتك الأولى.";
+  else if(doneWeek)line=`أنجزتَ هذا الأسبوع ${cnt(doneWeek,"مهمة واحدة","مهمتين","مهام","مهمة")}، بارك الله في جهدك. ومن دلّ على خير فله مثل أجر فاعله.`;
+  else line="خطوة واحدة اليوم تصل بكتاب الله إلى بيتٍ جديد في ينبع. خطوتك تنتظرك أدناه.";
+  const q=QUOTES[tk];
+  const trackTxt=tk==="n"?"يوم إنتاج ومراجعة":`يوم مسار ${TNAME[tk]}`;
+  const wkTxt=cw?(cw.pre?`${cnt(cw.pre,"يوم واحد","يومان","أيام","يوماً")} حتى الإطلاق`:`الأسبوع ${fmt(cw.w)} من 12`):"موعد الإطلاق لم يُحدد";
+  /* خطوتك الآن */
+  const cur=myOpen[0];
+  const nowHTML=cur?`<div class="card nowcard"><span class="lbl">خطوتك الآن</span><h3>${esc(cur.title)}</h3><span class="meta">${esc(cur.area)} · ${weekLabel(cur.week)}${cur.mins?` · قرابة ${fmt(cur.mins)} دقيقة`:""}</span><div class="row-btns"><button class="btn-done" type="button" data-done="${esc(cur.id)}" style="flex:0 1 auto">أنجزتها</button><button class="btn-sec" type="button" data-go="mine">افتح الدليل والنص الجاهز</button></div></div>`
+    :`<div class="card nowcard"><span class="lbl">خطوتك الأولى</span><h3>${myAreas.length?"أنجزتَ كل خطوات مجالاتك. بارك الله فيك.":"اختر مجالاتك لتظهر لك خطواتك"}</h3><div class="row-btns"><button class="btn-sec" type="button" data-go="mine">${myAreas.length?"خطتي":"اختيار المجالات"}</button></div></div>`;
+  /* نبض المسارين */
+  const lastOf=t=>state.decisions.filter(x=>x.track===t).sort((a,b)=>String(b.created_at).localeCompare(String(a.created_at)))[0];
+  const lastHTML=t=>{const x=lastOf(t);return `<div class="last">${x?`آخر قرار: <b>${esc(x.title)}</b> — ${esc(x.result)} <span class="sub">(${esc(x.decided_by||"")})</span>`:"لا قرارات مسجلة بعد في هذا المسار."}</div>`};
+  const wt=+setting("waqf_target")||0,wr=+setting("waqf_raised")||0,fq=setting("fityat_qualified"),fg=+setting("fityat_goal")||0,nd=setting("numbers_date");
+  const wPct=wt?Math.round(wr/wt*100):0;
+  const wBody=pulseEdit==="w"?`<form data-pform="w"><label>المستهدف (ريال)<input name="waqf_target" type="number" min="0" value="${esc(setting("waqf_target"))}" inputmode="numeric"></label><label>المحقق (ريال)<input name="waqf_raised" type="number" min="0" value="${esc(setting("waqf_raised"))}" inputmode="numeric"></label><label>تاريخ التحديث<input name="numbers_date" value="${esc(nd)}" placeholder="مثال: 1448/05/12"></label><button class="btn" type="submit">حفظ</button></form>`
+    :(wt?`<div class="big">${fmt(Math.max(0,wt-wr))} <small>ريال متبقٍ</small></div>${bar(wPct)}<div class="sub">${fmt(wPct)}% من ${fmt(wt)} ريال${nd?` · تحديث ${esc(nd)}`:""}</div>`:`<div class="sub">لم تُدخل أرقام الوقف بعد. أدخلها من «زاد» بعد تحديث الجمعة.</div>`);
+  const fBody=pulseEdit==="f"?`<form data-pform="f"><label>الفتية المؤهَّلون بتبرعات الحملة<input name="fityat_qualified" type="number" min="0" value="${esc(fq)}" inputmode="numeric"></label><label>المستهدف الداخلي (فتى)<input name="fityat_goal" type="number" min="0" value="${esc(setting("fityat_goal"))}" inputmode="numeric"></label><label>تاريخ التحديث<input name="numbers_date" value="${esc(nd)}" placeholder="مثال: 1448/05/12"></label><button class="btn" type="submit">حفظ</button></form>`
+    :(fq!==""?`<div class="big">${fmt(fq)} <small>${+fq===0?"لم يُؤهَّل فتى بتبرعات الحملة بعد":+fq===1?"فتى واحد مؤهَّل":+fq===2?"فتيان مؤهَّلان":+fq<=10?"فتية مؤهَّلين":"فتى مؤهَّلاً"}</small></div><div class="sub">كل 1,500 ريال تؤهّل فتًى للمحراب${nd?` · تحديث ${esc(nd)}`:""}</div>${fg?bar(Math.round(+fq/fg*100))+`<div class="sub">من مستهدف داخلي ${fmt(fg)} (لا يُعلن)</div>`:""}`:`<div class="sub">لم يُدخل عدد الفتية المؤهَّلين بعد.</div>`);
+  const pulse=`<div class="pulse">
+    <div class="card pcard pf"><div class="h"><b>فتية المحراب</b><button class="edit" type="button" data-pedit="f">${pulseEdit==="f"?"إلغاء":"تحديث"}</button></div>${fBody}${lastHTML("فتية المحراب")}</div>
+    <div class="card pcard pw"><div class="h"><b>وقف الأم</b><button class="edit" type="button" data-pedit="w">${pulseEdit==="w"?"إلغاء":"تحديث"}</button></div>${wBody}${lastHTML("وقف الأم")}</div></div>`;
+  /* أهم تنبيه */
+  let U=null;const freeA=state.areas.filter(a=>!a.owner).length;
+  if(cw&&cw.w){const late=state.tasks.filter(t=>t.status!==2&&(t.week||0)<cw.w).length;if(late)U={c:late>5?"bad":"warn",t:`${cnt(late,"مهمة واحدة متأخرة","مهمتان متأخرتان","مهام متأخرة","مهمة متأخرة")} عن موعدها`};
+    if(!U&&cw.w>1&&!state.weeks.some(x=>x.week===cw.w-1))U={c:"warn",t:`أرقام الأسبوع ${fmt(cw.w-1)} لم تُسجَّل`}}
+  if(!U&&!setting("start_date"))U={c:"warn",t:"موعد إطلاق الحملة لم يُحدَّد بعد"};
+  if(!U&&freeA)U={c:freeA>3?"bad":"warn",t:`${cnt(freeA,"مجال واحد","مجالان","مجالات","مجالاً")} بلا مسؤول`};
+  const urgent=U?`<div class="urgent ${U.c}"><span><b>${esc(U.t)}</b></span><a href="plan.html">قرّر الآن</a></div>`:`<div class="urgent ok"><span><b>لا تنبيهات عاجلة.</b> التزم بمسار اليوم.</span></div>`;
+  /* الفريق */
+  const team=MEMBERS.map(m=>{const mine=state.tasks.filter(x=>ownerOf(x)===m);const dn=mine.filter(x=>x.status===2).length;const p=mine.length?Math.round(dn/mine.length*100):0;
+    return `<div class="card tm ${m===me?"me":""}"><span class="ring" style="--p:${p}"><span class="avatar">${esc(initial(m))}</span></span><b>${esc(m)}</b><span>${mine.length?`${fmt(p)}% · ${fmt(dn)} من ${fmt(mine.length)}`:"لم يختر مجالاته"}</span></div>`}).join("");
+  const linkTk=tk==="n"?"w":tk;
+  $("#startBody").className="start "+(tk==="f"?"tf":tk==="w"?"tw":"");
+  $("#startBody").innerHTML=`
+    <div class="welcome ${first?"":"compact"}"><div class="greet">${esc(greet)}</div><h2>${first?"أهلاً وسهلاً":"حيّاك الله"} يا ${esc(me)}</h2><p class="line">${esc(line)}</p><div class="quote">${esc(q[0])}<small>${esc(q[1])}</small></div></div>
+    <div class="todayline"><span class="trackchip">${esc(DAYS[d])} · ${esc(trackTxt)}</span><span>${esc(hijriOf(iso))}</span><span>${esc(wkTxt)}</span>${rd!=null?`<span>${cnt(rd,"يوم واحد","يومان","أيام","يوماً")} حتى رمضان</span>`:""}</div>
+    ${nowHTML}
+    <section><div class="sec-h"><h3>نبض المسارين</h3></div>${pulse}</section>
+    ${urgent}
+    <section><div class="sec-h"><h3>إلى أين؟</h3></div><div class="doors">
+      <button class="card door" type="button" data-go="mine"><i aria-hidden="true">◎</i><b>خطتي</b><span>مجالاتك وخطوتك الحالية بدليلها</span></button>
+      <a class="card door" href="plan.html"><i aria-hidden="true">◆</i><b>مركز القرار</b><span>تنبيهات اليوم وست أدوات قرار</span></a>
+      <a class="card door" href="plan.html#plan"><i aria-hidden="true">▤</i><b>الخطة</b><span>الخطة التشغيلية كاملة بفهرسها</span></a></div></section>
+    <section><div class="sec-h"><h3>إجراءات سريعة</h3></div><div class="quick">
+      <button type="button" data-go="weeks">سجّل أرقام الأسبوع</button>
+      <a href="plan.html#tool-post">افحص منشوراً قبل نشره</a>
+      <button type="button" data-copylink="${esc(LINKS[linkTk])}">انسخ رابط التبرع لـ${esc(TNAME[linkTk])}</button></div></section>
+    <section><div class="sec-h"><h3>الفريق</h3></div><div class="teamrow">${team}</div></section>`;
+}
+document.addEventListener("click",e=>{
+  const g=e.target.closest("[data-go]");if(g){showTab(g.dataset.go);scrollTo({top:0});return}
+  const pe=e.target.closest("[data-pedit]");if(pe){pulseEdit=pulseEdit===pe.dataset.pedit?"":pe.dataset.pedit;renderStart();return}
+  const cl=e.target.closest("[data-copylink]");if(cl){const t=cl.dataset.copylink,old=cl.textContent;const ok=()=>{cl.textContent="تم نسخ الرابط";setTimeout(()=>cl.textContent=old,1600)};try{navigator.clipboard.writeText(t).then(ok,()=>{cl.textContent=t})}catch(_){cl.textContent=t}}
+});
+document.addEventListener("submit",async e=>{const f=e.target.closest("[data-pform]");if(!f)return;e.preventDefault();if(!sb)return;
+  const rows=[...new FormData(f).entries()].map(([key,value])=>({key,value:String(value).trim(),updated_by:me,updated_at:now()}));
+  const{error}=await sb.from(TBL.settings).upsert(rows);if(error){notice("لم تُحفظ الأرقام: "+error.message);return}pulseEdit="";notice("");await fetchTable("settings")});
+
 /* خطتي */
 function stepKey(id){return "steps:"+id}
 function stepDone(id,i){try{return (JSON.parse(localStorage.getItem(stepKey(id))||"[]")).includes(i)}catch(e){return false}}

@@ -2469,6 +2469,10 @@ function render(){renderToday();renderTools();renderLog()}
 /* التشغيل */
 try{sb=window.supabase.createClient(SB_URL,SB_KEY)}catch(e){sb=null;notice("تعذّر تحميل مكتبة الاتصال. حدّث الصفحة.")}
 render();
+/* فتح قسم أو أداة من الرابط: #plan أو #tool-post */
+(function(){const h=(location.hash||"").slice(1);const tab=h==="plan"?"plan":h.startsWith("tool-")?"tools":h==="log"?"log":"";if(!tab)return;
+  const b=document.querySelector(`#tabs [data-tab="${tab}"]`);if(b)b.click();
+  if(tab==="tools"){const id=h.slice(5);if(TOOLS.some(t=>t.id===id)){openTool=id;renderTools();renderPanel()}}})();
 if(sb){loadAll();const ch=sb.channel("camp-decide");["camp_tasks","camp_weeks","camp_areas","camp_decisions","camp_settings"].forEach(t=>ch.on("postgres_changes",{event:"*",schema:"public",table:t},()=>{clearTimeout(loadAll.t);loadAll.t=setTimeout(loadAll,400)}));ch.subscribe();
   document.addEventListener("visibilitychange",()=>{if(!document.hidden)loadAll()})}
 })();
