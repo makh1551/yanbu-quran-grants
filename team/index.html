@@ -187,6 +187,69 @@ tfoot td{font-weight:800;border-top:2px solid var(--line);border-bottom:0}
 .link button{background:transparent;border:1px solid var(--line);color:var(--ink)}
 .rule{border-inline-start:4px solid var(--green);background:var(--ok-bg);border-radius:10px;padding:12px 14px;font-size:14px;margin-top:14px}
 
+/* ===== خطتي ===== */
+.hello{display:flex;flex-direction:column;gap:4px}
+.hello h2{margin:0;font-family:var(--serif);font-size:28px;line-height:1.3;color:var(--navy)}
+:root[data-theme="dark"] .hello h2{color:var(--sky)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hello h2{color:var(--sky)}}
+.hello p{margin:0;color:var(--muted)}
+.claim{background:var(--card);border:1px dashed var(--sky);border-radius:var(--r);padding:18px}
+.claim h3{margin:0 0 6px;font-size:17px;font-weight:800}
+.claim p{margin:0 0 12px;color:var(--muted);font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:7px 14px;font-weight:700;font-size:14px;cursor:pointer}
+.chip:hover{border-color:var(--sky);background:var(--pale)}
+.chip[disabled]{opacity:.5;cursor:default}
+.chip small{font-weight:500;color:var(--muted)}
+.mission{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+.mission-head{padding:16px 18px 14px;background:linear-gradient(160deg,var(--deep),var(--navy));color:#fff;display:flex;flex-direction:column;gap:10px}
+.mission-head .row1{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.mission-head h3{margin:0;font-size:19px;font-weight:800}
+.mission-head .pc{font-weight:800;font-variant-numeric:tabular-nums;color:#BFE3EC}
+.mission-head .goal{font-size:14.5px;color:#E2F2F6;margin:0}
+.mission-head .bar{background:rgba(255,255,255,.15)}
+.mission-head .bar i{background:linear-gradient(90deg,var(--sky),#7FD3E6)}
+.mission-head .bar.full i{background:#3DBB78}
+.mission-meta{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+@media (max-width:620px){.mission-meta{grid-template-columns:1fr}}
+.mission-meta div{background:var(--card);padding:12px 18px;font-size:14px}
+.mission-meta b{display:block;font-size:12px;color:var(--muted);font-weight:700;margin-bottom:2px}
+.mission-meta .idea b{color:var(--green)}
+.now{padding:18px;display:flex;flex-direction:column;gap:14px}
+.now-label{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:800;color:var(--green);letter-spacing:.3px}
+.now-label::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px var(--ok-bg)}
+.now h4{margin:0;font-size:19px;font-weight:800;line-height:1.45}
+.facts{display:flex;flex-wrap:wrap;gap:6px}
+.fact{font-size:12.5px;background:var(--pale);border-radius:8px;padding:3px 10px;color:var(--ink)}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;counter-reset:st}
+.steps li{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;padding:10px 12px;border:1px solid var(--line);border-radius:12px;cursor:pointer;counter-increment:st;line-height:1.6}
+.steps li::before{content:counter(st);width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--pale);font-weight:800;font-size:13px;color:var(--navy)}
+.steps li.ok{background:var(--ok-bg);border-color:transparent}
+.steps li.ok::before{content:"✓";background:var(--green);color:#fff}
+.steps li.ok span{color:var(--muted)}
+.tpl{border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.tpl-h{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 12px;background:var(--pale);font-size:13px;font-weight:700}
+.tpl-h button{border:0;background:var(--navy);color:#fff;border-radius:8px;padding:4px 12px;font-weight:700;font-size:12.5px;cursor:pointer}
+.tpl pre{margin:0;padding:12px 14px;white-space:pre-wrap;font-family:var(--sans);font-size:14.5px;line-height:1.8;max-height:260px;overflow:auto}
+.proof{border-inline-start:4px solid var(--sky);background:var(--pale);border-radius:10px;padding:10px 14px;font-size:14px}
+.proof b{color:var(--navy)}
+:root[data-theme="dark"] .proof b{color:var(--sky)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .proof b{color:var(--sky)}}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.btn-done{flex:1;min-width:150px;border:0;border-radius:12px;padding:12px 18px;font-weight:800;font-size:15.5px;background:var(--green);color:#fff;cursor:pointer}
+.btn-start{border:1px solid var(--line);background:var(--card);border-radius:12px;padding:12px 18px;font-weight:700;cursor:pointer}
+.btn-start[aria-pressed="true"]{background:var(--run-bg);color:var(--run);border-color:transparent}
+.next{border-top:1px solid var(--line);padding:12px 18px 16px}
+.next b{font-size:12.5px;color:var(--muted);font-weight:700}
+.next ol{margin:6px 0 0;padding-inline-start:20px;font-size:14px;color:var(--ink);display:flex;flex-direction:column;gap:2px}
+.next ol span{color:var(--muted);font-size:12.5px}
+.finished{padding:22px 18px;text-align:center;font-weight:700;color:var(--green)}
+.area-owner{font-size:13px;padding:4px 8px}
+details.pb{border-bottom:1px solid var(--line)}
+details.pb:last-child{border-bottom:0}
+details.pb>summary{list-style:none;cursor:pointer}
+details.pb>summary::-webkit-details-marker{display:none}
+details.pb .pb-body{padding:0 16px 16px;display:flex;flex-direction:column;gap:12px}
 footer{text-align:center;color:var(--muted);font-size:12.5px;padding-block:6px 30px}
 [hidden]{display:none!important}
 </style>
@@ -230,7 +293,8 @@ footer{text-align:center;color:var(--muted);font-size:12.5px;padding-block:6px 3
 <div id="app" hidden>
   <div class="tabsbar">
     <nav class="tabs wrap" role="tablist" id="tabs">
-      <button role="tab" data-tab="home" aria-selected="true">اللوحة</button>
+      <button role="tab" data-tab="mine" aria-selected="true">خطتي</button>
+      <button role="tab" data-tab="home" aria-selected="false">اللوحة</button>
       <button role="tab" data-tab="plan" aria-selected="false">الخطة التنفيذية</button>
       <button role="tab" data-tab="tasks" aria-selected="false">كل المهام</button>
       <button role="tab" data-tab="partners" aria-selected="false">المؤثرون والسفراء</button>
@@ -242,8 +306,14 @@ footer{text-align:center;color:var(--muted);font-size:12.5px;padding-block:6px 3
   <main class="wrap">
     <div class="notice" id="dbNotice" hidden></div>
 
+    <!-- خطتي -->
+    <div data-view="mine">
+      <div class="hello"><h2 id="helloT"></h2><p id="helloP"></p></div>
+      <div id="mineBody" style="display:flex;flex-direction:column;gap:22px;margin-top:20px"></div>
+    </div>
+
     <!-- اللوحة -->
-    <div data-view="home">
+    <div data-view="home" hidden>
       <section>
         <div class="sec-h"><h3>مؤشرات الحملة</h3><p>مقابل مستهدفات الأشهر الثلاثة</p></div>
         <div class="kpis" id="kpis"></div>
@@ -375,13 +445,13 @@ const AREAS=["الحوكمة والاعتماد","واتساب والسفراء"
 const STATUS=["جديدة","قيد التنفيذ","منجزة"];
 const STAGES=["مرشح","تم التواصل","موافق","متعاقد","نشر","معتذر"];
 const TARGETS={don:900,clicks:9000,subs:2500,msgs:600,budget:22000};
-const TBL={tasks:"camp_tasks",partners:"camp_partners",weeks:"camp_weeks"};
+const TBL={tasks:"camp_tasks",partners:"camp_partners",weeks:"camp_weeks",areas:"camp_areas"};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const nf=new Intl.NumberFormat("en-US");
 const fmt=n=>nf.format(Number(n||0));
 const initial=n=>n.trim().charAt(0);
-let me=null,sb=null,state={tasks:[],partners:[],weeks:[]},filter={area:"",owner:"",status:""};
+let me=null,sb=null,state={tasks:[],partners:[],weeks:[],areas:[]},filter={area:"",owner:"",status:""};
 
 function store(k,v){try{v==null?localStorage.removeItem(k):localStorage.setItem(k,v)}catch(e){}}
 function load(k){try{return localStorage.getItem(k)}catch(e){return null}}
@@ -412,35 +482,80 @@ document.addEventListener("click",e=>{const b=e.target.closest(".copy");if(!b)re
   try{navigator.clipboard.writeText(t).then(ok,fb)}catch(_){fb()}});
 
 /* العرض */
+const cnt=(n,one,two,few,many)=>n===0?"لا شيء":n===1?one:n===2?two:n<=10?`${fmt(n)} ${few}`:`${fmt(n)} ${many}`;
+const areaOwner=a=>(state.areas.find(x=>x.area===a)||{}).owner||"";
+const ownerOf=t=>t.owner||areaOwner(t.area);
 const byWeek=(a,b)=>(a.week||0)-(b.week||0)||String(a.created_at).localeCompare(String(b.created_at));
 const weekLabel=w=>w?`الأسبوع ${fmt(w)}`:"قبل الإطلاق";
 function totals(){const s=k=>state.weeks.reduce((a,x)=>a+(+x[k]||0),0);return{views:s("views"),clicks:s("clicks"),don:s("don"),msgs:s("msgs"),subs:s("subs"),spend:s("spend")}}
 function bar(p){return `<div class="bar ${p>=100?"full":""}"><i style="width:${Math.min(100,p)}%"></i></div>`}
 function kpi(lbl,val,target,unit){const p=target?Math.round(val/target*100):0;
   return `<div class="kpi"><span class="lbl">${lbl}</span><span class="val">${fmt(val)}</span>${bar(p)}<span class="of"><span>المستهدف ${fmt(target)}${unit||""}</span><span>${fmt(p)}%</span></span></div>`}
-function render(){if(!me)return;renderHome();renderPlan();renderTasks();renderPartners();renderWeeks()}
+function render(){if(!me)return;renderMine();renderHome();renderPlan();renderTasks();renderPartners();renderWeeks()}
 function renderHome(){const t=totals();const done=state.tasks.filter(x=>x.status===2).length;
   $("#kpis").innerHTML=kpi("التبرعات المكتملة",t.don,TARGETS.don)+kpi("النقرات على الروابط",t.clicks,TARGETS.clicks)+kpi("مشتركو قناة واتساب",t.subs,TARGETS.subs)+kpi("رسائل واتساب الواردة",t.msgs,TARGETS.msgs)+kpi("الإنفاق",t.spend,TARGETS.budget," ريال")+kpi("المهام المنجزة",done,state.tasks.length||1);
-  $("#members").innerHTML=MEMBERS.map(m=>{const mine=state.tasks.filter(x=>x.owner===m);const d=mine.filter(x=>x.status===2).length;const p=mine.length?Math.round(d/mine.length*100):0;
+  $("#members").innerHTML=MEMBERS.map(m=>{const mine=state.tasks.filter(x=>ownerOf(x)===m);const d=mine.filter(x=>x.status===2).length;const p=mine.length?Math.round(d/mine.length*100):0;
     return `<div class="mrow"><span class="avatar">${esc(initial(m))}</span><div><b>${esc(m)}</b>${m===me?'<span class="you">أنت</span>':""}${bar(p)}</div><span class="cnt">${fmt(d)} من ${fmt(mine.length)}</span></div>`}).join("");
-  const open=state.tasks.filter(x=>x.owner===me&&x.status!==2).sort(byWeek);
-  $("#myCount").textContent=open.length?`${fmt(open.length)} مهمة`:"";
-  $("#myTasks").innerHTML=open.length?open.map(x=>taskHTML(x,true)).join(""):`<div class="empty">لا مهام مفتوحة باسمك. افتح «الخطة التنفيذية» وأسند لنفسك ما تتولاه.</div>`}
+  const open=state.tasks.filter(x=>ownerOf(x)===me&&x.status!==2).sort(byWeek);
+  $("#myCount").textContent=open.length?cnt(open.length,"مهمة واحدة","مهمتان","مهام","مهمة"):"";
+  $("#myTasks").innerHTML=open.length?open.map(x=>taskHTML(x,true)).join(""):`<div class="empty">لا مهام مفتوحة باسمك. اختر مجالاتك من تبويب «خطتي».</div>`}
 function taskHTML(x,showArea){return `<div class="task ${x.status===2?"done":""}" data-id="${esc(x.id)}">
   <button class="status s${x.status}" data-act="status" type="button" aria-label="الحالة: ${STATUS[x.status]}، اضغط للتغيير">${STATUS[x.status]}</button>
   <div style="min-width:0"><div class="t">${esc(x.title)}</div>
-   <div class="meta">${showArea?`<span class="area-tag">${esc(x.area)}</span>`:""}<span>${weekLabel(x.week)}</span>${x.due?`<span>التسليم ${esc(x.due)}</span>`:""}${x.updated_by?`<span>آخر تحديث: ${esc(x.updated_by)}</span>`:""}</div>
+   <div class="meta">${showArea?`<span class="area-tag">${esc(x.area)}</span>`:""}<span>${weekLabel(x.week)}</span>${!x.owner&&areaOwner(x.area)?`<span>المسؤول: ${esc(areaOwner(x.area))} (مسؤول المجال)</span>`:""}${x.due?`<span>التسليم ${esc(x.due)}</span>`:""}${x.updated_by?`<span>آخر تحديث: ${esc(x.updated_by)}</span>`:""}</div>
    ${x.note?`<div class="note">${esc(x.note)}</div>`:""}</div>
   <div class="acts"><select class="owner-sel" data-act="owner" aria-label="المسؤول">${opts(MEMBERS,"غير مسندة",x.owner)}</select><button class="del" data-act="del" type="button">حذف</button></div></div>`}
 function renderPlan(){const used=AREAS.filter(a=>state.tasks.some(t=>t.area===a));
   $("#areaGrid").innerHTML=used.map(a=>{const l=state.tasks.filter(t=>t.area===a);const d=l.filter(t=>t.status===2).length;const p=Math.round(d/l.length*100);const own=[...new Set(l.map(t=>t.owner).filter(Boolean))];
     return `<button class="area" type="button" data-goto="${AREAS.indexOf(a)}"><span class="top"><b>${esc(a)}</b><span class="pc">${fmt(p)}%</span></span>${bar(p)}<span class="meta">${fmt(d)} من ${fmt(l.length)} منجزة · ${own.length?esc(own.join("، ")):"لم يُسند بعد"}</span></button>`}).join("")||`<div class="empty">جارٍ تحميل الخطة…</div>`;
   $("#planList").innerHTML=used.map(a=>{const l=state.tasks.filter(t=>t.area===a).sort(byWeek);const d=l.filter(t=>t.status===2).length;
-    return `<section class="area-block" id="area-${AREAS.indexOf(a)}"><div class="area-title"><h4>${esc(a)}</h4><span>${fmt(d)} من ${fmt(l.length)}</span></div><div class="list">${l.map(x=>taskHTML(x,false)).join("")}</div></section>`}).join("")}
+    const meta=state.areas.find(x=>x.area===a)||{};
+    return `<section class="area-block" id="area-${AREAS.indexOf(a)}"><div class="area-title"><h4>${esc(a)}</h4><span style="display:flex;gap:10px;align-items:center">${fmt(d)} من ${fmt(l.length)} <select class="area-owner" data-areaowner="${esc(a)}" aria-label="مسؤول المجال">${opts(MEMBERS,"بلا مسؤول",meta.owner)}</select></span></div>${meta.goal?`<p style="margin:0 0 10px;color:var(--muted);font-size:14px">${esc(meta.goal)}</p>`:""}<div class="list">${l.map(x=>`<details class="pb">${"<summary>"+taskHTML(x,false)+"</summary>"}<div class="pb-body">${guide(x)}</div></details>`).join("")}</div></section>`}).join("")}
+function guide(x){const st=(x.steps||"").split("\n").filter(Boolean);
+  return `${st.length?`<ol class="steps">${st.map((t,i)=>`<li data-step="${esc(x.id)}:${i}" class="${stepDone(x.id,i)?"ok":""}"><span>${esc(t)}</span></li>`).join("")}</ol>`:""}
+  ${x.template?`<div class="tpl"><div class="tpl-h"><span>نص جاهز للنسخ</span><button type="button" data-copytpl="${esc(x.id)}">نسخ النص</button></div><pre>${esc(x.template)}</pre></div>`:""}
+  ${x.proof?`<div class="proof"><b>دليل الإنجاز:</b> ${esc(x.proof)}</div>`:""}`}
+/* خطتي */
+function stepKey(id){return "steps:"+id}
+function stepDone(id,i){try{return (JSON.parse(localStorage.getItem(stepKey(id))||"[]")).includes(i)}catch(e){return false}}
+function toggleStep(id,i){let a=[];try{a=JSON.parse(localStorage.getItem(stepKey(id))||"[]")}catch(e){}a=a.includes(i)?a.filter(v=>v!==i):a.concat(i);try{localStorage.setItem(stepKey(id),JSON.stringify(a))}catch(e){}}
+document.addEventListener("click",e=>{const li=e.target.closest("[data-step]");if(li){const[id,i]=li.dataset.step.split(":");toggleStep(id,+i);li.classList.toggle("ok");return}
+  const c=e.target.closest("[data-copytpl]");if(c){const x=state.tasks.find(t=>t.id===c.dataset.copytpl);if(!x)return;const ok=()=>{c.textContent="تم النسخ";setTimeout(()=>c.textContent="نسخ النص",1600)};
+    const fb=()=>{const pre=c.closest(".tpl").querySelector("pre");const r=document.createRange();r.selectNodeContents(pre);const s=getSelection();s.removeAllRanges();s.addRange(r)};
+    try{navigator.clipboard.writeText(x.template).then(ok,fb)}catch(_){fb()}return}
+  const cl=e.target.closest("[data-claim]");if(cl){run("areas",sb.from(TBL.areas).update({owner:me,updated_by:me,updated_at:now()}).eq("area",cl.dataset.claim));return}
+  const un=e.target.closest("[data-release]");if(un){run("areas",sb.from(TBL.areas).update({owner:"",updated_by:me,updated_at:now()}).eq("area",un.dataset.release));return}
+  const dn=e.target.closest("[data-done]");if(dn){run("tasks",sb.from(TBL.tasks).update({status:2,updated_by:me,updated_at:now()}).eq("id",dn.dataset.done));return}
+  const sa=e.target.closest("[data-start]");if(sa){const x=state.tasks.find(t=>t.id===sa.dataset.start);if(x)run("tasks",sb.from(TBL.tasks).update({status:x.status===1?0:1,updated_by:me,updated_at:now()}).eq("id",x.id));return}
+});
+document.addEventListener("change",e=>{const s=e.target.closest("[data-areaowner]");if(!s)return;run("areas",sb.from(TBL.areas).update({owner:s.value,updated_by:me,updated_at:now()}).eq("area",s.dataset.areaowner))});
+function renderMine(){
+  const myAreas=state.areas.filter(a=>a.owner===me).sort((a,b)=>a.ord-b.ord);
+  const open=state.tasks.filter(t=>ownerOf(t)===me&&t.status!==2);
+  $("#helloT").textContent=`أهلاً ${me}`;
+  $("#helloP").textContent=myAreas.length?`مسؤول عن ${cnt(myAreas.length,"مجال واحد","مجالين","مجالات","مجالاً")} · ${cnt(open.length,"مهمة واحدة مفتوحة","مهمتين مفتوحتين","مهام مفتوحة","مهمة مفتوحة")}. ابدأ بالخطوة الظاهرة في كل مجال.`:"اختر المجالات التي تتولاها، لتظهر لك خطتها خطوةً خطوة.";
+  let h="";
+  const free=state.areas.filter(a=>!a.owner).sort((a,b)=>a.ord-b.ord);
+  if(!myAreas.length||free.length){h+=`<div class="claim"><h3>${myAreas.length?"مجالات بلا مسؤول":"اختر مجالاتك"}</h3><p>${myAreas.length?"يمكنك تولّي مجال إضافي إن كان لديك وقت.":"اضغط على المجال لتتولاه. يُنصح بمجالين أو ثلاثة لكل عضو."}</p><div class="chips">${(myAreas.length?free:state.areas.slice().sort((a,b)=>a.ord-b.ord)).map(a=>a.owner&&a.owner!==me?`<button class="chip" type="button" disabled>${esc(a.area)} <small>· ${esc(a.owner)}</small></button>`:`<button class="chip" type="button" data-claim="${esc(a.area)}">${esc(a.area)}</button>`).join("")}</div></div>`}
+  h+=myAreas.map(a=>{const l=state.tasks.filter(t=>t.area===a.area&&ownerOf(t)===me).sort(byWeek);const d=l.filter(t=>t.status===2).length;const p=l.length?Math.round(d/l.length*100):0;
+    const cur=l.find(t=>t.status!==2);const rest=l.filter(t=>t.status!==2&&t!==cur).slice(0,3);
+    return `<article class="mission">
+      <div class="mission-head"><div class="row1"><h3>${esc(a.area)}</h3><span class="pc">${fmt(d)} / ${fmt(l.length)}</span></div><p class="goal">${esc(a.goal)}</p>${bar(p)}</div>
+      <div class="mission-meta"><div><b>مؤشر النجاح</b>${esc(a.kpi)}</div><div class="idea"><b>فكرة مبتكرة</b>${esc(a.idea)}</div>${a.caution?`<div style="grid-column:1/-1"><b>انتبه</b>${esc(a.caution)}</div>`:""}</div>
+      ${cur?`<div class="now"><span class="now-label">خطوتك الآن</span><h4>${esc(cur.title)}</h4>
+        <div class="facts"><span class="fact">${weekLabel(cur.week)}</span><span class="fact">قرابة ${fmt(cur.mins)} دقيقة</span>${cur.tool?`<span class="fact">${esc(cur.tool)}</span>`:""}${cur.status===1?`<span class="fact" style="background:var(--run-bg);color:var(--run)">قيد التنفيذ</span>`:""}</div>
+        ${guide(cur)}
+        <div class="actions"><button class="btn-done" type="button" data-done="${esc(cur.id)}">أنجزتُ هذه الخطوة</button><button class="btn-start" type="button" data-start="${esc(cur.id)}" aria-pressed="${cur.status===1}">${cur.status===1?"قيد التنفيذ":"بدأتُ العمل"}</button></div>
+      </div>${rest.length?`<div class="next"><b>بعدها</b><ol>${rest.map(t=>`<li>${esc(t.title)} <span>· ${weekLabel(t.week)}</span></li>`).join("")}</ol></div>`:""}`:`<div class="finished">أنجزتَ كل خطوات هذا المجال. بارك الله فيك.</div>`}
+      <div class="next" style="display:flex;justify-content:flex-end"><button class="del" type="button" data-release="${esc(a.area)}">التخلي عن المجال</button></div>
+    </article>`}).join("");
+  const other=state.tasks.filter(t=>t.owner===me&&t.status!==2&&areaOwner(t.area)!==me).sort(byWeek);
+  if(other.length)h+=`<section><div class="sec-h"><h3>مهام أُسندت إليك من مجالات أخرى</h3></div><div class="list">${other.map(x=>taskHTML(x,true)).join("")}</div></section>`;
+  $("#mineBody").innerHTML=h}
 document.addEventListener("click",e=>{const g=e.target.closest("[data-goto]");if(!g)return;const el=document.getElementById("area-"+g.dataset.goto);if(el)el.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"})});
 function renderTasks(){let l=state.tasks.slice().sort((a,b)=>(a.status===2)-(b.status===2)||byWeek(a,b));
-  if(filter.area)l=l.filter(x=>x.area===filter.area);if(filter.owner)l=l.filter(x=>x.owner===filter.owner);if(filter.status!=="")l=l.filter(x=>x.status===+filter.status);
-  $("#taskCount").textContent=`${fmt(l.length)} مهمة`;
+  if(filter.area)l=l.filter(x=>x.area===filter.area);if(filter.owner)l=l.filter(x=>ownerOf(x)===filter.owner);if(filter.status!=="")l=l.filter(x=>x.status===+filter.status);
+  $("#taskCount").textContent=cnt(l.length,"مهمة واحدة","مهمتان","مهام","مهمة");
   $("#taskList").innerHTML=l.length?l.map(x=>taskHTML(x,!filter.area)).join(""):`<div class="empty">${state.tasks.length?"لا توجد مهام بهذه التصفية.":"لا مهام بعد."}</div>`}
 function renderPartners(){const l=state.partners.slice().sort((a,b)=>String(a.name).localeCompare(b.name,"ar"));
   $("#pBody").innerHTML=l.length?l.map(x=>`<tr data-id="${esc(x.id)}"><td><b>${esc(x.name)}</b></td><td>${esc(x.type)}</td><td>${esc(x.plat)}</td><td>${esc(x.owner||"—")}</td><td><select data-act="stage" aria-label="المرحلة">${opts(STAGES,null,x.stage)}</select></td><td>${fmt(x.cost)}</td><td>${esc(x.code||"—")}</td><td><button class="del" data-act="pdel" type="button">حذف</button></td></tr>`).join(""):`<tr><td colspan="8"><div class="empty">لا أسماء بعد. أضف المرشحين من المؤثرين والسفراء ليتابعهم الفريق.</div></td></tr>`;
@@ -460,7 +575,7 @@ async function run(k,q){if(!sb){notice("تعذّر الاتصال بقاعدة �
 const now=()=>new Date().toISOString();
 $("#taskForm").addEventListener("submit",async e=>{e.preventDefault();const title=$("#tTitle").value.trim();if(!title)return;
   if(await run("tasks",sb.from(TBL.tasks).insert({title,area:$("#tArea").value,owner:$("#tOwner").value,week:+$("#tWeek").value,due:$("#tDue").value||null,status:0,updated_by:me}))){$("#tTitle").value="";$("#tDue").value=""}});
-document.addEventListener("click",e=>{const b=e.target.closest("[data-act]");if(!b||b.tagName==="SELECT")return;const row=b.closest("[data-id]");if(!row)return;const id=row.dataset.id;
+document.addEventListener("click",e=>{const b=e.target.closest("[data-act]");if(b&&b.closest("summary"))e.preventDefault();if(!b||b.tagName==="SELECT")return;const row=b.closest("[data-id]");if(!row)return;const id=row.dataset.id;
   if(b.dataset.act==="status"){const x=state.tasks.find(t=>t.id===id);if(x)run("tasks",sb.from(TBL.tasks).update({status:(x.status+1)%3,updated_by:me,updated_at:now()}).eq("id",id))}
   if(b.dataset.act==="del"||b.dataset.act==="pdel"){if(!b.classList.contains("confirm")){b.classList.add("confirm");b.textContent="تأكيد الحذف";setTimeout(()=>{b.classList.remove("confirm");b.textContent="حذف"},3000);return}
     const k=b.dataset.act==="del"?"tasks":"partners";run(k,sb.from(TBL[k]).delete().eq("id",id))}});
