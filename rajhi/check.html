@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>تحديث منصة مانح — منح الراجحي</title>
+<link rel="icon" href="../assets/img/logo_mark.png">
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+:root{--navy:#0D495D;--deep:#08303E;--sky:#42B5D1;--green:#0E8A4A;--pale:#EEF6F8;--paper:#FBFBF8;--ink:#2E4A55;--muted:#5E7883}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Tajawal',Tahoma,sans-serif}
+a{color:inherit}
+.top{background:var(--deep);color:var(--paper);padding:12px 16px;display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
+@media (max-width:640px){.top img{height:26px!important}.top .t{font-size:16px!important;min-width:0!important;flex-basis:100%;order:3}.btn{padding:8px 14px!important;font-size:14px!important}}
+.top img{height:34px;width:auto}
+.top .t{font-weight:800;font-size:19px;flex:1;min-width:180px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;border:2px solid transparent;white-space:nowrap;font-family:inherit;cursor:pointer;background:none}
+.btn.primary{background:var(--sky);color:var(--deep)}
+.btn.ghost{border-color:rgba(251,251,248,.45);color:var(--paper)}
+.btn.dark{background:var(--navy);color:var(--paper)}
+.btn.line{border-color:var(--navy);color:var(--navy)}
+.btn:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+footer{text-align:center;padding:28px 16px 36px;color:var(--muted);font-size:15px;border-top:1px solid #DCE8EC;margin-top:32px}
+footer b{color:var(--navy)}
+
+.page{max-width:1000px;margin:0 auto;padding:28px 16px;display:flex;flex-direction:column;gap:22px}
+.intro h1{margin:0;color:var(--navy);font-size:clamp(26px,5vw,38px);font-weight:800}
+.intro p{margin:6px 0 0;color:var(--muted);font-size:17px;line-height:1.7}
+.req{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;background:#fff;border:1px solid #DCE8EC;border-right:6px solid #DCE8EC;border-radius:16px;padding:16px 18px;box-shadow:0 4px 18px rgba(8,48,62,.06)}
+.req.ok{border-right-color:var(--green)}.req.wait{border-right-color:#C98A1E}
+.req .num{font-size:26px;font-weight:800;color:var(--navy);width:1.4em;text-align:center}
+.req .body{display:flex;flex-direction:column;gap:4px;min-width:0}
+.req .row{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.req h3{margin:0;color:var(--navy);font-size:19px}
+.req p{margin:0;color:var(--muted);font-size:16px;line-height:1.7}
+.badge{font-size:13px;font-weight:800;padding:3px 12px;border-radius:999px;background:var(--pale)}
+.req.ok .badge{color:var(--green)}.req.wait .badge{color:#A8691A}
+.box{background:#fff;border:1px solid #DCE8EC;border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:14px;box-shadow:0 4px 18px rgba(8,48,62,.08)}
+.box h2{margin:0;color:var(--navy);font-size:24px;font-weight:800}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:16px;min-width:480px}
+th,td{padding:12px 14px;text-align:right;border-bottom:1px solid #DCE8EC;vertical-align:middle;line-height:1.6}
+th{background:var(--navy);color:var(--paper)}
+.n{font-variant-numeric:tabular-nums;text-align:left;white-space:nowrap}
+.note{margin:0;color:var(--muted);font-size:15px;line-height:1.7;background:var(--pale);border-radius:12px;padding:12px 14px}
+
+
+.meter{height:12px;background:var(--pale);border-radius:999px;overflow:hidden}.meter i{display:block;height:100%;width:0;background:var(--green);transition:width .3s}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.steps li{background:#fff;border:1px solid #DCE8EC;border-radius:14px;padding:12px 16px}
+.steps label{display:flex;gap:12px;align-items:start;cursor:pointer}
+.steps input{width:20px;height:20px;margin-top:4px;accent-color:var(--green);flex:none}
+.steps span{display:flex;flex-direction:column;min-width:0}.steps b{color:var(--navy)}.steps small{color:var(--muted);font-size:14px;line-height:1.7}.steps i{font-style:normal;color:var(--green);font-weight:700}
+.steps li.done b{text-decoration:line-through;color:var(--muted)}
+.hd{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.hd b.p{color:var(--navy);font-size:18px}
+.cd{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.cd div{background:var(--deep);color:var(--paper);border-radius:16px;padding:16px 18px;display:flex;flex-direction:column;gap:2px}
+.cd div.lt{background:var(--pale);color:var(--navy)}
+.cd b{font-size:34px;font-weight:800;font-variant-numeric:tabular-nums}.cd span{font-size:15px;opacity:.85}
+@media(max-width:560px){.cd{grid-template-columns:1fr}}
+.tw{overflow-x:auto;border:1px solid #DCE8EC;border-radius:14px}
+.tw table{border-collapse:collapse;width:100%;min-width:620px;background:#fff}
+.tw th,.tw td{padding:10px 14px;border-bottom:1px solid #E6EFF2;text-align:right;font-size:15px}
+.tw th{background:var(--navy);color:var(--paper)}.tw td.n{font-variant-numeric:tabular-nums;font-weight:700;color:var(--navy)}
+.tw tr:last-child td{border-bottom:0}
+td a{color:var(--navy);font-weight:700}
+select,.rq{font:inherit;font-size:15px;border:1px solid #DCE8EC;border-radius:10px;padding:6px 8px;background:#fff;color:var(--ink);max-width:150px}
+.note{margin:0;color:var(--muted);font-size:15px;line-height:1.7}
+.rst{align-self:flex-start}
+@media (max-width:640px){.top .t{flex-basis:100%;order:3}}
+</style></head><body>
+<header class="top"><a href="index.html" aria-label="الرئيسية"><img src="../assets/img/logo_word_light.png" alt="الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع"></a>
+<span class="t">تحديث منصة مانح والمتابعة</span>
+<a class="btn ghost" href="index.html">كل المشاريع</a></header>
+<main class="page"><div class="intro"><h1>قائمة تحقق منصة مانح</h1><p>التحديث في المرحلة الأولى شرطٌ للتقديم في الثانية. تأشيرك يُحفظ في جهازك هذا فقط.</p></div>
+<div class="cd"><div><b id="d1">–</b><span>متبقٍّ على نهاية المرحلة الأولى (10 نوفمبر)</span></div><div class="lt"><b id="d2">–</b><span>متبقٍّ على نهاية المرحلة الثانية (19 نوفمبر)</span></div></div>
+<div class="box"><div class="hd"><h2>المرحلة الأولى: تحديث البيانات</h2><b class="p" id="pa"></b></div><p class="note">من 21 إلى 30 جمادى الأولى 1448هـ · 1 إلى 10 نوفمبر 2026م</p><div class="meter"><i id="ma"></i></div><ol class="steps" id="la"><li><label><input type="checkbox" id="a0"><span><b>دخول منصة مانح بحساب الجمعية</b><small>grants.rf.org.sa — والتأكد من أن الحساب باسم المفوّض الحالي وبريد الجمعية الرسمي tahfez-q@hotmail.com · <i>الإدارة التنفيذية</i></small></span></label></li><li><label><input type="checkbox" id="a1"><span><b>خطاب تفويض مسؤول المنصة</b><small>موقّع من رئيس مجلس الإدارة إن تغيّر المفوّض أو طلبته المنصة · <i>رئيس المجلس</i></small></span></label></li><li><label><input type="checkbox" id="a2"><span><b>البيانات الأساسية للجمعية</b><small>الاسم الرسمي، رقم التسجيل 3165، الترخيص 3/2، العنوان الوطني، نطاق العمل: ينبع وقراها ومراكزها · <i>الإدارة التنفيذية</i></small></span></label></li><li><label><input type="checkbox" id="a3"><span><b>أرقام التواصل</b><small>جوال 0553671414 وهاتف 0125128912 فقط، وحذف الرقم الأرضي المقطوع إن ظهر في الملف · <i>الإدارة التنفيذية</i></small></span></label></li><li><label><input type="checkbox" id="a4"><span><b>شهادة التسجيل سارية</b><small>من المركز الوطني لتنمية القطاع غير الربحي، وتثبت ترخيص قبول التبرعات · <i>الإدارة التنفيذية</i></small></span></label></li><li><label><input type="checkbox" id="a5"><span><b>شهادة الآيبان مختومة</b><small>حساب الشؤون التعليمية في مصرف الراجحي باسم الجمعية · <i>الشؤون المالية</i></small></span></label></li><li><label><input type="checkbox" id="a6"><span><b>القوائم المالية المعتمدة</b><small>لآخر سنة مالية منتهية، معتمدة من محاسب قانوني مرخص · <i>الشؤون المالية</i></small></span></label></li><li><label><input type="checkbox" id="a7"><span><b>ضريبة القيمة المضافة</b><small>شهادة التسجيل إن كانت الجمعية ملزمة، أو إفادة بعدم الإلزام وفق اشتراطات هيئة الزكاة والضريبة والجمارك · <i>الشؤون المالية</i></small></span></label></li><li><label><input type="checkbox" id="a8"><span><b>مجلس الإدارة الساري</b><small>قرار تشكيل المجلس الحالي وتاريخ انتهاء دورته · <i>أمانة المجلس</i></small></span></label></li><li><label><input type="checkbox" id="a9"><span><b>محضر آخر جمعية عمومية</b><small>معتمدًا، مع اعتماد القوائم المالية فيه · <i>أمانة المجلس</i></small></span></label></li><li><label><input type="checkbox" id="a10"><span><b>نتيجة مؤشر الحوكمة</b><small>آخر نتيجة صادرة من المركز الوطني · <i>الإدارة التنفيذية</i></small></span></label></li><li><label><input type="checkbox" id="a11"><span><b>الخطة الاستراتيجية والتقرير السنوي</b><small>وإحصاءات المستفيدين: أكثر من 4,000 طالب وطالبة في 262 حلقة · <i>الإدارة التنفيذية</i></small></span></label></li><li><label><input type="checkbox" id="a12"><span><b>حفظ التحديث والتأكد من اكتماله</b><small>مراجعة نسبة اكتمال الملف في المنصة قبل 10 نوفمبر، وأخذ صورة للشاشة · <i>مسؤول المنصة</i></small></span></label></li></ol></div>
+<div class="box"><div class="hd"><h2>المرحلة الثانية: رفع المشاريع</h2><b class="p" id="pb"></b></div><p class="note">من 1 إلى 9 جمادى الآخرة 1448هـ · 11 إلى 19 نوفمبر 2026م</p><div class="meter"><i id="mb"></i></div><ol class="steps" id="lb"><li><label><input type="checkbox" id="b0"><span><b>اعتماد المشاريع الثلاثة ومبالغها</b><small>قرار أو موافقة مكتوبة من مجلس الإدارة على: منارات 218,200 · ختمة 136,800 · خُلُقه القرآن 53,000 · <i>مجلس الإدارة</i></small></span></label></li><li><label><input type="checkbox" id="b1"><span><b>توقيع خطابات طلب الدعم وختمها</b><small>ثلاثة خطابات باسم رئيس مجلس الإدارة، نصّها جاهز في صفحة كل مشروع · <i>رئيس المجلس</i></small></span></label></li><li><label><input type="checkbox" id="b2"><span><b>إدخال «منارات» في المنصة</b><small>مجال الحلقات والدور النسائية، ونسخ الحقول من صفحة المشروع، ورفع ملف PDF · <i>مسؤول المنصة</i></small></span></label></li><li><label><input type="checkbox" id="b3"><span><b>إدخال «ختمة» في المنصة</b><small>مجال البرامج القرآنية النوعية، ونسخ الحقول من صفحة المشروع، ورفع ملف PDF · <i>مسؤول المنصة</i></small></span></label></li><li><label><input type="checkbox" id="b4"><span><b>إدخال «خُلُقه القرآن» في المنصة</b><small>مجال البرامج القيمية، ونسخ الحقول من صفحة المشروع، ورفع ملف PDF · <i>مسؤول المنصة</i></small></span></label></li><li><label><input type="checkbox" id="b5"><span><b>تسجيل أرقام الطلبات</b><small>في جدول المتابعة أدناه، قبل نهاية 19 نوفمبر · <i>مسؤول المنصة</i></small></span></label></li></ol></div>
+<div class="box"><h2>حالة كل مشروع</h2><div class="tw"><table><tr><th>المشروع</th><th>المجال</th><th>المبلغ (ريال)</th><th>الحالة</th><th>رقم الطلب</th></tr><tr><td><a href="p/manarat.html">منارات</a></td><td>الحلقات والدور النسائية</td><td class="n">218,200</td><td><select data-k="st-manarat"><option>لم يُرفع</option><option>مرفوع</option><option>قيد الدراسة</option><option>معتمد</option><option>معتذر عنه</option></select></td><td><input class="rq" data-k="no-manarat" placeholder="رقم الطلب" inputmode="numeric"></td></tr><tr><td><a href="p/khatma.html">ختمة</a></td><td>البرامج القرآنية النوعية</td><td class="n">136,800</td><td><select data-k="st-khatma"><option>لم يُرفع</option><option>مرفوع</option><option>قيد الدراسة</option><option>معتمد</option><option>معتذر عنه</option></select></td><td><input class="rq" data-k="no-khatma" placeholder="رقم الطلب" inputmode="numeric"></td></tr><tr><td><a href="p/khuluq.html">خُلُقه القرآن</a></td><td>البرامج القيمية</td><td class="n">53,000</td><td><select data-k="st-khuluq"><option>لم يُرفع</option><option>مرفوع</option><option>قيد الدراسة</option><option>معتمد</option><option>معتذر عنه</option></select></td><td><input class="rq" data-k="no-khuluq" placeholder="رقم الطلب" inputmode="numeric"></td></tr><tr><td><b>الإجمالي</b></td><td></td><td class="n">408,000</td><td></td><td></td></tr></table></div>
+<p class="note">التوقيع على الطلبات والاتفاقيات باسم رئيس مجلس الإدارة، أو بتفويض مكتوب من المجلس. للاستفسار: هاتف المؤسسة 0112411600.</p>
+<button class="btn line rst" id="rst" type="button">مسح التأشير من هذا الجهاز</button></div></main>
+<script>
+(function(){var K='rajhi1448:';function g(k){try{return localStorage.getItem(K+k)}catch(e){return null}}function s(k,v){try{localStorage.setItem(K+k,v)}catch(e){}}
+function prog(l,p,m){var c=document.querySelectorAll('#'+l+' input'),n=0;c.forEach(function(x){x.closest('li').classList.toggle('done',x.checked);if(x.checked)n++});document.getElementById(p).textContent=n+' من '+c.length;document.getElementById(m).style.width=(100*n/c.length)+'%'}
+function all(){prog('la','pa','ma');prog('lb','pb','mb')}
+document.querySelectorAll('.steps input').forEach(function(x){x.checked=g(x.id)==='1';x.addEventListener('change',function(){s(x.id,x.checked?'1':'0');all()})});
+document.querySelectorAll('[data-k]').forEach(function(x){var v=g(x.dataset.k);if(v!==null)x.value=v;x.addEventListener('input',function(){s(x.dataset.k,x.value)});x.addEventListener('change',function(){s(x.dataset.k,x.value)})});
+all();
+function left(id,end){var d=Math.ceil((new Date(end)-new Date())/864e5);document.getElementById(id).textContent=d>0?(d===1?'يوم واحد':d===2?'يومان':(d<=10?d+' أيام':d+' يومًا')):'انتهت'}
+left('d1','2026-11-11T00:00:00+03:00');left('d2','2026-11-20T00:00:00+03:00');
+document.getElementById('rst').addEventListener('click',function(){if(!confirm('مسح كل التأشير والحالات من هذا الجهاز؟'))return;try{Object.keys(localStorage).forEach(function(k){if(k.indexOf(K)===0)localStorage.removeItem(k)})}catch(e){}location.reload()});
+})();
+</script>
+<footer>إعداد وتصميم: <b>عبدالمجيد السيد</b></footer>
+</body></html>

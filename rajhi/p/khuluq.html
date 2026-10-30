@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مشروع خُلُقه القرآن — منح الراجحي</title>
+<link rel="icon" href="../../assets/img/logo_mark.png">
+<link rel="stylesheet" href="../../assets/fonts.css">
+<style>
+:root{--navy:#0D495D;--deep:#08303E;--sky:#42B5D1;--green:#0E8A4A;--pale:#EEF6F8;--paper:#FBFBF8;--ink:#2E4A55;--muted:#5E7883}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Tajawal',Tahoma,sans-serif}
+a{color:inherit}
+.top{background:var(--deep);color:var(--paper);padding:12px 16px;display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
+@media (max-width:640px){.top img{height:26px!important}.top .t{font-size:16px!important;min-width:0!important;flex-basis:100%;order:3}.btn{padding:8px 14px!important;font-size:14px!important}}
+.top img{height:34px;width:auto}
+.top .t{font-weight:800;font-size:19px;flex:1;min-width:180px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;border:2px solid transparent;white-space:nowrap}
+.btn.primary{background:var(--sky);color:var(--deep)}
+.btn.ghost{border-color:rgba(251,251,248,.45);color:var(--paper)}
+.btn.dark{background:var(--navy);color:var(--paper)}
+.btn.line{border-color:var(--navy);color:var(--navy)}
+.btn:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+footer{text-align:center;padding:28px 16px 36px;color:var(--muted);font-size:15px;border-top:1px solid #DCE8EC;margin-top:32px}
+footer b{color:var(--navy)}
+
+.slide{width:1920px;height:1080px;position:relative;overflow:hidden;box-sizing:border-box}
+.slide *{margin:0;box-sizing:border-box}
+.slide img{display:block}
+.slide table{border-collapse:collapse;width:100%}
+.slide th,.slide td{border-bottom:1px solid #D5E3E8;vertical-align:middle;padding:20px 22px;line-height:1.35}
+.slide p,.slide h1,.slide h2,.slide h3,.slide td,.slide th{direction:rtl}
+.slide th{font-weight:700}
+.slide hr{border:none;height:0}
+.slide h1,.slide h2,.slide h3{font-weight:inherit}
+
+.deck{max-width:1280px;margin:0 auto;padding:20px 16px;display:flex;flex-direction:column;gap:18px}
+.frame{width:100%;position:relative;overflow:hidden;border-radius:12px;box-shadow:0 6px 24px rgba(8,48,62,.14);background:#fff}
+.scaler{width:1920px;height:1080px;transform-origin:top left;position:absolute;top:0;left:0}
+
+
+.slide{background:#FBFBF8;color:#0D495D;font-family:'Tajawal',Tahoma,sans-serif;direction:rtl;text-align:right}
+.s-pad{padding:120px 128px 170px;display:flex;flex-direction:column;gap:48px}
+.kicker{font-size:28px;font-weight:700;color:#0E8A4A}
+.s-h2{font-size:70px;font-weight:800;line-height:1.15;color:#0D495D}
+.lead{font-size:34px;line-height:1.6;color:#3A5560}
+.row{display:flex;gap:32px}
+.box{flex:1;background:#EEF6F8;border-radius:20px;padding:40px;display:flex;flex-direction:column;gap:14px}
+.box h3{font-size:38px;font-weight:800;color:#0D495D}
+.box p{font-size:27px;line-height:1.45;color:#3A5560}
+.stat{flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px;background:#EEF6F8;border-radius:20px;padding:44px 40px}
+.stat .n{font-size:112px;font-weight:800;line-height:1;color:#0D495D}
+.stat h3{font-size:36px;font-weight:700;color:#0D495D}
+.stat p{font-size:27px;line-height:1.4;color:#3A5560}
+.stat.dark{background:#0D495D}.stat.dark .n{color:#42B5D1}.stat.dark h3{color:#FBFBF8}.stat.dark p{color:#BFDCE5}
+.foot{position:absolute;left:128px;right:128px;bottom:56px;height:56px;display:flex;justify-content:space-between;align-items:center;direction:rtl}
+.foot p{font-size:24px;color:#6B8590}
+.goals{display:flex;flex-direction:column;gap:20px}
+.goals li{list-style:none;display:flex;gap:22px;align-items:center;font-size:32px;color:#2E4A55;background:#fff;border:1px solid #D5E3E8;border-radius:16px;padding:20px 28px}
+.goals .gn{flex:none;width:58px;height:58px;border-radius:50%;background:#0D495D;color:#FBFBF8;display:grid;place-items:center;font-weight:800;font-size:28px}
+.chips{display:flex;flex-wrap:wrap;gap:20px}
+.chip{display:flex;align-items:center;gap:14px;font-size:36px;font-weight:700;color:#0D495D;background:#EEF6F8;border:2px solid #CFE6EC;border-radius:999px;padding:18px 34px}
+.note-band{background:#0D495D;color:#FBFBF8;border-radius:20px;padding:34px 44px;font-size:32px;line-height:1.5}
+.tl{display:flex;gap:0;align-items:stretch}
+.tl .st{flex:1;position:relative;padding:0 18px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.tl .dot{width:46px;height:46px;border-radius:50%;background:#42B5D1;border:8px solid #EEF6F8;box-shadow:0 0 0 2px #42B5D1;position:relative;z-index:1}
+.tl .st:nth-child(even) .dot{background:#0E8A4A;box-shadow:0 0 0 2px #0E8A4A}
+.tl .line{position:absolute;top:22px;right:0;left:0;height:4px;background:linear-gradient(to left,#42B5D1,#0E8A4A);z-index:0}
+.tl .when{font-size:26px;font-weight:700;color:#0E8A4A}
+.tl h3{font-size:36px;font-weight:800;color:#0D495D}
+.tl p{font-size:26px;line-height:1.45;color:#3A5560}
+.tbl th{background:#0D495D;color:#FBFBF8;font-size:28px;text-align:right}
+.tbl td{font-size:28px;color:#2E4A55;text-align:right;background:#fff}
+.tbl tr:nth-child(even) td{background:#F4F9FA}
+.tbl td.v{font-weight:800;color:#0D495D;white-space:nowrap}
+.tbl td.a,.tbl th.a{text-align:left;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tbl tr.tot td{background:#0D495D;color:#FBFBF8;font-weight:800}
+.tbl tr.tot td.a{color:#42B5D1}
+.wrapT{border-radius:18px;overflow:hidden;border:1px solid #D5E3E8;flex:none}
+.slide .bud th,.slide .bud td{padding:12px 24px;font-size:25px}
+.pills{display:flex;gap:20px;flex-wrap:wrap}
+.pills span{font-size:26px;font-weight:700;color:#0D495D;background:#EEF6F8;border-radius:999px;padding:14px 28px}
+.ck{display:grid;grid-template-columns:1fr 1fr;gap:20px 32px}
+.ck div{display:flex;gap:18px;align-items:center;background:#fff;border:1px solid #D5E3E8;border-radius:16px;padding:20px 26px}
+.ck .b{flex:none;width:52px;height:52px;border-radius:50%;background:#0E8A4A;display:grid;place-items:center}
+.ck h3{font-size:30px;font-weight:800;color:#0D495D}
+.ck p{font-size:24px;color:#5E7883;margin-top:4px}
+.vis{display:flex;flex-direction:column;gap:18px}
+.vis div{border-right:10px solid #42B5D1;background:#EEF6F8;border-radius:14px;padding:22px 28px}
+.vis div:nth-child(2){border-right-color:#0E8A4A}
+.vis h3{font-size:32px;font-weight:800;color:#0D495D}
+.vis p{font-size:26px;color:#3A5560;margin-top:6px}
+.sl{display:flex;flex-direction:column;gap:18px}
+.sl li{list-style:none;display:flex;gap:18px;align-items:flex-start;font-size:29px;line-height:1.45;color:#2E4A55}
+
+.portal{max-width:1280px;margin:12px auto 0;padding:0 16px;display:flex;flex-direction:column;gap:14px}
+.portal h2{margin:8px 0 0;color:var(--navy);font-size:26px;font-weight:800}
+.portal .hint{margin:0;color:var(--muted);font-size:16px}
+.cp{background:#fff;border:1px solid #DCE8EC;border-radius:16px;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.cp .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.cp h3{margin:0;color:var(--green);font-size:17px}
+.cp .btn{padding:6px 14px;font-size:14px;font-family:inherit;cursor:pointer;background:none}
+.cp pre{margin:0;white-space:pre-wrap;font-family:inherit;font-size:16px;line-height:1.8;color:var(--ink)}
+</style></head><body>
+<header class="top"><a href="../index.html" aria-label="الرئيسية"><img src="../../assets/img/logo_word_light.png" alt="الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع"></a>
+<span class="t">مشروع «خُلُقه القرآن»</span>
+<a class="btn primary" href="../pdf/khuluq.pdf" download>تحميل PDF</a>
+<a class="btn ghost" href="../index.html">كل المشاريع</a></header>
+<main class="deck"><div class="frame" aria-label="الشريحة 1"><div class="scaler" dir="ltr"><section id="cover" class="slide" style="display:flex">
+<div style="position:absolute;right:0;top:0;width:820px;height:1080px;background:radial-gradient(circle at 70% 30%,#12607A 0%,#0D495D 45%,#08303E 100%)"></div>
+<div style="position:absolute;right:820px;top:0;width:16px;height:1080px;background:linear-gradient(to bottom,#42B5D1 0%,#0E8A4A 100%)"></div>
+<div style="position:absolute;right:0;top:0;width:820px;height:1080px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px;padding:80px">
+<svg aria-hidden="true" class="ic" style="width:220px;height:220px;color:#42B5D1;opacity:.9" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+<p style="font-family:'Amiri','Times New Roman',serif;font-size:60px;font-weight:700;line-height:1.5;color:#FBFBF8;text-align:center">﴿إِنَّ هَٰذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ﴾</p>
+<p style="font-size:30px;color:#BFDCE5;text-align:center">من حفظ الآية إلى العمل بها</p></div>
+<div style="position:absolute;left:0;top:0;width:1084px;height:1080px;padding:110px 120px;display:flex;flex-direction:column;justify-content:center;gap:34px">
+<div style="display:flex;align-items:center;gap:28px"><img src="../../assets/img/logo_mark.png" alt="شعار الجمعية" style="width:180px;height:117px;object-fit:contain"><img src="../../assets/img/logo_word.png" alt="الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع" style="width:560px;height:82px;object-fit:contain"></div>
+<p style="font-size:32px;font-weight:600;color:#0E8A4A">مقترح مشروع ضمن مجال «البرامج القيمية»</p>
+<h1 style="font-family:'Amiri','Times New Roman',serif;font-size:150px;font-weight:700;line-height:1.35;padding-top:24px;color:#0D495D">«خُلُقه القرآن»</h1>
+<p style="font-size:40px;font-weight:500;line-height:1.4;color:#3A5560">برنامج قيمي يحوّل آيات الحلقة إلى سلوك يراه البيت والمجتمع</p>
+<p style="align-self:flex-start;font-size:27px;font-weight:700;color:#FBFBF8;background:#0D495D;padding:16px 34px;border-radius:999px">مقدَّم إلى مؤسسة سليمان الراجحي الخيرية</p>
+</div></section></div></div>
+<div class="frame" aria-label="الشريحة 2"><div class="scaler" dir="ltr"><section id="glance" class="slide s-pad"><div><p class="kicker">المشروع في أرقام</p><h2 class="s-h2">منهج قيمي مكتوب في 40 حلقة قرآنية</h2></div><div class="row" style="flex:1"><div class="stat" style="border-top:10px solid #42B5D1"><p class="n">800</p><h3>طالب وطالبة</h3><p>من طلاب الحلقات</p></div><div class="stat" style="border-top:10px solid #0E8A4A"><p class="n">40</p><h3>حلقة قرآنية</h3><p>للبنين والبنات</p></div><div class="stat" style="border-top:10px solid #42B5D1"><p class="n">12</p><h3>قيمة قرآنية</h3><p>بمنهج مكتوب ومحكَّم</p></div><div class="stat dark"><p class="n">53</p><h3>ألف ريال</h3><p>لمدة 10 أشهر</p></div></div><div class="foot"><p>مشروع خُلُقه القرآن · 2</p><img src="../../assets/img/logo_word.png" alt="الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع" style="width:330px;height:48px;object-fit:contain"></div></section></div></div>
+<div class="frame" aria-label="الشريحة 3"><div class="scaler" dir="ltr"><section id="idea" class="slide s-pad"><div><p class="kicker">فكرة المشروع ومبرراته</p><h2 class="s-h2">من حفظ الآية إلى العمل بها</h2></div><p class="lead">تحفظ الحلقة الآيات، ويبقى أثرها في السلوك متروكًا لاجتهاد المعلم. يضع المشروع منهجًا قيميًا مكتوبًا: قيمة قرآنية كل ثلاثة أسابيع، تُدرَّس في خمس عشرة دقيقة أسبوعيًا، وتُتابَع في البيت ببطاقة سلوك يوقّعها ولي الأمر.</p><div class="row"><div class="box"><svg aria-hidden="true" class="ic" style="width:64px;height:64px;color:#0E8A4A;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg><h3>دليل المعلم</h3><p>12 قيمة بآياتها وأنشطتها وأساليب غرسها</p></div><div class="box"><svg aria-hidden="true" class="ic" style="width:64px;height:64px;color:#0E8A4A;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><h3>بطاقة القيمة</h3><p>متابعة السلوك في البيت بتوقيع ولي الأمر</p></div><div class="box"><svg aria-hidden="true" class="ic" style="width:64px;height:64px;color:#0E8A4A;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><h3>سفير القيم</h3><p>تكريم الطلاب الأكثر تمثّلًا للقيم</p></div></div><div class="foot"><p>مشروع خُلُقه القرآن · 3</p><img src="../../assets/img/logo_word.png" alt="الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع" style="width:330px;height:48px;object-fit:contain"></div></section></div></div>
+<div class="frame" aria-label="الشريحة 4"><div class="scaler" dir="ltr"><section id="goals" class="slide s-pad"><div><p class="kicker">أهداف المشروع</p><h2 class="s-h2">ما الذي سيحققه المشروع؟</h2></div><ul class="goals" style="padding:0"><li><span class="gn">1</span>غرس 12 قيمة قرآنية في 800 طالب وطالبة بمنهج مكتوب</li><li><span class="gn">2</span>تمكين 40 معلمًا ومعلمة من التربية بالقيم داخل الحلقة</li><li><span class="gn">3</span>إشراك الأسرة في متابعة السلوك ببطاقة القيمة</li><li><span class="gn">4</span>ترسيخ الهوية الوطنية بجذورها الإسلامية لدى النشء</li></ul><div class="foot"><p>مشروع خُلُقه القرآن · 4</p><img src="../../assets/img/logo_word.png" alt="الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع" style="width:330px;height:48px;object-fit:contain"></div></section></div></div>
+<div class="frame" aria-label="الشريحة 5"><div class="scaler" dir="ltr"><section id="target" class="slide s-pad"><div><p class="kicker">الفئة المستهدفة ونطاق التنفيذ</p><h2 class="s-h2">الطالب والمعلم والأسرة في دائرة واحدة</h2></div><div class="chips"><span class="chip"><svg aria-hidden="true" class="ic" style="width:34px;height:34px;color:#42B5D1;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>طلاب الحلقات وطالباتها</span><span class="chip"><svg aria-hidden="true" class="ic" style="width:34px;height:34px;color:#42B5D1;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>40 حلقة للبنين والبنات</span><span class="chip"><svg aria-hidden="true" class="ic" style="width:34px;height:34px;color:#42B5D1;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>40 معلمًا ومعلمة</span><span class="chip"><svg aria-hidden="true" class="ic" style="width:34px;height:34px;color:#42B5D1;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>أولياء الأمور</span></div><p class="note-band">القيم الاثنتا عشرة: الصدق، والأمانة، وبر الوالدين، والإحسان إلى الجار، واحترام الكبير، وحفظ اللسان، والإتقان، والنظافة والنظام، والانتماء للوطن، وحفظ النعمة، والتعاون، والحياء.</p><div class="foot"><p>مشروع خُلُقه القرآن · 5</p><img src="../../assets/img/logo_word.png" alt="الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع" style="width:330px;height:48px;object-fit:contain"></div></section></div></div>
+<div class="frame" aria-label="الشريحة 6"><div class="scaler" dir="ltr"><section id="plan" class="slide s-pad"><div><p class="kicker">خطة التنفيذ</p><h2 class="s-h2">10 أشهر من توقيع الاتفاقية حتى التقرير الختامي</h2></div><div style="position:relative;margin-top:30px"><div class="line"></div><div class="tl"><div class="st"><span class="dot"></span><p class="when">الشهر 1</p><h3>الإعداد</h3><p>تحكيم الدليل وتدريب المعلمين والمعلمات</p></div><div class="st"><span class="dot"></span><p class="when">الشهر 2</p><h3>القياس القبلي</h3><p>استبانة سلوك للطالب وولي أمره</p></div><div class="st"><span class="dot"></span><p class="when">2–10</p><h3>التنفيذ</h3><p>قيمة كل ثلاثة أسابيع مع بطاقة أسرية</p></div><div class="st"><span class="dot"></span><p class="when">كل شهرين</p><h3>لقاء الأسرة</h3><p>أربعة لقاءات تربوية لأولياء الأمور</p></div><div class="st"><span class="dot"></span><p class="when">الشهر 10</p><h3>الختام</h3><p>القياس البعدي وتكريم سفراء القيم والتقرير</p></div></div></div><div class="foot"><p>مشروع خُلُقه القرآن · 6</p><img src="../../assets/img/logo_word.png" alt="الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع" style="width:330px;height:48px;object-fit:contain"></div></section></div></div>
+<div class="frame" aria-label="الشريحة 7"><div class="scaler" dir="ltr"><section id="kpi" class="slide s-pad"><div><p class="kicker">مؤشرات الأثر</p><h2 class="s-h2">أثر يُقاس بالأرقام</h2></div><div class="wrapT"><table class="tbl"><thead><tr><th>المؤشر</th><th>المستهدف</th><th>أداة القياس</th></tr></thead><tbody><tr><td>تحسّن متوسط مؤشر السلوك</td><td class="v">20% فأكثر</td><td>القياس القبلي والبعدي</td></tr><tr><td>بطاقات قيمة مكتملة بتوقيع الأسرة</td><td class="v">70% فأكثر</td><td>سجل البطاقات</td></tr><tr><td>معلمون طبّقوا الدليل كاملًا</td><td class="v">36 من 40</td><td>زيارات الإشراف</td></tr><tr><td>أولياء أمور حضروا اللقاءات</td><td class="v">300</td><td>سجل الحضور</td></tr></tbody></table></div><div class="foot"><p>مشروع خُلُقه القرآن · 7</p><img src="../../assets/img/logo_word.png" alt="الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع" style="width:330px;height:48px;object-fit:contain"></div></section></div></div>
+<div class="frame" aria-label="الشريحة 8"><div class="scaler" dir="ltr"><section id="sustain" class="slide s-pad"><div><p class="kicker">الاستدامة ورؤية 2030</p><h2 class="s-h2">أثر يستمر بعد انتهاء الدعم</h2></div><div class="row" style="gap:56px"><div style="flex:1.1"><h3 style="font-size:38px;font-weight:800;margin-bottom:24px">الاستدامة بعد الدعم</h3><ul class="sl" style="padding:0"><li><svg aria-hidden="true" class="ic" style="width:40px;height:40px;color:#0E8A4A;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg><span>يبقى الدليل القيمي منهجًا ثابتًا في كل حلقات الجمعية</span></li><li><svg aria-hidden="true" class="ic" style="width:40px;height:40px;color:#0E8A4A;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg><span>ينقل المعلمون المدرَّبون التجربة إلى زملائهم في الحلقات الأخرى</span></li><li><svg aria-hidden="true" class="ic" style="width:40px;height:40px;color:#0E8A4A;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg><span>تُضمَّن بطاقة القيمة في نظام المتابعة الدائم للطلاب</span></li></ul></div><div style="flex:1"><h3 style="font-size:38px;font-weight:800;margin-bottom:24px">المواءمة مع محاور الرؤية</h3><div class="vis"><div><h3>مجتمع حيوي</h3><p>قيم إسلامية راسخة وأسرة شريكة في التربية</p></div><div><h3>وطن طموح</h3><p>مواطن مسؤول تبدأ تربيته من الحلقة والبيت</p></div></div></div></div><div class="foot"><p>مشروع خُلُقه القرآن · 8</p><img src="../../assets/img/logo_word.png" alt="الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع" style="width:330px;height:48px;object-fit:contain"></div></section></div></div>
+<div class="frame" aria-label="الشريحة 9"><div class="scaler" dir="ltr"><section id="budget" class="slide s-pad" style="gap:34px"><div><p class="kicker">الدراسة المالية</p><h2 class="s-h2">الميزانية التفصيلية: 53,000 ريال</h2></div><div class="wrapT"><table class="tbl bud"><thead><tr><th>البند</th><th>التفصيل</th><th class="a">المبلغ (ريال)</th></tr></thead><tbody><tr><td>إعداد الدليل القيمي وتحكيمه</td><td>12 قيمة بآياتها وأنشطتها</td><td class="a">10,000</td></tr><tr><td>تدريب المعلمين والمعلمات</td><td>ورشتان لـ40 معلمًا ومعلمة</td><td class="a">8,000</td></tr><tr><td>طباعة الدليل وبطاقات القيم</td><td>40 دليلًا و800 ملف طالب</td><td class="a">10,000</td></tr><tr><td>حوافز «سفير القيم»</td><td>120 طالبًا وطالبة × 100</td><td class="a">12,000</td></tr><tr><td>اللقاءات الأسرية</td><td>4 لقاءات × 1,500</td><td class="a">6,000</td></tr><tr><td>القياس القبلي والبعدي</td><td>تصميم الأداة وتحليل النتائج</td><td class="a">4,000</td></tr><tr><td>الإدارة والتقارير</td><td>المتابعة والتقرير الختامي</td><td class="a">3,000</td></tr><tr class="tot"><td>الإجمالي</td><td></td><td class="a">53,000</td></tr></tbody></table></div><div class="pills"><span>تكلفة المستفيد ≈ 66 ريالًا</span><span>منهج يبقى بعد انتهاء الدعم</span><span>تقارير مالية ربعية</span><span>صرف وفق البنود المعتمدة</span></div><div class="foot"><p>مشروع خُلُقه القرآن · 9</p><img src="../../assets/img/logo_word.png" alt="الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع" style="width:330px;height:48px;object-fit:contain"></div></section></div></div>
+<div class="frame" aria-label="الشريحة 10"><div class="scaler" dir="ltr"><section id="criteria" class="slide s-pad" style="gap:40px"><div><p class="kicker">المواءمة مع منح الراجحي</p><h2 class="s-h2">مشروع يستوفي شروط المؤسسة ومجالاتها</h2></div><div class="ck"><div><span class="b"><svg aria-hidden="true" class="ic" style="width:30px;height:30px;color:#FBFBF8;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><h3>مجال «البرامج القيمية»</h3><p>من مجالات الدعم المعلنة لعام 1448هـ</p></span></div><div><span class="b"><svg aria-hidden="true" class="ic" style="width:30px;height:30px;color:#FBFBF8;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><h3>تعزيز القيم الإسلامية والهوية الوطنية</h3><p>من برامج المنح في المؤسسة</p></span></div><div><span class="b"><svg aria-hidden="true" class="ic" style="width:30px;height:30px;color:#FBFBF8;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><h3>جهة مرخصة ونظامية</h3><p>المركز الوطني 3165 · الشؤون الإسلامية 3/2</p></span></div><div><span class="b"><svg aria-hidden="true" class="ic" style="width:30px;height:30px;color:#FBFBF8;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><h3>حساب بنكي باسم الجمعية</h3><p>مصرف الراجحي · حساب الشؤون التعليمية</p></span></div><div><span class="b"><svg aria-hidden="true" class="ic" style="width:30px;height:30px;color:#FBFBF8;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><h3>قوائم مالية معتمدة</h3><p>من محاسب قانوني لآخر سنة مالية</p></span></div><div><span class="b"><svg aria-hidden="true" class="ic" style="width:30px;height:30px;color:#FBFBF8;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><h3>ضمن اختصاص الجمعية</h3><p>من أهداف الجمعية: تعزيز القيم المستمدة من القرآن</p></span></div><div><span class="b"><svg aria-hidden="true" class="ic" style="width:30px;height:30px;color:#FBFBF8;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><h3>داخل المملكة</h3><p>محافظة ينبع وقراها ومراكزها</p></span></div><div><span class="b"><svg aria-hidden="true" class="ic" style="width:30px;height:30px;color:#FBFBF8;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span><h3>مؤشرات قابلة للقياس</h3><p>قياس دوري وتقرير ختامي موثق</p></span></div></div><div class="foot"><p>مشروع خُلُقه القرآن · 10</p><img src="../../assets/img/logo_word.png" alt="الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع" style="width:330px;height:48px;object-fit:contain"></div></section></div></div>
+<div class="frame" aria-label="الشريحة 11"><div class="scaler" dir="ltr"><section id="contact" class="slide" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;padding:110px 128px;text-align:center">
+<div style="position:absolute;left:0;right:0;top:0;height:16px;background:linear-gradient(to left,#42B5D1,#0E8A4A)"></div>
+<img src="../../assets/img/logo_mark.png" alt="شعار الجمعية" style="width:220px;height:143px;object-fit:contain">
+<img src="../../assets/img/logo_word.png" alt="الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع" style="width:700px;height:102px;object-fit:contain">
+<p style="font-family:'Amiri','Times New Roman',serif;font-size:56px;font-weight:700;color:#0D495D;text-align:center">شاكرين لكم دعمكم لخدمة كتاب الله</p>
+<div style="display:flex;gap:28px;flex-wrap:wrap;justify-content:center">
+<p style="font-size:28px;color:#2E4A55;background:#EEF6F8;padding:18px 30px;border-radius:999px">جوال 0553671414</p>
+<p style="font-size:28px;color:#2E4A55;background:#EEF6F8;padding:18px 30px;border-radius:999px">هاتف 0125128912</p>
+<p style="font-size:28px;color:#2E4A55;background:#EEF6F8;padding:18px 30px;border-radius:999px">tahfez-q@hotmail.com</p>
+<p style="font-size:28px;color:#2E4A55;background:#EEF6F8;padding:18px 30px;border-radius:999px">yq.org.sa</p></div>
+<p style="font-size:28px;line-height:1.5;color:#3A5560;text-align:center">حساب الجمعية (الشؤون التعليمية) – مصرف الراجحي: SA9780000327608010750004</p>
+<p style="font-size:30px;font-weight:700;color:#0E8A4A;text-align:center">رئيس مجلس الإدارة: د. سلامة بن سليم الرفاعي</p>
+<p style="font-size:26px;color:#6B8590;text-align:center">مسجلة لدى المركز الوطني لتنمية القطاع غير الربحي برقم 3165 · ترخيص وزارة الشؤون الإسلامية 3/2</p>
+</section></div></div>
+</main>
+<section class="portal"><h2>حقول منصة مانح جاهزة للنسخ</h2><p class="hint">انسخ كل حقل والصقه في خانته عند إدخال المشروع في منصة مانح (المرحلة الثانية: 11 إلى 19 نوفمبر).</p><div class="cp"><div class="row"><h3>اسم المشروع</h3><button class="btn line" data-copy="f-n">نسخ</button></div><pre id="f-n">خُلُقه القرآن</pre></div><div class="cp"><div class="row"><h3>مجال الدعم</h3><button class="btn line" data-copy="f-f">نسخ</button></div><pre id="f-f">البرامج القيمية
+البرنامج في المؤسسة: تعزيز القيم الإسلامية والهوية الوطنية</pre></div><div class="cp"><div class="row"><h3>وصف المشروع</h3><button class="btn line" data-copy="f-d">نسخ</button></div><pre id="f-d">برنامج قيمي لمدة عشرة أشهر في 40 حلقة قرآنية، يقدّم 12 قيمة قرآنية بمنهج مكتوب ومحكَّم، بواقع قيمة كل ثلاثة أسابيع، مع تدريب 40 معلمًا ومعلمة، ومتابعة السلوك في البيت ببطاقة يوقّعها ولي الأمر، وأربعة لقاءات أسرية، وقياس قبلي وبعدي للأثر، يستفيد منه 800 طالب وطالبة.</pre></div><div class="cp"><div class="row"><h3>الأهداف</h3><button class="btn line" data-copy="f-g">نسخ</button></div><pre id="f-g">1. غرس 12 قيمة قرآنية في 800 طالب وطالبة بمنهج مكتوب
+2. تمكين 40 معلمًا ومعلمة من التربية بالقيم داخل الحلقة
+3. إشراك الأسرة في متابعة السلوك ببطاقة القيمة
+4. ترسيخ الهوية الوطنية بجذورها الإسلامية لدى النشء</pre></div><div class="cp"><div class="row"><h3>المستفيدون والمبلغ والمدة</h3><button class="btn line" data-copy="f-b">نسخ</button></div><pre id="f-b">الفئة المستهدفة: طلاب الحلقات وطالباتها ومعلموهم وأسرهم
+المستفيدون: 800 طالب وطالبة، و40 معلمًا ومعلمة
+المبلغ المطلوب: 53,000 ريال
+مدة التنفيذ: 10 أشهر
+مكان التنفيذ: 40 حلقة قرآنية بمحافظة ينبع وقراها</pre></div><div class="cp"><div class="row"><h3>مؤشرات الأداء</h3><button class="btn line" data-copy="f-k">نسخ</button></div><pre id="f-k">- تحسّن متوسط مؤشر السلوك: 20% فأكثر (القياس القبلي والبعدي)
+- بطاقات قيمة مكتملة بتوقيع الأسرة: 70% فأكثر (سجل البطاقات)
+- معلمون طبّقوا الدليل كاملًا: 36 من 40 (زيارات الإشراف)
+- أولياء أمور حضروا اللقاءات: 300 (سجل الحضور)</pre></div><div class="cp"><div class="row"><h3>خطاب طلب الدعم</h3><button class="btn line" data-copy="f-l">نسخ</button></div><pre id="f-l">السادة / مؤسسة سليمان الراجحي الخيرية     سلّمهم الله
+السلام عليكم ورحمة الله وبركاته، وبعد:
+
+تتقدم الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع (المسجلة لدى المركز الوطني لتنمية القطاع غير الربحي برقم 3165) بخالص الشكر والتقدير لمؤسستكم على ما تبذله في خدمة كتاب الله ودعم الجهات الخيرية.
+
+وتخدم الجمعية أكثر من 4,000 طالب وطالبة في 262 حلقة بالمحافظة وقراها، ويسرّها أن تتقدم بطلب دعم مشروع «خُلُقه القرآن» ضمن مجال «البرامج القيمية» في فترة المنح الأولى لعام 1448هـ، بمبلغ قدره 53,000 ريال، يستفيد منه 800 طالب وطالبة، و40 معلمًا ومعلمة، ومدة تنفيذه 10 أشهر.
+
+وتلتزم الجمعية بإبراز دعم المؤسسة، وصرف المنحة وفق الميزانية المعتمدة، ورفع تقارير دورية وتقرير ختامي بالمنجزات والمستندات المالية.
+
+شاكرين لكم حسن تعاونكم، وجعل ذلك في موازين حسناتكم.
+
+رئيس مجلس الإدارة
+د. سلامة بن سليم الرفاعي</pre></div><div class="cp"><div class="row"><h3>الحساب البنكي للجمعية</h3><button class="btn line" data-copy="f-iban">نسخ الآيبان</button></div><pre id="f-iban">SA9780000327608010750004</pre><p class="hint" style="margin:0">مصرف الراجحي · حساب الشؤون التعليمية · باسم الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع</p></div></section>
+<script>
+function fit(){document.querySelectorAll('.frame').forEach(function(f){var s=f.clientWidth/1920;f.querySelector('.scaler').style.transform='scale('+s+')';f.style.height=(1080*s)+'px';});}
+window.addEventListener('resize',fit);window.addEventListener('load',fit);fit();
+document.addEventListener('click',function(ev){var b=ev.target.closest('[data-copy]');if(!b)return;var el=document.getElementById(b.dataset.copy),o=b.textContent;
+function ok(){b.textContent='نُسخ';setTimeout(function(){b.textContent=o},1500)}
+function fb(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='حدّد النص وانسخه';setTimeout(function(){b.textContent=o},2000)}
+try{navigator.clipboard.writeText(el.textContent).then(ok,fb)}catch(_){fb()}});
+</script>
+<footer>إعداد وتصميم: <b>عبدالمجيد السيد</b></footer>
+</body></html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مشاريع جمعية تحفيظ القرآن بينبع — منح مؤسسة سليمان الراجحي الخيرية</title>
+<link rel="icon" href="../assets/img/logo_mark.png">
+<link rel="stylesheet" href="../assets/fonts.css">
+<style>
+:root{--navy:#0D495D;--deep:#08303E;--sky:#42B5D1;--green:#0E8A4A;--pale:#EEF6F8;--paper:#FBFBF8;--ink:#2E4A55;--muted:#5E7883}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Tajawal',Tahoma,sans-serif}
+a{color:inherit}
+.top{background:var(--deep);color:var(--paper);padding:12px 16px;display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
+@media (max-width:640px){.top img{height:26px!important}.top .t{font-size:16px!important;min-width:0!important;flex-basis:100%;order:3}.btn{padding:8px 14px!important;font-size:14px!important}}
+.top img{height:34px;width:auto}
+.top .t{font-weight:800;font-size:19px;flex:1;min-width:180px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;border:2px solid transparent;white-space:nowrap}
+.btn.primary{background:var(--sky);color:var(--deep)}
+.btn.ghost{border-color:rgba(251,251,248,.45);color:var(--paper)}
+.btn.dark{background:var(--navy);color:var(--paper)}
+.btn.line{border-color:var(--navy);color:var(--navy)}
+.btn:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+footer{text-align:center;padding:28px 16px 36px;color:var(--muted);font-size:15px;border-top:1px solid #DCE8EC;margin-top:32px}
+footer b{color:var(--navy)}
+
+.hero{background:radial-gradient(circle at 70% 20%,#12607A 0%,#0D495D 45%,#08303E 100%);color:var(--paper);text-align:center;padding:40px 16px 44px;border-bottom:6px solid var(--sky)}
+.hero .mark{width:96px;height:auto;background:var(--paper);border-radius:20px;padding:10px}
+.hero .word{display:block;margin:18px auto 0;width:min(520px,90%);height:auto}
+.hero h1{font-size:clamp(26px,5vw,42px);margin:22px 0 6px;font-weight:800}
+.hero p{margin:0;color:#BFDCE5;font-size:clamp(16px,2.6vw,20px)}
+.grid{max-width:1200px;margin:0 auto;padding:28px 16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:22px}
+.card{background:#fff;border:1px solid #DCE8EC;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 18px rgba(8,48,62,.08)}
+.thumb img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.cb{padding:18px 20px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.cb h2{margin:0;color:var(--navy);font-size:26px;font-weight:800}
+.sub{margin:0;color:var(--muted);font-size:17px;line-height:1.6}
+dl{margin:4px 0 0;display:grid;gap:6px}
+dl div{display:flex;gap:10px;font-size:16px;line-height:1.5}
+dt{color:var(--green);font-weight:700;min-width:96px}
+dd{margin:0;color:var(--ink)}
+.acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto;padding-top:10px}
+
+
+.grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))}
+.cb h2{font-size:24px}
+.hero .meta{display:inline-flex;flex-wrap:wrap;justify-content:center;gap:8px 14px;margin-top:18px;background:rgba(8,48,62,.45);border:1px solid rgba(66,181,209,.45);border-radius:999px;padding:10px 22px;font-size:16px;color:#E5F3F7}
+.hero .meta b{color:var(--sky)}
+.sec{max-width:1200px;margin:0 auto;padding:8px 16px 0}
+.sec h2{color:var(--navy);font-size:28px;font-weight:800;margin:18px 0 6px}
+.sec .lead{color:var(--muted);font-size:17px;margin:0 0 16px}
+.reqs{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px}
+.req{background:#fff;border:1px solid #DCE8EC;border-top:6px solid var(--sky);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.req.ok{border-top-color:var(--green)}
+.req b{color:var(--navy);font-size:18px}
+.req span{font-size:15px;color:var(--muted);line-height:1.6}
+.req em{font-style:normal;font-weight:700;font-size:14px;color:var(--green)}
+.req.later em{color:var(--muted)} .req.todo em{color:#1B7F98}
+.mx{overflow-x:auto;border:1px solid #DCE8EC;border-radius:14px;background:#fff}
+.mx table{border-collapse:collapse;width:100%;min-width:620px}
+.mx th,.mx td{padding:12px 16px;border-bottom:1px solid #E6EFF2;text-align:right;font-size:16px}
+.mx th{background:var(--navy);color:var(--paper)}
+.mx td.c{text-align:center;color:var(--green);font-weight:800;font-size:18px}
+.mx tr:last-child td{border-bottom:0}
+.stats{max-width:1200px;margin:-26px auto 0;padding:0 16px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;position:relative}
+.stats div{background:#fff;border:1px solid #DCE8EC;border-radius:16px;padding:16px 18px;box-shadow:0 4px 18px rgba(8,48,62,.08);text-align:center}
+.stats b{display:block;font-size:30px;font-weight:800;color:var(--navy)}
+.stats span{color:var(--muted);font-size:15px}
+@media (max-width:700px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.phases{max-width:1200px;margin:22px auto 0;padding:0 16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:14px}
+.ph{background:#fff;border:1px solid #DCE8EC;border-radius:16px;padding:16px 20px;display:flex;flex-direction:column;gap:6px;border-inline-start:6px solid var(--sky)}
+.ph.now{border-inline-start-color:#C98A1E}
+.ph small{color:var(--green);font-weight:800;font-size:14px}
+.ph b{color:var(--navy);font-size:20px}
+.ph span{color:var(--muted);font-size:16px;line-height:1.6}
+.ph .btn{align-self:flex-start;margin-top:6px}
+</style></head><body>
+<p style="margin:0;padding:10px 16px;background:#08303E;text-align:center"><a href="../index.html" style="color:#BFDCE5;font-weight:700;text-decoration:none">→ كل مشاريع المنح</a></p><header class="hero"><img class="mark" src="../assets/img/logo_mark.png" alt="شعار الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع">
+<img class="word" src="../assets/img/logo_word_light.png" alt="الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع">
+<h1>مشاريع مقدَّمة لمنح مؤسسة سليمان الراجحي الخيرية</h1>
+<p>فترة المنح الأولى لعام 1448هـ - 2027م · عبر منصة مانح</p>
+<div class="meta"><span><b>رفع المشاريع:</b> من 1 إلى 9 جمادى الآخرة 1448هـ</span><span>الموافق 11 إلى 19 نوفمبر 2026م</span></div></header>
+<div class="stats"><div><b>3</b><span>مشاريع</span></div><div><b>408,000</b><span>ريال إجمالي المطلوب</span></div><div><b>1,360</b><span>مستفيدًا مباشرًا</span></div><div><b>1398هـ</b><span>بداية العمل القرآني</span></div></div>
+<section class="phases"><div class="ph now"><small>المرحلة الأولى · الآن</small><b>تحديث بيانات الجمعية في منصة مانح</b><span>من 21 إلى 30 جمادى الأولى 1448هـ، الموافق 1 إلى 10 نوفمبر 2026م. شرط للتقديم في المرحلة الثانية.</span><a class="btn dark" href="check.html">قائمة التحقق والمتابعة</a></div><div class="ph"><small>المرحلة الثانية</small><b>رفع طلبات المشاريع الثلاثة</b><span>من 1 إلى 9 جمادى الآخرة 1448هـ، الموافق 11 إلى 19 نوفمبر 2026م. حقول كل مشروع جاهزة للنسخ في صفحته.</span></div></section>
+<main class="grid"><article class="card">
+<a href="p/manarat.html" class="thumb"><img src="assets/thumb-manarat.jpg" alt="غلاف مشروع منارات" loading="lazy"></a>
+<div class="cb"><h2>منارات</h2><p class="sub">تشغيل خمس دور نسائية بمعلمات مؤهلات عامًا دراسيًا كاملًا</p>
+<dl><div><dt>المبلغ المطلوب</dt><dd>218,200 ريال</dd></div><div><dt>المستفيدون</dt><dd>500 طالبة ودارسة في 20 حلقة</dd></div><div><dt>مدة التنفيذ</dt><dd>9 أشهر</dd></div><div><dt>المجال</dt><dd>الحلقات والدور النسائية</dd></div></dl>
+<div class="acts"><a class="btn dark" href="p/manarat.html">عرض المشروع</a><a class="btn line" href="pdf/manarat.pdf" download>تحميل PDF</a></div></div></article>
+<article class="card">
+<a href="p/khatma.html" class="thumb"><img src="assets/thumb-khatma.jpg" alt="غلاف مشروع ختمة" loading="lazy"></a>
+<div class="cb"><h2>ختمة</h2><p class="sub">مسار مكثف يوصل حفظة الأجزاء إلى ختم القرآن الكريم</p>
+<dl><div><dt>المبلغ المطلوب</dt><dd>136,800 ريال</dd></div><div><dt>المستفيدون</dt><dd>60 حافظًا وحافظة، يُستهدف ختم 25 منهم</dd></div><div><dt>مدة التنفيذ</dt><dd>12 شهرًا</dd></div><div><dt>المجال</dt><dd>البرامج القرآنية النوعية</dd></div></dl>
+<div class="acts"><a class="btn dark" href="p/khatma.html">عرض المشروع</a><a class="btn line" href="pdf/khatma.pdf" download>تحميل PDF</a></div></div></article>
+<article class="card">
+<a href="p/khuluq.html" class="thumb"><img src="assets/thumb-khuluq.jpg" alt="غلاف مشروع خُلُقه القرآن" loading="lazy"></a>
+<div class="cb"><h2>خُلُقه القرآن</h2><p class="sub">برنامج قيمي يحوّل آيات الحلقة إلى سلوك يراه البيت والمجتمع</p>
+<dl><div><dt>المبلغ المطلوب</dt><dd>53,000 ريال</dd></div><div><dt>المستفيدون</dt><dd>800 طالب وطالبة في 40 حلقة</dd></div><div><dt>مدة التنفيذ</dt><dd>10 أشهر</dd></div><div><dt>المجال</dt><dd>البرامج القيمية</dd></div></dl>
+<div class="acts"><a class="btn dark" href="p/khuluq.html">عرض المشروع</a><a class="btn line" href="pdf/khuluq.pdf" download>تحميل PDF</a></div></div></article>
+</main>
+<section class="sec"><h2>مواءمة المشاريع مع منح الراجحي</h2><p class="lead">موضع كل عنصر من عناصر دراسة الطلب في عروض المشاريع الثلاثة.</p>
+<div class="mx"><table><thead><tr><th>العنصر</th><th>موضعه في العرض</th><th style="text-align:center">منارات</th><th style="text-align:center">ختمة</th><th style="text-align:center">خُلُقه القرآن</th></tr></thead><tbody><tr><td>1. الوقوع ضمن مجالات الدعم المعلنة</td><td>الغلاف + شريحة المواءمة</td><td class="c">الدور النسائية</td><td class="c">النوعية</td><td class="c">القيمية</td></tr><tr><td>2. الارتباط ببرامج المنح في المؤسسة</td><td>شريحة المواءمة</td><td class="c">✓</td><td class="c">✓</td><td class="c">✓</td></tr><tr><td>3. وضوح الفكرة والمبررات</td><td>فكرة المشروع</td><td class="c">✓</td><td class="c">✓</td><td class="c">✓</td></tr><tr><td>4. أهداف ومستفيدون محددون</td><td>الأهداف + الفئة المستهدفة</td><td class="c">✓</td><td class="c">✓</td><td class="c">✓</td></tr><tr><td>5. خطة تنفيذ زمنية</td><td>خطة التنفيذ</td><td class="c">✓</td><td class="c">✓</td><td class="c">✓</td></tr><tr><td>6. مؤشرات أثر قابلة للقياس</td><td>مؤشرات الأثر</td><td class="c">✓</td><td class="c">✓</td><td class="c">✓</td></tr><tr><td>7. ميزانية تفصيلية بالبنود</td><td>الدراسة المالية</td><td class="c">✓</td><td class="c">✓</td><td class="c">✓</td></tr><tr><td>8. الاستدامة والمواءمة مع رؤية 2030</td><td>الاستدامة والرؤية</td><td class="c">✓</td><td class="c">✓</td><td class="c">✓</td></tr></tbody></table></div></section>
+<section class="sec"><h2>شروط أهلية الجهة</h2><p class="lead">الشروط العامة المنشورة في صفحة برامج المنح بموقع المؤسسة، وحالتها لدى الجمعية.</p><div class="reqs"><div class="req ok"><b>جهة مرخصة نظامية داخل المملكة</b><em>مستوفى</em><span>المركز الوطني 3165 · ترخيص الشؤون الإسلامية 3/2</span></div><div class="req ok"><b>حساب بنكي باسم الجهة</b><em>مستوفى</em><span>مصرف الراجحي · حساب الشؤون التعليمية</span></div><div class="req ok"><b>المشروع ضمن اختصاص الجهة</b><em>مستوفى</em><span>المشاريع الثلاثة من برامج الجمعية القائمة</span></div><div class="req todo"><b>قوائم مالية معتمدة من محاسب قانوني</b><em>يُرفع في المرحلة الأولى</em><span>لآخر سنة مالية منتهية</span></div><div class="req todo"><b>ترخيص قبول التبرعات والهبات</b><em>يُرفع في المرحلة الأولى</em><span>شهادة التسجيل السارية تثبته</span></div><div class="req todo"><b>وضع الجمعية في ضريبة القيمة المضافة</b><em>يُتحقق منه</em><span>شهادة التسجيل إن كانت ملزمة، وإلا فإفادة بعدم الإلزام</span></div><div class="req todo"><b>خطاب طلب الدعم</b><em>يحتاج توقيعًا وختمًا</em><span>باسم رئيس مجلس الإدارة، ونصه في صفحة كل مشروع</span></div><div class="req later"><b>التقرير الختامي</b><em>بعد القبول</em><span>مضمّن في المرحلة الأخيرة من كل خطة</span></div></div></section>
+<footer>إعداد وتصميم: <b>عبدالمجيد السيد</b></footer>
+</body></html>
