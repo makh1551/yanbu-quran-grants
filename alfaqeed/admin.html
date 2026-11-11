@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>لوحة متابعة حملة الفقيد</title>
+<link rel="icon" href="/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="top"><div class="wrap"><img src="/logo.png" alt="شعار الجمعية"><nav><a href="/">الموقع</a><a href="/majlis">ملف المجلس</a></nav></div></header>
+
+<section id="gate"><div class="wrap" style="max-width:480px">
+  <form class="box" id="gateForm">
+    <h2 style="font-size:26px">لوحة متابعة الحملات</h2>
+    <p class="sec-lead" style="margin-bottom:18px">خاصة بإدارة الجمعية.</p>
+    <div class="f"><label for="code">رمز الدخول</label><input id="code" type="password" autocomplete="current-password" required></div>
+    <div class="btns" style="margin-top:18px"><button class="btn" type="submit">دخول</button></div>
+    <div class="msg err" id="gateErr" hidden role="alert"></div>
+  </form>
+</div></section>
+
+<section id="panel" hidden><div class="wrap" style="max-width:1280px">
+  <h2>لوحة متابعة الحملات</h2>
+  <p class="sec-lead">اعتمد الطلب بعد التحقق من صلة مقدّمه بالفقيد، ثم أدخل رابط الحملة في المتجر وحدّث الحصيلة.</p>
+  <div class="kpis">
+    <div class="stat"><b id="kActive">٠</b><span>حملة معتمدة</span></div>
+    <div class="stat"><b id="kPending">٠</b><span>طلب بانتظار الاعتماد</span></div>
+    <div class="stat"><b id="kTotal">٠</b><span>ريال إجمالي الحصيلة</span></div>
+    <div class="stat"><b id="kAvg">٠</b><span>متوسط المتبرعين للحملة</span></div>
+  </div>
+  <div class="tbl" style="margin-bottom:24px"><table><tr><th>المشروع</th><th>الحملات</th><th>الحصيلة (ريال)</th><th>ما يعادلها</th></tr><tbody id="byProject"></tbody></table></div>
+  <div class="tbl adm"><table>
+    <tr><th>الطلب</th><th>الفقيد</th><th>المشروع</th><th>مقدّم الطلب</th><th>الحالة</th><th>رابط المتجر</th><th>الحصيلة</th><th>المتبرعون</th><th>إجراءات</th></tr>
+    <tbody id="rows"></tbody>
+  </table></div>
+  <p class="hint" id="empty" hidden>لا توجد طلبات بعد.</p>
+  <div class="msg ok" id="note" hidden role="status"></div>
+</div></section>
+
+<script src="/app.js"></script>
+<script>
+const $ = (id) => document.getElementById(id);
+const STATUS = { pending: 'بانتظار الاعتماد', active: 'معتمدة', closed: 'مغلقة', rejected: 'مرفوضة' };
+let code = sessionStorage.getItem('adm') || '';
+const api = async (path, body) => {
+  const r = await fetch('/api/admin/' + path, { method: body ? 'POST' : 'GET', headers: { 'x-admin-code': code, 'content-type': 'application/json' }, body: body ? JSON.stringify(body) : undefined });
+  const j = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(j.error || 'تعذّر تنفيذ الطلب.');
+  return j;
+};
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
+const flash = (m) => { $('note').textContent = m; $('note').hidden = false; setTimeout(() => ($('note').hidden = true), 3500); };
+
+async function load() {
+  const { items } = await api('list');
+  $('gate').hidden = true; $('panel').hidden = false;
+  const live = items.filter((c) => c.status === 'active' || c.status === 'closed');
+  const total = live.reduce((s, c) => s + (c.total || 0), 0), donors = live.reduce((s, c) => s + (c.donors || 0), 0);
+  $('kActive').textContent = ar(live.length);
+  $('kPending').textContent = ar(items.filter((c) => c.status === 'pending').length);
+  $('kTotal').textContent = ar(total);
+  $('kAvg').textContent = ar(live.length ? Math.round(donors / live.length) : 0);
+  $('byProject').innerHTML = Object.entries(PROJECTS).map(([k, p]) => {
+    const cs = live.filter((c) => c.project === k), t = cs.reduce((s, c) => s + (c.total || 0), 0);
+    return '<tr><td>' + p.name + '</td><td>' + ar(cs.length) + '</td><td>' + ar(t) + '</td><td>' + p.countLabel + ': ' + ar(Math.floor(t / p.unit)) + '</td></tr>';
+  }).join('');
+  $('empty').hidden = items.length > 0;
+  $('rows').innerHTML = items.map((c) => {
+    const url = SITE + '/c/' + c.id;
+    const msg = 'السلام عليكم ' + c.requester + '، اعتُمدت حملة ' + c.name + ' ' + c.suffix + '.\nرابط الحملة:\n' + url + '\nتجدون في الصفحة بطاقة الحملة ونص رسالة المعزّين.';
+    return '<tr data-id="' + esc(c.id) + '">' +
+      '<td><b dir="ltr">' + esc(c.id) + '</b><br><small>' + esc((c.created || '').slice(0, 10)) + '</small></td>' +
+      '<td>' + esc(c.name) + '<br><small>' + esc(c.suffix) + '</small></td>' +
+      '<td>' + esc((PROJECTS[c.project] || {}).name) + '</td>' +
+      '<td>' + esc(c.requester) + '<br><small>' + esc(c.relation) + ' · <span dir="ltr">' + esc(c.phone) + '</span></small></td>' +
+      '<td><span class="badge ' + esc(c.status) + '">' + STATUS[c.status] + '</span><br><select class="st" aria-label="الحالة">' + Object.entries(STATUS).map(([k, v]) => '<option value="' + k + '"' + (k === c.status ? ' selected' : '') + '>' + v + '</option>').join('') + '</select></td>' +
+      '<td><input class="lk" dir="ltr" aria-label="رابط المتجر" placeholder="https://store.yq.org.sa/…" value="' + esc(c.link) + '"></td>' +
+      '<td><input class="tt" inputmode="numeric" aria-label="الحصيلة" value="' + esc(c.total || 0) + '"></td>' +
+      '<td><input class="dn" inputmode="numeric" aria-label="المتبرعون" value="' + esc(c.donors || 0) + '"></td>' +
+      '<td><div class="btns"><button class="chip save" type="button">حفظ</button><a class="chip" style="text-decoration:none" target="_blank" rel="noopener" href="' + esc(url) + '">الصفحة</a><a class="chip" style="text-decoration:none" target="_blank" rel="noopener" href="' + esc(waLink(msg, '966' + String(c.phone).slice(1))) + '">واتساب</a><button class="chip del" type="button">حذف</button></div></td></tr>';
+  }).join('');
+}
+$('rows').addEventListener('click', async (e) => {
+  const tr = e.target.closest('tr'); if (!tr) return;
+  const id = tr.dataset.id, num = (s) => parseInt(latinDigits(tr.querySelector(s).value).replace(/[^\d]/g, ''), 10) || 0;
+  try {
+    if (e.target.classList.contains('save')) {
+      await api('update', { id, status: tr.querySelector('.st').value, link: tr.querySelector('.lk').value.trim(), total: num('.tt'), donors: num('.dn') });
+      flash('حُفظت الحملة ' + id); await load();
+    } else if (e.target.classList.contains('del')) {
+      if (e.target.dataset.sure) { await api('delete', { id }); flash('حُذف الطلب ' + id); await load(); }
+      else { e.target.dataset.sure = '1'; e.target.textContent = 'تأكيد الحذف'; }
+    }
+  } catch (x) { flash(x.message); }
+});
+$('gateForm').addEventListener('submit', async (e) => {
+  e.preventDefault(); code = $('code').value.trim(); $('gateErr').hidden = true;
+  try { await load(); sessionStorage.setItem('adm', code); } catch (x) { $('gateErr').textContent = x.message; $('gateErr').hidden = false; }
+});
+if (code) load().catch(() => { sessionStorage.removeItem('adm'); });
+</script>
+</body>
+</html>

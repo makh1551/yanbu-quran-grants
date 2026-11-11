@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>حملة الفقيد — صدقة جارية</title>
+<meta property="og:title" content="حملة صدقة جارية — جمعية تحفيظ القرآن بينبع">
+<meta property="og:description" content="أهدِه برًّا يصل إليه: شارك في حملة الصدقة الجارية.">
+<meta property="og:image" content="https://sadaqa.yanbuquran.app/waqf.jpg">
+<link rel="icon" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="top"><div class="wrap"><a href="/"><img src="/logo.png" alt="شعار الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع"></a><nav><a href="/">عن حملة الفقيد</a></nav></div></header>
+
+<div class="hero">
+  <div class="wrap" style="padding-top:56px;padding-bottom:88px">
+    <p class="eyebrow">صدقةٌ جارية عن فقيدنا</p>
+    <h1 id="hName">…</h1>
+    <p class="sub" id="hSuffix"></p>
+    <div class="bar"></div>
+    <p class="lead" id="hLead"></p>
+    <div class="btns" id="hBtns" hidden>
+      <a class="btn" id="donate" target="_blank" rel="noopener" href="#">تبرّع عنه الآن</a>
+      <a class="btn ghost" id="share" target="_blank" rel="noopener" href="#">شارك الحملة</a>
+    </div>
+  </div>
+  <svg class="wave" viewBox="0 0 1080 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34 C 220 4, 420 62, 620 34 S 960 8, 1080 28 L1080 70 L0 70 Z" fill="#62b2cc" opacity=".35"/><path d="M0 50 C 240 24, 460 72, 680 46 S 980 28, 1080 44 L1080 70 L0 70 Z" fill="#fbfcfd"/></svg>
+</div>
+
+<section id="missing" hidden><div class="wrap"><div class="box"><h2>الحملة غير متاحة</h2><p>قد تكون الحملة قيد الاعتماد، أو أن الرابط غير صحيح.</p><div class="btns" style="margin-top:16px"><a class="btn" href="/">صفحة حملة الفقيد</a></div></div></div></section>
+
+<div id="body" hidden>
+<section>
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat"><b id="sTotal">٠</b><span>حصيلة الحملة (ريال)</span></div>
+      <div class="stat"><b id="sDonors">٠</b><span>عدد المتبرعين</span></div>
+      <div class="stat"><b id="sImpact">٠</b><span id="sImpactL"></span></div>
+    </div>
+    <p class="note" id="sNote">تُحدَّث الأرقام من سجلات الجمعية.</p>
+    <div class="card" style="margin-top:28px">
+      <h3 id="pName"></h3>
+      <p id="pDesc"></p>
+      <p style="margin-top:8px;color:var(--green-text);font-weight:700" id="pUnit"></p>
+    </div>
+    <div class="hadith">
+      <p>«إذا مات الإنسانُ انقطع عنه عملُه إلا من ثلاثة: إلا من صدقةٍ جارية، أو علمٍ يُنتفع به، أو ولدٍ صالحٍ يدعو له»</p>
+      <span>رواه مسلم</span>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <h2>بطاقة الحملة</h2>
+    <p class="sec-lead">حمّل البطاقة وانشرها مع رابط الحملة في مجموعات العائلة والمعارف.</p>
+    <div class="gen">
+      <div class="box">
+        <p style="margin:0 0 16px">رابط الحملة:</p>
+        <input id="link" readonly dir="ltr" style="text-align:left">
+        <div class="btns" style="margin-top:18px">
+          <button class="btn navy" type="button" id="down">حمّل البطاقة</button>
+          <button class="btn line" type="button" id="copy">انسخ الرابط</button>
+        </div>
+        <p class="hint">التبرعات تُقيَّد في حساب المشروع وحده، ويصل كلَّ متبرع إيصال إلكتروني.</p>
+      </div>
+      <canvas class="cardprev" id="canvas" width="1080" height="1080" role="img" aria-label="بطاقة الحملة"></canvas>
+    </div>
+  </div>
+</section>
+</div>
+
+<footer><img src="/logo.png" alt=""><div>الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع</div><div>إعداد وتطوير: الفريق التقني بالجمعية</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script src="/app.js"></script>
+<script>
+const $ = (id) => document.getElementById(id);
+(async () => {
+  const id = location.pathname.split('/').filter(Boolean).pop();
+  let c = null;
+  try { const r = await fetch('/api/c/' + encodeURIComponent(id)); if (r.ok) c = await r.json(); } catch (e) {}
+  if (!c) { $('hName').textContent = 'حملة الفقيد'; $('missing').hidden = false; return; }
+  const p = PROJECTS[c.project] || PROJECTS.mushaf, url = SITE + '/c/' + c.id;
+  document.title = 'حملة ' + c.name + ' ' + c.suffix;
+  $('hName').textContent = 'حملة ' + c.name;
+  $('hSuffix').textContent = c.suffix;
+  const closed = c.status === 'closed';
+  $('hLead').textContent = closed
+    ? 'اكتملت هذه الحملة، جزى الله كل من شارك فيها خيرًا، وجعلها في ميزان حسناته.'
+    : 'أهدِه برًّا يصل إليه بإذن الله: شارك في حملته في مشروع «' + p.name + '» لدى الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع.';
+  $('donate').href = c.link || p.link;
+  $('donate').hidden = closed;
+  $('share').href = shareLink(mournerMessage(c.name, c.suffix, c.project, url));
+  $('hBtns').hidden = false;
+  $('sTotal').textContent = ar(c.total); $('sDonors').textContent = ar(c.donors);
+  $('sImpact').textContent = ar(Math.floor((c.total || 0) / p.unit)); $('sImpactL').textContent = p.countLabel + ' بهذه الحصيلة';
+  $('pName').textContent = 'مشروع الحملة: ' + p.name; $('pDesc').textContent = p.desc;
+  $('pUnit').textContent = 'القيمة: ' + ar(p.unit) + ' ريال لكل ' + p.unitLabel;
+  $('link').value = url;
+  $('body').hidden = false;
+  const state = { name: c.name, suffix: c.suffix, project: c.project, url };
+  drawCard($('canvas'), state);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => drawCard($('canvas'), state));
+  $('down').onclick = async () => { await drawCard($('canvas'), state); downloadCanvas($('canvas'), 'حملة-' + c.name.replace(/\s+/g, '-') + '.png'); };
+  $('copy').onclick = async () => { try { await navigator.clipboard.writeText(url); $('copy').textContent = 'نُسخ الرابط'; } catch (e) { $('link').select(); } };
+})();
+</script>
+</body>
+</html>

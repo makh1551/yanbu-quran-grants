@@ -3,108 +3,28 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
 <title>حملة الفقيد — جمعية تحفيظ القرآن بينبع</title>
 <meta name="description" content="أنشئ حملة صدقة جارية باسم فقيدك في مشاريع الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع، وشاركها مع المعزّين.">
 <meta property="og:title" content="حملة الفقيد — برٌّ لا ينقطع.. وأثرٌ يبقى">
 <meta property="og:description" content="صدقة جارية باسم فقيدك في مشاريع الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع.">
 <meta property="og:image" content="https://sadaqa.yanbuquran.app/waqf.jpg">
-<link rel="icon" href="logo.png">
+<link rel="icon" href="/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--navy:#1f4566;--navy-deep:#142f47;--sky:#62b2cc;--sky-soft:#e6f3f8;--green:#358141;--green-text:#2e7038;--gold:#C8A24A;--gold-soft:#E0C27A;--sand:#f7f4ec;--paper:#ffffff;--ground:#fbfcfd;--ink:#14222e;--muted:#5a6b78;--line:#d6e2ea}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--ground);color:var(--ink);font-family:'IBM Plex Sans Arabic',Tahoma,sans-serif;font-size:17px;line-height:1.75}
-a{color:var(--navy)}
-img{max-width:100%;display:block}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-header.top{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
-header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:10px;padding-bottom:10px}
-header.top img{height:46px;width:auto}
-nav{display:flex;gap:18px;flex-wrap:wrap}
-nav a{text-decoration:none;font-size:15px;font-weight:600;color:var(--navy)}
-@media (max-width:760px){nav{display:none}}
-.hero{background:var(--navy-deep);color:#fff;position:relative;overflow:hidden}
-.hero .wrap{padding-top:72px;padding-bottom:96px;position:relative}
-.eyebrow{color:var(--sky);font-weight:600;font-size:16px;margin:0 0 8px}
-.hero h1{font-size:clamp(40px,7vw,72px);line-height:1.25;margin:0}
-.hero .sub{font-family:'Amiri',serif;color:var(--gold-soft);font-size:clamp(26px,4vw,38px);margin:8px 0 0}
-.bar{width:110px;height:6px;border-radius:3px;background:var(--gold);margin:24px 0}
-.hero p.lead{font-size:20px;max-width:660px;color:#e6f3f8;margin:0 0 28px}
-.btn{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:#fff;text-decoration:none;font-weight:700;font-size:18px;padding:14px 28px;border-radius:999px;min-height:48px}
-.btn:hover{background:#2c6e37}
-.btn.ghost{background:transparent;border:2px solid #ffffff55}
-.btns{display:flex;gap:12px;flex-wrap:wrap}
-.wave{position:absolute;bottom:0;left:0;width:100%;height:70px}
-section{padding:64px 0}
-section.alt{background:var(--paper)}
-h2{font-size:clamp(28px,4vw,40px);color:var(--navy);margin:0 0 8px;line-height:1.35}
-.sec-lead{color:var(--muted);margin:0 0 32px;max-width:720px}
-.hadith{background:var(--sand);border-radius:24px;padding:28px 32px;margin-top:24px}
-.hadith p{font-family:'Amiri',serif;font-size:clamp(22px,3vw,30px);line-height:1.8;color:var(--navy);font-weight:700;margin:0}
-.hadith span{color:var(--muted);font-size:15px}
-.example{background:var(--navy);color:#fff;border-radius:22px;padding:22px 28px;border-bottom:6px solid var(--gold);display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;margin-top:20px}
-.example small{color:#e6f3f8;font-size:15px}
-.example strong{font-size:clamp(22px,3vw,30px)}
-.example em{font-family:'Amiri',serif;font-style:normal;color:var(--gold-soft)}
-.grid{display:grid;gap:20px}
-.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
-.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
-.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
-@media (max-width:900px){.g4{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.g4,.g3,.g2{grid-template-columns:1fr}}
-.card{background:var(--paper);border:1.5px solid var(--line);border-radius:22px;padding:24px}
-.card h3{margin:0 0 6px;font-size:21px;color:var(--navy)}
-.card p{margin:0}
-.step .n{font-size:34px;font-weight:700;color:var(--green);line-height:1.2}
-.track{display:flex;flex-direction:column;gap:8px}
-.track .ic{width:56px;height:56px;border-radius:16px;background:var(--sky-soft);display:flex;align-items:center;justify-content:center}
-.track .ic svg{width:32px;height:32px}
-.track .price{margin-top:auto;border-top:1px solid var(--line);padding-top:12px;display:flex;align-items:baseline;gap:8px}
-.track .price b{font-size:36px;color:var(--green-text)}
-.track .price span{color:var(--green-text);font-weight:600}
-.track.waqf{background:var(--sand);border-color:var(--gold)}
-.track.waqf img{width:84px;height:56px;object-fit:cover;border-radius:12px}
-.note{margin-top:20px;color:var(--muted);font-size:15px}
-ol.goals{margin:0;padding-inline-start:22px}
-ol.goals li{margin-bottom:8px}
-.goal-main{background:var(--sky-soft);border-radius:20px;padding:20px 24px;font-weight:600;color:var(--navy);margin-bottom:20px}
-table{width:100%;border-collapse:collapse;background:var(--paper);border-radius:18px;overflow:hidden;border:1px solid var(--line)}
-th,td{text-align:right;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
-th{background:var(--navy);color:#fff;font-weight:600}
-tr:last-child td{border-bottom:none}
-.tbl{overflow-x:auto}
-.phases{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:ph}
-@media (max-width:900px){.phases{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.phases{grid-template-columns:1fr}}
-.phase{background:var(--paper);border:1.5px solid var(--line);border-radius:20px;padding:22px;position:relative}
-.phase .when{color:var(--muted);font-size:15px;margin-bottom:6px}
-.phase.on{background:var(--sky-soft);border:2px solid var(--navy)}
-.gate{margin-top:16px;display:inline-flex;align-items:center;gap:10px;background:var(--sand);border-radius:999px;padding:8px 18px;font-weight:600;color:var(--navy);font-size:15px}
-.gate i{width:14px;height:14px;background:var(--gold);transform:rotate(45deg);display:inline-block}
-.cta{background:var(--navy);color:#fff;border-radius:28px;padding:36px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
-.cta h2{color:#fff;margin:0}
-.cta p{margin:6px 0 0;color:#e6f3f8}
-.contact{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:24px}
-@media (max-width:760px){.contact{grid-template-columns:1fr}}
-.contact .card small{display:block;color:var(--muted);font-size:14px}
-.contact .card a{font-weight:700;text-decoration:none;direction:ltr;unicode-bidi:embed}
-footer{background:var(--navy-deep);color:#c6d9ec;text-align:center;padding:28px 20px;font-size:14px}
-footer img{height:40px;width:auto;margin:0 auto 10px;background:#fff;border-radius:10px;padding:4px 10px}
-</style>
+<link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
 <header class="top">
   <div class="wrap">
-    <img src="logo.png" alt="شعار الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع">
+    <img src="/logo.png" alt="شعار الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع">
     <nav aria-label="أقسام الصفحة">
-      <a href="#idea">الفكرة</a>
       <a href="#how">كيف تعمل</a>
       <a href="#tracks">المشاريع</a>
-      <a href="#governance">الضوابط</a>
-      <a href="#contact">التواصل</a>
+      <a href="#create">أنشئ حملة</a>
+      <a href="#card">بطاقة الفقيد</a>
+      <a href="#faq">أسئلة شائعة</a>
     </nav>
   </div>
 </header>
@@ -117,7 +37,7 @@ footer img{height:40px;width:auto;margin:0 auto 10px;background:#fff;border-radi
     <div class="bar"></div>
     <p class="lead">أنشئ حملة صدقة جارية باسم فقيدك في أحد مشاريع الجمعية، وشاركها مع أهلك والمعزّين؛ فتذهب الحصيلة كاملة إلى المشروع الذي اخترته.</p>
     <div class="btns">
-      <a class="btn" href="https://wa.me/966553671414?text=%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A5%D9%86%D8%B4%D8%A7%D8%A1%20%D8%AD%D9%85%D9%84%D8%A9%20%D9%84%D9%81%D9%82%D9%8A%D8%AF%D9%86%D8%A7">أنشئ حملة فقيدك</a>
+      <a class="btn" href="#create">أنشئ حملة فقيدك</a>
       <a class="btn ghost" href="#tracks">تعرّف على المشاريع</a>
     </div>
   </div>
@@ -142,14 +62,14 @@ footer img{height:40px;width:auto;margin:0 auto 10px;background:#fff;border-radi
 <section id="how" class="alt">
   <div class="wrap">
     <h2>كيف تعمل الحملة</h2>
-    <p class="sec-lead">الأهل هم من يبادرون بإنشاء الحملة ونشرها، والجمعية توفّر المشروع والتوثيق والشكر.</p>
+    <p class="sec-lead">أنت تبادر بإنشاء الحملة ونشرها، والجمعية توفّر المشروع والتوثيق والشكر.</p>
     <div class="grid g3">
-      <div class="card step"><div class="n">١</div><p>يصل الأهلَ إعلانُ المشروع عبر قنوات الجمعية أو المعارف.</p></div>
-      <div class="card step"><div class="n">٢</div><p>يتواصل أحدهم مع الجمعية، ويُنشئ حملة باسم الفقيد، ويختار مشروعها.</p></div>
-      <div class="card step"><div class="n">٣</div><p>يحصل على رابط الحملة، وبطاقة باسم الفقيد، ونص رسالة للمعزّين.</p></div>
-      <div class="card step"><div class="n">٤</div><p>ينشر الأهل الرابط في مجموعات العائلة والمعارف.</p></div>
+      <div class="card step"><div class="n">١</div><p>تملأ طلب الحملة في هذه الصفحة: اسم الفقيد، والمشروع، وبيانات التواصل.</p></div>
+      <div class="card step"><div class="n">٢</div><p>تتواصل معك الجمعية للتحقق، ثم تعتمد الحملة.</p></div>
+      <div class="card step"><div class="n">٣</div><p>يصلك رابط صفحة الحملة، وبطاقة باسم الفقيد، ونص رسالة للمعزّين.</p></div>
+      <div class="card step"><div class="n">٤</div><p>تنشر الرابط في مجموعات العائلة والمعارف.</p></div>
       <div class="card step"><div class="n">٥</div><p>تُقيَّد التبرعات في حساب المشروع المختار وحده.</p></div>
-      <div class="card step"><div class="n">٦</div><p>ترسل الجمعية للأهل الشكر وبيان الحصيلة عند إغلاق الحملة.</p></div>
+      <div class="card step"><div class="n">٦</div><p>ترسل لك الجمعية الشكر وبيان الحصيلة عند إغلاق الحملة.</p></div>
     </div>
   </div>
 </section>
@@ -178,93 +98,119 @@ footer img{height:40px;width:auto;margin:0 auto 10px;background:#fff;border-radi
         <div class="price"><b>٣٠٠</b><span>ريال سنويًا</span></div>
       </div>
       <div class="card track waqf">
-        <img src="waqf.jpg" alt="مبنى وقف الأم في ينبع">
+        <img src="/waqf.jpg" alt="مبنى وقف الأم في ينبع">
         <h3>سهم في وقف الأم</h3>
         <p>وقفٌ قائم ينفع ما بقي، وأجره جارٍ عن فقيدك بإذن الله.</p>
         <div class="price"><b>١٠٠</b><span>ريال للسهم</span></div>
       </div>
     </div>
-    <p class="note">تبرعات سهم وقف الأم تُورَد في حساب الوقف المستقل وحده، ولا تُخلط بأموال الكفالات. ويمكن إضافة مشاريع أخرى من مشاريع الجمعية مسارًا جديدًا متى رأت الإدارة ذلك.</p>
   </div>
 </section>
 
-<section class="alt">
+<section id="calc" class="alt">
   <div class="wrap">
-    <h2>أهداف المشروع</h2>
-    <div class="goal-main">زيادة التبرعات لمشاريع الجمعية القائمة، بتحويل مناسبات العزاء إلى صدقات جارية تُوجَّه إليها مباشرة.</div>
-    <ol class="goals">
-      <li>تمكين أسر المتوفين من إنشاء حملة صدقة جارية باسم فقيدهم في دقائق، دون تكلفة عليهم.</li>
-      <li>توجيه تبرعات الأهل والمعزّين إلى مشاريع قرآنية معتمدة ومقيّدة الصرف.</li>
-      <li>توسيع قاعدة متبرعي الجمعية بمتبرعين جدد يصلون عبر دوائر الأسر.</li>
-      <li>رفع موارد كفالة الحلقات والطلاب ومصاحف الوقف بمصدر متكرر غير موسمي.</li>
-      <li>تعزيز ثقة المجتمع بالجمعية عبر توثيق كل حملة وإفادة أهلها بحصيلتها.</li>
-    </ol>
+    <h2>حاسبة الأثر</h2>
+    <p class="sec-lead">اكتب مبلغ التبرع، واعرف ما يعادله في كل مشروع.</p>
+    <div class="calc">
+      <div class="box">
+        <div class="f"><label for="amt">مبلغ التبرع (ريال)</label><input id="amt" type="text" inputmode="numeric" value="300" autocomplete="off"></div>
+        <div class="chips" aria-label="مبالغ مقترحة">
+          <button class="chip" type="button" data-a="100">١٠٠</button>
+          <button class="chip" type="button" data-a="300">٣٠٠</button>
+          <button class="chip" type="button" data-a="1000">١٠٠٠</button>
+          <button class="chip" type="button" data-a="6600">٦٦٠٠</button>
+        </div>
+      </div>
+      <div class="eq" aria-live="polite">
+        <div><b id="eqM">١٠</b><span>عدد المصاحف الموقوفة</span></div>
+        <div><b id="eqS">١</b><span>عدد الطلاب المكفولين عامًا</span></div>
+        <div><b id="eqW">٣</b><span>عدد أسهم وقف الأم</span></div>
+        <div><b id="eqH">٠</b><span>عدد الحلقات المكفولة عامًا</span></div>
+      </div>
+    </div>
+    <p class="note">المبلغ يذهب إلى مشروع واحد تختاره؛ والأرقام أعلاه تعرض ما يعادله في كل مشروع على حدة.</p>
   </div>
 </section>
 
-<section>
+<section id="create">
   <div class="wrap">
-    <h2>المستفيدون</h2>
-    <p class="sec-lead">للمشروع ثلاث فئات: من يُنشئ الحملة، ومن يتبرّع فيها، ومن ينتفع بحصيلتها.</p>
-    <div class="grid g3">
-      <div class="card"><h3>الأسرة</h3><p>حملة باسم فقيدها دون تكلفة، وبطاقة ورسالة جاهزتان، وبيان بالحصيلة وما تحقق بها.</p></div>
-      <div class="card"><h3>المتبرع</h3><p>وجهة موثوقة لإهداء الأجر في مشروع معتمد، وإيصال إلكتروني.</p></div>
-      <div class="card"><h3>المستفيدون النهائيون</h3><p>طلاب الحلقات وطالباتها، والدارسات، وقرّاء المصاحف، وريع وقف دائم.</p></div>
+    <h2>أنشئ حملة فقيدك</h2>
+    <p class="sec-lead">املأ الطلب، وستتواصل معك الجمعية للتحقق واعتماد الحملة، ثم يصلك رابط صفحتها.</p>
+    <form class="box" id="reqForm" novalidate>
+      <div class="fields">
+        <div class="f"><label for="fName">اسم الفقيد الثلاثي</label><input id="fName" name="name" required maxlength="60" autocomplete="off" placeholder="فلان بن فلان الفلاني"></div>
+        <div class="f"><label for="fSuffix">الدعاء له</label><select id="fSuffix" name="suffix"><option>رحمه الله</option><option>رحمها الله</option></select></div>
+        <div class="f full"><label for="fProject">مشروع الحملة</label><select id="fProject" name="project">
+          <option value="mushaf">ورِّث مصحفًا — ٣٠ ريالًا للمصحف</option>
+          <option value="student">كفالة طالب أو طالبة — ٣٠٠ ريال سنويًا</option>
+          <option value="halaqa">كفالة حلقة قرآنية — ٦٦٠٠ ريال سنويًا</option>
+          <option value="waqf">سهم في وقف الأم — ١٠٠ ريال للسهم</option>
+        </select></div>
+        <div class="f"><label for="fReq">اسمك</label><input id="fReq" name="requester" required maxlength="60" autocomplete="name"></div>
+        <div class="f"><label for="fRel">صلتك بالفقيد</label><select id="fRel" name="relation"><option>ابن أو ابنة</option><option>زوج أو زوجة</option><option>أخ أو أخت</option><option>أب أو أم</option><option>حفيد أو حفيدة</option><option>قريب آخر</option></select></div>
+        <div class="f"><label for="fPhone">رقم جوالك</label><input id="fPhone" name="phone" required inputmode="tel" maxlength="14" autocomplete="tel" placeholder="05xxxxxxxx" dir="ltr" style="text-align:right"></div>
+        <div class="hp" aria-hidden="true"><label for="fWeb">الموقع</label><input id="fWeb" name="website" tabindex="-1" autocomplete="off"></div>
+      </div>
+      <div class="btns" style="margin-top:22px"><button class="btn" type="submit" id="reqBtn">أرسل الطلب للجمعية</button></div>
+      <p class="hint">تُستخدم بياناتك للتواصل معك واعتماد الحملة فقط، ولا تظهر في صفحة الحملة.</p>
+      <div class="msg err" id="reqErr" hidden role="alert"></div>
+    </form>
+    <div class="box" id="reqDone" hidden>
+      <h3 style="margin:0 0 6px;color:var(--navy)">استلمنا طلبك</h3>
+      <p style="margin:0 0 16px">رقم الطلب: <b id="reqId" dir="ltr"></b>. ستتواصل معك الجمعية للتحقق واعتماد الحملة. ولتعجيل ذلك، أكّد طلبك عبر واتساب.</p>
+      <div class="btns"><a class="btn" id="reqWa" target="_blank" rel="noopener" href="#">أكّد الطلب عبر واتساب</a><a class="btn line" href="#card">جهّز بطاقة الفقيد</a></div>
     </div>
   </div>
 </section>
 
-<section class="alt">
+<section id="card" class="alt">
   <div class="wrap">
-    <h2>مراحل التنفيذ</h2>
-    <p class="sec-lead">لا يُنتقل إلى التشغيل الكامل إلا بقرار من مجلس الإدارة بعد التقييم.</p>
-    <div class="phases">
-      <div class="phase"><div class="when">الشهر الأول</div><h3>التأسيس</h3><p>المراجعة الشرعية للنصوص، وتجهيز صفحة الحملات، وإنتاج المواد.</p></div>
-      <div class="phase on"><div class="when">الأشهر ٢–٤</div><h3>التجربة</h3><p>نشر المواد، ومتابعة الحملات، وشكر الأهل وإفادتهم بالحصيلة.</p></div>
-      <div class="phase"><div class="when">الشهر الخامس</div><h3>التقييم</h3><p>قياس المؤشرات، ورفع تقرير لجنة تنمية الموارد المالية إلى المجلس.</p></div>
-      <div class="phase"><div class="when">الأشهر ٦–١٢</div><h3>التشغيل الكامل</h3><p>تعميم المشروع، والتعريف به لدى أئمة الجوامع ولجان الأحياء، وتقرير سنوي للمجلس.</p></div>
+    <h2>بطاقة الفقيد</h2>
+    <p class="sec-lead">اكتب الاسم واختر المشروع، ثم حمّل البطاقة صورةً جاهزة للنشر مع رسالة المعزّين.</p>
+    <div class="gen">
+      <div class="box">
+        <div class="fields" style="grid-template-columns:1fr">
+          <div class="f"><label for="cName">اسم الفقيد</label><input id="cName" maxlength="60" autocomplete="off" placeholder="فلان بن فلان"></div>
+          <div class="f"><label for="cSuffix">الدعاء له</label><select id="cSuffix"><option>رحمه الله</option><option>رحمها الله</option></select></div>
+          <div class="f"><label for="cProject">المشروع</label><select id="cProject">
+            <option value="mushaf">ورِّث مصحفًا</option><option value="student">كفالة طالب أو طالبة</option><option value="halaqa">كفالة حلقة قرآنية</option><option value="waqf">سهم في وقف الأم</option>
+          </select></div>
+        </div>
+        <div class="btns" style="margin-top:20px">
+          <button class="btn navy" type="button" id="cDown">حمّل البطاقة</button>
+          <a class="btn line" id="cShare" target="_blank" rel="noopener" href="#">شارك رسالة المعزّين</a>
+        </div>
+        <p class="hint">بعد اعتماد حملتك، تجد في صفحتها بطاقة تحمل رمز رابط الحملة نفسه.</p>
+      </div>
+      <canvas class="cardprev" id="cCanvas" width="1080" height="1080" role="img" aria-label="معاينة بطاقة الفقيد"></canvas>
     </div>
-    <div class="gate"><i></i> قرار مجلس الإدارة بين التقييم والتشغيل الكامل</div>
   </div>
 </section>
 
-<section>
+<section id="trust">
   <div class="wrap">
-    <h2>التكاليف</h2>
-    <p class="sec-lead">لا يحتاج المشروع ميزانية مستقلة، ولا يُقتطع من حصيلة الحملات شيء للتشغيل؛ فكل ريال يذهب إلى المشروع الذي اختاره أهل الفقيد.</p>
-    <div class="tbl"><table>
-      <tr><th>ما يحتاجه المشروع</th><th>من يوفّره</th></tr>
-      <tr><td>صفحة إنشاء الحملات ورمز QR</td><td>متجر الجمعية الإلكتروني القائم</td></tr>
-      <tr><td>المواد التسويقية</td><td>فريق التسويق الإلكتروني</td></tr>
-      <tr><td>النشر والتعريف</td><td>قنوات الجمعية وحساباتها</td></tr>
-      <tr><td>متابعة الحملات وشكر الأهل</td><td>الإدارة التنفيذية</td></tr>
-      <tr><td>قيد التبرعات وإصدار البيانات</td><td>الشؤون المالية</td></tr>
-    </table></div>
+    <h2>ضمانات الحملة</h2>
+    <div class="grid g4" style="margin-top:24px">
+      <div class="card"><h3>مشروع محدد</h3><p>كل تبرع يُقيَّد في حساب المشروع المختار وحده.</p></div>
+      <div class="card"><h3>بلا اقتطاع</h3><p>لا يُخصم من الحصيلة شيء لتشغيل الحملة.</p></div>
+      <div class="card"><h3>توثيق</h3><p>إيصال لكل متبرع، وبيان بالحصيلة لأهل الفقيد.</p></div>
+      <div class="card"><h3>خصوصية</h3><p>لا تُنشر صورة الفقيد ولا بيانات أسرته.</p></div>
+    </div>
   </div>
 </section>
 
-<section id="governance" class="alt">
+<section id="faq" class="alt">
   <div class="wrap">
-    <h2>الحوكمة والضوابط</h2>
-    <p class="sec-lead">يعمل المشروع تحت إشراف لجنة تنمية الموارد المالية، وتُعرض حصيلته على مجلس الإدارة في تقريرها الدوري.</p>
-    <div class="grid g4">
-      <div class="card"><h3>تقييد الأموال</h3><p>كل تبرع في حساب مشروعه المختار.</p></div>
-      <div class="card"><h3>استقلال الوقف</h3><p>أموال وقف الأم في حسابه وحده.</p></div>
-      <div class="card"><h3>اسم الحملة</h3><p>الاسم الثلاثي دون ألقاب أو مبالغة.</p></div>
-      <div class="card"><h3>الخصوصية</h3><p>لا صور للفقيد، والحملة من أقاربه أو بإذنهم.</p></div>
-      <div class="card"><h3>الصياغة الشرعية</h3><p>عبارات رجاء تراجعها جهة شرعية.</p></div>
-      <div class="card"><h3>التوثيق</h3><p>إيصال للمتبرع، وبيان للأهل عند الإغلاق.</p></div>
-      <div class="card"><h3>النشر</h3><p>مسار الاعتماد المعتاد قبل أي نشر.</p></div>
-      <div class="card"><h3>التقارير</h3><p>الحصيلة في تقرير تنمية الموارد الدوري.</p></div>
+    <h2>أسئلة شائعة</h2>
+    <div style="margin-top:24px;max-width:820px">
+      <details><summary>هل ينتفع الميت بالصدقة عنه؟</summary><p>نعم، دلّت السنة على انتفاع الميت بالصدقة عنه؛ فقد سأل سعد بن عبادة رضي الله عنه النبي ﷺ حين توفيت أمه: أينفعها شيء إن تصدقتُ به عنها؟ قال: «نعم». رواه البخاري.</p></details>
+      <details><summary>من يحق له إنشاء الحملة؟</summary><p>أحد أقارب الفقيد، أو من يأذن له أهله. وتتواصل الجمعية مع مقدّم الطلب للتحقق قبل اعتماد الحملة.</p></details>
+      <details><summary>هل لإنشاء الحملة تكلفة؟</summary><p>لا. إنشاء الحملة وبطاقتها وصفحتها دون أي تكلفة على الأسرة.</p></details>
+      <details><summary>أين تذهب التبرعات؟</summary><p>إلى المشروع الذي اختاره أهل الفقيد وحده، دون اقتطاع. وتبرعات سهم وقف الأم تُورَد في حساب الوقف المستقل.</p></details>
+      <details><summary>هل يمكن اختيار أكثر من مشروع؟</summary><p>لكل حملة مشروع واحد ليكون أثرها واضحًا. ويمكن للأسرة إنشاء حملة أخرى في مشروع آخر.</p></details>
+      <details><summary>كيف أعرف حصيلة الحملة؟</summary><p>تظهر الحصيلة في صفحة الحملة، وترسل الجمعية لأهل الفقيد بيانًا بها عند إغلاقها.</p></details>
+      <details><summary>كم مدة الحملة؟</summary><p>تبقى الحملة مفتوحة ما رغب أهل الفقيد، وتُغلق بطلبهم.</p></details>
     </div>
-    <h2 style="margin-top:48px">المخاطر ومعالجتها</h2>
-    <div class="tbl" style="margin-top:16px"><table>
-      <tr><th>الخطر</th><th>المعالجة</th></tr>
-      <tr><td>فهم المشروع استغلالًا لمقام العزاء</td><td>إعلان عام دون تواصل مباشر مع الأسر، والمبادرة منها، ونبرة عزاء لا تسويق</td></tr>
-      <tr><td>حملة باسم متوفى دون علم أهله</td><td>التحقق من صلة منشئ الحملة بالفقيد قبل اعتمادها</td></tr>
-      <tr><td>ضعف الإقبال في البداية</td><td>تجربة ثلاثة أشهر بمؤشرات، ثم تعديل الرسائل والقنوات</td></tr>
-      <tr><td>قصور المنصة عن الحملات الفردية</td><td>التحقق من جاهزية المتجر في مرحلة التأسيس</td></tr>
-    </table></div>
   </div>
 </section>
 
@@ -272,10 +218,10 @@ footer img{height:40px;width:auto;margin:0 auto 10px;background:#fff;border-radi
   <div class="wrap">
     <div class="cta">
       <div>
-        <h2>أنشئ حملة فقيدك الآن</h2>
-        <p>واجعل عزاءه صدقةً جارية لا ينقطع أجرها بإذن الله.</p>
+        <h2>اجعل عزاءه صدقةً جارية</h2>
+        <p>أنشئ حملة فقيدك الآن، أو تواصل مع الجمعية للاستفسار.</p>
       </div>
-      <a class="btn" href="https://wa.me/966553671414?text=%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D8%A5%D9%86%D8%B4%D8%A7%D8%A1%20%D8%AD%D9%85%D9%84%D8%A9%20%D9%84%D9%81%D9%82%D9%8A%D8%AF%D9%86%D8%A7">تواصل عبر واتساب</a>
+      <div class="btns"><a class="btn" href="#create">أنشئ الحملة</a><a class="btn ghost" target="_blank" rel="noopener" href="https://wa.me/966553671414">واتساب الجمعية</a></div>
     </div>
     <div class="contact">
       <div class="card"><small>الشؤون الإدارية (واتساب)</small><a href="https://wa.me/966553671414">0553671414</a></div>
@@ -286,10 +232,66 @@ footer img{height:40px;width:auto;margin:0 auto 10px;background:#fff;border-radi
 </section>
 
 <footer>
-  <img src="logo.png" alt="">
+  <img src="/logo.png" alt="">
   <div>الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع</div>
-  <div>إعداد وتصميم: عبدالمجيد السيد</div>
+  <div>إعداد وتطوير: الفريق التقني بالجمعية</div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script src="/app.js"></script>
+<script>
+const $ = (id) => document.getElementById(id);
+// حاسبة الأثر
+function calc() {
+  const a = Math.max(0, parseInt(latinDigits($('amt').value).replace(/[^\d]/g, ''), 10) || 0);
+  $('eqM').textContent = ar(Math.floor(a / 30));
+  $('eqS').textContent = ar(Math.floor(a / 300));
+  $('eqW').textContent = ar(Math.floor(a / 100));
+  $('eqH').textContent = ar(Math.floor(a / 6600));
+}
+$('amt').addEventListener('input', calc);
+document.querySelectorAll('.chip').forEach((b) => b.addEventListener('click', () => { $('amt').value = b.dataset.a; calc(); }));
+calc();
+
+// بطاقة الفقيد
+const cardState = () => ({ name: $('cName').value.trim() || 'فلان بن فلان', suffix: $('cSuffix').value, project: $('cProject').value });
+function refreshCard() {
+  const s = cardState();
+  drawCard($('cCanvas'), s);
+  $('cShare').href = shareLink(mournerMessage(s.name, s.suffix, s.project));
+}
+['cName', 'cSuffix', 'cProject'].forEach((id) => $(id).addEventListener('input', refreshCard));
+$('cDown').addEventListener('click', async () => { await drawCard($('cCanvas'), cardState()); downloadCanvas($('cCanvas'), 'بطاقة-الفقيد.png'); });
+refreshCard();
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(refreshCard);
+
+// طلب الحملة
+$('reqForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const err = $('reqErr'); err.hidden = true;
+  const d = {
+    name: $('fName').value.trim(), suffix: $('fSuffix').value, project: $('fProject').value,
+    requester: $('fReq').value.trim(), relation: $('fRel').value, phone: latinDigits($('fPhone').value).replace(/[^\d]/g, ''), website: $('fWeb').value,
+  };
+  const fail = (m) => { err.textContent = m; err.hidden = false; };
+  if (d.name.split(/\s+/).length < 2) return fail('اكتب اسم الفقيد ثلاثيًا.');
+  if (d.requester.length < 3) return fail('اكتب اسمك.');
+  if (!/^05\d{8}$/.test(d.phone)) return fail('اكتب رقم الجوال بصيغة 05xxxxxxxx.');
+  const btn = $('reqBtn'); btn.disabled = true; btn.textContent = 'جارٍ الإرسال…';
+  try {
+    const r = await fetch('/api/request', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(d) });
+    const j = await r.json();
+    if (!r.ok) throw new Error(j.error || 'تعذّر إرسال الطلب.');
+    $('reqId').textContent = j.id;
+    $('reqWa').href = waLink('السلام عليكم، قدّمت طلب «حملة الفقيد» رقم ' + j.id + '\nالفقيد: ' + d.name + ' ' + d.suffix + '\nالمشروع: ' + PROJECTS[d.project].name + '\nمقدّم الطلب: ' + d.requester + ' (' + d.relation + ')');
+    $('reqForm').hidden = true; $('reqDone').hidden = false;
+    $('cName').value = d.name; $('cSuffix').value = d.suffix; $('cProject').value = d.project; refreshCard();
+    $('reqDone').scrollIntoView({ block: 'center' });
+  } catch (x) {
+    fail(x.message + ' يمكنك التواصل مع الجمعية عبر واتساب: 0553671414');
+    btn.disabled = false; btn.textContent = 'أرسل الطلب للجمعية';
+  }
+});
+</script>
 </body>
 </html>
