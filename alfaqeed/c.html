@@ -108,12 +108,12 @@ const $ = (id) => document.getElementById(id);
   $('pName').textContent = 'مشروع الحملة: ' + p.name; $('pDesc').textContent = p.desc;
   $('pUnit').textContent = 'القيمة: ' + ar(p.unit) + ' ريال لكل ' + p.unitLabel;
   const G = campaignGoal(c.project, c.total);
-  $('lTitle').textContent = 'هدف الحملة: ' + ar(G.goal) + ' ريال';
+  $('lTitle').textContent = 'الحد الأدنى للحملة: ' + ar(G.goal) + ' ريال';
   $('lGoal').textContent = G.reached
-    ? 'بلغت الحملة هدفها، جزى الله المتبرعين خيرًا.' + (G.over ? ' وما زاد عليه (' + ar(G.over) + ' ريال) يبقى في المشروع نفسه.' : '')
-    : 'بلغت الحملة ' + ar(G.pct) + '٪ من هدفها، والمتبقي ' + ar(G.remaining) + ' ريال.';
+    ? 'بلغت الحملة حدّها الأدنى، جزى الله المتبرعين خيرًا.' + (G.over ? ' وما زاد عليه (' + ar(G.over) + ' ريال) يبقى في المشروع نفسه.' : '')
+    : 'بلغت الحملة ' + ar(G.pct) + '٪ من حدّها الأدنى، والمتبقي ' + ar(G.remaining) + ' ريال.';
   $('lFill').style.width = G.pct + '%'; $('lBar').setAttribute('aria-valuenow', G.pct);
-  $('lRungs').textContent = 'الهدف يعادل — ' + p.countLabel + ': ' + ar(G.units) + '. وإن لم تبلغه الحملة، تبقى تبرعاتها كاملة في مشروعها.';
+  $('lRungs').textContent = 'يعادل — ' + p.countLabel + ': ' + ar(G.units) + '. وقد التزمت أسرة الفقيد بألا تقل حصيلة الحملة عنه.';
   if ((c.year || 1) > 1) $('hSuffix').textContent = c.suffix + ' · العام ' + ar(c.year) + ' للحملة';
   $('link').value = url;
   $('body').hidden = false;

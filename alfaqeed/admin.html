@@ -83,7 +83,7 @@ async function load() {
       '<td><b dir="ltr">' + esc(c.id) + '</b><br><small>' + esc((c.created || '').slice(0, 10)) + '</small></td>' +
       '<td>' + esc(c.name) + '<br><small>' + esc(c.suffix) + '</small></td>' +
       '<td>' + esc((PROJECTS[c.project] || {}).name) + '</td>' +
-      '<td>' + esc(c.requester) + '<br><small>' + esc(c.relation) + ' · <span dir="ltr">' + esc(c.phone) + '</span><br>التذكير السنوي: ' + (c.remind ? 'نعم' : 'لا') + ((c.year || 1) > 1 ? ' · العام ' + ar(c.year) : '') + '</small></td>' +
+      '<td>' + esc(c.requester) + '<br><small>' + esc(c.relation) + ' · <span dir="ltr">' + esc(c.phone) + '</span><br>الالتزام بالحد الأدنى: ' + (c.commit ? 'نعم' : 'لا') + '<br>التذكير السنوي: ' + (c.remind ? 'نعم' : 'لا') + ((c.year || 1) > 1 ? ' · العام ' + ar(c.year) : '') + '</small></td>' +
       '<td><span class="badge ' + esc(c.status) + '">' + STATUS[c.status] + '</span><br><select class="st" aria-label="الحالة">' + Object.entries(STATUS).map(([k, v]) => '<option value="' + k + '"' + (k === c.status ? ' selected' : '') + '>' + v + '</option>').join('') + '</select></td>' +
       '<td><input class="lk" dir="ltr" aria-label="رابط المتجر" placeholder="https://store.yq.org.sa/…" value="' + esc(c.link) + '"></td>' +
       '<td><input class="tt" inputmode="numeric" aria-label="الحصيلة" value="' + esc(c.total || 0) + '"></td>' +

@@ -41,12 +41,13 @@ async function createRequest(req, env, ip) {
   if (b.website) return json({ id: newId() }); // مصيدة الروبوتات
   const c = {
     name: clean(b.name, 60), suffix: SUFFIXES.includes(b.suffix) ? b.suffix : SUFFIXES[0], project: b.project,
-    requester: clean(b.requester, 60), relation: clean(b.relation, 30), phone: digits(b.phone), remind: b.remind === true,
+    requester: clean(b.requester, 60), relation: clean(b.relation, 30), phone: digits(b.phone), remind: b.remind === true, commit: b.commit === true,
   };
   if (c.name.split(' ').length < 2) return json({ error: 'اكتب اسم الفقيد ثلاثيًا.' }, 400);
   if (!PROJECTS.includes(c.project)) return json({ error: 'اختر مشروع الحملة.' }, 400);
   if (c.requester.length < 3) return json({ error: 'اكتب اسمك.' }, 400);
   if (!/^05\d{8}$/.test(c.phone)) return json({ error: 'اكتب رقم الجوال بصيغة 05xxxxxxxx.' }, 400);
+  if (!c.commit) return json({ error: 'الالتزام بالحد الأدنى للحملة شرط لإنشائها.' }, 400);
   if (await limited(env, 'req:' + ip, 5)) return json({ error: 'تجاوزت عدد الطلبات المسموح به مؤقتًا.' }, 429);
   let id = newId();
   while (await env.CAMPAIGNS.get('c:' + id)) id = newId();
