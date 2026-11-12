@@ -46,7 +46,7 @@
       <h3 id="lTitle"></h3>
       <p class="goal" id="lGoal"></p>
       <div class="prog" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="lBar"><i id="lFill" style="width:0%"></i></div>
-      <div class="rungs" id="lRungs"></div>
+      <p class="hint" id="lRungs"></p>
     </div>
     <div class="card" style="margin-top:20px">
       <h3 id="pName"></h3>
@@ -107,11 +107,13 @@ const $ = (id) => document.getElementById(id);
   $('sImpact').textContent = ar(Math.floor((c.total || 0) / p.unit)); $('sImpactL').textContent = p.countLabel + ' بهذه الحصيلة';
   $('pName').textContent = 'مشروع الحملة: ' + p.name; $('pDesc').textContent = p.desc;
   $('pUnit').textContent = 'القيمة: ' + ar(p.unit) + ' ريال لكل ' + p.unitLabel;
-  const L = ladder(c.project, c.total);
-  $('lTitle').textContent = 'سلّم الأثر: ' + p.countLabel;
-  $('lGoal').textContent = L.next ? 'الهدف التالي: ' + ar(L.next) + '، والمتبقي لبلوغه ' + ar(L.remaining) + ' ريال.' : 'بلغت الحملة أعلى محطاتها، جزى الله المتبرعين خيرًا.';
-  $('lFill').style.width = L.pct + '%'; $('lBar').setAttribute('aria-valuenow', L.pct);
-  $('lRungs').innerHTML = L.steps.map((s) => '<span class="rung' + (s.done ? ' done' : s.n === L.next ? ' next' : '') + '">' + ar(s.n) + (s.done ? ' ✓' : '') + '</span>').join('');
+  const G = campaignGoal(c.project, c.total);
+  $('lTitle').textContent = 'هدف الحملة: ' + ar(G.goal) + ' ريال';
+  $('lGoal').textContent = G.reached
+    ? 'بلغت الحملة هدفها، جزى الله المتبرعين خيرًا.' + (G.over ? ' وما زاد عليه (' + ar(G.over) + ' ريال) يبقى في المشروع نفسه.' : '')
+    : 'بلغت الحملة ' + ar(G.pct) + '٪ من هدفها، والمتبقي ' + ar(G.remaining) + ' ريال.';
+  $('lFill').style.width = G.pct + '%'; $('lBar').setAttribute('aria-valuenow', G.pct);
+  $('lRungs').textContent = 'الهدف يعادل — ' + p.countLabel + ': ' + ar(G.units) + '. وإن لم تبلغه الحملة، تبقى تبرعاتها كاملة في مشروعها.';
   if ((c.year || 1) > 1) $('hSuffix').textContent = c.suffix + ' · العام ' + ar(c.year) + ' للحملة';
   $('link').value = url;
   $('body').hidden = false;

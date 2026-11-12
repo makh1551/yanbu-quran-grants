@@ -2,10 +2,10 @@
 const SITE = 'https://sadaqa.yanbuquran.app';
 const WA = '966553671414';
 const PROJECTS = {
-  halaqa: { name: 'كفالة حلقة قرآنية', unit: 6600, steps: [1, 2, 3, 5], unitLabel: 'حلقة سنويًا', countLabel: 'الحلقات المكفولة', desc: 'حلقةٌ يُحفظ فيها كتاب الله عامًا دراسيًا كاملًا.', link: 'https://store.yq.org.sa' },
-  mushaf: { name: 'ورِّث مصحفًا', unit: 30, steps: [10, 50, 100, 220], unitLabel: 'مصحف', countLabel: 'المصاحف', desc: 'مصاحف يُتلى فيها كتاب الله آناء الليل وأطراف النهار.', link: 'https://store.yq.org.sa' },
-  student: { name: 'كفالة طالب أو طالبة', unit: 300, steps: [1, 5, 10, 22], unitLabel: 'طالب سنويًا', countLabel: 'الطلاب المكفولون', desc: 'طالبٌ يحفظ كتاب الله عامًا دراسيًا كاملًا.', link: 'https://store.yq.org.sa' },
-  waqf: { name: 'سهم في وقف الأم', unit: 100, steps: [10, 50, 100, 500], unitLabel: 'سهم', countLabel: 'أسهم الوقف', desc: 'وقفٌ قائم ينفع ما بقي.', link: 'https://store.yq.org.sa/p/173745' },
+  halaqa: { name: 'كفالة حلقة قرآنية', unit: 6600, goal: 6600, unitLabel: 'حلقة سنويًا', countLabel: 'الحلقات المكفولة', desc: 'حلقةٌ يُحفظ فيها كتاب الله عامًا دراسيًا كاملًا.', link: 'https://store.yq.org.sa' },
+  mushaf: { name: 'ورِّث مصحفًا', unit: 30, goal: 3000, unitLabel: 'مصحف', countLabel: 'المصاحف', desc: 'مصاحف يُتلى فيها كتاب الله آناء الليل وأطراف النهار.', link: 'https://store.yq.org.sa' },
+  student: { name: 'كفالة طالب أو طالبة', unit: 300, goal: 3000, unitLabel: 'طالب سنويًا', countLabel: 'الطلاب المكفولون', desc: 'طالبٌ يحفظ كتاب الله عامًا دراسيًا كاملًا.', link: 'https://store.yq.org.sa' },
+  waqf: { name: 'سهم في وقف الأم', unit: 100, goal: 3000, unitLabel: 'سهم', countLabel: 'أسهم الوقف', desc: 'وقفٌ قائم ينفع ما بقي.', link: 'https://store.yq.org.sa/p/173745' },
 };
 const ar = (n) => Number(n || 0).toLocaleString('ar-SA', { maximumFractionDigits: 0 });
 const latinDigits = (s) => String(s || '').replace(/[٠-٩]/g, (d) => '٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[۰-۹]/g, (d) => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d));
@@ -84,12 +84,10 @@ function downloadCanvas(canvas, filename) {
   canvas.toBlob((b) => { const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = filename; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); }, 'image/png');
 }
 
-// سلّم الأثر: محطات الحملة داخل مشروعها، والهدف التالي والمتبقي له
-function ladder(projectKey, total) {
-  const p = PROJECTS[projectKey] || PROJECTS.mushaf, units = Math.floor((total || 0) / p.unit);
-  const next = p.steps.find((s) => s > units) || null, prev = [...p.steps].reverse().find((s) => s <= units) || 0;
-  const from = prev * p.unit, to = next ? next * p.unit : from;
-  return { p, units, next, steps: p.steps.map((s) => ({ n: s, done: s <= units })), remaining: next ? to - (total || 0) : 0, pct: next ? Math.round(((total || 0) - from) / (to - from) * 100) : 100 };
+// هدف الحملة: ٣٠٠٠ ريال حدًّا أدنى مستهدفًا (وكفالة الحلقة: قيمة الحلقة)، والمتبقي لبلوغه
+function campaignGoal(projectKey, total) {
+  const p = PROJECTS[projectKey] || PROJECTS.mushaf, t = total || 0;
+  return { p, goal: p.goal, reached: t >= p.goal, remaining: Math.max(0, p.goal - t), over: Math.max(0, t - p.goal), pct: Math.min(100, Math.round(t / p.goal * 100)), units: Math.floor(p.goal / p.unit) };
 }
 // الذكرى السنوية: تاريخ الذكرى القادمة للحملة، وهل حان وقت التذكير (قبلها بأسبوعين)
 function anniversary(c, now) {
