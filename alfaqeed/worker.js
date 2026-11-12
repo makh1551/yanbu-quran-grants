@@ -18,7 +18,7 @@ async function serveFile(file) {
   const r = await fetch(BASE + '/' + file, { cf: { cacheTtl: 120, cacheEverything: true } });
   if (!r.ok) return new Response('غير متاح', { status: 502, headers: NOINDEX });
   const ext = file.split('.').pop();
-  return new Response(r.body, { headers: { 'content-type': TYPES[ext], 'cache-control': ext === 'html' ? 'public, max-age=60' : 'public, max-age=300', ...NOINDEX } });
+  return new Response(r.body, { headers: { 'content-type': TYPES[ext], 'cache-control': ext === 'html' ? 'public, max-age=60' : 'public, max-age=300', ...(file === 'index.html' ? { 'x-content-type-options': 'nosniff' } : NOINDEX) } });
 }
 
 // حد للمحاولات لكل عنوان: n محاولة في الساعة
