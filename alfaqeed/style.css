@@ -136,3 +136,19 @@ details p{margin:0 0 18px}
 .adm td{min-width:110px}
 .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:24px}
 @media (max-width:760px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* ladder + anniversary */
+.ladder{background:var(--paper);border:1.5px solid var(--line);border-radius:22px;padding:24px;margin-top:28px}
+.ladder h3{margin:0 0 4px;font-size:21px;color:var(--navy)}
+.ladder .goal{margin:0 0 14px;color:var(--ink)}
+.prog{height:14px;border-radius:999px;background:var(--sky-soft);overflow:hidden}
+.prog i{display:block;height:100%;background:var(--green);border-radius:999px}
+.rungs{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.rung{border:1.5px solid var(--line);border-radius:999px;padding:5px 16px;font-weight:700;color:var(--muted);font-size:15px}
+.rung.done{background:var(--green);border-color:var(--green);color:#fff}
+.rung.next{border-color:var(--navy);color:var(--navy);background:var(--sky-soft)}
+.check{display:flex;align-items:flex-start;gap:12px;grid-column:1/-1}
+.check input{width:22px;height:22px;min-height:0;flex:none;margin-top:5px;accent-color:var(--green)}
+.check label{font-weight:500;color:var(--ink)}
+.due{background:var(--sand);border:1.5px solid var(--gold);border-radius:22px;padding:22px 24px;margin-bottom:24px}
+.due h3{margin:0 0 4px;color:var(--navy);font-size:20px}
+.due .row{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;border-top:1px solid #e3d9bf;padding-top:12px;margin-top:12px}

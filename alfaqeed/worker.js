@@ -41,7 +41,7 @@ async function createRequest(req, env, ip) {
   if (b.website) return json({ id: newId() }); // مصيدة الروبوتات
   const c = {
     name: clean(b.name, 60), suffix: SUFFIXES.includes(b.suffix) ? b.suffix : SUFFIXES[0], project: b.project,
-    requester: clean(b.requester, 60), relation: clean(b.relation, 30), phone: digits(b.phone),
+    requester: clean(b.requester, 60), relation: clean(b.relation, 30), phone: digits(b.phone), remind: b.remind === true,
   };
   if (c.name.split(' ').length < 2) return json({ error: 'اكتب اسم الفقيد ثلاثيًا.' }, 400);
   if (!PROJECTS.includes(c.project)) return json({ error: 'اختر مشروع الحملة.' }, 400);
@@ -51,7 +51,7 @@ async function createRequest(req, env, ip) {
   let id = newId();
   while (await env.CAMPAIGNS.get('c:' + id)) id = newId();
   const now = new Date().toISOString();
-  Object.assign(c, { id, status: 'pending', link: '', total: 0, donors: 0, created: now, updated: now });
+  Object.assign(c, { id, status: 'pending', link: '', total: 0, donors: 0, year: 1, reminded: '', created: now, updated: now });
   await env.CAMPAIGNS.put('c:' + id, JSON.stringify(c));
   return json({ id });
 }
@@ -61,7 +61,7 @@ async function publicCampaign(env, id) {
   const c = await env.CAMPAIGNS.get('c:' + id, 'json');
   if (!c || !['active', 'closed'].includes(c.status)) return json({ error: 'غير موجودة' }, 404);
   const { name, suffix, project, status, link, total, donors } = c;
-  return json({ id, name, suffix, project, status, link, total, donors });
+  return json({ id, name, suffix, project, status, link, total, donors, year: c.year || 1 });
 }
 
 async function admin(req, env, action, ip) {
@@ -99,7 +99,16 @@ async function admin(req, env, action, ip) {
     }
     if (b.total !== undefined) c.total = Math.max(0, Math.min(1e9, parseInt(b.total, 10) || 0));
     if (b.donors !== undefined) c.donors = Math.max(0, Math.min(1e7, parseInt(b.donors, 10) || 0));
+    if (b.remind !== undefined) c.remind = b.remind === true;
     c.updated = new Date().toISOString();
+    await env.CAMPAIGNS.put(key, JSON.stringify(c));
+    return json({ ok: true });
+  }
+  // الذكرى السنوية: تسجيل التذكير، أو تجديد الحملة لعام جديد
+  if (action === 'reminded' || action === 'renew') {
+    c.reminded = new Date().toISOString();
+    if (action === 'renew') { c.year = (c.year || 1) + 1; c.status = 'active'; }
+    c.updated = c.reminded;
     await env.CAMPAIGNS.put(key, JSON.stringify(c));
     return json({ ok: true });
   }

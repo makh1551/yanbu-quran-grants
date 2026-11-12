@@ -31,6 +31,7 @@
     <div class="stat"><b id="kTotal">٠</b><span>ريال إجمالي الحصيلة</span></div>
     <div class="stat"><b id="kAvg">٠</b><span>متوسط المتبرعين للحملة</span></div>
   </div>
+  <div class="due" id="due" hidden><h3>تذكيرات الذكرى السنوية</h3><p style="margin:0">حملات اقترب مرور عام عليها، ووافق أصحابها على التذكير. أرسل التذكير، ثم جدّد الحملة إن رغب أهلها.</p><div id="dueRows"></div></div>
   <div class="tbl" style="margin-bottom:24px"><table><tr><th>المشروع</th><th>الحملات</th><th>الحصيلة (ريال)</th><th>ما يعادلها</th></tr><tbody id="byProject"></tbody></table></div>
   <div class="tbl adm"><table>
     <tr><th>الطلب</th><th>الفقيد</th><th>المشروع</th><th>مقدّم الطلب</th><th>الحالة</th><th>رابط المتجر</th><th>الحصيلة</th><th>المتبرعون</th><th>إجراءات</th></tr>
@@ -67,6 +68,13 @@ async function load() {
     const cs = live.filter((c) => c.project === k), t = cs.reduce((s, c) => s + (c.total || 0), 0);
     return '<tr><td>' + p.name + '</td><td>' + ar(cs.length) + '</td><td>' + ar(t) + '</td><td>' + p.countLabel + ': ' + ar(Math.floor(t / p.unit)) + '</td></tr>';
   }).join('');
+  const dues = items.filter((c) => anniversary(c).due);
+  $('due').hidden = dues.length === 0;
+  $('dueRows').innerHTML = dues.map((c) => {
+    const a = anniversary(c), url = SITE + '/c/' + c.id, p = PROJECTS[c.project] || {};
+    const msg = 'السلام عليكم ' + c.requester + '،\nيقترب مرور عام على حملة ' + c.name + ' ' + c.suffix + ' في مشروع «' + p.name + '»، وقد بلغت حصيلتها ' + ar(c.total) + ' ريال، تقبّل الله منكم.\nإن رغبتم في تجديد الصدقة عنه لعام جديد فهذا رابط الحملة:\n' + url + '\nوإن أردتم إيقاف هذا التذكير فأخبرونا.';
+    return '<div class="row" data-id="' + esc(c.id) + '"><span><b>' + esc(c.name) + '</b> · ' + esc(p.name) + ' · الذكرى: <span dir="ltr">' + a.date.toISOString().slice(0, 10) + '</span></span><span class="btns"><a class="chip" style="text-decoration:none" target="_blank" rel="noopener" href="' + esc(waLink(msg, '966' + String(c.phone).slice(1))) + '">أرسل التذكير</a><button class="chip reminded" type="button">تم التذكير</button><button class="chip renew" type="button">جدّد الحملة لعام جديد</button></span></div>';
+  }).join('');
   $('empty').hidden = items.length > 0;
   $('rows').innerHTML = items.map((c) => {
     const url = SITE + '/c/' + c.id;
@@ -75,7 +83,7 @@ async function load() {
       '<td><b dir="ltr">' + esc(c.id) + '</b><br><small>' + esc((c.created || '').slice(0, 10)) + '</small></td>' +
       '<td>' + esc(c.name) + '<br><small>' + esc(c.suffix) + '</small></td>' +
       '<td>' + esc((PROJECTS[c.project] || {}).name) + '</td>' +
-      '<td>' + esc(c.requester) + '<br><small>' + esc(c.relation) + ' · <span dir="ltr">' + esc(c.phone) + '</span></small></td>' +
+      '<td>' + esc(c.requester) + '<br><small>' + esc(c.relation) + ' · <span dir="ltr">' + esc(c.phone) + '</span><br>التذكير السنوي: ' + (c.remind ? 'نعم' : 'لا') + ((c.year || 1) > 1 ? ' · العام ' + ar(c.year) : '') + '</small></td>' +
       '<td><span class="badge ' + esc(c.status) + '">' + STATUS[c.status] + '</span><br><select class="st" aria-label="الحالة">' + Object.entries(STATUS).map(([k, v]) => '<option value="' + k + '"' + (k === c.status ? ' selected' : '') + '>' + v + '</option>').join('') + '</select></td>' +
       '<td><input class="lk" dir="ltr" aria-label="رابط المتجر" placeholder="https://store.yq.org.sa/…" value="' + esc(c.link) + '"></td>' +
       '<td><input class="tt" inputmode="numeric" aria-label="الحصيلة" value="' + esc(c.total || 0) + '"></td>' +
@@ -95,6 +103,12 @@ $('rows').addEventListener('click', async (e) => {
       else { e.target.dataset.sure = '1'; e.target.textContent = 'تأكيد الحذف'; }
     }
   } catch (x) { flash(x.message); }
+});
+$('dueRows').addEventListener('click', async (e) => {
+  const row = e.target.closest('.row'); if (!row) return;
+  const act = e.target.classList.contains('reminded') ? 'reminded' : e.target.classList.contains('renew') ? 'renew' : '';
+  if (!act) return;
+  try { await api(act, { id: row.dataset.id }); flash(act === 'renew' ? 'جُدّدت الحملة لعام جديد.' : 'سُجّل التذكير.'); await load(); } catch (x) { flash(x.message); }
 });
 $('gateForm').addEventListener('submit', async (e) => {
   e.preventDefault(); code = $('code').value.trim(); $('gateErr').hidden = true;
