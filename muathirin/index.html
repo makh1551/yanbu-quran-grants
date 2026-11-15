@@ -58,6 +58,19 @@ h1,h2,h3{text-wrap:balance}
 .stat small{display:block;font-size:12.5px;color:#BFE9F3;font-weight:700}
 .stat b{font-size:20px;font-weight:900;font-variant-numeric:tabular-nums}
 .stat.r b{color:var(--gold)}
+.orbit{width:min(100%,460px);height:auto;display:block;overflow:visible}
+.orbit g{transform-box:view-box;transform-origin:50% 50%}
+.orbit .pulse{transform-box:view-box;transform-origin:50% 50%;opacity:0}
+@media (prefers-reduced-motion:no-preference){
+ .orbit .o1{animation:pop .7s cubic-bezier(.2,.9,.3,1.2) .2s both}
+ .orbit .o2{animation:pop .8s cubic-bezier(.2,.9,.3,1.2) .8s both}
+ .orbit .o3{animation:pop .9s cubic-bezier(.2,.9,.3,1.2) 1.4s both}
+ .orbit .pulse{animation:ripple 3.2s ease-out 2.4s infinite}
+ @keyframes pop{from{transform:scale(.2);opacity:0}}
+ @keyframes ripple{0%{transform:scale(.38);opacity:.7}100%{transform:scale(1.12);opacity:0}}}
+.stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;width:min(100%,420px)!important}
+.stat b{font-size:clamp(15px,4vw,20px)!important}
+.stat.g b{color:#7FE0B0}
 .cv-waves{position:relative;display:block;width:100%;height:64px;margin-top:auto}
 
 /* ===== bands & headings ===== */
@@ -211,14 +224,22 @@ body{margin:0}
       <a class="go" href="#circle">اطّلع على الخطة <span>↓</span></a>
     </div>
     <div class="dial">
-      <svg viewBox="0 0 260 260" role="img" aria-label="المحقق من مستهدف وقف الأم ٨٤ بالمئة">
-        <defs><linearGradient id="gd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7FE0B0"/><stop offset="1" stop-color="#42B5D1"/></linearGradient></defs>
-        <circle cx="130" cy="130" r="110" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="18"/>
-        <circle class="pr" cx="130" cy="130" r="110" fill="none" stroke="url(#gd)" stroke-width="18" stroke-linecap="round" transform="rotate(-90 130 130)"/>
-        <text x="130" y="138" text-anchor="middle" fill="#fff" font-size="64" font-weight="900" font-family="Tajawal,system-ui">٨٤٪</text>
-        <text x="130" y="172" text-anchor="middle" fill="#BFE9F3" font-size="15" font-weight="700" font-family="Tajawal,system-ui">من مستهدف الوقف</text>
+      <svg class="orbit" viewBox="0 0 400 400" role="img" aria-label="دوائر المشاركة: لجنة تنمية الموارد في المركز، تكبر إلى سفراء الأم، ثم إلى أصوات ينبع">
+        <defs>
+          <radialGradient id="core" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#5FD39A"/><stop offset="1" stop-color="#0E8A4A"/></radialGradient>
+          <path id="a3" d="M 40 200 A 160 160 0 0 1 360 200"/><path id="a2" d="M 100 200 A 100 100 0 0 1 300 200"/>
+        </defs>
+        <circle class="pulse" cx="200" cy="200" r="185" fill="none" stroke="#7FD6EA" stroke-width="2"/>
+        <g class="o3"><circle cx="200" cy="200" r="185" fill="rgba(66,181,209,.12)" stroke="rgba(127,214,234,.55)" stroke-width="1.5" stroke-dasharray="4 6"/><circle cx="353.8" cy="97.2" r="5" fill="#7FD6EA"/><circle cx="381.4" cy="163.9" r="5" fill="#7FD6EA"/><circle cx="381.4" cy="236.1" r="5" fill="#7FD6EA"/><circle cx="353.8" cy="302.8" r="5" fill="#7FD6EA"/><circle cx="302.8" cy="353.8" r="5" fill="#7FD6EA"/><circle cx="236.1" cy="381.4" r="5" fill="#7FD6EA"/><circle cx="163.9" cy="381.4" r="5" fill="#7FD6EA"/><circle cx="97.2" cy="353.8" r="5" fill="#7FD6EA"/><circle cx="46.2" cy="302.8" r="5" fill="#7FD6EA"/><circle cx="18.6" cy="236.1" r="5" fill="#7FD6EA"/><circle cx="18.6" cy="163.9" r="5" fill="#7FD6EA"/><circle cx="46.2" cy="97.2" r="5" fill="#7FD6EA"/>
+          <text font-size="19" font-weight="900" fill="#CFF3FB" font-family="Tajawal,system-ui"><textPath href="#a3" startOffset="50%" text-anchor="middle">أصوات ينبع</textPath></text></g>
+        <g class="o2"><circle cx="200" cy="200" r="125" fill="rgba(14,138,74,.22)" stroke="#7FE0B0" stroke-width="1.5"/><circle cx="315.5" cy="247.8" r="4.5" fill="#7FE0B0"/><circle cx="247.8" cy="315.5" r="4.5" fill="#7FE0B0"/><circle cx="152.2" cy="315.5" r="4.5" fill="#7FE0B0"/><circle cx="84.5" cy="247.8" r="4.5" fill="#7FE0B0"/><circle cx="84.5" cy="152.2" r="4.5" fill="#7FE0B0"/><circle cx="315.5" cy="152.2" r="4.5" fill="#7FE0B0"/>
+          <text font-size="17" font-weight="900" fill="#D9FBEA" font-family="Tajawal,system-ui"><textPath href="#a2" startOffset="50%" text-anchor="middle">سفراء الأم</textPath></text></g>
+        <g class="o1"><circle cx="200" cy="200" r="70" fill="url(#core)" stroke="#fff" stroke-opacity=".35" stroke-width="3"/>
+          <text x="200" y="196" text-anchor="middle" fill="#fff" font-size="17" font-weight="900" font-family="Tajawal,system-ui">لجنة تنمية</text>
+          <text x="200" y="219" text-anchor="middle" fill="#fff" font-size="15" font-weight="700" font-family="Tajawal,system-ui">الموارد المالية</text></g>
       </svg>
       <div class="stats">
+        <div class="stat g"><small>المحقق</small><b>٨٤٪</b></div>
         <div class="stat"><small>تم جمعه</small><b>٤٬٩٩٨٬٢٣٥</b></div>
         <div class="stat r"><small>المتبقي</small><b>٩٣٢٬٨١٠</b></div>
       </div>
