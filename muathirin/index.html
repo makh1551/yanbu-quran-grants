@@ -63,14 +63,21 @@ h1,h2,h3{text-wrap:balance}
 .orbit .pulse{transform-box:view-box;transform-origin:50% 50%;opacity:0}
 @media (prefers-reduced-motion:no-preference){
  .orbit .o1{animation:pop .7s cubic-bezier(.2,.9,.3,1.2) .2s both}
- .orbit .o2{animation:pop .8s cubic-bezier(.2,.9,.3,1.2) .8s both}
- .orbit .o3{animation:pop .9s cubic-bezier(.2,.9,.3,1.2) 1.4s both}
- .orbit .pulse{animation:ripple 3.2s ease-out 2.4s infinite}
+ .orbit .o2{animation:pop .8s cubic-bezier(.2,.9,.3,1.2) 1.8s both}
+ .orbit .o3{animation:pop .9s cubic-bezier(.2,.9,.3,1.2) 3.4s both}
+ .orbit .pulse{animation:ripple 3.2s ease-out 4.4s infinite}
  @keyframes pop{from{transform:scale(.2);opacity:0}}
  @keyframes ripple{0%{transform:scale(.38);opacity:.7}100%{transform:scale(1.12);opacity:0}}}
 .stats{grid-template-columns:repeat(3,minmax(0,1fr))!important;width:min(100%,420px)!important}
 .stat b{font-size:clamp(15px,4vw,20px)!important}
 .stat.g b{color:#7FE0B0}
+.wave-cap{font-family:var(--display);font-size:clamp(24px,3.4vw,32px);line-height:1.3;color:#fff;min-height:1.4em;text-align:center;transition:opacity .35s}
+.wave-cap.out{opacity:0}
+.remain{display:grid;justify-items:center;line-height:1.15}
+.remain small{font-size:13.5px;font-weight:700;color:#BFE9F3}
+.remain b{font-size:clamp(34px,6vw,46px);font-weight:900;color:var(--gold);font-variant-numeric:tabular-nums}
+.remain span{font-size:13px;color:#BFE9F3}
+.mini{font-size:14px;color:#CFEFF7;text-align:center}.mini b{color:#7FE0B0}
 .cv-waves{position:relative;display:block;width:100%;height:64px;margin-top:auto}
 
 /* ===== bands & headings ===== */
@@ -238,11 +245,10 @@ body{margin:0}
           <text x="200" y="196" text-anchor="middle" fill="#fff" font-size="17" font-weight="900" font-family="Tajawal,system-ui">لجنة تنمية</text>
           <text x="200" y="219" text-anchor="middle" fill="#fff" font-size="15" font-weight="700" font-family="Tajawal,system-ui">الموارد المالية</text></g>
       </svg>
-      <div class="stats">
-        <div class="stat g"><small>المحقق</small><b>٨٤٪</b></div>
-        <div class="stat"><small>تم جمعه</small><b>٤٬٩٩٨٬٢٣٥</b></div>
-        <div class="stat r"><small>المتبقي</small><b>٩٣٢٬٨١٠</b></div>
-      </div>
+      <div class="wave-cap" aria-live="polite">نحن البداية</div>
+      <div class="remain"><small>المتبقي من الوقف</small><b id="remain">٩٣٢٬٨١٠</b><span>ريال</span></div>
+      <div class="mini">المحقق <b>٨٤٪</b> · تم جمعه <b>٤٬٩٩٨٬٢٣٥</b> ريال</div>
+    </div>
     </div>
   </div>
   <svg class="cv-waves" viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34 C 320 0, 700 64, 1440 18 L1440 64 L0 64 Z" fill="var(--bg)"/><path d="M0 40 C 360 8, 820 66, 1440 26" fill="none" stroke="#0E8A4A" stroke-width="5" stroke-linecap="round"/></svg>
@@ -442,6 +448,14 @@ document.addEventListener("click",e=>{const b=e.target.closest("button.copy");if
  const done=()=>{const o=b.textContent;b.textContent="نُسخت ✓";setTimeout(()=>b.textContent=o,1600)};
  const sel=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="حُدّد النص، انسخه";};
  try{navigator.clipboard.writeText(t).then(done,sel)}catch(_){sel()}});
+</script>
+<script>
+(()=>{const AR=n=>String(n).replace(/\B(?=(\d{3})+(?!\d))/g,"٬").replace(/\d/g,d=>"٠١٢٣٤٥٦٧٨٩"[d]);
+const el=document.getElementById("remain"),cap=document.querySelector(".wave-cap");if(!el||!cap)return;
+if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+const A=5931045,B=932810,t0=performance.now()+200,D=4600;
+const f=now=>{const p=Math.min(1,Math.max(0,(now-t0)/D)),e=1-Math.pow(1-p,3);el.textContent=AR(Math.round(A+(B-A)*e));if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f);
+[["أمهات ينبع يدعون",1800],["المدينة كلها تسمع",3400],["ونُكمل الوقف معاً",5200]].forEach(([s,d])=>setTimeout(()=>{cap.classList.add("out");setTimeout(()=>{cap.textContent=s;cap.classList.remove("out")},350)},d));})();
 </script>
 
 </body>
