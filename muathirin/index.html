@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>سفراء وقف الأم</title>
+<meta name="description" content="خطة مؤثري ينبع لوقف الأم: الأربعة الأوائل، القائمة، طريقة التعامل، الرسائل الجاهزة، والقياس.">
+
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700;800;900&display=swap">
+<style>
+/* Layout: a presentation page for the team — deep hero with the waqf's progress, then sections read top to bottom; a sticky chapter bar jumps between them */
+:root{
+  --bg:#F2F7F9; --fg:#0B2A35; --muted:#52707B; --panel:#FFFFFF; --soft:#E6F2F6; --line:#D3E4EA;
+  --deep:#08303E; --navy:#0D495D; --sky:#42B5D1; --sky-ink:#16788F; --green:#0E8A4A; --amber:#B7791F; --rose:#B4452F;
+  --on-deep:#FFFFFF; --on-deep-muted:#BFE9F3;
+  --display:"Amiri",Georgia,serif; --body:"Tajawal",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#05181F;--fg:#E5F2F6;--muted:#97B6C1;--panel:#0B2630;--soft:#0F3140;--line:#1A4352;--sky-ink:#7FD6EA;--green:#3FBF7F;--amber:#E0A84A;--rose:#E7816C;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#05181F;--fg:#E5F2F6;--muted:#97B6C1;--panel:#0B2630;--soft:#0F3140;--line:#1A4352;--sky-ink:#7FD6EA;--green:#3FBF7F;--amber:#E0A84A;--rose:#E7816C;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16.5px;line-height:1.75}
+.pad{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1080px;margin:0 auto}
+h1,h2,h3{text-wrap:balance}
+a{color:var(--sky-ink)}
+:focus-visible{outline:2px solid var(--sky);outline-offset:3px}
+/* hero */
+.hero{background:radial-gradient(110% 130% at 0% 0%,#1B6A80 0%,var(--navy) 35%,var(--deep) 75%);color:var(--on-deep);padding-block:56px 44px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;left:-90px;bottom:-120px;width:340px;height:340px;border-radius:50%;border:40px solid rgba(255,255,255,.05)}
+.kick{font-weight:800;font-size:14px;letter-spacing:.4px;color:var(--on-deep-muted)}
+.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(46px,8vw,86px);line-height:1.1;margin:6px 0 10px}
+.hero p.lead{font-size:clamp(17px,2.2vw,21px);max-width:58ch;margin:0;color:#DCEFF4}
+.prog{margin-top:30px;max-width:680px;position:relative;z-index:1}
+.bar{height:16px;border-radius:99px;background:rgba(255,255,255,.16);overflow:hidden}
+.bar i{display:block;height:100%;width:84%;border-radius:99px;background:linear-gradient(270deg,#7FD6EA,#fff);box-shadow:0 0 22px rgba(127,214,234,.65)}
+.nums{display:flex;flex-wrap:wrap;gap:10px 34px;margin-top:12px;color:#DCEFF4;font-size:15px}
+.nums b{display:block;color:#fff;font-size:28px;font-weight:900;line-height:1.2;font-variant-numeric:tabular-nums}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:12px;margin-top:30px;position:relative;z-index:1}
+.fact{border:1px solid rgba(127,214,234,.4);border-radius:14px;padding:12px 16px;background:rgba(8,48,62,.4)}
+.fact b{display:block;font-size:17px}.fact span{font-size:14px;color:var(--on-deep-muted)}
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--panel);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--panel)}
+nav .wrap{display:flex;gap:6px;overflow-x:auto;padding-block:10px;scrollbar-width:none}
+nav a{flex:0 0 auto;text-decoration:none;color:var(--fg);font-weight:700;font-size:14.5px;padding:7px 14px;border-radius:99px;border:1px solid var(--line)}
+nav a:hover{background:var(--soft)}
+/* sections */
+section{padding-block:46px 10px;scroll-margin-top:64px}
+.sh{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.sh h2{font-family:var(--display);font-size:clamp(30px,4.4vw,42px);margin:0;line-height:1.2}
+.sh .n{font-weight:900;color:var(--sky-ink);font-size:15px}
+.intro{color:var(--muted);max-width:64ch;margin:0 0 22px}
+/* starters */
+.starters{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px}
+.st{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:10px;min-width:0;box-shadow:0 1px 2px rgba(8,48,62,.05),0 12px 28px rgba(66,181,209,.14)}
+.st .top{display:flex;align-items:center;gap:12px}
+.ring{flex:0 0 52px;height:52px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--rc,var(--green)) calc(var(--v)*1%),var(--line) 0)}
+.ring b{width:40px;height:40px;border-radius:50%;background:var(--panel);display:grid;place-items:center;font-size:15px;font-variant-numeric:tabular-nums}
+.st h3{margin:0;font-size:18px;line-height:1.35}
+.st .h{font-size:13.5px;color:var(--muted);direction:ltr;unicode-bidi:isolate}
+.role{margin:0;background:var(--soft);border-radius:12px;padding:10px 12px;font-weight:700;line-height:1.65}
+.why{margin:0;font-size:14.5px;color:var(--muted)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.tag{font-size:12.5px;font-weight:700;padding:3px 10px;border-radius:99px;background:var(--soft);color:var(--fg)}
+.tag.ok{background:color-mix(in srgb,var(--green) 16%,transparent);color:var(--green)}
+.tag.warn{background:color-mix(in srgb,var(--amber) 18%,transparent);color:var(--amber)}
+/* table list */
+.tw{overflow-x:auto;background:var(--panel);border:1px solid var(--line);border-radius:16px}
+table{width:100%;border-collapse:collapse;font-size:15px;min-width:720px}
+th,td{text-align:right;padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:13px;color:var(--muted);font-weight:800;background:var(--soft)}
+tr:last-child td{border-bottom:0}
+td.s{font-weight:900;font-variant-numeric:tabular-nums;white-space:nowrap}
+td .h{display:block;font-size:12.5px;color:var(--muted);direction:ltr;text-align:right}
+.grp td{background:var(--bg);font-weight:800;color:var(--sky-ink);font-size:14px}
+/* audiences */
+.aud{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px}
+.au{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;min-width:0}
+.au h3{margin:0 0 6px;font-size:17px}
+.au .sell{font-family:var(--display);font-size:30px;color:var(--sky-ink);line-height:1.2}
+.au p{margin:6px 0 0;font-size:14.5px;color:var(--muted)}
+/* steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:10px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--deep);color:#fff;font-weight:900;font-size:18px}
+:root[data-theme="dark"] .steps li::before{background:var(--navy)}
+.steps b{display:block;font-size:16.5px}.steps span{color:var(--muted);font-size:14.5px}
+/* objections */
+.obj{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.ob{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.ob q{display:block;font-weight:800;quotes:"«" "»"}
+.ob p{margin:6px 0 0;color:var(--muted);font-size:14.5px}
+/* messages */
+.msgs{display:grid;gap:14px}
+.msg{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;display:grid;gap:10px}
+.msg .mh{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.msg h3{margin:0;font-size:17px}
+.msg pre{margin:0;white-space:pre-wrap;font-family:var(--body);font-size:15px;line-height:1.85;background:var(--soft);border-radius:12px;padding:12px 14px}
+button.copy{font:inherit;font-weight:800;font-size:14px;border:0;border-radius:10px;padding:8px 16px;background:var(--green);color:#fff;cursor:pointer}
+button.copy:active{transform:translateY(1px)}
+/* rules */
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.ru{display:flex;gap:12px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.ru i{flex:0 0 10px;height:10px;border-radius:50%;background:var(--sky);margin-top:9px}
+.ru.no i{background:var(--rose)}
+/* measure */
+.meas{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}
+.me{border-radius:14px;padding:14px 16px;border:1px solid var(--line);background:var(--panel);border-top:4px solid var(--c)}
+.me b{display:block;font-size:20px;font-variant-numeric:tabular-nums}.me span{color:var(--muted);font-size:14.5px}
+.weeks{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px}
+.wk{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px}
+.wk h3{margin:0 0 8px;font-size:17px}
+.wk ul{margin:0;padding-inline-start:20px}.wk li{margin:3px 0}
+.final{margin-top:46px;background:var(--deep);color:#fff;padding-block:34px}
+.final .wrap{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+.final h2{font-family:var(--display);font-size:34px;margin:0}
+.final p{margin:0;color:var(--on-deep-muted)}
+.final code{direction:ltr;unicode-bidi:isolate;background:rgba(255,255,255,.1);padding:6px 12px;border-radius:10px;font-size:15px;color:#fff;word-break:break-all}
+footer{text-align:center;color:var(--muted);font-size:13px;padding-block:18px}
+@media (prefers-reduced-motion:no-preference){.bar i{animation:grow 1.6s cubic-bezier(.2,.8,.2,1) both}@keyframes grow{from{width:12%}}}
+
+body{margin:0}
+</style>
+</head>
+<body>
+
+
+<div dir="rtl" lang="ar">
+<header class="hero pad"><div class="wrap">
+  <div class="kick">الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع · خطة المؤثرين</div>
+  <h1>سفراء وقف الأم</h1>
+  <p class="lead">أصوات من ينبع تحكي لأهلها: المبنى اكتمل، وبقي إكمال المبلغ. ستة عشر حساباً محلياً، وأربعة نبدأ بهم هذا الأسبوع.</p>
+  <div class="prog">
+    <div class="bar" role="progressbar" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100" aria-label="المحقق من المستهدف"><i></i></div>
+    <div class="nums">
+      <span>المحقق<b>٨٤٪</b></span>
+      <span>تم جمعه<b>٤٬٩٩٨٬٢٣٥ ريال</b></span>
+      <span>المتبقي<b>٩٣٢٬٨١٠ ريال</b></span>
+    </div>
+  </div>
+  <div class="facts">
+    <div class="fact"><b>المبنى اكتمل</b><span>بقي إكمال المبلغ فقط</span></div>
+    <div class="fact"><b>الريع للدور النسائية</b><span>لتحفيظ القرآن الكريم في ينبع</span></div>
+    <div class="fact"><b>السهم ١٠٠ ريال</b><span>هدية باسم الأم، حيّة أو ميّتة</span></div>
+    <div class="fact"><b>تعاون احتسابي</b><span>بلا ميزانية نقدية للمؤثرين</span></div>
+  </div>
+</div></header>
+
+<nav class="pad" aria-label="أقسام الصفحة"><div class="wrap">
+  <a href="#start">نبدأ بهم</a><a href="#list">القائمة كاملة</a><a href="#why">ماذا يحرّكهم</a><a href="#how">طريقة التعامل</a><a href="#objections">الاعتراضات</a><a href="#messages">الرسائل الجاهزة</a><a href="#rules">الضوابط</a><a href="#measure">القياس والخطة</a>
+</div></nav>
+
+<main class="pad"><div class="wrap">
+
+<section id="start">
+  <div class="sh"><span class="n">١</span><h2>الأربعة الذين نبدأ بهم</h2></div>
+  <p class="intro">اخترناهم لأن كل واحد منهم يفتح باباً مختلفاً: الخبر، والصحافة، وصوت المعلم، وجمهور الأمهات. يتولى التواصل معهم عبدالمجيد السيد.</p>
+  <div class="starters">
+    <article class="st"><div class="top"><div class="ring" style="--v:83"><b>٨٣</b></div><div><h3>أخبار ينبع</h3><div class="h">@yanbu_news · Snapchat</div></div></div>
+      <p class="role">خبر الإطلاق، ثم رقم «المتبقي» كل جمعة حتى يكتمل</p>
+      <p class="why">أوسع حساب إخباري محلي، وله عدسة باسم «ينبع». خبره يُقرأ معلومةً لا إعلاناً.</p>
+      <div class="tags"><span class="tag">حساب إخباري</span><span class="tag ok">موثوق ٢٩٥٧٣٢</span></div></article>
+    <article class="st"><div class="top"><div class="ring" style="--v:83"><b>٨٣</b></div><div><h3>سالم السناني</h3><div class="h">@salemalsenani77 · Snapchat</div></div></div>
+      <p class="role">خبر في صحيفة المدينة وفي سنابه عند كل محطة للوقف</p>
+      <p class="why">مسؤول التحرير بمكتب صحيفة المدينة بينبع، ويتابعه أولياء الأمور لأخبار الدراسة.</p>
+      <div class="tags"><span class="tag">صحفي</span><span class="tag warn">الرخصة تُطلب</span></div></article>
+    <article class="st"><div class="top"><div class="ring" style="--v:82"><b>٨٢</b></div><div><h3>محمود الإدريسي</h3><div class="h">@mido1401n · Snapchat</div></div></div>
+      <p class="role">صوت المعلم: يدعو طلابه وأهلهم إلى إهداء أمهاتهم سهماً</p>
+      <p class="why">معلم في ثانوية الوليد بينبع البحر ومصوّر، ورسالة المعلم أصدق من أي إعلان.</p>
+      <div class="tags"><span class="tag">معلم مؤثر</span><span class="tag ok">رخصة ١٧٣٩٢٢</span></div></article>
+    <article class="st"><div class="top"><div class="ring" style="--v:74;--rc:var(--sky)"><b>٧٤</b></div><div><h3>فوز الجهني</h3><div class="h">@ms.waw20 · Snapchat</div></div></div>
+      <p class="role">قصة «شهادة إهداء باسم أمي» لجمهور الأمهات والأسر</p>
+      <p class="why">نحو ٤٩ ألف مشترك، ومحتوى أسري هو الأقرب لرسالة الوقف. نسأل أولاً عن نصيب ينبع من جمهورها.</p>
+      <div class="tags"><span class="tag">صانعة محتوى أسري</span><span class="tag warn">رقم موثوق يُطلب</span></div></article>
+  </div>
+</section>
+
+<section id="list">
+  <div class="sh"><span class="n">٢</span><h2>القائمة كاملة</h2></div>
+  <p class="intro">الدرجة من ١٠٠ بمقياس الخطة، والحد الأدنى ٧٠. الدرجات مبدئية من الملفات العامة، وتُعتمد بعد لقطة إحصاءات آخر ٣٠ يوماً ورقم «موثوق».</p>
+  <div class="tw"><table>
+    <thead><tr><th>الحساب</th><th>المنصة</th><th>الدرجة</th><th>دوره في وقف الأم</th><th>الرخصة</th></tr></thead>
+    <tbody>
+      <tr class="grp"><td colspan="5">نبدأ بهم</td></tr>
+      <tr><td>أخبار ينبع<span class="h">@yanbu_news</span></td><td>سناب</td><td class="s">٨٣</td><td>الإطلاق، ثم «المتبقي» كل جمعة</td><td>موثوق ٢٩٥٧٣٢</td></tr>
+      <tr><td>سالم السناني<span class="h">@salemalsenani77</span></td><td>سناب</td><td class="s">٨٣</td><td>خبر صحفي عند كل محطة</td><td>تُطلب</td></tr>
+      <tr><td>محمود الإدريسي<span class="h">@mido1401n</span></td><td>سناب</td><td class="s">٨٢</td><td>صوت المعلم لطلابه وأهلهم</td><td>١٧٣٩٢٢</td></tr>
+      <tr><td>فوز الجهني<span class="h">@ms.waw20</span></td><td>سناب</td><td class="s">٧٤</td><td>شهادة إهداء باسم الأم</td><td>رقمها يُطلب</td></tr>
+      <tr class="grp"><td colspan="5">الموجة الثانية · قبل رمضان</td></tr>
+      <tr><td>محمد النزاوي · دليلك في ينبع<span class="h">@home1441</span></td><td>سناب</td><td class="s">٨٠</td><td>«شباب ينبع يهدون أمهاتهم» بين جمهور الملاعب</td><td>موثوق ٨٦٨٣٥٨</td></tr>
+      <tr><td>أحمد · ينبع الآن<span class="h">@ynbnow</span></td><td>سناب وإكس</td><td class="s">٧٩</td><td>رقم «المتبقي» وقصص الواقفات</td><td>تُطلب</td></tr>
+      <tr><td>عبدالرحمن · أصدقاء ينبع<span class="h">@abdulrahmanynb</span></td><td>سناب</td><td class="s">٧٩</td><td>«مدينتنا الأجمل بأمهاتها»</td><td>تُطلب</td></tr>
+      <tr><td>صحيفة ينبع نيوز<span class="h">@yanbunews</span></td><td>إكس</td><td class="s">٧٨</td><td>خبر صحفي عند كل محطة</td><td>ترخيص النشر يُطلب</td></tr>
+      <tr><td>ترند ينبع<span class="h">@yanbu-trend</span></td><td>سناب</td><td class="s">٧٦</td><td>يوم مع أسرة أهدت أمها سهماً</td><td>موثوق ٧٨١١٢</td></tr>
+      <tr><td>سعود الاشتف<span class="h">@yanbu-city</span></td><td>سناب</td><td class="s">٧٥</td><td>جسر إلى شركات غرفة ينبع لشريحة «شريك الإكمال»</td><td>تُطلب</td></tr>
+      <tr><td>سناب الماس<span class="h">@almayn</span></td><td>سناب</td><td class="s">٧٢</td><td>إعادة نشر محطات الوقف</td><td>تُطلب</td></tr>
+      <tr><td>أم الهنوف<span class="h">@rawan36936</span></td><td>سناب</td><td class="s">٧١</td><td>«أهدِ أمك سهماً» بلغة ربة البيت</td><td>تُطلب</td></tr>
+      <tr class="grp"><td colspan="5">الاحتياط</td></tr>
+      <tr><td>أبوغيث<span class="h">@yn.ab8</span></td><td>سناب</td><td class="s">٦٩</td><td>إعادة نشر الرقم فقط</td><td>٥٣٤٧٧١</td></tr>
+      <tr><td>محمد العنيني<span class="h">@aloniniyb</span></td><td>تيك توك</td><td class="s">٦٧</td><td>يُتحقق منه يدوياً أولاً</td><td>غير معروفة</td></tr>
+      <tr><td>بندر السناني<span class="h">@bander2322</span></td><td>سناب</td><td class="s">—</td><td>سفير يعيد النشر لدائرته (حساب شخصي)</td><td>لا تنطبق</td></tr>
+      <tr class="grp"><td colspan="5">مستبعد</td></tr>
+      <tr><td>سناب أهالي ينبع الإعلاني<span class="h">@ahalyyanbu1</span></td><td>سناب</td><td class="s">٥٨</td><td>إعلان الوقف بين إعلانات تجارية يُضعف الثقة</td><td>غير ظاهرة</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="why">
+  <div class="sh"><span class="n">٣</span><h2>ماذا يحرّك كل فئة</h2></div>
+  <p class="intro">المؤثر يوافق حين يرى مكسباً لجمهوره وسمعته. لذلك نبني كل رسالة على دافع فئته.</p>
+  <div class="aud">
+    <div class="au"><h3>الحسابات الإخبارية</h3><div class="sell">خبر</div><p>نعطيهم أرقاماً رسمية محدّثة، وأولوية السبق، ومادة جاهزة.</p></div>
+    <div class="au"><h3>المعلمون والصحفيون</h3><div class="sell">رسالة</div><p>صوت موثوق يخاطب الطلاب وأولياء الأمور ببرّ الأم وأثر القرآن.</p></div>
+    <div class="au"><h3>الشخصيات المدنية</h3><div class="sell">شراكة</div><p>أن يُرى صانع أثر في مدينته: شكر رسمي ومكان في الحفل.</p></div>
+    <div class="au"><h3>المحتوى الأسري</h3><div class="sell">قصة</div><p>قصة تشبه جمهورها: شهادة إهداء باسم الأم، تحكيها بأسلوبها.</p></div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="sh"><span class="n">٤</span><h2>طريقة التعامل</h2></div>
+  <p class="intro">كل حساب يمر بسبع مراحل تطابق بطاقته في غرفة الفريق.</p>
+  <ol class="steps">
+    <li><div><b>التحضير</b><span>شاهد محتوى أسبوع كامل، واكتب فكرة واحدة تناسب أسلوبه قبل أي رسالة.</span></div></li>
+    <li><div><b>أول تواصل</b><span>رسالة قصيرة عبر قناة الإعلانات المعلنة في نبذته، تطلب اتصالاً أو زيارة، ولا تذكر مالاً.</span></div></li>
+    <li><div><b>اللقاء</b><span>دعوة لزيارة حلقة أو المبنى. من يرى الأثر يقتنع أسرع. نطلب فيه لقطة الإحصاءات ورقم «موثوق».</span></div></li>
+    <li><div><b>العرض</b><span>بعد التحقق نرسل عرضاً مكتوباً: مخرج محدد وموعد وما تقدّمه الجمعية من تكريم.</span></div></li>
+    <li><div><b>الاتفاق</b><span>صفحة واحدة معها الموجز والرابط والكلمة الدلالية، تُسجّل في بطاقته.</span></div></li>
+    <li><div><b>النشر</b><span>نراجع المسودة قبل النشر بيوم، في أيام الوقف: السبت والثلاثاء والجمعة.</span></div></li>
+    <li><div><b>الشكر</b><span>بعد ٤٨ ساعة نجمع الإحصاءات ونرسل له رقم أثره مع شكر مكتوب. هذه الرسالة هي ما يعيده في الموجة التالية.</span></div></li>
+  </ol>
+</section>
+
+<section id="objections">
+  <div class="sh"><span class="n">٥</span><h2>الاعتراضات وردودها</h2></div>
+  <p class="intro">أقوى حجة: الحملة محلية ولها نهاية تُرى. المبنى اكتمل، والرقم ينزل كل جمعة حتى الصفر.</p>
+  <div class="obj">
+    <div class="ob"><q>لا أنشر إلا بمقابل</q><p>نشكره ونبقيه في الاحتياط، وندعوه ضيفاً مكرّماً في الحفل دون التزام بالنشر.</p></div>
+    <div class="ob"><q>أريد نسبة من التبرعات</q><p>المركز الوطني يمنع ذلك، والتعاون احتسابي. هذا غير قابل للتفاوض.</p></div>
+    <div class="ob"><q>جمهوري لا يتفاعل مع المحتوى الديني</q><p>لا نطلب وعظاً، بل مشهداً حياً من ينبع بأسلوبك أنت.</p></div>
+    <div class="ob"><q>لا أشارك الإحصاءات</q><p>شرط موحّد لكل المؤثرين لمساءلة الجمعية أمام متبرعيها. إن أصرّ نتوقف بلطف.</p></div>
+    <div class="ob"><q>أجمع التبرعات بنفسي</q><p>التبرع عبر رابط المتجر الرسمي وحده، وهذا يحميه هو قبل الجمعية.</p></div>
+    <div class="ob"><q>نشرت لجمعيات كثيرة</q><p>الجديد نهاية يراها جمهوره: مبنى اكتمل، ورقم ينزل كل جمعة حتى الصفر.</p></div>
+  </div>
+</section>
+
+<section id="messages">
+  <div class="sh"><span class="n">٦</span><h2>الرسائل الجاهزة</h2></div>
+  <p class="intro">انسخ الرسالة وغيّر ما بين القوسين فقط.</p>
+  <div class="msgs">
+    <div class="msg"><div class="mh"><h3>أول رسالة</h3><button class="copy" type="button" data-t="m1">انسخ</button></div>
+<pre id="m1">السلام عليكم أخي [الاسم]، معك [اسمك] من الجمعية الخيرية لتحفيظ القرآن الكريم بينبع. نتابع حسابك ونراك من أقرب الأصوات لأهل ينبع.
+عندنا قصة من ينبع نتمنى أن تكون أنت من يرويها: وقف باسم أمهات ينبع، اكتمل مبناه بفضل الله، ويُصرف ريعه على الدور النسائية لتحفيظ القرآن، وبقي إكمال المبلغ.
+هل يناسبك اتصال قصير أو زيارة للمبنى هذا الأسبوع؟</pre></div>
+    <div class="msg"><div class="mh"><h3>متابعة بعد يومين</h3><button class="copy" type="button" data-t="m2">انسخ</button></div>
+<pre id="m2">أهلاً [الاسم]، أعرف أن الرسائل كثيرة. لو ناسبك، زيارة عشر دقائق للمبنى تكفي لتراه بنفسك.</pre></div>
+    <div class="msg"><div class="mh"><h3>الموجز بعد الموافقة</h3><button class="copy" type="button" data-t="m3">انسخ</button></div>
+<pre id="m3">شكراً لوقتك يا [الاسم]، هذا ملخص ما اتفقنا عليه:
+• الفكرة: «أهدِ أمك سهماً في وقفها»
+• الطلب: سهم ١٠٠ ريال باسم الأم
+• الريع: للدور النسائية لتحفيظ القرآن الكريم في ينبع
+• رابط المساهمة: https://store.yq.org.sa/p/173745
+• الكلمة الدلالية: [تُحدد]
+• يوم النشر: [السبت أو الثلاثاء أو الجمعة]
+التعاون احتسابي، ونراجع المسودة معك قبل النشر بيوم، ونحتاج لقطة الإحصاءات بعد يومين لنشكرك بالأرقام.</pre></div>
+    <div class="msg"><div class="mh"><h3>الشكر بعد النشر</h3><button class="copy" type="button" data-t="m4">انسخ</button></div>
+<pre id="m4">جزاك الله خيراً يا [الاسم]. منذ نشرك: [الرقم]. أثرك هذا سيبقى في وقف أمهات ينبع، ونتشرف بدعوتك ضيفاً مكرّماً في حفل الجمعية.</pre></div>
+  </div>
+</section>
+
+<section id="rules">
+  <div class="sh"><span class="n">٧</span><h2>الضوابط</h2></div>
+  <div class="rules">
+    <div class="ru"><i></i><div>وقف الأم مشروع مستقل، لا يُذكر معه أي مشروع آخر في المنشور.</div></div>
+    <div class="ru"><i></i><div>رابط المتجر الرسمي وحده في كل منشور، والسهم ١٠٠ ريال.</div></div>
+    <div class="ru"><i></i><div>التعاون احتسابي. أي هدية عينية تشترط رخصة «موثوق» سارية.</div></div>
+    <div class="ru"><i></i><div>عبارة إفصاح واضحة: «بالتعاون مع جمعية تحفيظ القرآن بينبع».</div></div>
+    <div class="ru no"><i></i><div>لا نسبة من التبرعات، ولا جمع تبرعات عبر حساب شخصي.</div></div>
+    <div class="ru no"><i></i><div>لا صور لطلاب أو دارسات إلا بموافقة موثّقة، ولا عبارة توحي أن البناء ما زال جارياً.</div></div>
+  </div>
+</section>
+
+<section id="measure">
+  <div class="sh"><span class="n">٨</span><h2>القياس والخطة</h2></div>
+  <p class="intro">نحكم على كل مؤثر بعدد التبرعات القادمة من كلمته الدلالية خلال أسبوعين من نشره. الحدود مبدئية وتُعدَّل بعد الموجة الأولى.</p>
+  <div class="meas">
+    <div class="me" style="--c:var(--green)"><b>٢٠ تبرعاً فأكثر</b><span>شريك أساسي: ندعوه للموجة التالية وللحفل.</span></div>
+    <div class="me" style="--c:var(--sky)"><b>من ٥ إلى ١٩</b><span>نستمر ونجرّب فكرة أخرى.</span></div>
+    <div class="me" style="--c:var(--amber)"><b>أقل من ٥ وزيارات عالية</b><span>الخلل في الرسالة: نغيّر الطلب.</span></div>
+    <div class="me" style="--c:var(--rose)"><b>أقل من ٥ وزيارات ضعيفة</b><span>نشكره ونكتفي بنشره الأول.</span></div>
+  </div>
+  <div class="weeks" style="margin-top:18px">
+    <div class="wk"><h3>الأسبوع الأول</h3><ul>
+      <li>مشاهدة محتوى الأربعة وكتابة فكرة لكل واحد.</li>
+      <li>إرسال الرسالة الأولى ونقلهم إلى «تم التواصل».</li>
+      <li>تجهيز مقطع المبنى والصور المعتمدة.</li>
+      <li>فتح حساب محمد العنيني يدوياً والتحقق منه.</li></ul></div>
+    <div class="wk"><h3>الأسبوع الثاني</h3><ul>
+      <li>الزيارات أو الاتصالات، وطلب الإحصاءات والرخص.</li>
+      <li>إعادة التقييم وإرسال العروض لمن تجاوز ٧٠.</li>
+      <li>بيان صحفي لصحيفة ينبع نيوز.</li>
+      <li>لقاء سعود الاشتف عن شركات الغرفة شركاءً للإكمال.</li></ul></div>
+  </div>
+</section>
+</div></main>
+
+<div class="final pad"><div class="wrap">
+  <div><h2>أهدِ أمك سهماً</h2><p>السهم ١٠٠ ريال · صدقة جارية لا ينقطع أجرها</p></div>
+  <code>https://store.yq.org.sa/p/173745</code>
+</div></div>
+<footer class="pad">الأرقام حتى ١٢ جمادى الأولى ١٤٤٨هـ · إعداد وتطوير: عبدالمجيد السيد</footer>
+</div>
+<script>
+document.addEventListener("click",e=>{const b=e.target.closest("button.copy");if(!b)return;const el=document.getElementById(b.dataset.t);const t=el.textContent;
+ const done=()=>{const o=b.textContent;b.textContent="نُسخت ✓";setTimeout(()=>b.textContent=o,1600)};
+ const sel=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="حدّدتُ النص، انسخه";};
+ try{navigator.clipboard.writeText(t).then(done,sel)}catch(_){sel()}});
+</script>
+
+</body>
+</html>
