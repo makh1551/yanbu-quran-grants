@@ -12,8 +12,48 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lalezar&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
+<style>
+.wl{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:24px;background:repeating-linear-gradient(90deg,#0d3a24 0,#0d3a24 12.5%,#11442b 12.5%,#11442b 25%);color:#f5f3ea;overflow:auto}
+.wl[hidden]{display:none}
+.wl:before{content:"";position:absolute;left:50%;top:50%;width:min(70vw,420px);aspect-ratio:1;transform:translate(-50%,-50%);border:4px solid rgba(245,243,234,.12);border-radius:50%;pointer-events:none}
+.wl:after{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:4px solid rgba(245,243,234,.10);pointer-events:none}
+.wl-in{position:relative;z-index:1;max-width:620px;width:100%;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px}
+.wl-logo{background:#f5f3ea;border-radius:16px;padding:8px 16px;display:flex}
+.wl-logo img{height:48px;width:auto;max-width:70vw;object-fit:contain}
+.wl-k{margin:8px 0 0;color:#e3b341;font-weight:700}
+.wl-t{margin:0;font-family:"Lalezar","IBM Plex Sans Arabic",sans-serif;font-weight:400;font-size:clamp(36px,8vw,64px);line-height:1.15;color:#f5f3ea}
+.wl-h{margin:0;color:#e3b341;font-weight:700;font-size:clamp(16px,2.6vw,20px)}
+.wl-p{margin:0;color:#b9d3c2;max-width:520px}
+.wl-count{height:96px;display:flex;align-items:center;justify-content:center}
+.wl-count span{font-family:"Lalezar",sans-serif;font-size:88px;line-height:1;color:#e3b341;display:inline-block;animation:pop .9s ease-out}
+.wl-btns{display:none;gap:12px;flex-wrap:wrap;justify-content:center}
+.wl.go .wl-count{display:none}
+.wl.go .wl-btns{display:flex;animation:pop .5s ease-out}
+.wl-btn{display:inline-block;text-decoration:none;font-weight:700;border-radius:999px;padding:12px 26px;font-size:17px}
+.wl-btn.r{background:#f5f3ea;color:#1f4566}
+.wl-btn.k{background:#e3b341;color:#0d3a24}
+.wl-btn:focus-visible,.wl-skip:focus-visible{outline:3px solid #f5f3ea;outline-offset:3px}
+.wl-skip{margin-top:6px;background:none;border:0;color:#b9d3c2;text-decoration:underline;font:inherit;font-size:15px;cursor:pointer;padding:6px}
+@keyframes pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.wl-count span,.wl.go .wl-btns{animation:none}}
+</style>
 </head>
 <body>
+<div id="welcome" class="wl" role="dialog" aria-modal="true" aria-labelledby="wl-t" hidden>
+<div class="wl-in">
+<span class="wl-logo"><img src="/logo.png" alt="شعار الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع"></span>
+<p class="wl-k">صافرة البداية · رمضان 1448هـ</p>
+<h2 id="wl-t" class="wl-t">أهلًا بنادي المجد الرياضي</h2>
+<p class="wl-h">قال رسول الله صلى الله عليه وسلم: «خيركم من تعلّم القرآن وعلّمه»</p>
+<p class="wl-p">يسرّ الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع أن تدعوكم إلى أول مباراة نلعبها معًا: المسابقة الرمضانية للحلقات القرآنية.</p>
+<div class="wl-count" aria-live="polite"><span id="wl-n">3</span></div>
+<div class="wl-btns" id="wl-btns">
+<a class="wl-btn r" href="/rasmi">النسخة الرسمية</a>
+<a class="wl-btn k" href="/kora">النسخة الكروية</a>
+</div>
+<button type="button" class="wl-skip" id="wl-skip">الدخول إلى الصفحة الرئيسية</button>
+</div>
+</div>
 <header class="top"><div class="wrap">
 <a href="/" aria-label="الرئيسية"><img src="/logo.png" alt="شعار الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع"></a>
 <nav aria-label="التنقل"><a href="/rasmi">النسخة الرسمية</a><a href="/kora">النسخة الكروية</a><a href="#files">الملفات</a><a href="#contact">التواصل</a></nav>
@@ -69,5 +109,25 @@
 <span>الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع · مسجلة لدى المركز الوطني لتنمية القطاع غير الربحي برقم 3165</span>
 <span>إعداد وتصميم: عبدالمجيد السيد</span>
 </div></footer>
+<script>
+(function(){
+  var w=document.getElementById('welcome'); if(!w) return;
+  var force=/[?&]welcome\b/.test(location.search), seen=false;
+  try{ seen=localStorage.getItem('majd-welcome')==='1'; }catch(e){}
+  if(seen && !force) return;
+  w.hidden=false; document.body.style.overflow='hidden';
+  var n=3, el=document.getElementById('wl-n');
+  var reduce=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function done(){ w.classList.add('go'); var b=w.querySelector('.wl-btn'); if(b) b.focus(); }
+  function mark(){ try{ localStorage.setItem('majd-welcome','1'); }catch(e){} }
+  function close(){ mark(); w.hidden=true; document.body.style.overflow=''; }
+  if(reduce){ done(); } else {
+    var t=setInterval(function(){ n--; if(n<=0){ clearInterval(t); done(); return; } el.textContent=n; el.style.animation='none'; void el.offsetWidth; el.style.animation=''; },900);
+  }
+  w.querySelectorAll('.wl-btn').forEach(function(a){ a.addEventListener('click', mark); });
+  document.getElementById('wl-skip').addEventListener('click', close);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && !w.hidden) close(); });
+})();
+</script>
 </body>
 </html>
