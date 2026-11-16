@@ -21,9 +21,10 @@ body{margin:0;font-family:"IBM Plex Sans Arabic",Tahoma,sans-serif;color:var(--i
 header.top{background:var(--pitch);position:sticky;top:0;z-index:5;border-bottom:3px solid var(--gold)}
 header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:8px;padding-bottom:8px}
 header.top .logo{background:var(--chalk);border-radius:12px;padding:4px 10px;display:flex}
-header.top img{height:40px;width:auto}
+header.top img{height:40px;width:auto;max-width:52vw;object-fit:contain}
 header.top nav{display:flex;gap:18px;flex-wrap:wrap}
 header.top nav a{color:var(--chalk);text-decoration:none;font-weight:600;font-size:15px}
+header.top nav a.switch{background:var(--gold);color:var(--pitch);border-radius:999px;padding:2px 14px;white-space:nowrap;font-size:14px}
 .stadium{background:repeating-linear-gradient(90deg,var(--pitch) 0,var(--pitch) 10%,var(--pitch2) 10%,var(--pitch2) 20%);color:var(--chalk)}
 .hero{padding:70px 0 80px;position:relative;overflow:hidden}
 .hero:after{content:"";position:absolute;left:50%;top:50%;width:300px;height:300px;margin:-150px 0 0 -150px;border:4px solid rgba(245,243,234,.14);border-radius:50%}
@@ -90,14 +91,14 @@ h2{font-size:clamp(30px,4.4vw,48px);line-height:1.2;margin:0 0 6px;color:var(--p
 footer{background:#082517;color:var(--soft);padding:28px 0;font-size:14px;border-top:3px solid var(--gold)}
 footer a{color:var(--chalk)}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-@media (max-width:860px){.jerseys,.road,.tiers,.board{grid-template-columns:repeat(2,1fr)}.fx{grid-template-columns:1fr 1fr}header.top nav{display:none}.cell:nth-child(2){border-left:none}}
+@media (max-width:860px){.jerseys,.road,.tiers,.board{grid-template-columns:repeat(2,1fr)}.fx{grid-template-columns:1fr 1fr}header.top nav a:not(.switch){display:none}.cell:nth-child(2){border-left:none}}
 @media (max-width:480px){.road,.tiers,.fx{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header class="top"><div class="wrap">
-<span class="logo"><img src="/logo.png" alt="شعار الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع"></span>
-<nav aria-label="أقسام الصفحة"><a href="#road">طريق الكأس</a><a href="#podium">منصة التتويج</a><a href="#tiers">باقات الرعاية</a><a href="#docs">الملفات</a></nav>
+<a href="/" class="logo" aria-label="الرئيسية"><img src="/logo.png" alt="شعار الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع"></a>
+<nav aria-label="التنقل"><a href="/">الرئيسية</a><a href="#road">طريق الكأس</a><a href="#tiers">باقات الرعاية</a><a href="#docs">الملفات</a><a href="/rasmi" class="switch">النسخة الرسمية ←</a></nav>
 </div></header>
 
 <div class="hero stadium"><div class="wrap">
