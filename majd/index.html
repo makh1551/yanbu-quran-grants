@@ -10,7 +10,7 @@
 <meta property="og:description" content="مقدَّم إلى نادي المجد الرياضي بينبع">
 <link rel="icon" href="/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Amiri+Quran&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 <style>
 .wl{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:24px;background:repeating-linear-gradient(90deg,#0d3a24 0,#0d3a24 12.5%,#11442b 12.5%,#11442b 25%);color:#f5f3ea;overflow:auto}
@@ -22,7 +22,12 @@
 .wl-logo img{height:48px;width:auto;max-width:70vw;object-fit:contain}
 .wl-k{margin:8px 0 0;color:#e3b341;font-weight:700}
 .wl-t{margin:0;font-family:"Lalezar","IBM Plex Sans Arabic",sans-serif;font-weight:400;font-size:clamp(36px,8vw,64px);line-height:1.15;color:#f5f3ea}
-.wl-h{margin:0;color:#e3b341;font-weight:700;font-size:clamp(16px,2.6vw,20px)}
+.wl-board{display:flex;align-items:stretch;background:#082517;border:3px solid #e3b341;border-radius:18px;overflow:hidden;width:100%;max-width:460px}
+.wl-team{flex:1;padding:12px 8px;font-weight:700;font-size:clamp(14px,3.6vw,17px);line-height:1.45;color:#f5f3ea;display:flex;align-items:center;justify-content:center}
+.wl-x{font-family:"Lalezar",sans-serif;font-size:40px;line-height:1;color:#0d3a24;background:#e3b341;padding:0 16px;display:flex;align-items:center}
+.wl-meet{margin:0;color:#e3b341;font-weight:700;font-size:15px}
+.wl-ayah{margin:4px 0 0;font-family:"Amiri Quran","Amiri",serif;font-size:clamp(22px,5vw,30px);line-height:1.9;color:#f5f3ea}
+.wl-ayah span{font-family:"IBM Plex Sans Arabic",sans-serif;font-size:13px;color:#b9d3c2}
 .wl-p{margin:0;color:#b9d3c2;max-width:520px}
 .wl-count{height:96px;display:flex;align-items:center;justify-content:center}
 .wl-count span{font-family:"Lalezar",sans-serif;font-size:88px;line-height:1;color:#e3b341;display:inline-block;animation:pop .9s ease-out}
@@ -33,7 +38,7 @@
 .wl-btn.r{background:#f5f3ea;color:#1f4566}
 .wl-btn.k{background:#e3b341;color:#0d3a24}
 .wl-btn:focus-visible,.wl-skip:focus-visible{outline:3px solid #f5f3ea;outline-offset:3px}
-.wl-skip{margin-top:6px;background:none;border:0;color:#b9d3c2;text-decoration:underline;font:inherit;font-size:15px;cursor:pointer;padding:6px}
+.wl-skip{margin-top:6px;background:none;border:2px solid rgba(245,243,234,.5);border-radius:999px;color:#f5f3ea;font:inherit;font-weight:700;font-size:15px;cursor:pointer;padding:8px 22px}
 @keyframes pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.wl-count span,.wl.go .wl-btns{animation:none}}
 </style>
@@ -44,14 +49,20 @@
 <span class="wl-logo"><img src="/logo.png" alt="شعار الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع"></span>
 <p class="wl-k">صافرة البداية · رمضان 1448هـ</p>
 <h2 id="wl-t" class="wl-t">أهلًا بنادي المجد الرياضي</h2>
-<p class="wl-h">قال رسول الله صلى الله عليه وسلم: «خيركم من تعلّم القرآن وعلّمه»</p>
-<p class="wl-p">يسرّ الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع أن تدعوكم إلى أول مباراة نلعبها معًا: المسابقة الرمضانية للحلقات القرآنية.</p>
+<div class="wl-board" role="group" aria-label="اللقاء الأول بين الجمعية ونادي المجد">
+<div class="wl-team">جمعية تحفيظ القرآن<br>بينبع</div>
+<div class="wl-x" aria-hidden="true">×</div>
+<div class="wl-team">نادي المجد<br>الرياضي</div>
+</div>
+<p class="wl-meet">اللقاء الأول · المسابقة الرمضانية للحلقات القرآنية</p>
+<p class="wl-ayah">﴿وَفِي ذَٰلِكَ فَلْيَتَنَافَسِ الْمُتَنَافِسُونَ﴾ <span>[المطففين: 26]</span></p>
+<p class="wl-p">يسرّ الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع أن تدعوكم إلى أول ميدان نلتقي فيه معًا.</p>
 <div class="wl-count" aria-live="polite"><span id="wl-n">3</span></div>
 <div class="wl-btns" id="wl-btns">
 <a class="wl-btn r" href="/rasmi">النسخة الرسمية</a>
 <a class="wl-btn k" href="/kora">النسخة الكروية</a>
 </div>
-<button type="button" class="wl-skip" id="wl-skip">الدخول إلى الصفحة الرئيسية</button>
+<button type="button" class="wl-skip" id="wl-skip">ادخل الميدان ←</button>
 </div>
 </div>
 <header class="top"><div class="wrap">
