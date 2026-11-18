@@ -82,3 +82,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .ftable .btn{padding:4px 14px;font-size:14px}
 .grp{font-size:13px;font-weight:700;color:var(--green7)}
 @media (max-width:720px){.eds{grid-template-columns:1fr}.ed{min-height:0}.ftable th:nth-child(2),.ftable td:nth-child(2){display:none}}
+
+.tiers.one{grid-template-columns:1fr 1fr}
+.tiers.one .tier p b{color:var(--green7)}
+@media (max-width:820px){.tiers.one{grid-template-columns:1fr}}

@@ -77,6 +77,8 @@ h2{font-size:clamp(30px,4.4vw,48px);line-height:1.2;margin:0 0 6px;color:var(--p
 .tier.main{background:var(--gold);border-color:var(--gold);color:var(--pitch)}
 .tier.main .pr{color:var(--pitch)}
 .tier.main p{color:#3b2f0c}
+.tiers.one{grid-template-columns:1fr 1fr}
+.tier b{color:var(--gold)}
 .badge{align-self:flex-start;background:var(--pitch);color:var(--chalk);border-radius:999px;padding:2px 12px;font-size:13px;font-weight:700}
 .docs{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
 .doc{background:#fffdf6;border:1px solid var(--line);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:8px}
@@ -92,13 +94,13 @@ footer{background:#082517;color:var(--soft);padding:28px 0;font-size:14px;border
 footer a{color:var(--chalk)}
 footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 @media (max-width:860px){.jerseys,.road,.tiers,.board{grid-template-columns:repeat(2,1fr)}.fx{grid-template-columns:1fr 1fr}header.top nav a:not(.switch){display:none}.cell:nth-child(2){border-left:none}}
-@media (max-width:480px){.road,.tiers,.fx{grid-template-columns:1fr}}
+@media (max-width:480px){.road,.tiers,.fx,.tiers.one{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <header class="top"><div class="wrap">
 <a href="/" class="logo" aria-label="الرئيسية"><img src="/logo.png" alt="شعار الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع"></a>
-<nav aria-label="التنقل"><a href="/">الرئيسية</a><a href="#road">طريق الكأس</a><a href="#tiers">باقات الرعاية</a><a href="#docs">الملفات</a><a href="/rasmi" class="switch">النسخة الرسمية ←</a></nav>
+<nav aria-label="التنقل"><a href="/">الرئيسية</a><a href="#road">طريق الكأس</a><a href="#tiers">الرعاية</a><a href="#docs">الملفات</a><a href="/rasmi" class="switch">النسخة الرسمية ←</a></nav>
 </div></header>
 
 <div class="hero stadium"><div class="wrap">
@@ -165,22 +167,21 @@ footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 </div></section>
 
 <section class="blk night" id="tiers"><div class="wrap">
-<p class="k">باقات الرعاية</p>
-<h2 class="disp">اختر مركز النادي في البطولة</h2>
-<p class="lead">ويبقى التحكيم والإشراف التعليمي للجمعية حصرًا، مع تقرير مالي وفني ختامي.</p>
-<div class="tiers">
-<div class="tier main"><span class="badge">جهة واحدة فقط</span><h3>الراعي الرسمي للبطولة</h3><div class="pr">11,000 ريال</div><p>يتكفل بالموسم كاملًا، ويحمل الدوري اسم النادي.</p></div>
-<div class="tier"><h3>راعي جوائز النجوم</h3><div class="pr">5,600 ريال</div><p>جوائز النجوم الستة عشر على منصة التتويج.</p></div>
-<div class="tier"><h3>راعي جوائز المدربين</h3><div class="pr">3,000 ريال</div><p>جوائز مدربي الفرق الأربعة الأولى.</p></div>
-<div class="tier"><h3>شريك الملعب</h3><div class="pr">دون مبلغ</div><p>يستضيف ليلة التتويج، ويكرّم البطل في إحدى مباريات النادي.</p></div>
+<p class="k">الرعاية</p>
+<h2 class="disp">راعٍ واحد للبطولة</h2>
+<p class="lead">يتكفل بالموسم كاملًا، ويبقى التحكيم والإشراف التعليمي للجمعية حصرًا، مع تقرير مالي وفني ختامي.</p>
+<div class="tiers one">
+<div class="tier main"><span class="badge">جهة واحدة فقط</span><h3>الراعي الرسمي للبطولة</h3><div class="pr">11,000 ريال</div><p>يتكفل بالموسم كاملًا، ويحمل الدوري اسم النادي: «دوري المجد الرمضاني».</p></div>
+<div class="tier"><h3>ما يغطيه المبلغ</h3><p>جوائز النجوم الستة عشر: <b>5,600 ريال</b></p><p>جوائز المدربين الأربعة: <b>3,000 ريال</b></p><p>الجوائز العينية: <b>1,400 ريال</b></p><p>مكافآت طاقم التحكيم: <b>1,000 ريال</b></p></div>
 </div>
+<p class="note">ويحضر منسوبو نادي المجد ليلة التتويج، ويسعدنا أن تُقام في مقر النادي إن رغب.</p>
 </div></section>
 
 <section class="blk" id="docs"><div class="wrap">
 <p class="k">غرفة الملابس</p>
 <h2 class="disp">ملفات الرعاية</h2>
 <div class="docs" style="margin-top:16px">
-<div class="doc"><h3>عرض الرعاية</h3><p>13 شريحة بلغة الملاعب: البطولة، والتشكيلة، وطريق الكأس، والباقات.</p><div class="btns"><a class="btn fill" href="/kora-deck.pdf" target="_blank" rel="noopener">عرض</a><a class="btn" href="/kora-deck.pdf" download="عرض رعاية دوري المجد الرمضاني.pdf">تنزيل</a></div></div>
+<div class="doc"><h3>عرض الرعاية</h3><p>13 شريحة بلغة الملاعب: البطولة، والتشكيلة، وطريق الكأس، والرعاية.</p><div class="btns"><a class="btn fill" href="/kora-deck.pdf" target="_blank" rel="noopener">عرض</a><a class="btn" href="/kora-deck.pdf" download="عرض رعاية دوري المجد الرمضاني.pdf">تنزيل</a></div></div>
 <div class="doc"><h3>خطاب الدعوة</h3><p>خطاب الجمعية الرسمي إلى سعادة رئيس مجلس إدارة نادي المجد الرياضي.</p><div class="btns"><a class="btn fill" href="/kora-letter.pdf" target="_blank" rel="noopener">عرض</a><a class="btn" href="/kora-letter.pdf" download="خطاب دعوة لرعاية دوري المجد الرمضاني.pdf">تنزيل</a></div></div>
 <div class="doc"><h3>لائحة البطولة</h3><p>اللائحة الرسمية للمسابقة: الشروط والمراحل والتحكيم والجوائز.</p><div class="btns"><a class="btn fill" href="/laiha.pdf" target="_blank" rel="noopener">عرض</a><a class="btn" href="/laiha.pdf" download="لائحة المسابقة الرمضانية للحلقات القرآنية 1448هـ.pdf">تنزيل</a></div></div>
 </div>
