@@ -1,6 +1,6 @@
 // عامل موقع «شراكة نادي المجد» — majd.yanbuquran.app
 // يقرأ الملفات من نسخة مثبّتة (commit) في المستودع، ويحفظها في ذاكرة الحافة؛ عند التحديث يُغيَّر REV إلى آخر commit ويُعاد رفع العامل.
-const REV = 'f7979078efa6e27e518971140a3b82f8c671248a';
+const REV = 'cafa9f977a8de72ec4801d62b6b569d02523d565';
 const BASE = 'https://raw.githubusercontent.com/makh1551/yanbu-quran-grants/' + REV + '/majd';
 const FILES = { '/': 'index.html', '/team': 'team.html', '/style.css': 'style.css', '/logo.png': 'logo.png', '/deck.pdf': 'deck.pdf', '/letter.pdf': 'letter.pdf', '/laiha.pdf': 'laiha.pdf', '/agreement.pdf': 'agreement.pdf', '/kora': 'kora.html', '/rasmi': 'rasmi.html', '/kora-deck.pdf': 'kora-deck.pdf', '/kora-letter.pdf': 'kora-letter.pdf' };
 const TYPES = { html: 'text/html; charset=utf-8', css: 'text/css; charset=utf-8', png: 'image/png', pdf: 'application/pdf' };
