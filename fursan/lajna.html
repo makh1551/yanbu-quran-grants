@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>لجنة «فرسان وفارسات القرآن» — أدوات التنفيذ</title>
+<link rel="icon" href="/logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Aref+Ruqaa:wght@700&family=IBM+Plex+Sans+Arabic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B5071;--deep:#062F44;--sky:#42B5D0;--green:#068C45;--gold:#E3B740;--goldd:#B8901E;--ink:#1D2B33;--mute:#5C6E78;--pale:#EEF7FB;--line:#D3E6EE;--red:#B3261E}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"IBM Plex Sans Arabic",sans-serif;font-weight:500;color:var(--ink);background:var(--pale);line-height:1.7}
+b,h2,h3,button,.btn,th{font-family:Almarai,sans-serif}
+.top{background:linear-gradient(160deg,var(--navy),var(--deep));color:#fff;padding:18px 16px 0}
+.top .in{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.top img{height:44px}.top h1{font-family:Almarai;font-weight:800;font-size:21px}.top p{color:#cfe6ef;font-size:13px}
+.top .sv{margin-right:auto;font-size:12.5px;color:#cfe6ef}
+nav{max-width:1180px;margin:14px auto 0;display:flex;gap:4px;overflow-x:auto;scrollbar-width:thin}
+nav button{all:unset;cursor:pointer;white-space:nowrap;padding:10px 14px;border-radius:12px 12px 0 0;font-family:Almarai;font-weight:800;font-size:14px;color:#d6ecf4}
+nav button[aria-selected=true]{background:var(--pale);color:var(--navy)}
+nav button i{font-style:normal;display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,.16);font-size:11px;margin-left:6px}
+nav button[aria-selected=true] i{background:var(--gold);color:var(--deep)}
+main{max-width:1180px;margin:0 auto;padding:22px 16px 60px}
+.pane{display:none}.pane.on{display:block}
+.hd{display:flex;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.hd h2{font-size:22px;color:var(--navy);font-weight:800}.hd p{color:var(--mute);font-size:14px;flex-basis:100%}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:14px}
+.card h3{color:var(--navy);font-size:16px;margin-bottom:8px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input,select,textarea{font-family:inherit;font-size:14px;border:1px solid var(--line);border-radius:9px;padding:7px 10px;background:#fff;color:var(--ink);min-width:0}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--sky);outline-offset:0}
+textarea{width:100%;min-height:90px}
+.btn{display:inline-flex;align-items:center;gap:6px;border:0;border-radius:99px;padding:8px 16px;font-weight:800;font-size:13.5px;cursor:pointer;background:var(--navy);color:#fff;text-decoration:none}
+.btn.g{background:linear-gradient(90deg,var(--goldd),var(--gold));color:var(--deep)}
+.btn.gr{background:var(--green)}.btn.o{background:#fff;color:var(--navy);border:1px solid var(--line)}.btn.r{background:#fff;color:var(--red);border:1px solid #F1C9C6}
+.btn.s{padding:4px 10px;font-size:12px}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:var(--navy);color:#fff;font-weight:700;padding:9px 8px;white-space:nowrap;text-align:right}
+td{padding:6px 8px;border-top:1px solid var(--line);vertical-align:middle}
+tbody tr:nth-child(even) td{background:#F7FBFD}
+td input,td select{width:100%}
+.tag{display:inline-block;border-radius:99px;padding:1px 10px;font-size:12px;font-family:Almarai;font-weight:800}
+.t-ok{background:#E3F4EA;color:var(--green)}.t-no{background:#FBE9E7;color:var(--red)}.t-now{background:#FFF3CF;color:var(--goldd)}.t-q{background:#E4F3F8;color:var(--navy)}
+.msg{position:fixed;bottom:18px;left:18px;background:var(--deep);color:#fff;border-radius:12px;padding:10px 16px;font-size:14px;opacity:0;transition:.25s;pointer-events:none;z-index:9}
+.msg.on{opacity:1}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:14px}
+.kpi div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+.kpi b{display:block;font-size:24px;color:var(--navy)}.kpi span{font-size:12.5px;color:var(--mute)}
+.note{font-size:13px;color:var(--mute)}
+.chk{display:flex;gap:10px;align-items:center;padding:8px 4px;border-bottom:1px dashed var(--line)}
+.chk input[type=checkbox]{width:18px;height:18px;accent-color:var(--green)}
+.chk.done span{text-decoration:line-through;color:var(--mute)}
+.chk input[type=text]{flex:1}
+.pages{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.pages div{background:var(--pale);border:1px solid var(--line);border-radius:10px;padding:8px 12px;text-align:center;min-width:120px}
+.pages b{display:block;font-size:20px;color:var(--navy)}.pages span{font-size:12px;color:var(--mute)}
+.seg{display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:99px;padding:3px}
+.seg button{all:unset;cursor:pointer;border-radius:99px;padding:5px 14px;font-family:Almarai;font-weight:800;font-size:13px;color:var(--navy)}
+.seg button[aria-pressed=true]{background:var(--navy);color:#fff}
+/* print area */
+#print{display:none}
+@media print{
+  body{background:#fff}
+  .top,main,.msg{display:none!important}
+  #print{display:block}
+  @page{margin:0}
+}
+.lp{width:210mm;height:297mm;position:relative;background:url(/letterhead-a4.jpg) 0 0/210mm 297mm no-repeat;-webkit-print-color-adjust:exact;print-color-adjust:exact;page-break-after:always;overflow:hidden;font-family:"IBM Plex Sans Arabic"}
+.lp .fd{position:absolute;top:31.2mm;left:73.5mm;width:26mm;height:5.6mm;background:#C6E7FA;display:flex;align-items:center;justify-content:center;font-family:Almarai;font-weight:700;font-size:10pt;color:#123E52}
+.lp .ct{position:absolute;top:58mm;right:20mm;left:20mm;bottom:50mm;font-size:10.5pt;line-height:1.7;color:#1D2B33;overflow:hidden}
+.lp h2{font-family:Almarai;font-weight:800;font-size:13pt;color:#123E52;text-align:center;margin-bottom:2mm}
+.lp h3{font-family:Almarai;font-weight:800;font-size:11pt;color:#123E52;margin:2.5mm 0 1mm}
+.lp .sub{text-align:center;color:#2E7D4F;font-family:Almarai;font-weight:700;font-size:10.5pt;margin-bottom:3mm}
+.lp p{text-align:justify}
+.lp table{font-size:.9em}.lp th{background:#123E52;padding:1.4mm 2mm}.lp td{padding:1.2mm 2mm}
+.lp .sgt td{border:0;padding:3mm 2mm 0;vertical-align:top;font-family:Almarai;font-weight:700;color:#123E52;font-size:10pt}
+.lp .sgt i{display:block;font-style:normal;border-bottom:.3mm dotted #555;height:9mm;color:#777;font-size:8.5pt}
+.cp{width:297mm;height:210mm;position:relative;overflow:hidden;page-break-after:always;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact;font-family:Almarai}
+.cp .fr{position:absolute;inset:7mm;border:1.6mm solid var(--navy);border-radius:4mm}
+.cp .fr::after{content:"";position:absolute;inset:2.2mm;border:.5mm solid var(--gold);border-radius:2.5mm}
+.cp .side{position:absolute;top:7mm;bottom:7mm;right:7mm;width:58mm;background:linear-gradient(180deg,var(--navy),var(--deep));border-radius:0 3mm 3mm 0;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:12mm 4mm 9mm;color:#fff}
+.cp .side .lg{width:30mm}.cp .side .nm{width:46mm}.cp .side small{display:block;text-align:center;font-weight:700;font-size:9pt;margin-top:1.5mm}
+.cp .st{width:28mm;height:28mm;display:grid;place-items:center;position:relative;isolation:isolate;font-weight:800;text-align:center;line-height:1.25;font-size:12pt;color:var(--deep)}
+.cp .st::before,.cp .st::after{content:"";position:absolute;inset:0;background:var(--c);z-index:-1}.cp .st::after{transform:rotate(45deg)}
+.cp .mn{position:absolute;top:7mm;bottom:7mm;left:7mm;right:65mm;padding:12mm 16mm 10mm;text-align:center;display:flex;flex-direction:column}
+.cp .kk{color:var(--green);font-weight:700;font-size:10.5pt}
+.cp h1{font-family:"Aref Ruqaa";font-weight:700;font-size:40pt;line-height:1.5}
+.cp .ld{font-family:"IBM Plex Sans Arabic";font-weight:500;font-size:12pt;margin-top:1mm}
+.cp .nmv{margin:7mm auto 5mm;min-width:115mm;border-bottom:.35mm dotted var(--ink);font-family:"Aref Ruqaa";font-weight:700;font-size:24pt;color:var(--navy);line-height:1.4}
+.cp .ln{font-family:"IBM Plex Sans Arabic";font-weight:500;font-size:12pt;line-height:2.1}.cp .ln b{color:var(--navy)}
+.cp .du{font-family:"Aref Ruqaa";font-weight:700;color:var(--green);font-size:12.5pt;margin-top:4mm}
+.cp .sgs{margin-top:auto;display:grid;grid-template-columns:1fr 46mm 1fr;gap:8mm;align-items:end}
+.cp .sg{text-align:center;font-size:10pt}.cp .sg b{display:block;color:var(--navy)}.cp .sg span{display:block;color:var(--mute);font-weight:400;font-size:9pt}
+.cp .sg i{display:block;font-style:normal;border-top:.35mm dotted var(--ink);margin-top:10mm;padding-top:1mm;color:var(--mute);font-size:8pt}
+.cp .sp{border:.4mm dashed var(--gold);border-radius:3mm;padding:3mm;color:var(--goldd);font-weight:700;font-size:9pt;height:20mm;display:flex;flex-direction:column;justify-content:center}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <img src="/logo-white.png" alt="">
+  <div><h1>لجنة «فرسان وفارسات القرآن»</h1><p>أدوات التنفيذ للعام الدراسي ١٤٤٨هـ · صفحة داخلية محمية</p></div>
+  <div class="sv" id="sv">جارٍ التحميل…</div>
+</div>
+<nav role="tablist">
+  <button data-p="sched"><i>١</i>الجدول الزمني</button>
+  <button data-p="team"><i>٢</i>الأعضاء والمهام</button>
+  <button data-p="decree"><i>٣</i>قرار التشكيل</button>
+  <button data-p="nom"><i>٤</i>كشف الترشيح</button>
+  <button data-p="calc"><i>٥</i>الدرجات والتأهل</button>
+  <button data-p="bank"><i>٦</i>بنك الأسئلة</button>
+  <button data-p="party"><i>٧</i>تجهيز الحفل</button>
+  <button data-p="certs"><i>٨</i>الشهادات</button>
+  <button data-p="minutes"><i>٩</i>محضر الاعتماد</button>
+</nav></header>
+
+<main>
+<!-- 1 schedule -->
+<section class="pane" id="p-sched">
+  <div class="hd"><h2>الجدول الزمني</h2><p>مراحل العام بتواريخها ومسؤوليها. تظهر المرحلة الجارية والقادمة خلال ١٤ يومًا بعلامة، والتواريخ ميلادية من التقويم.</p></div>
+  <div class="kpi" id="schedKpi"></div>
+  <div class="tw"><table><thead><tr><th>المرحلة</th><th>المسار</th><th>من</th><th>إلى</th><th>المسؤول</th><th>الحالة</th><th></th></tr></thead><tbody id="schedT"></tbody></table></div>
+  <div class="row" style="margin-top:10px"><button class="btn o" onclick="addSched()">+ مرحلة</button><button class="btn gr" onclick="saveDoc('schedule')">حفظ</button></div>
+</section>
+
+<!-- 2 team -->
+<section class="pane" id="p-team">
+  <div class="hd"><h2>الأعضاء والمهام</h2><p>أعضاء كل لجنة وأدوارهم وأرقامهم. تُستخدم هذه القائمة في قرار التشكيل ومحضر الاعتماد.</p></div>
+  <div id="teamWrap"></div>
+  <div class="row"><button class="btn gr" onclick="saveDoc('members')">حفظ</button></div>
+</section>
+
+<!-- 3 decree -->
+<section class="pane" id="p-decree">
+  <div class="hd"><h2>قرار تشكيل اللجان</h2><p>خطاب رسمي على الترويسة، يُبنى من قائمة الأعضاء، ويُطبع ثم يُوقَّع ويُختم يدويًا.</p></div>
+  <div class="card"><div class="row">
+    <label>رقم القرار <input id="dNo" placeholder="اختياري" style="width:120px"></label>
+    <label>التاريخ الهجري <input id="dDate" value="١٤٤٨/٠٦/١١" style="width:130px"></label>
+    <button class="btn g" onclick="printDecree()">معاينة وطباعة PDF</button>
+  </div><p class="note" style="margin-top:8px">من نافذة الطباعة اختر «حفظ بصيغة PDF»، والمقاس A4 والهوامش «بلا».</p></div>
+</section>
+
+<!-- 4 nominations -->
+<section class="pane" id="p-nom">
+  <div class="hd"><h2>كشف الترشيح</h2><p>يعبّئ كل معلم ومعلمة النموذج، ثم تُلصق صفوفه هنا لتدخل في حاسبة الدرجات مباشرة.</p></div>
+  <div class="grid2">
+    <div class="card"><h3>١) نزّل النموذج</h3><p class="note">ملف Excel بورقتين: الطلاب والطالبات، وفيه قوائم منسدلة للفرع والفصل.</p><div class="row" style="margin-top:10px"><a class="btn g" href="/lajna/tarshih.xlsx">نموذج الترشيح (Excel)</a></div></div>
+    <div class="card"><h3>٢) الصق الصفوف المعبّأة</h3>
+      <div class="row" style="margin-bottom:8px"><span class="seg" id="nomTrack"><button data-v="b" aria-pressed="true">الطلاب</button><button data-v="g">الطالبات</button></span>
+      <select id="nomStage"><option value="q1">تصفيات الفصل الأول</option><option value="q2">تصفيات الفصل الثاني</option></select></div>
+      <textarea id="nomPaste" placeholder="انسخ من Excel الأعمدة بالترتيب: الاسم، المجمع أو الدار، المعلم، الفرع (دون صف العناوين)"></textarea>
+      <div class="row" style="margin-top:8px"><button class="btn gr" onclick="importNom()">إضافة إلى كشف الدرجات</button><span class="note" id="nomRes"></span></div></div>
+  </div>
+  <div class="card"><h3>المرشحون حسب الفرع</h3><div id="nomSum"></div></div>
+</section>
+
+<!-- 5 calculator -->
+<section class="pane" id="p-calc">
+  <div class="hd"><h2>الدرجات والتأهل</h2><p>الحفظ من ٦٠ والتجويد من ٤٠. الاجتياز ٧٥، و٨٥ للقرآن كاملًا. الترتيب: المجموع ثم الحفظ ثم التجويد ثم درجة السؤالين الفاصلين.</p></div>
+  <div class="row" style="margin-bottom:12px">
+    <span class="seg" id="cTrack"><button data-v="b" aria-pressed="true">الطلاب</button><button data-v="g">الطالبات</button></span>
+    <select id="cStage"><option value="q1">تصفيات الفصل الأول</option><option value="q2">تصفيات الفصل الثاني</option><option value="fin">الميدان النهائي</option></select>
+    <select id="cBranch"><option value="">كل الفروع</option></select>
+    <input id="cFind" placeholder="بحث بالاسم" style="width:160px">
+    <button class="btn o" onclick="addScore()">+ صف</button>
+    <button class="btn o" onclick="exportCSV()">تصدير CSV</button>
+  </div>
+  <div class="kpi" id="cKpi"></div>
+  <div class="tw"><table><thead><tr><th>الاسم</th><th id="thUnit">المجمع</th><th>المعلم</th><th>الفرع</th><th>الحفظ /٦٠</th><th>التجويد /٤٠</th><th>الفاصل</th><th>المجموع</th><th>النتيجة</th><th></th></tr></thead><tbody id="cT"></tbody></table></div>
+  <p class="note" style="margin-top:6px">كل تعديل يُحفظ فور الخروج من الخانة.</p>
+  <div class="card" style="margin-top:14px"><div class="row" style="justify-content:space-between"><h3 id="qTitle">المتأهلون للميدان النهائي</h3><button class="btn g" onclick="copyQual()">نسخ القائمة</button></div>
+  <p class="note">أعلى ١٠ مجتازين في كل فرع من تصفيات الفصلين (تُحسب للطالب أعلى درجة له). ومن اجتاز فرعين يتأهل في الأعلى منهما فقط.</p>
+  <div id="qualOut"></div>
+  <div class="row" style="margin-top:10px"><button class="btn gr" onclick="pushFinal()">إدراج المتأهلين في كشف الميدان النهائي</button></div></div>
+  <div class="card"><h3>نتائج الميدان النهائي (المراكز الخمسة)</h3><div id="finOut"></div></div>
+</section>
+
+<!-- 6 bank -->
+<section class="pane" id="p-bank">
+  <div class="hd"><h2>بنك الأسئلة</h2><p>مولّد مواضع عشوائية من مقرر كل فرع بصفحات مصحف المدينة (٦٠٤ صفحات)، توزَّع على أجزاء المقرر. يبدأ السائل من أول الصفحة، وتكمل الطالبة أو الطالب.</p></div>
+  <div class="card"><div class="row">
+    <select id="bBranch"></select>
+    <label>عدد الأسئلة <input id="bN" type="number" value="5" min="1" max="20" style="width:70px"></label>
+    <button class="btn g" onclick="genQ()">ولّد نموذجًا</button>
+    <button class="btn o" onclick="printQ()">طباعة النموذج</button>
+  </div>
+  <div class="pages" id="bOut"></div></div>
+  <div class="card"><h3>ملاحظات اللجنة العلمية لكل فرع</h3><p class="note">تعريف الأخطاء، ومقدار الخصم، والمواضع المستبعدة. تراها اللجنة كلها.</p>
+  <div id="bNotes"></div><div class="row" style="margin-top:8px"><button class="btn gr" onclick="saveDoc('qnotes')">حفظ الملاحظات</button></div></div>
+</section>
+
+<!-- 7 party -->
+<section class="pane" id="p-party">
+  <div class="hd"><h2>تجهيز الميدان النهائي والحفل</h2><p>قائمة لكل مسار، تُؤشَّر كل مهمة عند إنجازها، ويُكتب اسم المسؤول عنها.</p></div>
+  <div class="kpi" id="pKpi"></div>
+  <div class="grid2" id="partyWrap"></div>
+  <div class="row"><button class="btn gr" onclick="saveDoc('checklist')">حفظ</button></div>
+</section>
+
+<!-- 8 certs -->
+<section class="pane" id="p-certs">
+  <div class="hd"><h2>الشهادات بالأسماء</h2><p>تصدر من الدرجات المرصودة: «فارس الفرع» و«فارسة الفرع» لصاحب المركز الأول، وشهادات الاجتياز لكل مجتاز في التصفيات.</p></div>
+  <div class="card"><div class="row">
+    <span class="seg" id="ceTrack"><button data-v="b" aria-pressed="true">الطلاب</button><button data-v="g">الطالبات</button></span>
+    <select id="ceType"><option value="win">«فارس الفرع» للمركز الأول (الميدان النهائي)</option><option value="q1">شهادات اجتياز — الفصل الأول</option><option value="q2">شهادات اجتياز — الفصل الثاني</option></select>
+    <button class="btn g" onclick="printCerts()">معاينة وطباعة</button><span class="note" id="ceRes"></span>
+  </div><p class="note" style="margin-top:8px">المقاس A4 أفقي، والهوامش «بلا»، مع تفعيل «رسومات الخلفية».</p></div>
+</section>
+
+<!-- 9 minutes -->
+<section class="pane" id="p-minutes">
+  <div class="hd"><h2>محضر اعتماد النتائج</h2><p>محضر رسمي على الترويسة، يُبنى من الدرجات المرصودة ويوقّعه أعضاء اللجنة العليا قبل إعلان النتائج.</p></div>
+  <div class="card"><div class="row">
+    <span class="seg" id="mTrack"><button data-v="b" aria-pressed="true">الطلاب</button><button data-v="g">الطالبات</button></span>
+    <select id="mStage"><option value="q1">تصفيات الفصل الأول</option><option value="q2">تصفيات الفصل الثاني</option><option value="fin">الميدان النهائي</option></select>
+    <label>تاريخ الاجتماع <input id="mDate" value="١٤٤٨/  /  هـ" style="width:130px"></label>
+    <button class="btn g" onclick="printMinutes()">معاينة وطباعة PDF</button>
+  </div></div>
+</section>
+</main>
+<div id="print"></div>
+<div class="msg" id="msg"></div>
+
+<script>
+const BR=[{k:'5',n:'٥ أجزاء',from:26,pass:75},{k:'10',n:'١٠ أجزاء',from:21,pass:75},{k:'15',n:'١٥ جزءًا',from:16,pass:75},{k:'20',n:'٢٠ جزءًا',from:11,pass:75},{k:'25',n:'٢٥ جزءًا',from:6,pass:75},{k:'30',n:'القرآن كاملًا',from:1,pass:85}];
+const BRK=Object.fromEntries(BR.map(b=>[b.k,b]));
+const STAGE={q1:'تصفيات الفصل الأول',q2:'تصفيات الفصل الثاني',fin:'الميدان النهائي'};
+const TR={b:{comp:'فرسان الإتقان',unit:'المجمع أو الحلقة',st:'الطالب',sts:'الطلاب',win:'فارس الفرع'},g:{comp:'فارسات الإتقان',unit:'الدار أو الحلقة',st:'الطالبة',sts:'الطالبات',win:'فارسة الفرع'}};
+const AR=n=>String(n).replace(/[0-9]/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let D={schedule:[],members:[],checklist:{b:[],g:[]},qnotes:{}};let S=[];
+function toast(t){const m=$('#msg');m.textContent=t;m.classList.add('on');clearTimeout(m._t);m._t=setTimeout(()=>m.classList.remove('on'),1800)}
+async function api(p,o={}){const r=await fetch('/lajna/api/'+p,{headers:{'content-type':'application/json'},...o});if(r.status===401){location.href='/lajna';throw 0}if(!r.ok)throw new Error(await r.text());return r.json()}
+const DEF={
+ schedule:[
+  ['فتح الترشيح في «بيان»','both'],['تصفيات الفصل الأول','both'],['اعتماد نتائج الفصل الأول وإرسال الملاحظات','both'],
+  ['فتح الترشيح للفصل الثاني','both'],['تصفيات الفصل الثاني','both'],['إعلان المتأهلين الستين في كل مسار','both'],
+  ['الميدان النهائي','b'],['الميدان النهائي','g'],['حفل التتويج','b'],['حفل التتويج النسائي','g'],['تسليم تقرير الأثر وبيان الصرف للراعي (خلال ٣٠ يومًا)','both']
+ ].map(([n,t])=>({n,t,from:'',to:'',own:'',done:false})),
+ members:[
+  {c:'اللجنة العليا',d:'اعتماد الخطة والضوابط والنتائج، والبتّ في التظلمات',m:[{n:'أ. راشد الجهني',r:'مدير الشؤون التعليمية',p:''},{n:'',r:'',p:''}]},
+  {c:'اللجنة العليا للمسار النسائي',d:'اعتماد نتائج «فارسات الإتقان» بالتنسيق مع الشؤون التعليمية',m:[{n:'',r:'القسم النسائي',p:''}]},
+  {c:'اللجنة العلمية',d:'إعداد نماذج الأسئلة واستمارات التقييم، وتعريف الأخطاء، وتأهيل المحكّمين',m:[{n:'',r:'',p:''}]},
+  {c:'لجان التحكيم',d:'إجراء الاختبارات ورصد الدرجات في الاستمارة (محكّمان في كل لجنة)',m:[{n:'',r:'',p:''}]},
+  {c:'لجنة التنظيم',d:'استقبال الترشيحات، وتوزيع المواعيد والمقار، وتجهيز الميدان النهائي والحفل',m:[{n:'',r:'',p:''}]},
+  {c:'الرعاية والإعلام',d:'التواصل مع الراعي، والمواد الإعلامية، وتقرير الأثر',m:[{n:'أ. عبدالرحمن عوادة',r:'منسّق الرعاية',p:'0541639600'}]}
+ ],
+ checklist:{
+  b:['حجز القاعة وتجهيز ٦ لجان للميدان النهائي','طباعة نماذج الأسئلة الموحّدة واستمارات التحكيم','إبلاغ المتأهلين الستين وأولياء أمورهم بالموعد','دعوة الراعي وتأكيد حضور ممثله','طباعة الشهادات بالأسماء بعد اعتماد المحضر','استلام الدروع والميداليات من المطبعة','تجهيز الجوائز المالية وكشف التسليم','لوحات الميدان والمنصة بشعار الراعي','التصوير والتوثيق الإعلامي','برنامج الحفل وعريفه وكلمة الراعي','الضيافة'],
+  g:['حجز قاعة نسائية وتجهيز ٦ لجان نسائية','طباعة نماذج الأسئلة الموحّدة واستمارات التحكيم','إبلاغ المتأهلات الستين وأولياء أمورهن بالموعد','دعوة ممثلة الراعي للحفل النسائي','طباعة الشهادات بالأسماء بعد اعتماد المحضر','استلام درع «الدار الفارسة» والميداليات','تجهيز الجوائز المالية وكشف التسليم باسم الراعي','لوحات الميدان والمنصة بشعار الراعي','توثيق دون تصوير الطالبات (الشهادات والدروع فقط)','برنامج الحفل وعريفته','الضيافة']
+ }
+};
+async function load(){
+  const r=await api('all');
+  D.schedule=r.docs.schedule||DEF.schedule;
+  D.members=r.docs.members||DEF.members;
+  const cl=r.docs.checklist;D.checklist=cl||{b:DEF.checklist.b.map(n=>({n,own:'',done:false})),g:DEF.checklist.g.map(n=>({n,own:'',done:false}))};
+  D.qnotes=r.docs.qnotes||{};
+  S=r.scores;
+  $('#sv').textContent='متصل · البيانات مشتركة بين أعضاء اللجنة';
+  renderAll();
+}
+async function saveDoc(k){try{await api('doc/'+k,{method:'PUT',body:JSON.stringify(D[k])});toast('حُفظ ✓')}catch(e){toast('تعذّر الحفظ')}}
+function renderAll(){renderSched();renderTeam();renderNom();renderCalc();renderBank();renderParty()}
+/* tabs */
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>go(b.dataset.p));
+function go(p){document.querySelectorAll('nav button').forEach(b=>b.setAttribute('aria-selected',b.dataset.p===p));document.querySelectorAll('.pane').forEach(s=>s.classList.toggle('on',s.id==='p-'+p));history.replaceState(null,'','#'+p)}
+go((location.hash||'#sched').slice(1));
+function seg(id,cb){const el=$(id);el.querySelectorAll('button').forEach(b=>b.onclick=()=>{el.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));cb&&cb()});return()=>el.querySelector('[aria-pressed=true]').dataset.v}
+/* 1 schedule */
+function stat(r){if(r.done)return['منجزة','t-ok'];const t=new Date().toISOString().slice(0,10);if(r.from&&r.from<=t&&(!r.to||r.to>=t))return['جارية','t-now'];if(r.from){const d=(new Date(r.from)-new Date(t))/864e5;if(d>0&&d<=14)return['خلال '+AR(Math.ceil(d))+' يومًا','t-q'];if(r.to&&r.to<t)return['متأخرة','t-no']}return['—','']}
+function renderSched(){
+  const tb=$('#schedT');tb.innerHTML='';
+  D.schedule.forEach((r,i)=>{const [s,c]=stat(r);const tr=document.createElement('tr');tr.innerHTML=`<td><input value="${esc(r.n)}" data-k="n"></td><td><select data-k="t"><option value="both">المساران</option><option value="b">الطلاب</option><option value="g">الطالبات</option></select></td><td><input type="date" value="${r.from}" data-k="from"></td><td><input type="date" value="${r.to}" data-k="to"></td><td><input value="${esc(r.own)}" data-k="own" placeholder="الاسم"></td><td><label class="row" style="flex-wrap:nowrap"><input type="checkbox" ${r.done?'checked':''} data-k="done" style="width:auto"> <span class="tag ${c}">${s}</span></label></td><td><button class="btn r s" title="حذف">✕</button></td>`;
+    tr.querySelector('select').value=r.t;
+    tr.querySelectorAll('[data-k]').forEach(el=>el.onchange=()=>{r[el.dataset.k]=el.type==='checkbox'?el.checked:el.value;renderSched();saveDoc('schedule')});
+    tr.querySelector('.r').onclick=()=>{if(confirm('حذف المرحلة؟')){D.schedule.splice(i,1);renderSched();saveDoc('schedule')}};tb.appendChild(tr)});
+  const done=D.schedule.filter(r=>r.done).length,now=D.schedule.filter(r=>stat(r)[1]==='t-now').length,late=D.schedule.filter(r=>stat(r)[1]==='t-no').length,nod=D.schedule.filter(r=>!r.from&&!r.done).length;
+  $('#schedKpi').innerHTML=`<div><b>${AR(done)}/${AR(D.schedule.length)}</b><span>مراحل منجزة</span></div><div><b>${AR(now)}</b><span>جارية الآن</span></div><div><b>${AR(late)}</b><span>متأخرة</span></div><div><b>${AR(nod)}</b><span>بلا تاريخ</span></div>`;
+}
+function addSched(){D.schedule.push({n:'',t:'both',from:'',to:'',own:'',done:false});renderSched()}
+/* 2 team */
+function renderTeam(){
+  const w=$('#teamWrap');w.innerHTML='';
+  D.members.forEach((c,ci)=>{const d=document.createElement('div');d.className='card';
+    d.innerHTML=`<div class="row" style="justify-content:space-between"><input value="${esc(c.c)}" style="font-family:Almarai;font-weight:800;color:var(--navy);font-size:16px;flex:1" data-c="c"><button class="btn r s">حذف اللجنة</button></div><input value="${esc(c.d)}" data-c="d" style="width:100%;margin:6px 0 8px" placeholder="المهام">
+    <div class="tw"><table><thead><tr><th>الاسم</th><th>الصفة</th><th>الجوال</th><th></th></tr></thead><tbody></tbody></table></div><button class="btn o s" style="margin-top:8px">+ عضو</button>`;
+    d.querySelectorAll('[data-c]').forEach(el=>el.onchange=()=>{c[el.dataset.c]=el.value});
+    d.querySelector('.btn.r').onclick=()=>{if(confirm('حذف اللجنة كلها؟')){D.members.splice(ci,1);renderTeam()}};
+    const tb=d.querySelector('tbody');
+    c.m.forEach((m,mi)=>{const tr=document.createElement('tr');tr.innerHTML=`<td><input value="${esc(m.n)}" data-k="n"></td><td><input value="${esc(m.r)}" data-k="r"></td><td><input value="${esc(m.p)}" data-k="p" dir="ltr" style="text-align:right"></td><td style="white-space:nowrap">${m.p?`<a class="btn gr s" target="_blank" href="https://wa.me/966${m.p.replace(/\D/g,'').replace(/^0/,'')}">واتساب</a> `:''}<button class="btn r s">✕</button></td>`;
+      tr.querySelectorAll('input').forEach(el=>el.onchange=()=>{m[el.dataset.k]=el.value});tr.querySelector('.r').onclick=()=>{c.m.splice(mi,1);renderTeam()};tb.appendChild(tr)});
+    d.querySelector('.btn.o').onclick=()=>{c.m.push({n:'',r:'',p:''});renderTeam()};w.appendChild(d)});
+  const a=document.createElement('button');a.className='btn o';a.textContent='+ لجنة';a.style.marginBottom='12px';a.onclick=()=>{D.members.push({c:'لجنة جديدة',d:'',m:[{n:'',r:'',p:''}]});renderTeam()};w.appendChild(a);
+}
+/* letterhead page helper */
+function lpage(inner,date){return `<div class="lp"><div class="fd">${esc(date||'')}</div><div class="ct">${inner}</div></div>`}
+function fit(){document.querySelectorAll('#print .lp .ct').forEach(c=>{let f=10.5;c.style.fontSize=f+'pt';while(c.scrollHeight>c.clientHeight+1&&f>8){f-=.25;c.style.fontSize=f+'pt'}if(c.scrollHeight>c.clientHeight+1)toast('تنبيه: المحتوى أطول من الصفحة، اختصر الأسماء')})}
+function doPrint(html,landscape){const p=$('#print');p.innerHTML=`<style>@page{size:A4 ${landscape?'landscape':'portrait'};margin:0}</style>`+html;p.style.cssText='display:block;position:absolute;left:-9999px;top:0';document.fonts.ready.then(()=>{fit();p.style.cssText='';setTimeout(()=>window.print(),300)})}
+/* 3 decree */
+function printDecree(){
+  const no=$('#dNo').value.trim();
+  let body=`<h2>قرار${no?' رقم ('+esc(no)+')':''} بتشكيل لجان مسابقة «فرسان وفارسات القرآن»</h2><div class="sub">للعام الدراسي ١٤٤٨هـ</div>
+  <p>إن رئيس مجلس إدارة الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع، بناءً على الصلاحيات المخوّلة له، وعلى الخطة التنفيذية لمسابقة «فرسان الإتقان» للطلاب و«فارسات الإتقان» للطالبات، وتحقيقًا لحسن تنفيذها، يقرر ما يلي:</p>
+  <p><b>أولًا:</b> تُشكَّل لجان المسابقة على النحو الآتي:</p>`;
+  body+='<table style="margin-top:1mm"><thead><tr><th style="width:30%">اللجنة</th><th>الأعضاء</th></tr></thead><tbody>';
+  D.members.forEach(c=>{const ms=c.m.filter(m=>m.n.trim());body+=`<tr><td style="vertical-align:top"><b style="color:#123E52">${esc(c.c)}</b></td><td style="vertical-align:top">${ms.length?ms.map(m=>`${esc(m.n)}${m.r?' <span style="color:#5C6E78">('+esc(m.r)+')</span>':''}`).join('<br>'):'<span style="color:#999">[ تُستكمل الأسماء ]</span>'}</td></tr>`});
+  body+='</tbody></table>';
+  body+=`<p style="margin-top:2.5mm"><b>ثانيًا:</b> تعمل اللجان وفق الخطة التنفيذية وضوابط المسابقة المعتمدة، وترفع اللجنة العليا النتائج للاعتماد في محضر موقّع.</p>
+  <p><b>ثالثًا:</b> يُعمل بهذا القرار من تاريخه، ويُبلَّغ إلى من يلزم لتنفيذه.</p>
+  <div style="width:72mm;margin:4mm 0 0 0;margin-right:auto;text-align:center;font-family:Almarai;font-weight:700;color:#123E52">رئيس مجلس الإدارة<br><span style="font-weight:800;font-size:12pt">د. سلامة بن سليم الرفاعي</span><br><span style="color:#777;font-weight:400;font-size:9pt">التوقيع: ............................</span></div>`;
+  doPrint(lpage(body,$('#dDate').value));
+}
+/* scores helpers */
+const tot=r=>(+r.h||0)+(+r.j||0);
+const has=r=>r.h!==''&&r.h!=null&&r.j!==''&&r.j!=null;
+const passed=r=>has(r)&&tot(r)>=BRK[r.br].pass;
+const cmp=(a,b)=>tot(b)-tot(a)||(+b.h||0)-(+a.h||0)||(+b.j||0)-(+a.j||0)||(+b.tb||0)-(+a.tb||0);
+const key=r=>(r.name.trim()+'|'+r.unit.trim()).replace(/\s+/g,' ');
+/* 4 nominations */
+const nomT=seg('#nomTrack',renderNom);
+function parseBranch(s){s=String(s).trim().replace(/[٠-٩]/g,d=>'٠١٢٣٤٥٦٧٨٩'.indexOf(d));if(/كامل|30/.test(s))return'30';const m=s.match(/\d+/);return m&&BRK[m[0]]?m[0]:''}
+async function importNom(){
+  const t=nomT(),st=$('#nomStage').value;const lines=$('#nomPaste').value.split(/\r?\n/).map(l=>l.split('\t')).filter(c=>c[0]&&c[0].trim());
+  const rows=[],bad=[];
+  lines.forEach((c,i)=>{const br=parseBranch(c[3]||'');if(!br){bad.push(i+1);return}rows.push({id:crypto.randomUUID(),tr:t,stage:st,name:c[0].trim(),unit:(c[1]||'').trim(),teacher:(c[2]||'').trim(),br,h:'',j:'',tb:''})});
+  if(!rows.length){$('#nomRes').textContent='لا صفوف صالحة';return}
+  try{await api('scores',{method:'POST',body:JSON.stringify(rows)});S.push(...rows);$('#nomPaste').value='';$('#nomRes').textContent=`أُضيف ${AR(rows.length)}`+(bad.length?` · صفوف بلا فرع صحيح: ${AR(bad.join('، '))}`:'');renderNom();renderCalc();toast('أُضيف المرشحون ✓')}catch(e){toast('تعذّر الحفظ')}
+}
+function renderNom(){
+  const t=nomT();let h='<div class="tw"><table><thead><tr><th>الفرع</th><th>الفصل الأول</th><th>الفصل الثاني</th></tr></thead><tbody>';
+  BR.forEach(b=>{const c=s=>S.filter(r=>r.tr===t&&r.stage===s&&r.br===b.k).length;h+=`<tr><td><b>${b.n}</b></td><td>${AR(c('q1'))}</td><td>${AR(c('q2'))}</td></tr>`});
+  $('#nomSum').innerHTML=h+'</tbody></table></div>';
+}
+/* 5 calc */
+const cT=seg('#cTrack',renderCalc);
+BR.forEach(b=>{$('#cBranch').insertAdjacentHTML('beforeend',`<option value="${b.k}">${b.n}</option>`);$('#bBranch').insertAdjacentHTML('beforeend',`<option value="${b.k}">${b.n} (من الجزء ${AR(b.from)})</option>`)});
+['#cStage','#cBranch'].forEach(s=>$(s).onchange=renderCalc);$('#cFind').oninput=renderCalc;
+async function putScore(r){try{await api('scores',{method:'POST',body:JSON.stringify([r])});$('#sv').textContent='آخر حفظ '+new Date().toLocaleTimeString('ar-SA',{hour:'2-digit',minute:'2-digit'})}catch(e){toast('تعذّر الحفظ')}}
+function brOpts(v){return BR.map(b=>`<option value="${b.k}" ${b.k===v?'selected':''}>${b.n}</option>`).join('')}
+function renderCalc(){
+  const t=cT(),st=$('#cStage').value,bf=$('#cBranch').value,q=$('#cFind').value.trim();
+  $('#thUnit').textContent=t==='b'?'المجمع':'الدار';
+  let rows=S.filter(r=>r.tr===t&&r.stage===st&&(!bf||r.br===bf)&&(!q||r.name.includes(q)));
+  rows.sort((a,b)=>+a.br-+b.br||cmp(a,b));
+  const tb=$('#cT');tb.innerHTML='';
+  rows.forEach(r=>{const tr=document.createElement('tr');const p=has(r)?(passed(r)?'<span class="tag t-ok">مجتاز</span>':'<span class="tag t-no">لم يجتز</span>'):'<span class="tag">—</span>';
+    tr.innerHTML=`<td><input value="${esc(r.name)}" data-k="name" style="min-width:150px"></td><td><input value="${esc(r.unit)}" data-k="unit" style="min-width:110px"></td><td><input value="${esc(r.teacher)}" data-k="teacher" style="min-width:100px"></td><td><select data-k="br">${brOpts(r.br)}</select></td><td><input type="number" min="0" max="60" step="0.25" value="${r.h}" data-k="h" style="width:72px"></td><td><input type="number" min="0" max="40" step="0.25" value="${r.j}" data-k="j" style="width:72px"></td><td><input type="number" min="0" step="0.25" value="${r.tb}" data-k="tb" style="width:60px" title="درجة السؤالين الفاصلين عند التعادل"></td><td><b>${has(r)?AR(tot(r)):''}</b></td><td>${p}</td><td><button class="btn r s">✕</button></td>`;
+    tr.querySelectorAll('[data-k]').forEach(el=>el.onchange=()=>{let v=el.value;if(el.dataset.k==='h'&&v!==''&&(+v<0||+v>60)){toast('الحفظ بين ٠ و٦٠');el.value=r.h;return}if(el.dataset.k==='j'&&v!==''&&(+v<0||+v>40)){toast('التجويد بين ٠ و٤٠');el.value=r.j;return}r[el.dataset.k]=v;putScore(r);renderCalc()});
+    tr.querySelector('.r').onclick=async()=>{if(!confirm('حذف '+r.name+'؟'))return;await api('scores/'+r.id,{method:'DELETE'});S=S.filter(x=>x!==r);renderCalc();renderNom()};tb.appendChild(tr)});
+  if(!rows.length)tb.innerHTML='<tr><td colspan="10" style="text-align:center;color:#5C6E78;padding:18px">لا صفوف بعد. أضف صفًا أو الصق الترشيحات من تبويب «كشف الترشيح».</td></tr>';
+  const all=S.filter(r=>r.tr===t&&r.stage===st&&(!bf||r.br===bf)),tested=all.filter(has),ps=tested.filter(passed);
+  $('#cKpi').innerHTML=`<div><b>${AR(all.length)}</b><span>${st==='fin'?'متأهل':'مرشح'}</span></div><div><b>${AR(tested.length)}</b><span>رُصدت درجته</span></div><div><b>${AR(ps.length)}</b><span>مجتاز</span></div><div><b>${tested.length?AR(Math.round(ps.length/tested.length*100))+'٪':'—'}</b><span>نسبة الاجتياز</span></div>`;
+  renderQual();renderFinal();
+}
+function addScore(){const t=cT(),st=$('#cStage').value;const r={id:crypto.randomUUID(),tr:t,stage:st,name:'',unit:'',teacher:'',br:$('#cBranch').value||'5',h:'',j:'',tb:''};S.push(r);putScore(r);$('#cFind').value='';renderCalc()}
+function qualifiers(t){
+  const best={};S.filter(r=>r.tr===t&&(r.stage==='q1'||r.stage==='q2')&&passed(r)).forEach(r=>{const k=key(r);const cur=best[k];if(!cur||+r.br>+cur.br||(r.br===cur.br&&cmp(r,cur)<0))best[k]=r});
+  const out={};BR.forEach(b=>{out[b.k]=Object.values(best).filter(r=>r.br===b.k).sort(cmp).slice(0,10)});return out;
+}
+function renderQual(){
+  const t=cT(),q=qualifiers(t);$('#qTitle').textContent=(t==='b'?'المتأهلون':'المتأهلات')+' للميدان النهائي';
+  let h='<div class="grid2">';BR.forEach(b=>{h+=`<div><b style="color:var(--navy)">${b.n}</b> <span class="note">(${AR(q[b.k].length)})</span><ol style="padding-right:22px;font-size:14px">${q[b.k].map(r=>`<li>${esc(r.name)} <span class="note">— ${esc(r.unit)} · ${AR(tot(r))}</span></li>`).join('')||'<span class="note">لا أحد بعد</span>'}</ol></div>`});
+  $('#qualOut').innerHTML=h+'</div>';
+}
+function copyQual(){const t=cT(),q=qualifiers(t);let s=`${t==='b'?'المتأهلون':'المتأهلات'} للميدان النهائي — «${TR[t].comp}»\n`;BR.forEach(b=>{s+=`\n${b.n}:\n`+q[b.k].map((r,i)=>`${i+1}. ${r.name} — ${r.unit}`).join('\n')+'\n'});navigator.clipboard.writeText(s).then(()=>toast('نُسخت القائمة ✓'))}
+async function pushFinal(){
+  const t=cT(),q=qualifiers(t);const ex=new Set(S.filter(r=>r.tr===t&&r.stage==='fin').map(r=>key(r)+'|'+r.br));const rows=[];
+  BR.forEach(b=>q[b.k].forEach(r=>{if(!ex.has(key(r)+'|'+b.k))rows.push({id:crypto.randomUUID(),tr:t,stage:'fin',name:r.name,unit:r.unit,teacher:r.teacher,br:b.k,h:'',j:'',tb:''})}));
+  if(!rows.length){toast('لا جديد للإدراج');return}
+  await api('scores',{method:'POST',body:JSON.stringify(rows)});S.push(...rows);toast('أُدرج '+AR(rows.length)+' في كشف الميدان النهائي ✓');$('#cStage').value='fin';renderCalc();
+}
+function winners(t){const o={};BR.forEach(b=>{o[b.k]=S.filter(r=>r.tr===t&&r.stage==='fin'&&r.br===b.k&&passed(r)).sort(cmp).slice(0,5)});return o}
+function renderFinal(){
+  const t=cT(),w=winners(t);let h='<div class="tw"><table><thead><tr><th>الفرع</th><th>الأول</th><th>الثاني</th><th>الثالث</th><th>الرابع</th><th>الخامس</th></tr></thead><tbody>';
+  BR.forEach(b=>{h+=`<tr><td><b>${b.n}</b></td>`+[0,1,2,3,4].map(i=>{const r=w[b.k][i];return `<td>${r?esc(r.name)+'<br><span class="note">'+AR(tot(r))+'</span>':'<span class="note">—</span>'}</td>`}).join('')+'</tr>'});
+  // tie warning
+  const ties=[];BR.forEach(b=>{const a=w[b.k];for(let i=1;i<a.length;i++)if(cmp(a[i-1],a[i])===0)ties.push(b.n)});
+  $('#finOut').innerHTML=h+'</tbody></table></div>'+(ties.length?`<p class="tag t-no" style="margin-top:8px">تعادل تام في: ${ties.join('، ')} — أدخل درجة السؤالين الفاصلين.</p>`:'')+'<p class="note" style="margin-top:6px">لا يشغل مركزًا من لم يبلغ درجة الاجتياز في الميدان النهائي.</p>';
+}
+function exportCSV(){
+  const t=cT(),st=$('#cStage').value;const rows=S.filter(r=>r.tr===t&&r.stage===st).sort((a,b)=>+a.br-+b.br||cmp(a,b));
+  const csv=[['الاسم',TR[t].unit,'المعلم','الفرع','الحفظ','التجويد','الفاصل','المجموع','النتيجة']].concat(rows.map(r=>[r.name,r.unit,r.teacher,BRK[r.br].n,r.h,r.j,r.tb,has(r)?tot(r):'',has(r)?(passed(r)?'مجتاز':'لم يجتز'):''])).map(a=>a.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['﻿'+csv],{type:'text/csv'}));a.download=`${TR[t].comp} - ${STAGE[st]}.csv`;a.click();
+}
+/* 6 bank */
+const jStart=j=>j===1?1:2+20*(j-1),jEnd=j=>j===30?604:jStart(j+1)-1;
+let lastQ=null;
+function genQ(){
+  const b=BRK[$('#bBranch').value],n=Math.max(1,Math.min(20,+$('#bN').value||5));const juz=[];for(let j=b.from;j<=30;j++)juz.push(j);
+  // spread across juz ranges evenly
+  const out=[];for(let i=0;i<n;i++){const lo=Math.floor(i*juz.length/n),hi=Math.max(lo+1,Math.floor((i+1)*juz.length/n));const j=juz[lo+Math.floor(Math.random()*(hi-lo))];const p=jStart(j)+Math.floor(Math.random()*(jEnd(j)-jStart(j)+1));out.push({j,p})}
+  lastQ={b,out};$('#bOut').innerHTML=out.map((q,i)=>`<div><span>السؤال ${AR(i+1)}</span><b>صفحة ${AR(q.p)}</b><span>الجزء ${AR(q.j)}</span></div>`).join('');
+}
+function printQ(){if(!lastQ)genQ();const {b,out}=lastQ;const body=`<h2>نموذج أسئلة — فرع ${b.n}</h2><div class="sub">مسابقة «فرسان وفارسات القرآن» · المقرر من الجزء ${AR(b.from)} إلى الجزء ٣٠</div><table><thead><tr><th>السؤال</th><th>الصفحة</th><th>الجزء</th><th>الحفظ</th><th>التجويد</th><th>ملاحظات المحكّم</th></tr></thead><tbody>${out.map((q,i)=>`<tr><td>${AR(i+1)}</td><td>${AR(q.p)}</td><td>${AR(q.j)}</td><td></td><td></td><td style="width:45%"></td></tr>`).join('')}</tbody></table><p style="margin-top:4mm;font-size:9.5pt;color:#5C6E78">يبدأ السائل من أول الصفحة المحددة (مصحف المدينة)، ويكمل المختبَر نحو نصف صفحة.</p><table class="sgt" style="margin-top:6mm"><tr><td>المحكّم الأول<i></i></td><td>المحكّم الثاني<i></i></td></tr></table>`;doPrint(lpage(body,''))}
+function renderBank(){$('#bNotes').innerHTML=BR.map(b=>`<label style="display:block;margin-top:8px"><b style="color:var(--navy)">${b.n}</b><textarea data-b="${b.k}" style="min-height:60px">${esc(D.qnotes[b.k]||'')}</textarea></label>`).join('');$('#bNotes').querySelectorAll('textarea').forEach(t=>t.onchange=()=>{D.qnotes[t.dataset.b]=t.value})}
+/* 7 party */
+function renderParty(){
+  const w=$('#partyWrap');w.innerHTML='';let all=0,dn=0;
+  ['b','g'].forEach(t=>{const L=D.checklist[t];all+=L.length;dn+=L.filter(x=>x.done).length;const d=document.createElement('div');d.className='card';d.innerHTML=`<h3>${t==='b'?'مسار الطلاب «فرسان الإتقان»':'مسار الطالبات «فارسات الإتقان»'} <span class="note">(${AR(L.filter(x=>x.done).length)}/${AR(L.length)})</span></h3>`;
+    L.forEach((it,i)=>{const r=document.createElement('div');r.className='chk'+(it.done?' done':'');r.innerHTML=`<input type="checkbox" ${it.done?'checked':''}><span style="flex:1">${esc(it.n)}</span><input type="text" value="${esc(it.own)}" placeholder="المسؤول" style="max-width:120px"><button class="btn r s">✕</button>`;
+      r.querySelector('[type=checkbox]').onchange=e=>{it.done=e.target.checked;renderParty();saveDoc('checklist')};r.querySelector('[type=text]').onchange=e=>{it.own=e.target.value};r.querySelector('.r').onclick=()=>{L.splice(i,1);renderParty()};d.appendChild(r)});
+    const a=document.createElement('div');a.className='row';a.style.marginTop='8px';a.innerHTML='<input placeholder="مهمة جديدة" style="flex:1"><button class="btn o s">إضافة</button>';a.querySelector('button').onclick=()=>{const v=a.querySelector('input').value.trim();if(v){L.push({n:v,own:'',done:false});renderParty()}};d.appendChild(a);w.appendChild(d)});
+  $('#pKpi').innerHTML=`<div><b>${AR(dn)}/${AR(all)}</b><span>مهام منجزة</span></div><div><b>${all?AR(Math.round(dn/all*100))+'٪':'—'}</b><span>نسبة الجاهزية</span></div>`;
+}
+/* 8 certs */
+const ceT=seg('#ceTrack');
+function cert(t,r,kind){
+  const T=TR[t],g=t==='g',b=BRK[r.br];const yr='١٤٤٨هـ';
+  const main=kind==='win'?`<h1 style="color:var(--goldd)">شهادة «${T.win}»</h1><div class="ld">تتشرف الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع بمنح ${T.st}</div><div class="nmv">${esc(r.name)}</div>
+   <div class="ln">لقب <b>«${T.win}»</b> ${g?'لحصولها':'لحصوله'} على <b>المركز الأول</b> في فرع <b>${b.n}</b></div><div class="ln">في الميدان النهائي لمسابقة «${T.comp}» للعام الدراسي ${yr}، بمجموع <b>${AR(tot(r))}</b> من ١٠٠.</div>`
+   :`<h1 style="color:var(--navy)">شهادة اجتياز</h1><div class="ld">تشهد الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع بأن ${T.st}</div><div class="nmv">${esc(r.name)}</div>
+   <div class="ln">${g?'اجتازت':'اجتاز'} اختبار فرع <b>${b.n}</b> في <b>${STAGE[r.stage]}</b></div><div class="ln">لمسابقة «${T.comp}» للعام الدراسي ${yr}، بمجموع <b>${AR(tot(r))}</b> من ١٠٠.</div>`;
+  const star=kind==='win'?`<div class="st" style="--c:var(--gold)">${g?'فارسة':'فارس'}<br>الفرع</div>`:`<div class="st" style="--c:var(--sky)">اجتياز</div>`;
+  return `<div class="cp"><div class="fr"></div><div class="side"><img class="lg" src="/logo-white.png"><div>${star}</div><div><img class="nm" src="/name-white.png"><small>${yr}</small></div></div><div class="mn"><div class="kk">◆ مسابقة «${T.comp}» لحفظ القرآن الكريم ◆</div>${main}<div class="du">سائلين الله ${g?'لها':'له'} التوفيق، وأن ${g?'يجعلها':'يجعله'} من أهل القرآن الذين هم أهل الله وخاصته</div><div class="sgs"><div class="sg"><b>رئيس مجلس الإدارة</b><span>د. سلامة بن سليم الرفاعي</span><i>التوقيع</i></div><div class="sp">برعاية<br>[ شعار الراعي ]</div><div class="sg"><b>مدير الشؤون التعليمية</b><span>أ. راشد الجهني</span><i>التوقيع</i></div></div></div></div>`;
+}
+function printCerts(){
+  const t=ceT(),k=$('#ceType').value;let list=[];
+  if(k==='win'){const w=winners(t);BR.forEach(b=>{if(w[b.k][0])list.push(w[b.k][0])})}else{list=S.filter(r=>r.tr===t&&r.stage===k&&passed(r)).sort((a,b)=>+a.br-+b.br||cmp(a,b))}
+  if(!list.length){$('#ceRes').textContent='لا أسماء بعد لهذا الاختيار';return}
+  $('#ceRes').textContent=AR(list.length)+' شهادة';doPrint(list.map(r=>cert(t,r,k==='win'?'win':'q')).join(''),true);
+}
+/* 9 minutes */
+const mT=seg('#mTrack');
+function printMinutes(){
+  const t=mT(),st=$('#mStage').value,T=TR[t];
+  const all=S.filter(r=>r.tr===t&&r.stage===st);
+  let stats='<table><thead><tr><th>الفرع</th><th>المختبَرون</th><th>المجتازون</th><th>النسبة</th></tr></thead><tbody>';
+  BR.forEach(b=>{const x=all.filter(r=>r.br===b.k&&has(r)),p=x.filter(passed);stats+=`<tr><td>${b.n}</td><td>${AR(x.length)}</td><td>${AR(p.length)}</td><td>${x.length?AR(Math.round(p.length/x.length*100))+'٪':'—'}</td></tr>`});
+  stats+='</tbody></table>';
+  let res='';
+  if(st==='fin'){const w=winners(t);res='<h3>المراكز الخمسة الأولى في كل فرع</h3><table><thead><tr><th>الفرع</th><th>المركز</th><th>الاسم</th><th>'+(t==='b'?'المجمع':'الدار')+'</th><th>المجموع</th></tr></thead><tbody>';BR.forEach(b=>w[b.k].forEach((r,i)=>{res+=`<tr><td>${i?'':b.n}</td><td>${AR(i+1)}</td><td>${esc(r.name)}</td><td>${esc(r.unit)}</td><td>${AR(tot(r))}</td></tr>`}));res+='</tbody></table>'}
+  else{const q=qualifiers(t);const n=BR.reduce((s,b)=>s+q[b.k].length,0);res=`<p style="margin-top:2mm">وبلغ عدد ${t==='b'?'المتأهلين':'المتأهلات'} للميدان النهائي حتى تاريخه ${AR(n)}، ${t==='b'?'وتُرفق قائمتهم':'وتُرفق قائمتهن'} بهذا المحضر.</p>`}
+  const sig=(D.members[0]?.m||[]).filter(m=>m.n.trim()).concat((t==='g'?(D.members[1]?.m||[]):[]).filter(m=>m.n.trim()));
+  const sgRows=[];for(let i=0;i<Math.max(2,sig.length);i+=2)sgRows.push(`<tr>${[sig[i],sig[i+1]].map(m=>`<td>${m?esc(m.n)+(m.r?'<br><span style="font-weight:400;font-size:9pt;color:#555">'+esc(m.r)+'</span>':''):'الاسم: ............'}<i>التوقيع</i></td>`).join('')}</tr>`);
+  const body=`<h2>محضر اعتماد نتائج ${STAGE[st]}</h2><div class="sub">مسابقة «${T.comp}» لحفظ القرآن الكريم · العام الدراسي ١٤٤٨هـ</div>
+  <p>اجتمعت اللجنة العليا للمسابقة بتاريخ ${esc($('#mDate').value)}، واطّلعت على استمارات التحكيم والدرجات المرصودة لـ${STAGE[st]}، وتحققت من تطبيق الضوابط المعتمدة (الحفظ ٦٠ والتجويد ٤٠، والاجتياز ٧٥ و٨٥ للقرآن كاملًا، والترتيب بالمجموع ثم الحفظ ثم التجويد ثم السؤالين الفاصلين)، وقررت اعتماد النتائج الآتية:</p>
+  <h3>ملخص النتائج</h3>${stats}${st==='fin'?'<p style="margin-top:2mm">والمراكز الخمسة الأولى في كل فرع مبيّنة في الصفحة الثانية من هذا المحضر.</p>':res}
+  <p style="margin-top:2mm">وتُعلن النتائج بعد توقيع هذا المحضر، ويُقبل التظلم خلال ٣ أيام عمل من الإعلان.</p>
+  <h3>أعضاء اللجنة العليا</h3><table class="sgt">${sgRows.join('')}</table>`;
+  doPrint(lpage(body,'')+(st==='fin'?lpage(`<h2>ملحق المحضر: المراكز الخمسة الأولى</h2><div class="sub">الميدان النهائي لمسابقة «${T.comp}» · ١٤٤٨هـ</div>${res}`,''):''));
+}
+load().catch(e=>{$('#sv').textContent='تعذّر الاتصال بالخادم'});
+</script>
+</body>
+</html>
