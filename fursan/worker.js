@@ -1,6 +1,6 @@
 // عامل موقع «فرسان وفارسات القرآن» — fursan.yanbuquran.app
 // يقرأ الملفات من نسخة مثبّتة (commit) في المستودع، ويحفظها في ذاكرة الحافة؛ عند التحديث يُغيَّر REV إلى آخر commit ويُعاد رفع العامل.
-const REV = '3709d77d8e21be9664f21efa2c4f609bd4969a14';
+const REV = '71835e01385614dcc500a694a1122ce32d4ea1d7';
 const BASE = 'https://raw.githubusercontent.com/makh1551/yanbu-quran-grants/' + REV + '/fursan';
 const FILES = { '/': 'index.html', '/team': 'team.html', '/logo.png': 'logo.png', '/name.png': 'name.png', '/logo-white.png': 'logo-white.png', '/name-white.png': 'name-white.png', '/rayah.pdf': 'rayah.pdf', '/letter.pdf': 'letter.pdf', '/plan.pdf': 'plan.pdf', '/form.pdf': 'form.pdf', '/certs.pdf': 'certs.pdf', '/shield.pdf': 'shield.pdf', '/agreement.docx': 'agreement.docx', '/rayah-g.pdf': 'rayah-g.pdf', '/plan-g.pdf': 'plan-g.pdf', '/banin': 'banin.html', '/banat': 'banat.html', '/letter-g.pdf': 'letter-g.pdf', '/agreement-g.docx': 'agreement-g.docx', '/certs-g.pdf': 'certs-g.pdf', '/shield-g.pdf': 'shield-g.pdf', '/letter-all.pdf': 'letter-all.pdf', '/letter-takamul.pdf': 'letter-takamul.pdf', '/letter-marafiq.pdf': 'letter-marafiq.pdf', '/letter-samref.pdf': 'letter-samref.pdf', '/letter-luberef.pdf': 'letter-luberef.pdf', '/letter-sec.pdf': 'letter-sec.pdf' };
 const TYPES = { html: 'text/html; charset=utf-8', css: 'text/css; charset=utf-8', png: 'image/png', pdf: 'application/pdf', docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' };
