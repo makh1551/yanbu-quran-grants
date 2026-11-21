@@ -1,6 +1,6 @@
 // عامل موقع «فرسان وفارسات القرآن» — fursan.yanbuquran.app
 // يقرأ الملفات من نسخة مثبّتة (commit) في المستودع، ويحفظها في ذاكرة الحافة؛ عند التحديث يُغيَّر REV إلى آخر commit ويُعاد رفع العامل.
-const REV = 'dff3ed7ad0dd165c29a102de7746718c07175e88';
+const REV = '681ce4fee0f9336c4e31e62a0e9e2bc58f1ec325';
 const BASE = 'https://raw.githubusercontent.com/makh1551/yanbu-quran-grants/' + REV + '/fursan';
 const FILES = { '/': 'index.html', '/team': 'team.html', '/logo.png': 'logo.png', '/name.png': 'name.png', '/logo-white.png': 'logo-white.png', '/name-white.png': 'name-white.png', '/rayah.pdf': 'rayah.pdf', '/letter.pdf': 'letter.pdf', '/plan.pdf': 'plan.pdf', '/form.pdf': 'form.pdf', '/certs.pdf': 'certs.pdf', '/shield.pdf': 'shield.pdf', '/agreement.docx': 'agreement.docx', '/rayah-g.pdf': 'rayah-g.pdf', '/plan-g.pdf': 'plan-g.pdf' };
 const TYPES = { html: 'text/html; charset=utf-8', css: 'text/css; charset=utf-8', png: 'image/png', pdf: 'application/pdf', docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' };
