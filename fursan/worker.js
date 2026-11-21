@@ -1,7 +1,7 @@
 // عامل موقع «فرسان وفارسات القرآن» — fursan.yanbuquran.app
 // يقرأ الملفات من نسخة مثبّتة (commit) في المستودع، ويحفظها في ذاكرة الحافة؛ عند التحديث يُغيَّر REV إلى آخر commit ويُعاد رفع العامل.
 // صفحة اللجنة /lajna محمية بكلمة مرور (السر LAJNA_PASS)، وبياناتها في قاعدة D1 «fursan-lajna» (الربط DB).
-const REV = 'REV_PLACEHOLDER';
+const REV = '289f250cccfabb5e285f6a9d5b11f3ed4f9846e6';
 const BASE = 'https://raw.githubusercontent.com/makh1551/yanbu-quran-grants/' + REV + '/fursan';
 const FILES = { '/': 'index.html', '/team': 'team.html', '/logo.png': 'logo.png', '/name.png': 'name.png', '/logo-white.png': 'logo-white.png', '/name-white.png': 'name-white.png', '/letterhead-a4.jpg': 'letterhead-a4.jpg', '/rayah.pdf': 'rayah.pdf', '/letter.pdf': 'letter.pdf', '/plan.pdf': 'plan.pdf', '/form.pdf': 'form.pdf', '/certs.pdf': 'certs.pdf', '/shield.pdf': 'shield.pdf', '/agreement.docx': 'agreement.docx', '/rayah-g.pdf': 'rayah-g.pdf', '/plan-g.pdf': 'plan-g.pdf', '/banin': 'banin.html', '/banat': 'banat.html', '/letter-g.pdf': 'letter-g.pdf', '/agreement-g.docx': 'agreement-g.docx', '/certs-g.pdf': 'certs-g.pdf', '/shield-g.pdf': 'shield-g.pdf', '/letter-all.pdf': 'letter-all.pdf', '/letter-takamul.pdf': 'letter-takamul.pdf', '/letter-marafiq.pdf': 'letter-marafiq.pdf', '/letter-samref.pdf': 'letter-samref.pdf', '/letter-luberef.pdf': 'letter-luberef.pdf', '/letter-sec.pdf': 'letter-sec.pdf' };
 const PRIVATE = { '/lajna': 'lajna.html', '/lajna/tarshih.xlsx': 'tarshih.xlsx' };
