@@ -81,7 +81,7 @@ async function notify(env, c) {
     'https://sadaqa.yanbuquran.app/admin',
     '',
     'تصاميم صور المتجر:',
-    'https://tasmim.yanbuquran.app',
+    c.project === 'halaqa' ? 'https://tasmim.yanbuquran.app/?name=' + encodeURIComponent(c.name) : 'https://tasmim.yanbuquran.app',
   ].filter((x, i) => x !== '' || i > 6).join('\n');
   const prev = await env.WA.get('tg_out');
   await env.WA.put('tg_out', prev ? prev + '\n\n— — —\n\n' + msg : msg);
@@ -161,6 +161,7 @@ async function admin(req, env, action, ip) {
       const l = await env.CAMPAIGNS.list({ prefix: 'c:', cursor });
       const vals = await Promise.all(l.keys.map((k) => env.CAMPAIGNS.get(k.name, 'json')));
       for (const v of vals) { if (v && !v.key) { v.key = newKey(); await env.CAMPAIGNS.put('c:' + v.id, JSON.stringify(v)); } }
+      await Promise.all(vals.map(async (v) => { if (v && v.link && (v.status === 'active' || v.status === 'closed')) { const st = await storeLive(v.link); if (st && st.ok) v.live = Math.round(st.collected); } }));
       items.push(...vals.filter(Boolean));
       cursor = l.list_complete ? null : l.cursor;
     } while (cursor);
@@ -201,7 +202,7 @@ async function admin(req, env, action, ip) {
   // الذكرى السنوية: تسجيل التذكير، أو تجديد الحملة لعام جديد
   if (action === 'reminded' || action === 'renew') {
     c.reminded = new Date().toISOString();
-    if (action === 'renew') { c.year = (c.year || 1) + 1; c.status = 'active'; c.started = new Date().toISOString(); c.closedAt = ''; c.result = ''; }
+    if (action === 'renew') { c.year = (c.year || 1) + 1; c.status = 'active'; c.started = new Date().toISOString(); c.closedAt = ''; c.result = ''; c.endNotified = ''; }
     c.updated = c.reminded;
     await env.CAMPAIGNS.put(key, JSON.stringify(c));
     return json({ ok: true });
@@ -209,7 +210,45 @@ async function admin(req, env, action, ip) {
   return json({ error: 'غير موجود' }, 404);
 }
 
+async function sendAlert(env, msg, tag) {
+  if (!env.WA) return;
+  const prev = await env.WA.get('tg_out');
+  await env.WA.put('tg_out', prev ? prev + '\n\n— — —\n\n' + msg : msg);
+  const phones = (await env.CAMPAIGNS.get('alert_phones', 'json')) || [];
+  await Promise.all(phones.slice(0, 10).map((ph, i) => env.WA.put('wa_out:sadaqa-' + tag + '-' + i, JSON.stringify({ phone: String(ph), text: msg }))));
+}
+
+// كل ساعة: تنبيه مرة واحدة لكل حملة انتهت مدتها ولم تُغلق
+async function endSweep(env) {
+  const now = Date.now();
+  let cursor;
+  do {
+    const l = await env.CAMPAIGNS.list({ prefix: 'c:', cursor });
+    for (const k of l.keys) {
+      const c = await env.CAMPAIGNS.get(k.name, 'json');
+      if (!c || c.status !== 'active' || !c.started || c.endNotified) continue;
+      if (now < new Date(c.started).getTime() + DAYS(c.project) * 864e5) continue;
+      const sum = liveTotal(c, await storeLive(c.link));
+      const msg = [
+        'انتهت مدة حملة صدقة جارية',
+        'العزيز: ' + c.name + (c.suffix ? ' ' + c.suffix : ''),
+        'المسار: ' + (PROJECT_NAMES[c.project] || c.project) + (c.qty ? ' — ' + c.qty + ' ' + (UNITS[c.project] || '') : ''),
+        'المبلغ المجموع: ' + sum + ' ريال' + (c.goal ? ' من ' + c.goal : ''),
+        'مقدّم الطلب: ' + c.requester + ' — ' + c.phone,
+        '',
+        'لتخصيص المبلغ وإغلاق الحملة:',
+        'https://sadaqa.yanbuquran.app/admin#c-' + c.id,
+      ].join('\n');
+      await sendAlert(env, msg, 'end-' + c.id);
+      c.endNotified = new Date().toISOString();
+      await env.CAMPAIGNS.put(k.name, JSON.stringify(c));
+    }
+    cursor = l.list_complete ? null : l.cursor;
+  } while (cursor);
+}
+
 export default {
+  async scheduled(event, env, ctx) { ctx.waitUntil(endSweep(env)); },
   async fetch(req, env, ctx) {
     const u = new URL(req.url), p = u.pathname.replace(/\/+$/, '') || '/';
     const ip = req.headers.get('cf-connecting-ip') || 'x';

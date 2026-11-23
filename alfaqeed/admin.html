@@ -28,6 +28,16 @@
   .req .acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
   .req .acts .chip { white-space: nowrap; }
   .badge { white-space: nowrap; }
+  .badge.ended { background: #fdecec; color: #9b1c1c; }
+  .tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 10px; scrollbar-width: none; }
+  .tabs button { flex: none; border: 1.5px solid var(--line); background: #fff; border-radius: 999px; padding: 7px 14px; font: inherit; font-size: 14.5px; font-weight: 600; color: var(--navy); cursor: pointer; white-space: nowrap; }
+  .tabs button[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: #fff; }
+  .tabs b { font-weight: 700; margin-inline-start: 4px; }
+  #q { width: 100%; font: inherit; font-size: 15px; padding: 10px 12px; border: 1.5px solid #d5e1e6; border-radius: 12px; margin-bottom: 14px; background: #fff; }
+  .req.hl { box-shadow: 0 0 0 3px #C8A24A; }
+  .req .alert { background: #fff4e0; color: #8a5a00; border-radius: 10px; padding: 8px 12px; font-size: 14px; margin-bottom: 10px; }
+  .req .alert.red { background: #fdecec; color: #9b1c1c; }
+  .req .chip.hot { background: #C8A24A; border-color: #C8A24A; color: #142f47; }
 </style>
 </head>
 <body>
@@ -54,6 +64,8 @@
   </div>
   <div class="due" id="due" hidden><h3>تذكيرات الذكرى السنوية</h3><p style="margin:0">حملات اقترب مرور عام عليها، ووافق أصحابها على التذكير. أرسل التذكير، ثم جدّد الحملة إن رغب أهلها.</p><div id="dueRows"></div></div>
   <div class="proj" id="byProject"></div>
+  <div class="tabs" id="tabs" role="tablist"></div>
+  <input id="q" type="search" placeholder="ابحث بالاسم أو الجوال أو رقم الطلب">
   <div class="reqs" id="rows"></div>
   <p class="hint" id="empty" hidden>لا توجد طلبات بعد.</p>
   <div class="msg ok" id="note" hidden role="status"></div>
@@ -73,17 +85,38 @@ const api = async (path, body) => {
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (m) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m]));
 const flash = (m) => { $('note').textContent = m; $('note').hidden = false; setTimeout(() => ($('note').hidden = true), 3500); };
 
+const GEN = 'https://tasmim.yanbuquran.app/';
+const ENDS = (c) => c.started ? new Date(c.started).getTime() + (c.project === 'halaqa' ? 45 : 30) * 864e5 : 0;
+const PH = (c) => c.status === 'pending' ? 'new' : c.status === 'closed' ? 'done' : c.status === 'rejected' ? 'rej' : (ENDS(c) && Date.now() > ENDS(c)) ? 'ended' : 'active';
+const TABS = [['new', 'جديدة'], ['active', 'نشطة'], ['ended', 'انتهت مدتها'], ['done', 'مكتملة'], ['rej', 'مرفوضة'], ['all', 'الكل']];
+const SUM = (c) => Math.max(c.total || 0, c.live || 0);
+let ITEMS = [], TAB = '', Q = '', FIRST = true;
 async function load() {
-  const { items } = await api('list');
+  ITEMS = (await api('list')).items;
+  if (FIRST) {
+    FIRST = false;
+    const m = location.hash.match(/^#c-([a-z0-9]{6})$/), hit = m && ITEMS.find((c) => c.id === m[1]);
+    TAB = hit ? PH(hit) : (['new', 'ended', 'active'].find((t) => ITEMS.some((c) => PH(c) === t)) || 'all');
+  }
+  draw();
+  const m = location.hash.match(/^#c-([a-z0-9]{6})$/);
+  if (m) { const el = document.querySelector('.req[data-id="' + m[1] + '"]'); if (el) { el.classList.add('hl'); el.scrollIntoView({ block: 'start' }); } }
+}
+function draw() {
+  const items = ITEMS;
+  const cnt = (t) => t === 'all' ? items.length : items.filter((c) => PH(c) === t).length;
+  $('tabs').innerHTML = TABS.filter(([t]) => t !== 'rej' || cnt('rej')).map(([t, l]) => '<button type="button" data-t="' + t + '" aria-pressed="' + (t === TAB) + '">' + l + '<b>' + ar(cnt(t)) + '</b></button>').join('');
+  const q = latinDigits(Q).trim().toLowerCase();
+  const shown = items.filter((c) => (TAB === 'all' || PH(c) === TAB) && (!q || [c.name, c.requester, c.phone, c.id].some((v) => String(v || '').toLowerCase().includes(q))));
   $('gate').hidden = true; $('panel').hidden = false;
   const live = items.filter((c) => c.status === 'active' || c.status === 'closed');
-  const total = live.reduce((s, c) => s + (c.total || 0), 0), donors = live.reduce((s, c) => s + (c.donors || 0), 0);
+  const total = live.reduce((s, c) => s + SUM(c), 0), donors = live.reduce((s, c) => s + (c.donors || 0), 0);
   $('kActive').textContent = ar(live.length);
   $('kPending').textContent = ar(items.filter((c) => c.status === 'pending').length);
   $('kTotal').textContent = ar(total);
   $('kAvg').textContent = ar(live.length ? Math.round(donors / live.length) : 0);
   $('byProject').innerHTML = Object.entries(PROJECTS).map(([k, p]) => {
-    const cs = live.filter((c) => c.project === k), t = cs.reduce((s, c) => s + (c.total || 0), 0);
+    const cs = live.filter((c) => c.project === k), t = cs.reduce((s, c) => s + SUM(c), 0);
     return '<div><b>' + p.name + '</b><span>' + ar(cs.length) + ' حملة · ' + ar(t) + ' ريال · ' + p.countLabel + ': ' + ar(Math.floor(t / p.unit)) + '</span></div>';
   }).join('');
   const dues = items.filter((c) => anniversary(c).due);
@@ -93,16 +126,23 @@ async function load() {
     const msg = 'السلام عليكم ' + c.requester + '،\nيقترب مرور عام على حملة ' + c.name + ' ' + c.suffix + ' في مشروع «' + p.name + '»، وقد بلغت حصيلتها ' + ar(c.total) + ' ريال، تقبّل الله منكم.\nإن رغبتم في تجديد الصدقة عنه لعام جديد فهذا رابط الحملة:\n' + url + '\nوإن أردتم إيقاف هذا التذكير فأخبرونا.';
     return '<div class="row" data-id="' + esc(c.id) + '"><span><b>' + esc(c.name) + '</b> · ' + esc(p.name) + ' · الذكرى: <span dir="ltr">' + a.date.toISOString().slice(0, 10) + '</span></span><span class="btns"><a class="chip" style="text-decoration:none" target="_blank" rel="noopener" href="' + esc(waLink(msg, '966' + String(c.phone).slice(1))) + '">أرسل التذكير</a><button class="chip reminded" type="button">تم التذكير</button><button class="chip renew" type="button">جدّد الحملة لعام جديد</button></span></div>';
   }).join('');
-  $('empty').hidden = items.length > 0;
-  $('rows').innerHTML = items.map((c) => {
+  $('empty').hidden = shown.length > 0;
+  $('empty').textContent = items.length ? 'لا توجد طلبات في هذا التبويب.' : 'لا توجد طلبات بعد.';
+  $('rows').innerHTML = shown.map((c) => {
     const url = SITE + '/c/' + c.id, ahl = SITE + '/ahl/' + c.id + '/' + c.key;
     const who = c.name + (c.suffix ? ' ' + c.suffix : '');
     const msg = 'السلام عليكم ' + c.requester + '، تقبّل الله منكم.\n' + (c.link ? 'فُتح رابط الصدقة الجارية عن ' + who + '.\n\nرابط التبرع للنشر:\n' + c.link + '\n\n' : 'استلمنا طلب الصدقة الجارية عن ' + who + '، ونجهّز رابطها.\n\n') + 'صفحتكم الخاصة (العدّاد والنصوص والصور الجاهزة) — لا تُنشر:\n' + ahl + '\n\nجزاكم الله خيرًا.';
-    const left = c.started && c.status === 'active' ? Math.ceil((new Date(c.started).getTime() + (c.project === 'halaqa' ? 45 : 30) * 864e5 - Date.now()) / 864e5) : null;
+    const left = c.started && c.status === 'active' ? Math.ceil((ENDS(c) - Date.now()) / 864e5) : null;
+    const ph = PH(c), sum = SUM(c), goal = c.goal || 0;
+    const nearMsg = 'السلام عليكم ' + c.requester + '،\nبقيت ' + ar(left) + ' أيام على ختام الصدقة الجارية عن ' + who + '، وبلغ المجموع ' + ar(sum) + ' ريال' + (goal ? ' من ' + ar(goal) : '') + '.\nشاركوا الرابط مرة أخيرة مع الأهل والمحبين:\n' + (c.link || '') + '\n\nتقبّل الله منكم.';
+    const gen = c.project === 'halaqa' ? GEN + '?name=' + encodeURIComponent(c.name) + (c.link ? '&link=' + encodeURIComponent(c.link) : '') : '';
     const st = Object.entries(STATUS).map(([k, v]) => '<option value="' + k + '"' + (k === c.status ? ' selected' : '') + '>' + v + '</option>').join('');
     return '<div class="req" data-id="' + esc(c.id) + '">' +
       '<div class="hd"><div><h3>' + esc(c.name) + (c.suffix ? ' <small style="display:inline">' + esc(c.suffix) + '</small>' : '') + '</h3><small>' + esc((PROJECTS[c.project] || {}).name || '') + (c.qty ? ' · ' + esc(pkgLabel(c.project, c.qty, c.goal)) : '') + '</small></div>' +
-      '<div style="text-align:left"><span class="badge ' + esc(c.status) + '">' + STATUS[c.status] + '</span>' + (left !== null ? '<small>' + (left > 0 ? 'متبقٍ ' + ar(left) + ' يومًا' : 'انتهت المدة') + '</small>' : '') + '</div></div>' +
+      '<div style="text-align:left"><span class="badge ' + (ph === 'ended' ? 'ended' : esc(c.status)) + '">' + (ph === 'ended' ? 'انتهت المدة' : STATUS[c.status]) + '</span>' + (left !== null ? '<small>' + (left > 0 ? 'متبقٍ ' + ar(left) + ' يومًا' : 'انتهت المدة') + '</small>' : '') + '</div></div>' +
+      (ph === 'ended' ? '<div class="alert red">انتهت مدة الحملة؛ خصّص المبلغ (' + ar(sum) + ' ريال)، واكتب النتيجة، ثم اجعل الحالة «مغلقة».</div>' : '') +
+      (ph === 'active' && left !== null && left <= 3 ? '<div class="alert">بقيت ' + ar(left) + ' أيام على النهاية؛ أرسل للأسرة تذكير النشر الأخير.</div>' : '') +
+      (c.status !== 'pending' && c.live ? '<div class="meta" style="margin-bottom:6px"><span><em>المجموع الحي من المتجر:</em> <b>' + ar(c.live) + '</b> ريال' + (goal ? ' من ' + ar(goal) : '') + '</span></div>' : '') +
       '<div class="meta"><span><em>الطلب:</em> <b dir="ltr">' + esc(c.id) + '</b></span><span><em>التاريخ:</em> ' + esc((c.created || '').slice(0, 10)) + '</span>' +
       '<span><em>مقدّم الطلب:</em> ' + esc(c.requester) + '</span><span><em>الجوال:</em> <a dir="ltr" href="tel:' + esc(c.phone) + '">' + esc(c.phone) + '</a></span>' +
       '<span><em>الموافقة:</em> ' + (c.commit ? 'نعم' : 'لا') + '</span><span><em>التذكير:</em> ' + (c.remind ? 'نعم' : 'لا') + ((c.year || 1) > 1 ? ' · العام ' + ar(c.year) : '') + '</span></div>' +
@@ -115,6 +155,8 @@ async function load() {
       '<div class="full"><label>نتيجة التخصيص</label><input class="rs" placeholder="مثل: سُمّيت الحلقة باسمه" value="' + esc(c.result || '') + '"></div>' +
       '</div>' +
       '<div class="acts"><button class="chip save" type="button">حفظ</button>' +
+      (ph === 'active' && left !== null && left <= 3 && c.link ? '<a class="chip hot" style="text-decoration:none" target="_blank" rel="noopener" href="' + esc(waLink(nearMsg, '966' + String(c.phone).slice(1))) + '">تذكير الأسرة (بقي ' + ar(left) + ')</a>' : '') +
+      (gen ? '<a class="chip" style="text-decoration:none" target="_blank" rel="noopener" href="' + esc(gen) + '">صمّم صور المتجر</a>' : '') +
       '<a class="chip" style="text-decoration:none" target="_blank" rel="noopener" href="' + esc(waLink(msg, '966' + String(c.phone).slice(1))) + '">أرسل للأسرة</a>' +
       '<a class="chip" style="text-decoration:none" target="_blank" rel="noopener" href="' + esc(ahl) + '">صفحة الأسرة</a>' +
       '<a class="chip" style="text-decoration:none" target="_blank" rel="noopener" href="' + esc(url) + '">صفحة المتبرعين</a>' +
@@ -141,6 +183,8 @@ $('dueRows').addEventListener('click', async (e) => {
   if (!act) return;
   try { await api(act, { id: row.dataset.id }); flash(act === 'renew' ? 'جُدّدت الحملة لعام جديد.' : 'سُجّل التذكير.'); await load(); } catch (x) { flash(x.message); }
 });
+$('tabs').addEventListener('click', (e) => { const b = e.target.closest('button[data-t]'); if (!b) return; TAB = b.dataset.t; history.replaceState(null, '', location.pathname); draw(); });
+$('q').addEventListener('input', () => { Q = $('q').value; draw(); });
 $('gateForm').addEventListener('submit', async (e) => {
   e.preventDefault(); code = $('code').value.trim(); $('gateErr').hidden = true;
   try { await load(); sessionStorage.setItem('adm', code); } catch (x) { $('gateErr').textContent = x.message; $('gateErr').hidden = false; }
