@@ -98,7 +98,7 @@ async function createRequest(req, env, ip, ctx) {
     name: clean(b.name, 60), suffix: SUFFIXES.includes(b.suffix) || b.suffix === '' ? b.suffix : SUFFIXES[0], project: b.project,
     requester: clean(b.requester, 60), relation: clean(b.relation, 30), phone: digits(b.phone), remind: b.remind === true, commit: b.commit === true,
   };
-  if (c.name.split(' ').length < 2) return json({ error: 'اكتب اسم الفقيد ثلاثيًا.' }, 400);
+  if (c.name.split(' ').length < 2) return json({ error: 'اكتب الاسم ثلاثيًا.' }, 400);
   if (!PROJECTS.includes(c.project)) return json({ error: 'اختر مشروع الحملة.' }, 400);
   if (PACKAGES[c.project]) {
     const pk = PACKAGES[c.project].find(([q, a]) => q === Number(b.qty) && a === Number(b.goal));
