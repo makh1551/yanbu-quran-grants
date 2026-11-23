@@ -9,3 +9,4 @@ Rules:
 - After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
 - A committed graphify-out/graph.json is rewritten whole on every build, so a large diff to it in a pull request is expected. Do not flag it as churn or suggest skipping the graph rebuild or its hooks.
 - If the `graphify` command is missing in this environment, install it first with `pip install graphifyy` (double y), then use the rules above.
+- This site is published from the repository root (GitHub Pages), so graphify-out/ is git-ignored and never committed. At the start of a session run `graphify update .` (a few seconds, no API cost) to build it locally.
