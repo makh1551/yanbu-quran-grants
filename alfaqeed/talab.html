@@ -57,7 +57,6 @@
         <div class="f"><label for="fReq">اسم مقدّم الطلب</label><input id="fReq" name="requester" required maxlength="60" autocomplete="name"></div>
         <div class="f"><label for="fPhone">رقم الجوال</label><input id="fPhone" name="phone" required inputmode="tel" maxlength="14" autocomplete="tel" placeholder="05xxxxxxxx" dir="ltr" style="text-align:right"></div>
         <div class="f"><label for="fName">اسم العزيز الذي تكون الصدقة الجارية له (ثلاثيًا)</label><input id="fName" name="name" required maxlength="60" autocomplete="off" placeholder="فلان بن فلان الفلاني"></div>
-        <div class="f"><label for="fSuffix">الدعاء له</label><select id="fSuffix" name="suffix"><option>رحمه الله</option><option>رحمها الله</option></select></div>
         <div class="f"><label for="fRel">صلتك به</label><select id="fRel" name="relation"><option>ابن أو ابنة</option><option>زوج أو زوجة</option><option>أخ أو أخت</option><option>أب أو أم</option><option>حفيد أو حفيدة</option><option>قريب آخر</option><option>صديق</option></select></div>
         <div class="f full"><label for="fProject">أرغب أن تكون الصدقة الجارية</label><select id="fProject" name="project">
           <option value="halaqa">كفالة حلقة لتحفيظ القرآن الكريم — ٧٠٠٠ ريال للعام الدراسي</option>
@@ -103,7 +102,7 @@ $('reqForm').addEventListener('submit', async (e) => {
   const err = $('reqErr'); err.hidden = true;
   const [qty, goal] = pkgNow();
   const d = {
-    name: $('fName').value.trim(), suffix: $('fSuffix').value, project: $('fProject').value, qty, goal,
+    name: $('fName').value.trim(), project: $('fProject').value, qty, goal,
     requester: $('fReq').value.trim(), relation: $('fRel').value, phone: latinDigits($('fPhone').value).replace(/[^\d]/g, ''),
     remind: $('fRemind').checked, commit: $('fCommit').checked, website: $('fWeb').value,
   };
@@ -118,7 +117,7 @@ $('reqForm').addEventListener('submit', async (e) => {
     const j = await r.json();
     if (!r.ok) throw new Error(j.error || 'تعذّر إرسال الطلب.');
     $('reqId').textContent = j.id;
-    $('reqWa').href = waLink('السلام عليكم، قدّمت طلب «صدقة جارية لعزيز عليك» رقم ' + j.id + '\nالعزيز: ' + d.name + ' ' + d.suffix + '\nالصدقة: ' + PROJECTS[d.project].name + ' (' + pkgLabel(d.project, qty, goal) + ')' + '\nمقدّم الطلب: ' + d.requester + ' (' + d.relation + ')');
+    $('reqWa').href = waLink('السلام عليكم، قدّمت طلب «صدقة جارية لعزيز عليك» رقم ' + j.id + '\nالعزيز: ' + d.name + '\nالصدقة: ' + PROJECTS[d.project].name + ' (' + pkgLabel(d.project, qty, goal) + ')' + '\nمقدّم الطلب: ' + d.requester + ' (' + d.relation + ')');
     $('reqForm').hidden = true; $('reqDone').hidden = false;
     $('reqDone').scrollIntoView({ block: 'center' });
   } catch (x) {
