@@ -56,6 +56,19 @@
   .done h2 { justify-content: center; }
   .done .sumbox { background: var(--sand); border-radius: 14px; padding: 12px 14px; text-align: right; font-size: 15px; line-height: 2; margin: 14px 0; }
   .hp { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); opacity: 0; }
+  .more { max-width: 620px; margin: 0 auto; padding: 0 16px 24px; }
+  .more .step { margin-bottom: 14px; }
+  .trust { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .trust div { background: var(--sand); border-radius: 14px; padding: 12px; }
+  .trust b { display: block; color: var(--navy); font-size: 15.5px; }
+  .trust span { display: block; color: #5b6b75; font-size: 13.5px; line-height: 1.7; }
+  .faq details { border-bottom: 1px solid #e3ecef; padding: 4px 0; }
+  .faq details:last-child { border-bottom: 0; }
+  .faq summary { cursor: pointer; font-weight: 600; color: var(--navy); padding: 10px 0; list-style: none; display: flex; justify-content: space-between; gap: 10px; font-size: 15.5px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--green); font-weight: 700; font-size: 20px; line-height: 1; }
+  .faq details[open] summary::after { content: "−"; }
+  .faq p { margin: 0 0 10px; color: #3d4b54; font-size: 15px; line-height: 1.9; }
   footer { padding-bottom: 100px; }
   footer a { color: var(--gold-soft); }
 </style>
@@ -105,6 +118,31 @@
     <p style="margin:0">سنجهّز رابط الصدقة في متجر الجمعية باسم عزيزكم، ونرسله لكم على واتساب لتنشروه بين أهله ومحبيه.</p>
     <div class="sumbox" id="sumbox"></div>
     <a class="btn" id="wa" target="_blank" rel="noopener" href="#">أكّد طلبك عبر واتساب</a>
+  </div>
+</div>
+
+<div class="more" id="more">
+  <div class="step">
+    <h2>ضمانات الصدقة</h2>
+    <div class="trust">
+      <div><b>مشروع محدد</b><span>كل تبرع يُقيَّد في حساب المشروع الذي اخترتموه وحده.</span></div>
+      <div><b>بلا اقتطاع</b><span>لا يُخصم من الحصيلة شيء لتشغيل الحملة.</span></div>
+      <div><b>توثيق</b><span>إيصال لكل متبرع، وبيان بالحصيلة لأهل المتوفى.</span></div>
+      <div><b>خصوصية</b><span>لا تُنشر صورة المتوفى ولا بيانات أسرته.</span></div>
+    </div>
+  </div>
+  <div class="step faq">
+    <h2>أسئلة شائعة</h2>
+    <details><summary>هل ينتفع الميت بالصدقة عنه؟</summary><p>نعم، دلّت السنة على انتفاع الميت بالصدقة عنه؛ فقد سأل سعد بن عبادة رضي الله عنه النبي ﷺ حين توفيت أمه: أينفعها شيء إن تصدقتُ به عنها؟ قال: «نعم». رواه البخاري.</p></details>
+    <details><summary>ماذا يحدث بعد إرسال الطلب؟</summary><p>تتواصل معك الجمعية عبر واتساب للتحقق، ثم تفتح رابطًا في متجرها باسم عزيزك وترسله لك، لتنشره بين أهله ومحبيه فيتبرعون من خلاله.</p></details>
+    <details><summary>من يحق له تقديم الطلب؟</summary><p>أحد أقارب المتوفى، أو من يأذن له أهله.</p></details>
+    <details><summary>هل لتقديم الطلب تكلفة؟</summary><p>لا. فتح الرابط وتجهيز صوره دون أي تكلفة على الأسرة.</p></details>
+    <details><summary>ما معنى الالتزام بالمبلغ؟</summary><p>المبلغ الذي تختارونه هو هدف الصدقة؛ تلتزم الأسرة ببلوغه، وتُكمل الفرق إن نقصت الحصيلة عنه.</p></details>
+    <details><summary>أين تذهب التبرعات؟</summary><p>إلى المشروع الذي اخترتموه وحده، دون اقتطاع. وتبرعات وقف الأم تُورَد في حساب الوقف المستقل.</p></details>
+    <details><summary>هل يمكن اختيار أكثر من صدقة؟</summary><p>لكل طلب صدقة واحدة ليكون أثرها واضحًا، ويمكنكم تقديم طلب آخر لصدقة أخرى.</p></details>
+    <details><summary>كيف أعرف حصيلة الصدقة؟</summary><p>ترسل الجمعية لأهل المتوفى بيانًا بالحصيلة عند إغلاق الرابط.</p></details>
+    <details><summary>هل تذكّرونني بتجديد الصدقة كل عام؟</summary><p>إن اخترت ذلك في الطلب، تذكّرك الجمعية مرة واحدة قبيل مرور عام، لتجدّد الصدقة عنه إن رغبت.</p></details>
+    <details><summary>كم يبقى الرابط مفتوحًا؟</summary><p>ما رغب أهل المتوفى، ويُغلق بطلبهم.</p></details>
   </div>
 </div>
 
@@ -163,7 +201,7 @@ $('f').addEventListener('submit', async (e) => {
     $('sumbox').innerHTML = '';
     [['رقم الطلب', j.id], ['المتوفى', d.name], ['الصدقة', what]].forEach(([k, v]) => { const p = document.createElement('div'); const b = document.createElement('b'); b.textContent = k + ': '; p.append(b, v); $('sumbox').append(p); });
     $('wa').href = waLink('السلام عليكم، قدّمت طلب «صدقة جارية لعزيز عليك» رقم ' + j.id + '\nالمتوفى: ' + d.name + '\nالصدقة: ' + what + '\nمقدّم الطلب: ' + d.requester);
-    $('f').hidden = true; $('bar').hidden = true; $('done').hidden = false;
+    $('f').hidden = true; $('bar').hidden = true; $('more').hidden = true; $('done').hidden = false;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   } catch (x) {
     fail(x.message + ' أو تواصل مع الجمعية عبر واتساب: 0553671414');
