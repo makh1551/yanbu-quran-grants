@@ -22,7 +22,7 @@
     <nav aria-label="أقسام الصفحة">
       <a href="#how">كيف تعمل</a>
       <a href="#tracks">المشاريع</a>
-      <a href="#create">أنشئ حملة</a>
+      <a href="/talab">قدّم طلبًا</a>
       <a href="#card">بطاقة الفقيد</a>
       <a href="#faq">أسئلة شائعة</a>
     </nav>
@@ -37,7 +37,7 @@
     <div class="bar"></div>
     <p class="lead">أنشئ حملة صدقة جارية باسم فقيدك في أحد مشاريع الجمعية، وشاركها مع أهلك والمعزّين؛ فتذهب الحصيلة كاملة إلى المشروع الذي اخترته.</p>
     <div class="btns">
-      <a class="btn" href="#create">أنشئ حملة فقيدك</a>
+      <a class="btn" href="/talab">قدّم طلب صدقة جارية</a>
       <a class="btn ghost" href="#tracks">تعرّف على المشاريع</a>
     </div>
   </div>
@@ -134,34 +134,9 @@
 
 <section id="create">
   <div class="wrap">
-    <h2>أنشئ حملة فقيدك</h2>
-    <p class="sec-lead">املأ الطلب، وستتواصل معك الجمعية للتحقق واعتماد الحملة، ثم يصلك رابط صفحتها. اختر الصدقة الجارية والمبلغ المناسب لكم، وتلتزم الأسرة ببلوغه عند إنشاء الحملة.</p>
-    <form class="box" id="reqForm" novalidate>
-      <div class="fields">
-        <div class="f"><label for="fName">اسم الفقيد الثلاثي</label><input id="fName" name="name" required maxlength="60" autocomplete="off" placeholder="فلان بن فلان الفلاني"></div>
-        <div class="f"><label for="fSuffix">الدعاء له</label><select id="fSuffix" name="suffix"><option>رحمه الله</option><option>رحمها الله</option></select></div>
-        <div class="f full"><label for="fProject">أرغب أن تكون الصدقة الجارية</label><select id="fProject" name="project">
-          <option value="halaqa">كفالة حلقة لتحفيظ القرآن الكريم — ٧٠٠٠ ريال للعام الدراسي</option>
-          <option value="mushaf">ورِّث مصحفًا — ٣٠ ريالًا للمصحف (مطبعة الملك فهد)</option>
-          <option value="waqf">أسهم في وقف الأم — ١٠٠ ريال للسهم</option>
-        </select></div>
-        <div class="f full"><label for="fPkg">اختر الصدقة الجارية المناسبة لكم</label><select id="fPkg" name="pkg"></select></div>
-        <div class="f"><label for="fReq">اسمك</label><input id="fReq" name="requester" required maxlength="60" autocomplete="name"></div>
-        <div class="f"><label for="fRel">صلتك بالفقيد</label><select id="fRel" name="relation"><option>ابن أو ابنة</option><option>زوج أو زوجة</option><option>أخ أو أخت</option><option>أب أو أم</option><option>حفيد أو حفيدة</option><option>قريب آخر</option></select></div>
-        <div class="f"><label for="fPhone">رقم جوالك</label><input id="fPhone" name="phone" required inputmode="tel" maxlength="14" autocomplete="tel" placeholder="05xxxxxxxx" dir="ltr" style="text-align:right"></div>
-        <div class="check"><input type="checkbox" id="fCommit" name="commit" required><label for="fCommit" id="fCommitL">ألتزم بألا تقل حصيلة الحملة عن ٣٠٠٠ ريال، وأُكمل الفرق إن نقصت عنه</label></div>
-        <div class="check"><input type="checkbox" id="fRemind" name="remind" checked><label for="fRemind">ذكّروني مرة كل عام بتجديد الصدقة عن فقيدي</label></div>
-        <div class="hp" aria-hidden="true"><label for="fWeb">الموقع</label><input id="fWeb" name="website" tabindex="-1" autocomplete="off"></div>
-      </div>
-      <div class="btns" style="margin-top:22px"><button class="btn" type="submit" id="reqBtn">أرسل الطلب للجمعية</button></div>
-      <p class="hint">تُستخدم بياناتك للتواصل معك واعتماد الحملة فقط، ولا تظهر في صفحة الحملة.</p>
-      <div class="msg err" id="reqErr" hidden role="alert"></div>
-    </form>
-    <div class="box" id="reqDone" hidden>
-      <h3 style="margin:0 0 6px;color:var(--navy)">استلمنا طلبك</h3>
-      <p style="margin:0 0 16px">رقم الطلب: <b id="reqId" dir="ltr"></b>. ستتواصل معك الجمعية للتحقق واعتماد الحملة. ولتعجيل ذلك، أكّد طلبك عبر واتساب.</p>
-      <div class="btns"><a class="btn" id="reqWa" target="_blank" rel="noopener" href="#">أكّد الطلب عبر واتساب</a><a class="btn line" href="#card">جهّز بطاقة الفقيد</a></div>
-    </div>
+    <h2>قدّم طلب صدقة جارية</h2>
+    <p class="sec-lead">لعزيز عليك، حيًّا أو متوفًّى. تستمر الحملة شهرًا كاملًا، وحملة كفالة الحلقة ٤٥ يومًا، ويُخصَّص المبلغ وفق المسار المختار. املأ الطلب في ثلاث خطوات، وتتواصل معك الجمعية عبر واتساب ثم ترسل لك رابط التبرع وصفحتك الخاصة.</p>
+    <div class="btns"><a class="btn" href="/talab">قدّم الطلب الآن</a><a class="btn line" href="#faq">كيف يُخصَّص المبلغ؟</a></div>
   </div>
 </section>
 
@@ -211,9 +186,9 @@
       <details><summary>أين تذهب التبرعات؟</summary><p>إلى المشروع الذي اختاره أهل الفقيد وحده، دون اقتطاع. وتبرعات سهم وقف الأم تُورَد في حساب الوقف المستقل.</p></details>
       <details><summary>هل يمكن اختيار أكثر من مشروع؟</summary><p>لكل حملة مشروع واحد ليكون أثرها واضحًا. ويمكن للأسرة إنشاء حملة أخرى في مشروع آخر.</p></details>
       <details><summary>كيف أعرف حصيلة الحملة؟</summary><p>تظهر الحصيلة في صفحة الحملة، وترسل الجمعية لأهل الفقيد بيانًا بها عند إغلاقها.</p></details>
-      <details><summary>هل للحملة حد أدنى؟</summary><p>نعم، هو المبلغ الذي تختارونه في الطلب. وهو شرط لإنشاء الحملة: تلتزم به الأسرة، وتُكمل الفرق إن نقصت حصيلة الحملة عنه. ويظهر في صفحة الحملة ما بلغته والمتبقي.</p></details>
+      <details><summary>كيف يُخصَّص المبلغ؟</summary><p>وفق المسار المختار: في كفالة الحلقة، عند اكتمال مبلغ الكفالة (٧٬٠٠٠ ريال) تُسمّى الحلقة باسمه، وإن لم يكتمل يُخصَّص لكفالة حلقات قائمة عددًا من الأشهر بحسب المبلغ. وفي المصاحف يُخصَّص المبلغ المجموع بنهاية الحملة لوقف مصاحف عنه، وفي وقف الأم للمساهمة في أسهم الوقف عنه.</p></details>
       <details><summary>هل تذكّرونني بتجديد الصدقة كل عام؟</summary><p>إن اخترت ذلك في الطلب، تذكّرك الجمعية مرة واحدة قبيل مرور عام على الحملة، لتجدّد الصدقة عن فقيدك إن رغبت. ويمكنك إيقاف التذكير متى شئت.</p></details>
-      <details><summary>كم مدة الحملة؟</summary><p>تبقى الحملة مفتوحة ما رغب أهل الفقيد، وتُغلق بطلبهم.</p></details>
+      <details><summary>كم مدة الحملة؟</summary><p>شهر كامل، وحملة كفالة الحلقة ٤٥ يومًا، تبدأ من فتح رابط التبرع.</p></details>
     </div>
   </div>
 </section>
@@ -225,7 +200,7 @@
         <h2>اجعل عزاءه صدقةً جارية</h2>
         <p>أنشئ حملة فقيدك الآن، أو تواصل مع الجمعية للاستفسار.</p>
       </div>
-      <div class="btns"><a class="btn" href="#create">أنشئ الحملة</a><a class="btn ghost" target="_blank" rel="noopener" href="https://wa.me/966553671414">واتساب الجمعية</a></div>
+      <div class="btns"><a class="btn" href="/talab">قدّم الطلب</a><a class="btn ghost" target="_blank" rel="noopener" href="https://wa.me/966553671414">واتساب الجمعية</a></div>
     </div>
     <div class="contact">
       <div class="card"><small>الشؤون الإدارية (واتساب)</small><a href="https://wa.me/966553671414">0553671414</a></div>
@@ -269,39 +244,6 @@ $('cDown').addEventListener('click', async () => { await drawCard($('cCanvas'), 
 refreshCard();
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(refreshCard);
 
-// طلب الحملة
-const pkgNow = () => PACKAGES[$('fProject').value][+$('fPkg').value || 0];
-const fillPkg = () => { const pr = $('fProject').value; $('fPkg').innerHTML = PACKAGES[pr].map(([q, a], i) => '<option value="' + i + '">' + pkgLabel(pr, q, a) + '</option>').join(''); };
-const commitLabel = () => { $('fCommitL').textContent = 'ألتزم بألا تقل حصيلة الحملة عن ' + ar(pkgNow()[1]) + ' ريال، وأُكمل الفرق إن نقصت عنه'; };
-$('fProject').addEventListener('change', () => { fillPkg(); commitLabel(); });
-$('fPkg').addEventListener('change', commitLabel); fillPkg(); commitLabel();
-$('reqForm').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const err = $('reqErr'); err.hidden = true;
-  const d = {
-    name: $('fName').value.trim(), suffix: $('fSuffix').value, project: $('fProject').value, qty: pkgNow()[0], goal: pkgNow()[1],
-    requester: $('fReq').value.trim(), relation: $('fRel').value, phone: latinDigits($('fPhone').value).replace(/[^\d]/g, ''), remind: $('fRemind').checked, commit: $('fCommit').checked, website: $('fWeb').value,
-  };
-  const fail = (m) => { err.textContent = m; err.hidden = false; };
-  if (d.name.split(/\s+/).length < 2) return fail('اكتب اسم الفقيد ثلاثيًا.');
-  if (d.requester.length < 3) return fail('اكتب اسمك.');
-  if (!/^05\d{8}$/.test(d.phone)) return fail('اكتب رقم الجوال بصيغة 05xxxxxxxx.');
-  if (!d.commit) return fail('الالتزام بالحد الأدنى للحملة شرط لإنشائها.');
-  const btn = $('reqBtn'); btn.disabled = true; btn.textContent = 'جارٍ الإرسال…';
-  try {
-    const r = await fetch('/api/request', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(d) });
-    const j = await r.json();
-    if (!r.ok) throw new Error(j.error || 'تعذّر إرسال الطلب.');
-    $('reqId').textContent = j.id;
-    $('reqWa').href = waLink('السلام عليكم، قدّمت طلب «حملة الفقيد» رقم ' + j.id + '\nالفقيد: ' + d.name + ' ' + d.suffix + '\nالمشروع: ' + PROJECTS[d.project].name + ' (' + pkgLabel(d.project, d.qty, d.goal) + ')' + '\nمقدّم الطلب: ' + d.requester + ' (' + d.relation + ')');
-    $('reqForm').hidden = true; $('reqDone').hidden = false;
-    $('cName').value = d.name; $('cSuffix').value = d.suffix; $('cProject').value = d.project; refreshCard();
-    $('reqDone').scrollIntoView({ block: 'center' });
-  } catch (x) {
-    fail(x.message + ' يمكنك التواصل مع الجمعية عبر واتساب: 0553671414');
-    btn.disabled = false; btn.textContent = 'أرسل الطلب للجمعية';
-  }
-});
 </script>
 </body>
 </html>
