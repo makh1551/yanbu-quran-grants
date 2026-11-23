@@ -1,0 +1,1202 @@
+{
+  "alfaqeed/app.js": {
+    "mtime": 1795433153.6176767,
+    "seen": 1795433195.8823044,
+    "ast_hash": "868098ac106f5dabe431286e11d2ce45",
+    "semantic_hash": ""
+  },
+  "alfaqeed/worker.js": {
+    "mtime": 1795433153.6176767,
+    "seen": 1795433195.8823152,
+    "ast_hash": "72247b931cfa83d5ba51087f36cd10e1",
+    "semantic_hash": ""
+  },
+  "fursan/worker.js": {
+    "mtime": 1795433153.788892,
+    "seen": 1795433195.8823202,
+    "ast_hash": "7d74f7241ffdac39beb74097d8f44edb",
+    "semantic_hash": ""
+  },
+  "majd/worker.js": {
+    "mtime": 1795433153.812892,
+    "seen": 1795433195.8823233,
+    "ast_hash": "f00d984c7094bcaaee9dababcbe5be60",
+    "semantic_hash": ""
+  },
+  "abanumay/check.html": {
+    "mtime": 1795433153.598872,
+    "seen": 1795433195.8823254,
+    "ast_hash": "395f8f1ddaaef457e4a3a50b8c6d4c85",
+    "semantic_hash": ""
+  },
+  "abanumay/index.html": {
+    "mtime": 1795433153.600892,
+    "seen": 1795433195.882328,
+    "ast_hash": "b71a99bb50ab2afa87fe66a4a0db5178",
+    "semantic_hash": ""
+  },
+  "abanumay/p/awael.html": {
+    "mtime": 1795433153.600892,
+    "seen": 1795433195.8823304,
+    "ast_hash": "d108789c3f5b183b2d267f019a884f1b",
+    "semantic_hash": ""
+  },
+  "abanumay/p/child.html": {
+    "mtime": 1795433153.6048298,
+    "seen": 1795433195.882332,
+    "ast_hash": "0866ccd670b4ce3bac82ba38dcafea49",
+    "semantic_hash": ""
+  },
+  "abanumay/p/ijaza.html": {
+    "mtime": 1795433153.6048298,
+    "seen": 1795433195.8823342,
+    "ast_hash": "b5730329f0412963dc55b4adbcb1671b",
+    "semantic_hash": ""
+  },
+  "abanumay/p/jazariyya.html": {
+    "mtime": 1795433153.6048298,
+    "seen": 1795433195.8823361,
+    "ast_hash": "67fda8643b42b216eb0f48290ce56782",
+    "semantic_hash": ""
+  },
+  "abanumay/p/majamee.html": {
+    "mtime": 1795433153.6048298,
+    "seen": 1795433195.8823383,
+    "ast_hash": "bbc05fe4b42c2c035d3c441d7f0cc1ee",
+    "semantic_hash": ""
+  },
+  "abanumay/p/model-teacher.html": {
+    "mtime": 1795433153.6048298,
+    "seen": 1795433195.8823407,
+    "ast_hash": "f9b91c8444792ae7e142cae8751d4ecc",
+    "semantic_hash": ""
+  },
+  "abanumay/p/qiraat.html": {
+    "mtime": 1795433153.6048298,
+    "seen": 1795433195.8823428,
+    "ast_hash": "23e46e724479ced79424ad9f70b9b6bb",
+    "semantic_hash": ""
+  },
+  "abanumay/p/teachers.html": {
+    "mtime": 1795433153.6048298,
+    "seen": 1795433195.8823447,
+    "ast_hash": "a45a9caef1e2890645b618e5e535e80b",
+    "semantic_hash": ""
+  },
+  "abanumay/track.html": {
+    "mtime": 1795433153.612892,
+    "seen": 1795433195.882347,
+    "ast_hash": "d47871e754ec94e5d5636b1ffec38c72",
+    "semantic_hash": ""
+  },
+  "alfaqeed/admin.html": {
+    "mtime": 1795433153.612892,
+    "seen": 1795433195.8823488,
+    "ast_hash": "719f963787246d1e9c913de19a04f330",
+    "semantic_hash": ""
+  },
+  "alfaqeed/c.html": {
+    "mtime": 1795433153.6176767,
+    "seen": 1795433195.8823512,
+    "ast_hash": "1103cb68b15acec2484a8ac3f1fef9b5",
+    "semantic_hash": ""
+  },
+  "alfaqeed/index.html": {
+    "mtime": 1795433153.6176767,
+    "seen": 1795433195.882353,
+    "ast_hash": "91863775710c5ee8a74cd13bfa398ba7",
+    "semantic_hash": ""
+  },
+  "alfaqeed/majlis.html": {
+    "mtime": 1795433153.6176767,
+    "seen": 1795433195.8823552,
+    "ast_hash": "4722c045879eccbbacbe7ca93c25bed5",
+    "semantic_hash": ""
+  },
+  "fityat/admin.html": {
+    "mtime": 1795433153.620892,
+    "seen": 1795433195.8823578,
+    "ast_hash": "399b652b1cb733f46078602460ac9888",
+    "semantic_hash": ""
+  },
+  "fityat/app.html": {
+    "mtime": 1795433153.6244662,
+    "seen": 1795433195.8823597,
+    "ast_hash": "62def812d4ff7d37eb4843d7e3195ab6",
+    "semantic_hash": ""
+  },
+  "fityat/index.html": {
+    "mtime": 1795433153.6897554,
+    "seen": 1795433195.8823621,
+    "ast_hash": "5a5a9088dbe84443fc95948aa5881a6a",
+    "semantic_hash": ""
+  },
+  "fityat/r.html": {
+    "mtime": 1795433153.6897554,
+    "seen": 1795433195.8823647,
+    "ast_hash": "a81ab5b50bbdf676a972aa706f2a3b7d",
+    "semantic_hash": ""
+  },
+  "fursan/banat.html": {
+    "mtime": 1795433153.693589,
+    "seen": 1795433195.882367,
+    "ast_hash": "de0beaff5024536c89e08661269c31bd",
+    "semantic_hash": ""
+  },
+  "fursan/banin.html": {
+    "mtime": 1795433153.693589,
+    "seen": 1795433195.8823688,
+    "ast_hash": "c85096e3bff6eff2140751146c5fd61d",
+    "semantic_hash": ""
+  },
+  "fursan/index.html": {
+    "mtime": 1795433153.696892,
+    "seen": 1795433195.8823712,
+    "ast_hash": "b2de24385287b8c0761bf5e63762b1b5",
+    "semantic_hash": ""
+  },
+  "fursan/lajna.html": {
+    "mtime": 1795433153.696892,
+    "seen": 1795433195.882373,
+    "ast_hash": "570d90e529bfad22f877d21111ae52db",
+    "semantic_hash": ""
+  },
+  "fursan/team.html": {
+    "mtime": 1795433153.788892,
+    "seen": 1795433195.8823752,
+    "ast_hash": "c8d05318e9c53ce68cb2753c50689bec",
+    "semantic_hash": ""
+  },
+  "graphify-out/converted/agreement-g_cc2497cb.md": {
+    "mtime": 1795433176.2802916,
+    "seen": 1795433195.8823771,
+    "ast_hash": "82fe82cc8abebb700a361cd6188aeef7",
+    "semantic_hash": ""
+  },
+  "graphify-out/converted/agreement_afd1fd17.md": {
+    "mtime": 1795433176.3059504,
+    "seen": 1795433195.8823793,
+    "ast_hash": "0b55f869d81abe04a7bde57691650bd7",
+    "semantic_hash": ""
+  },
+  "graphify-out/converted/tarshih_73ca1cee.md": {
+    "mtime": 1795433179.5587854,
+    "seen": 1795433195.8823817,
+    "ast_hash": "fca39236a90f74d405778b984943c832",
+    "semantic_hash": ""
+  },
+  "hamdan/index.html": {
+    "mtime": 1795433153.788892,
+    "seen": 1795433195.8823838,
+    "ast_hash": "b7aee667202eda544d547eb7af98cc11",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1795433153.788892,
+    "seen": 1795433195.8823862,
+    "ast_hash": "12d82eb440832252efe15767750a7910",
+    "semantic_hash": ""
+  },
+  "kafala/index.html": {
+    "mtime": 1795433153.788892,
+    "seen": 1795433195.8823886,
+    "ast_hash": "6556962ee6c1970f9aa51683b5fa3cd8",
+    "semantic_hash": ""
+  },
+  "kafala/p/abu-auf.html": {
+    "mtime": 1795433153.7937586,
+    "seen": 1795433195.8823907,
+    "ast_hash": "617c08b9299de257e2f3caec6a9a1833",
+    "semantic_hash": ""
+  },
+  "kafala/p/assalam.html": {
+    "mtime": 1795433153.7939823,
+    "seen": 1795433195.882393,
+    "ast_hash": "972a3649588346f19a7b3deedcd98ac2",
+    "semantic_hash": ""
+  },
+  "kafala/p/catalog.html": {
+    "mtime": 1795433153.7939823,
+    "seen": 1795433195.8823946,
+    "ast_hash": "0c937e4e6d316bcd8d9661bd4ee82a00",
+    "semantic_hash": ""
+  },
+  "kafala/p/ibn-taymiyyah.html": {
+    "mtime": 1795433153.7939823,
+    "seen": 1795433195.8823965,
+    "ast_hash": "ba154ea31515d74b89686ab2848599c4",
+    "semantic_hash": ""
+  },
+  "kafala/p/ibn-uthaymeen.html": {
+    "mtime": 1795433153.7939823,
+    "seen": 1795433195.8823986,
+    "ast_hash": "ad51276804ceb12d6af5fbac0a93c54a",
+    "semantic_hash": ""
+  },
+  "kafala/p/taahadu.html": {
+    "mtime": 1795433153.7939823,
+    "seen": 1795433195.8824008,
+    "ast_hash": "bcef8901d43d0d661105dd236cc1b266",
+    "semantic_hash": ""
+  },
+  "kafala/p/tathbeet.html": {
+    "mtime": 1795433153.7939823,
+    "seen": 1795433195.8824031,
+    "ast_hash": "bd83df6137f53bcd22d0f43d1a509695",
+    "semantic_hash": ""
+  },
+  "majd/index.html": {
+    "mtime": 1795433153.804892,
+    "seen": 1795433195.882405,
+    "ast_hash": "efa2f4ba9e058f0c1023fdd5b7e80b85",
+    "semantic_hash": ""
+  },
+  "majd/kora.html": {
+    "mtime": 1795433153.808892,
+    "seen": 1795433195.8824074,
+    "ast_hash": "feb47e798f25a48eff80b5a35bad7e79",
+    "semantic_hash": ""
+  },
+  "majd/rasmi.html": {
+    "mtime": 1795433153.812892,
+    "seen": 1795433195.8824136,
+    "ast_hash": "021b2f4c61980c2fdeab3016404641d5",
+    "semantic_hash": ""
+  },
+  "majd/team.html": {
+    "mtime": 1795433153.812892,
+    "seen": 1795433195.8824155,
+    "ast_hash": "da1346976407b07ea505ce68a2e045df",
+    "semantic_hash": ""
+  },
+  "marafiq/index.html": {
+    "mtime": 1795433153.888892,
+    "seen": 1795433195.8824177,
+    "ast_hash": "72651d4bac12bd8b1e024c9fc729dfce",
+    "semantic_hash": ""
+  },
+  "marafiq/p1/index.html": {
+    "mtime": 1795433153.892892,
+    "seen": 1795433195.8824193,
+    "ast_hash": "56d863334cd5e174ec401291ed10d865",
+    "semantic_hash": ""
+  },
+  "marafiq/p2/index.html": {
+    "mtime": 1795433153.892892,
+    "seen": 1795433195.8824215,
+    "ast_hash": "dbafcad8718fb4671df0046475be23e7",
+    "semantic_hash": ""
+  },
+  "marafiq/p3/index.html": {
+    "mtime": 1795433153.892892,
+    "seen": 1795433195.882424,
+    "ast_hash": "6c382b66068679a4a50c0048f4566312",
+    "semantic_hash": ""
+  },
+  "marafiq/p4/index.html": {
+    "mtime": 1795433153.892892,
+    "seen": 1795433195.882426,
+    "ast_hash": "501cd591fb00793ed6a6fa520904a22f",
+    "semantic_hash": ""
+  },
+  "marafiq/p5/index.html": {
+    "mtime": 1795433153.892892,
+    "seen": 1795433195.882428,
+    "ast_hash": "3c68b7a1189c6ff4a885544b22af8fa7",
+    "semantic_hash": ""
+  },
+  "marafiq/p6/index.html": {
+    "mtime": 1795433153.892892,
+    "seen": 1795433195.8824298,
+    "ast_hash": "669098d083276366397cadba0750e1db",
+    "semantic_hash": ""
+  },
+  "marafiq/p7/index.html": {
+    "mtime": 1795433153.892892,
+    "seen": 1795433195.8824317,
+    "ast_hash": "1a91a40b5ea00e498f0a65e480ebca96",
+    "semantic_hash": ""
+  },
+  "marafiq/p8/index.html": {
+    "mtime": 1795433153.892892,
+    "seen": 1795433195.8824337,
+    "ast_hash": "f7363174cb5596ce11aea74691e79fbc",
+    "semantic_hash": ""
+  },
+  "marafiq/p9/index.html": {
+    "mtime": 1795433153.892892,
+    "seen": 1795433195.8824356,
+    "ast_hash": "935b97b1675e4e64b6002b149d98e9b1",
+    "semantic_hash": ""
+  },
+  "marafiq/team/index.html": {
+    "mtime": 1795433153.892892,
+    "seen": 1795433195.8824377,
+    "ast_hash": "37b4364c7dba9050791f0c8ed1d6c274",
+    "semantic_hash": ""
+  },
+  "muathirin/index.html": {
+    "mtime": 1795433153.892892,
+    "seen": 1795433195.8824396,
+    "ast_hash": "00948997438b5dfac804d218ffbff32d",
+    "semantic_hash": ""
+  },
+  "p/communities-halaqat.html": {
+    "mtime": 1795433153.892892,
+    "seen": 1795433195.8824418,
+    "ast_hash": "e0ee4f7aa05d756475d67ef8fa77326a",
+    "semantic_hash": ""
+  },
+  "p/fityat-almihrab.html": {
+    "mtime": 1795433153.8978562,
+    "seen": 1795433195.8824434,
+    "ast_hash": "dc3801342fb4162c304c77f68c004874",
+    "semantic_hash": ""
+  },
+  "p/mobile-halaqa.html": {
+    "mtime": 1795433153.8978562,
+    "seen": 1795433195.8824456,
+    "ast_hash": "146112fd3bcab80019e9ca8405fe3d98",
+    "semantic_hash": ""
+  },
+  "p/villages-atlouha.html": {
+    "mtime": 1795433153.8978562,
+    "seen": 1795433195.8824472,
+    "ast_hash": "cd6d1faf3b2230659ea55b185a83c3ce",
+    "semantic_hash": ""
+  },
+  "rajhi/check.html": {
+    "mtime": 1795433153.905905,
+    "seen": 1795433195.8824494,
+    "ast_hash": "993dfaf519f410c04c5d6e098debb23d",
+    "semantic_hash": ""
+  },
+  "rajhi/index.html": {
+    "mtime": 1795433153.905905,
+    "seen": 1795433195.8824513,
+    "ast_hash": "246e13f22f9ab838c4432e1243fcde54",
+    "semantic_hash": ""
+  },
+  "rajhi/p/khatma.html": {
+    "mtime": 1795433153.905905,
+    "seen": 1795433195.882453,
+    "ast_hash": "eee7da8509f90b6ee73d8b64fd37d3e1",
+    "semantic_hash": ""
+  },
+  "rajhi/p/khuluq.html": {
+    "mtime": 1795433153.9068592,
+    "seen": 1795433195.882455,
+    "ast_hash": "cd3f7f031b2f7017d0aa9f2420cd454f",
+    "semantic_hash": ""
+  },
+  "rajhi/p/manarat.html": {
+    "mtime": 1795433153.9068592,
+    "seen": 1795433195.8824565,
+    "ast_hash": "853b7dda86d71f8e66c5c8618c826f3a",
+    "semantic_hash": ""
+  },
+  "rebdi/index.html": {
+    "mtime": 1795433153.9092784,
+    "seen": 1795433195.882459,
+    "ast_hash": "cf376f6f09f1f3cc905b4a6f309b4c49",
+    "semantic_hash": ""
+  },
+  "rebdi/p/muallim.html": {
+    "mtime": 1795433153.9092784,
+    "seen": 1795433195.882461,
+    "ast_hash": "3af031d80a89b907215c6f6d8aa5378c",
+    "semantic_hash": ""
+  },
+  "rebdi/p/nour-alqura.html": {
+    "mtime": 1795433153.9101555,
+    "seen": 1795433195.8824635,
+    "ast_hash": "c914c96d4b4752b2123951fecc19b87e",
+    "semantic_hash": ""
+  },
+  "rebdi/p/sanad.html": {
+    "mtime": 1795433153.9101555,
+    "seen": 1795433195.882466,
+    "ast_hash": "b79579d46847873546104c34e9045568",
+    "semantic_hash": ""
+  },
+  "team/index.html": {
+    "mtime": 1795433153.9105492,
+    "seen": 1795433195.882468,
+    "ast_hash": "124f10b7ff0570b99b8c4db367f30523",
+    "semantic_hash": ""
+  },
+  "team/plan.html": {
+    "mtime": 1795433153.9127953,
+    "seen": 1795433195.8824701,
+    "ast_hash": "984c4c7ac652897a43e953dd07fc9ed4",
+    "semantic_hash": ""
+  },
+  "abanumay/pdf/awael.pdf": {
+    "mtime": 1795433153.604892,
+    "seen": 1795433195.8824725,
+    "ast_hash": "5d31c413bc41c4452be6e163d429750d",
+    "semantic_hash": ""
+  },
+  "abanumay/pdf/child.pdf": {
+    "mtime": 1795433153.604892,
+    "seen": 1795433195.8824744,
+    "ast_hash": "5069ddcf0af5e3d7e6795c753d3ddc5f",
+    "semantic_hash": ""
+  },
+  "abanumay/pdf/ijaza.pdf": {
+    "mtime": 1795433153.604892,
+    "seen": 1795433195.8824766,
+    "ast_hash": "cfd9e335dbce5c803a029a0f1cfce5a8",
+    "semantic_hash": ""
+  },
+  "abanumay/pdf/jazariyya.pdf": {
+    "mtime": 1795433153.608892,
+    "seen": 1795433195.8824785,
+    "ast_hash": "362697e7534ccf7b3087217112f21de8",
+    "semantic_hash": ""
+  },
+  "abanumay/pdf/majamee.pdf": {
+    "mtime": 1795433153.612892,
+    "seen": 1795433195.8824806,
+    "ast_hash": "c25f0011fb4fe691b9185226d51a3d61",
+    "semantic_hash": ""
+  },
+  "abanumay/pdf/model-teacher.pdf": {
+    "mtime": 1795433153.612892,
+    "seen": 1795433195.8824825,
+    "ast_hash": "6b4cd5baeb63c0c3428df07008fdee5f",
+    "semantic_hash": ""
+  },
+  "abanumay/pdf/qiraat.pdf": {
+    "mtime": 1795433153.612892,
+    "seen": 1795433195.8824847,
+    "ast_hash": "cf3ac625f32f6dde263f4902c39ce198",
+    "semantic_hash": ""
+  },
+  "abanumay/pdf/teachers.pdf": {
+    "mtime": 1795433153.612892,
+    "seen": 1795433195.8824866,
+    "ast_hash": "6268e7e96ccc876f1cd901c6f8e4f725",
+    "semantic_hash": ""
+  },
+  "fityat/files/marketing-guide-16.pdf": {
+    "mtime": 1795433153.664892,
+    "seen": 1795433195.8824887,
+    "ast_hash": "baa3ede052d19ba2b50c4ead076b4190",
+    "semantic_hash": ""
+  },
+  "fursan/certs-g.pdf": {
+    "mtime": 1795433153.693589,
+    "seen": 1795433195.882491,
+    "ast_hash": "7b4832c1ff64158491aae35ab659070e",
+    "semantic_hash": ""
+  },
+  "fursan/certs.pdf": {
+    "mtime": 1795433153.696892,
+    "seen": 1795433195.882493,
+    "ast_hash": "acf7ea44a90deccc10fd9378b9bf1ddc",
+    "semantic_hash": ""
+  },
+  "fursan/form.pdf": {
+    "mtime": 1795433153.696892,
+    "seen": 1795433195.8824952,
+    "ast_hash": "04343c1a3d45c5d8af8b6485e726f2e6",
+    "semantic_hash": ""
+  },
+  "fursan/letter-all.pdf": {
+    "mtime": 1795433153.716892,
+    "seen": 1795433195.8824973,
+    "ast_hash": "8d486b5ad239d3178e0d64e8edaadcd9",
+    "semantic_hash": ""
+  },
+  "fursan/letter-g.pdf": {
+    "mtime": 1795433153.720892,
+    "seen": 1795433195.8824992,
+    "ast_hash": "27dbd1df89674b2443fc745efcd96030",
+    "semantic_hash": ""
+  },
+  "fursan/letter-luberef.pdf": {
+    "mtime": 1795433153.724892,
+    "seen": 1795433195.8825026,
+    "ast_hash": "47bbd26c7f43f979a013b6afdaa58b21",
+    "semantic_hash": ""
+  },
+  "fursan/letter-marafiq.pdf": {
+    "mtime": 1795433153.724892,
+    "seen": 1795433195.8825047,
+    "ast_hash": "fd58d77ec0ccfa06f8a92edb100289a9",
+    "semantic_hash": ""
+  },
+  "fursan/letter-samref.pdf": {
+    "mtime": 1795433153.724892,
+    "seen": 1795433195.8825066,
+    "ast_hash": "8db30ef1052e00bde9450fe360a85010",
+    "semantic_hash": ""
+  },
+  "fursan/letter-sec.pdf": {
+    "mtime": 1795433153.724892,
+    "seen": 1795433195.8825085,
+    "ast_hash": "28da99f83cc2b6f551c061f3911226ee",
+    "semantic_hash": ""
+  },
+  "fursan/letter-takamul.pdf": {
+    "mtime": 1795433153.724892,
+    "seen": 1795433195.8825107,
+    "ast_hash": "6b379d89a726100159a797ab190da15f",
+    "semantic_hash": ""
+  },
+  "fursan/letter.pdf": {
+    "mtime": 1795433153.724892,
+    "seen": 1795433195.8825126,
+    "ast_hash": "77bfc934f5bfffd66312ff2300bbf2a6",
+    "semantic_hash": ""
+  },
+  "fursan/plan-g.pdf": {
+    "mtime": 1795433153.744892,
+    "seen": 1795433195.8825145,
+    "ast_hash": "fe2410d639582306f137bbbdbe6da3fc",
+    "semantic_hash": ""
+  },
+  "fursan/plan.pdf": {
+    "mtime": 1795433153.756892,
+    "seen": 1795433195.8825164,
+    "ast_hash": "1b8fd28a181ae0c1c4b61d41b251052f",
+    "semantic_hash": ""
+  },
+  "fursan/rayah-g.pdf": {
+    "mtime": 1795433153.772892,
+    "seen": 1795433195.8825188,
+    "ast_hash": "7b8762ce10099c866df0ef512b38f106",
+    "semantic_hash": ""
+  },
+  "fursan/rayah.pdf": {
+    "mtime": 1795433153.784892,
+    "seen": 1795433195.882521,
+    "ast_hash": "e26f471f5079c33c98d0a37f2b9b0258",
+    "semantic_hash": ""
+  },
+  "fursan/shield-g.pdf": {
+    "mtime": 1795433153.788892,
+    "seen": 1795433195.8825228,
+    "ast_hash": "c4acb8d0fbc21f603bcd67a361f011b3",
+    "semantic_hash": ""
+  },
+  "fursan/shield.pdf": {
+    "mtime": 1795433153.788892,
+    "seen": 1795433195.882525,
+    "ast_hash": "457d768fc7688767a06205dc9e71e098",
+    "semantic_hash": ""
+  },
+  "kafala/pdf/abu-auf.pdf": {
+    "mtime": 1795433153.7939823,
+    "seen": 1795433195.8825269,
+    "ast_hash": "fda5d201eb5f28c34c4e521451c2dd22",
+    "semantic_hash": ""
+  },
+  "kafala/pdf/assalam.pdf": {
+    "mtime": 1795433153.796883,
+    "seen": 1795433195.8825288,
+    "ast_hash": "ef18e893ad8b58ca8d71ceaa19631b4b",
+    "semantic_hash": ""
+  },
+  "kafala/pdf/catalog.pdf": {
+    "mtime": 1795433153.796883,
+    "seen": 1795433195.882531,
+    "ast_hash": "b004e25cf311dcc75e10dc74bdf3d036",
+    "semantic_hash": ""
+  },
+  "kafala/pdf/ibn-taymiyyah.pdf": {
+    "mtime": 1795433153.796883,
+    "seen": 1795433195.8825328,
+    "ast_hash": "bc6e36b8fa5c612a39caaf9932baa8c0",
+    "semantic_hash": ""
+  },
+  "kafala/pdf/ibn-uthaymeen.pdf": {
+    "mtime": 1795433153.796892,
+    "seen": 1795433195.882535,
+    "ast_hash": "a039d9f80def8d6b23a5f32dc8b0d3e4",
+    "semantic_hash": ""
+  },
+  "kafala/pdf/taahadu.pdf": {
+    "mtime": 1795433153.796892,
+    "seen": 1795433195.882537,
+    "ast_hash": "2d0b392ee4e12f83d7fe5e2e5fddd862",
+    "semantic_hash": ""
+  },
+  "kafala/pdf/tathbeet.pdf": {
+    "mtime": 1795433153.796892,
+    "seen": 1795433195.882539,
+    "ast_hash": "52c80cb2dcfc13feaee54278c4003bbf",
+    "semantic_hash": ""
+  },
+  "majd/agreement.pdf": {
+    "mtime": 1795433153.804892,
+    "seen": 1795433195.8825414,
+    "ast_hash": "4675443075b2ee54530767e89c5fddbf",
+    "semantic_hash": ""
+  },
+  "majd/deck.pdf": {
+    "mtime": 1795433153.804892,
+    "seen": 1795433195.8825433,
+    "ast_hash": "0fc98477a4162696554fa56e184e8ce1",
+    "semantic_hash": ""
+  },
+  "majd/kora-deck.pdf": {
+    "mtime": 1795433153.808892,
+    "seen": 1795433195.8825457,
+    "ast_hash": "efef48ec2dc6f2e623f9c731ee07ee18",
+    "semantic_hash": ""
+  },
+  "majd/kora-letter.pdf": {
+    "mtime": 1795433153.808892,
+    "seen": 1795433195.8825476,
+    "ast_hash": "ddc664242fd26489cbff4dec170ed144",
+    "semantic_hash": ""
+  },
+  "majd/laiha.pdf": {
+    "mtime": 1795433153.808892,
+    "seen": 1795433195.8825495,
+    "ast_hash": "1072ed4201a8227045a50637c1d339ff",
+    "semantic_hash": ""
+  },
+  "majd/letter.pdf": {
+    "mtime": 1795433153.812892,
+    "seen": 1795433195.8825512,
+    "ast_hash": "566d57af78caf97c0e3115337aead392",
+    "semantic_hash": ""
+  },
+  "marafiq/files/marafiq-all.pdf": {
+    "mtime": 1795433153.840892,
+    "seen": 1795433195.882553,
+    "ast_hash": "4890ee23f39306b32c8081552f1f8489",
+    "semantic_hash": ""
+  },
+  "marafiq/files/marafiq-option-3.pdf": {
+    "mtime": 1795433153.848892,
+    "seen": 1795433195.8825552,
+    "ast_hash": "8ef7aec9d372ec7a76663c2982c564f7",
+    "semantic_hash": ""
+  },
+  "marafiq/files/marafiq-option-4.pdf": {
+    "mtime": 1795433153.848892,
+    "seen": 1795433195.8825572,
+    "ast_hash": "fba7cb4e5bce3a3a5721e649c5ee7601",
+    "semantic_hash": ""
+  },
+  "marafiq/files/marafiq-option-5.pdf": {
+    "mtime": 1795433153.848892,
+    "seen": 1795433195.882559,
+    "ast_hash": "4b7e83ad754c4e45079752765143f88c",
+    "semantic_hash": ""
+  },
+  "marafiq/files/marafiq-option-6.pdf": {
+    "mtime": 1795433153.852892,
+    "seen": 1795433195.8825612,
+    "ast_hash": "114690e4911a92e8744ce0c152edb0ec",
+    "semantic_hash": ""
+  },
+  "marafiq/files/marafiq-option-7.pdf": {
+    "mtime": 1795433153.852892,
+    "seen": 1795433195.882563,
+    "ast_hash": "85edb6c457a4b1d6bd018fa876398d70",
+    "semantic_hash": ""
+  },
+  "marafiq/files/marafiq-option-8.pdf": {
+    "mtime": 1795433153.852892,
+    "seen": 1795433195.8825648,
+    "ast_hash": "bca8973dbbaee579b36d36a8863963f3",
+    "semantic_hash": ""
+  },
+  "marafiq/files/marafiq-option-9.pdf": {
+    "mtime": 1795433153.880892,
+    "seen": 1795433195.882567,
+    "ast_hash": "713d6c4980d98e627c95cb2f877c6e15",
+    "semantic_hash": ""
+  },
+  "marafiq/files/marafiq-options.pdf": {
+    "mtime": 1795433153.884892,
+    "seen": 1795433195.882569,
+    "ast_hash": "67c0057b2d1cc1e5a8b285d3bb8e6fe1",
+    "semantic_hash": ""
+  },
+  "marafiq/files/marafiq-program-2.pdf": {
+    "mtime": 1795433153.884892,
+    "seen": 1795433195.8825712,
+    "ast_hash": "f6e49857bd87541aed37cbf4d8b2492d",
+    "semantic_hash": ""
+  },
+  "marafiq/files/marafiq-training-package.pdf": {
+    "mtime": 1795433153.888892,
+    "seen": 1795433195.8825731,
+    "ast_hash": "54d032cabe369ed083599f6dac390163",
+    "semantic_hash": ""
+  },
+  "pdf/communities-halaqat.pdf": {
+    "mtime": 1795433153.8978562,
+    "seen": 1795433195.8825748,
+    "ast_hash": "b25c54f25680ea95dfa67a82f99592b7",
+    "semantic_hash": ""
+  },
+  "pdf/fityat-almihrab.pdf": {
+    "mtime": 1795433153.900892,
+    "seen": 1795433195.882577,
+    "ast_hash": "7ce539fe4b93d6187f5b5a47a26e33a3",
+    "semantic_hash": ""
+  },
+  "pdf/mobile-halaqa.pdf": {
+    "mtime": 1795433153.900892,
+    "seen": 1795433195.8825788,
+    "ast_hash": "d360646b38cdab8d99457e5bca189180",
+    "semantic_hash": ""
+  },
+  "pdf/villages-atlouha.pdf": {
+    "mtime": 1795433153.900892,
+    "seen": 1795433195.8825808,
+    "ast_hash": "38c28a08e13e7c32328406fb8406186e",
+    "semantic_hash": ""
+  },
+  "rajhi/pdf/khatma.pdf": {
+    "mtime": 1795433153.9068592,
+    "seen": 1795433195.882583,
+    "ast_hash": "9d6cfb2d85eec1cac070a119d9a7423c",
+    "semantic_hash": ""
+  },
+  "rajhi/pdf/khuluq.pdf": {
+    "mtime": 1795433153.9076986,
+    "seen": 1795433195.8825848,
+    "ast_hash": "842153ca88559f950a8982a1c5f3f2e9",
+    "semantic_hash": ""
+  },
+  "rajhi/pdf/manarat.pdf": {
+    "mtime": 1795433153.9076986,
+    "seen": 1795433195.8825867,
+    "ast_hash": "25acbe9642cdefd4613bfc49f1ef217e",
+    "semantic_hash": ""
+  },
+  "rebdi/pdf/muallim.pdf": {
+    "mtime": 1795433153.9101555,
+    "seen": 1795433195.8825884,
+    "ast_hash": "604d9c3febfec2e47f745a510873acfc",
+    "semantic_hash": ""
+  },
+  "rebdi/pdf/nour-alqura.pdf": {
+    "mtime": 1795433153.9105492,
+    "seen": 1795433195.8825903,
+    "ast_hash": "30e2f6b994b12b704c77f67f66566783",
+    "semantic_hash": ""
+  },
+  "rebdi/pdf/sanad.pdf": {
+    "mtime": 1795433153.9105492,
+    "seen": 1795433195.8825922,
+    "ast_hash": "051b4cd0c34ac9ef577d0a49af841720",
+    "semantic_hash": ""
+  },
+  "abanumay/img/majamee-arch.jpg": {
+    "mtime": 1795433153.599743,
+    "seen": 1795433195.882594,
+    "ast_hash": "487e8d7c0c18218695796be2cfc059a5",
+    "semantic_hash": ""
+  },
+  "abanumay/img/majamee-p2.jpg": {
+    "mtime": 1795433153.6004047,
+    "seen": 1795433195.8825958,
+    "ast_hash": "4e2a0fa258079ee42ec40b1fb1e07e4f",
+    "semantic_hash": ""
+  },
+  "abanumay/img/majamee-p3.jpg": {
+    "mtime": 1795433153.6004047,
+    "seen": 1795433195.882598,
+    "ast_hash": "2d91f9753f20648f4d7f0002ce5301b4",
+    "semantic_hash": ""
+  },
+  "abanumay/img/thumb-awael.jpg": {
+    "mtime": 1795433153.6004047,
+    "seen": 1795433195.8825996,
+    "ast_hash": "c5bc439fe7ed5ac9187dda8cbcdc1175",
+    "semantic_hash": ""
+  },
+  "abanumay/img/thumb-child.jpg": {
+    "mtime": 1795433153.6004047,
+    "seen": 1795433195.8826017,
+    "ast_hash": "63913d0c7e2877b4a3ba9c5b5e2ea613",
+    "semantic_hash": ""
+  },
+  "abanumay/img/thumb-ijaza.jpg": {
+    "mtime": 1795433153.6004047,
+    "seen": 1795433195.8826034,
+    "ast_hash": "e2f0bdd7d4ad0a3e664cd27c59d29602",
+    "semantic_hash": ""
+  },
+  "abanumay/img/thumb-jazariyya.jpg": {
+    "mtime": 1795433153.6004047,
+    "seen": 1795433195.8826056,
+    "ast_hash": "40dd154a9dbcefbd416586c3d8d62e59",
+    "semantic_hash": ""
+  },
+  "abanumay/img/thumb-majamee.jpg": {
+    "mtime": 1795433153.600892,
+    "seen": 1795433195.8826077,
+    "ast_hash": "8f42dae2bb75ef9de70e566071221f3a",
+    "semantic_hash": ""
+  },
+  "abanumay/img/thumb-model-teacher.jpg": {
+    "mtime": 1795433153.600892,
+    "seen": 1795433195.8826096,
+    "ast_hash": "5d28a7f2119d67113e6428a0642ae080",
+    "semantic_hash": ""
+  },
+  "abanumay/img/thumb-qiraat.jpg": {
+    "mtime": 1795433153.600892,
+    "seen": 1795433195.8826115,
+    "ast_hash": "1a9dbe3408b898af5178e929736f8e23",
+    "semantic_hash": ""
+  },
+  "abanumay/img/thumb-teachers.jpg": {
+    "mtime": 1795433153.600892,
+    "seen": 1795433195.8826134,
+    "ast_hash": "cc92546c390ed7fa318ad3ac62aef4c4",
+    "semantic_hash": ""
+  },
+  "alfaqeed/logo.png": {
+    "mtime": 1795433153.6176767,
+    "seen": 1795433195.8826153,
+    "ast_hash": "df7b62fa26e826573855be7a6ee5cc7a",
+    "semantic_hash": ""
+  },
+  "alfaqeed/waqf.jpg": {
+    "mtime": 1795433153.6176767,
+    "seen": 1795433195.8826172,
+    "ast_hash": "7c205668eb2142882a0a9d200f93e89f",
+    "semantic_hash": ""
+  },
+  "assets/img/ceremony.jpg": {
+    "mtime": 1795433153.6187334,
+    "seen": 1795433195.8826194,
+    "ast_hash": "8d5650aada572fc1fb70795c9d932593",
+    "semantic_hash": ""
+  },
+  "assets/img/honor.jpg": {
+    "mtime": 1795433153.619538,
+    "seen": 1795433195.8826215,
+    "ast_hash": "3e387131432b77e0e7c6ee1683a59f7e",
+    "semantic_hash": ""
+  },
+  "assets/img/logo_mark.png": {
+    "mtime": 1795433153.619538,
+    "seen": 1795433195.8826234,
+    "ast_hash": "f7ff24e759a7a08d2dca63162e3a058a",
+    "semantic_hash": ""
+  },
+  "assets/img/logo_word.png": {
+    "mtime": 1795433153.619538,
+    "seen": 1795433195.8826256,
+    "ast_hash": "4be0f081405de8e42975d2b5f6060a00",
+    "semantic_hash": ""
+  },
+  "assets/img/logo_word_light.png": {
+    "mtime": 1795433153.619538,
+    "seen": 1795433195.8826275,
+    "ast_hash": "17530ce8b0c51a02fbcc7a7692d62276",
+    "semantic_hash": ""
+  },
+  "assets/img/thumb-communities-halaqat.jpg": {
+    "mtime": 1795433153.619538,
+    "seen": 1795433195.8826294,
+    "ast_hash": "1f510143f2ac0bd513dea0e7cf687eb6",
+    "semantic_hash": ""
+  },
+  "assets/img/thumb-fityat-almihrab.jpg": {
+    "mtime": 1795433153.619538,
+    "seen": 1795433195.8826318,
+    "ast_hash": "c85f19ca838c4596de98e5a41b85585b",
+    "semantic_hash": ""
+  },
+  "assets/img/thumb-mobile-halaqa.jpg": {
+    "mtime": 1795433153.620892,
+    "seen": 1795433195.8826342,
+    "ast_hash": "d838c19d964c2cd5c87461dc245a96bf",
+    "semantic_hash": ""
+  },
+  "assets/img/thumb-villages-atlouha.jpg": {
+    "mtime": 1795433153.620892,
+    "seen": 1795433195.882636,
+    "ast_hash": "d3a278bd1c6ea6fe3162ca0bd068055d",
+    "semantic_hash": ""
+  },
+  "assets/img/training.jpg": {
+    "mtime": 1795433153.620892,
+    "seen": 1795433195.8826377,
+    "ast_hash": "a26b89a3fa037d5a8ed455c9d4671058",
+    "semantic_hash": ""
+  },
+  "fityat/img/d/01-x-post.png": {
+    "mtime": 1795433153.6723983,
+    "seen": 1795433195.88264,
+    "ast_hash": "48fbba6b6f2dd570ed327f09cb2597bf",
+    "semantic_hash": ""
+  },
+  "fityat/img/d/02-wa-status.png": {
+    "mtime": 1795433153.674222,
+    "seen": 1795433195.882642,
+    "ast_hash": "e3dadb3867c7d03137f72a5829c36e74",
+    "semantic_hash": ""
+  },
+  "fityat/img/d/03-wa-square.png": {
+    "mtime": 1795433153.674222,
+    "seen": 1795433195.882644,
+    "ast_hash": "e77c3a828d25c91f57f16b0ae3ccf841",
+    "semantic_hash": ""
+  },
+  "fityat/img/d/04-journey.png": {
+    "mtime": 1795433153.676892,
+    "seen": 1795433195.8826463,
+    "ast_hash": "f90b7ce2be97d3f66ff6995692b79021",
+    "semantic_hash": ""
+  },
+  "fityat/img/d/05-impact.png": {
+    "mtime": 1795433153.676892,
+    "seen": 1795433195.8826482,
+    "ast_hash": "c82c298727c92e92f60344cf184aab73",
+    "semantic_hash": ""
+  },
+  "fityat/img/d/06-corp.png": {
+    "mtime": 1795433153.680892,
+    "seen": 1795433195.8826501,
+    "ast_hash": "ae35a6a0370ed7b3585385a1564e8571",
+    "semantic_hash": ""
+  },
+  "fityat/img/d/16-ad.jpg": {
+    "mtime": 1795433153.680892,
+    "seen": 1795433195.882652,
+    "ast_hash": "4536d15a48a530eb00d84d8c42ed6639",
+    "semantic_hash": ""
+  },
+  "fityat/img/d/car-1.png": {
+    "mtime": 1795433153.680892,
+    "seen": 1795433195.882654,
+    "ast_hash": "96a6131ac54e85efe657366ef4c80f07",
+    "semantic_hash": ""
+  },
+  "fityat/img/d/car-2.png": {
+    "mtime": 1795433153.680892,
+    "seen": 1795433195.882656,
+    "ast_hash": "bd2a1eb585c8f64e2aa265e551c66762",
+    "semantic_hash": ""
+  },
+  "fityat/img/d/car-3.png": {
+    "mtime": 1795433153.684892,
+    "seen": 1795433195.882658,
+    "ast_hash": "a650908e834659cf249d0087808cff0c",
+    "semantic_hash": ""
+  },
+  "fityat/img/d/car-4.png": {
+    "mtime": 1795433153.684892,
+    "seen": 1795433195.88266,
+    "ast_hash": "94c233fbe6e3a556f1b3a070f48e11ca",
+    "semantic_hash": ""
+  },
+  "fityat/img/d/car-5.png": {
+    "mtime": 1795433153.684892,
+    "seen": 1795433195.8826618,
+    "ast_hash": "13b645626d82f503cfa14f7935c93b85",
+    "semantic_hash": ""
+  },
+  "fityat/img/logo.png": {
+    "mtime": 1795433153.684892,
+    "seen": 1795433195.882664,
+    "ast_hash": "734e5ed7256c503b0bd0b883c81914d7",
+    "semantic_hash": ""
+  },
+  "fityat/img/qr_aman.png": {
+    "mtime": 1795433153.684892,
+    "seen": 1795433195.8826659,
+    "ast_hash": "369574b643e6c3f22926aff52986534e",
+    "semantic_hash": ""
+  },
+  "fityat/img/qr_store.png": {
+    "mtime": 1795433153.684892,
+    "seen": 1795433195.882668,
+    "ast_hash": "b274e78195ce93f8d486ff0c2a94a6c0",
+    "semantic_hash": ""
+  },
+  "fityat/img/t/01-x-post.jpg": {
+    "mtime": 1795433153.684892,
+    "seen": 1795433195.88267,
+    "ast_hash": "6ac15c702f855c9b6817ab4fccb172bd",
+    "semantic_hash": ""
+  },
+  "fityat/img/t/02-wa-status.jpg": {
+    "mtime": 1795433153.6897554,
+    "seen": 1795433195.8827264,
+    "ast_hash": "890b89f92c8492c1b9c4063727191a7c",
+    "semantic_hash": ""
+  },
+  "fityat/img/t/03-wa-square.jpg": {
+    "mtime": 1795433153.6897554,
+    "seen": 1795433195.8827288,
+    "ast_hash": "77675a5e4e2984730563b43bb5f06d00",
+    "semantic_hash": ""
+  },
+  "fityat/img/t/04-journey.jpg": {
+    "mtime": 1795433153.6897554,
+    "seen": 1795433195.8827307,
+    "ast_hash": "39e6988ad7ecf60310614ed31bf722ab",
+    "semantic_hash": ""
+  },
+  "fityat/img/t/05-impact.jpg": {
+    "mtime": 1795433153.6897554,
+    "seen": 1795433195.8827324,
+    "ast_hash": "00690f6d72673f1a86aa694ca73e4dc7",
+    "semantic_hash": ""
+  },
+  "fityat/img/t/06-corp.jpg": {
+    "mtime": 1795433153.6897554,
+    "seen": 1795433195.882734,
+    "ast_hash": "88b3d3734b6e1872c2b5f6026cb9958b",
+    "semantic_hash": ""
+  },
+  "fityat/img/t/16-ad.jpg": {
+    "mtime": 1795433153.6897554,
+    "seen": 1795433195.8827357,
+    "ast_hash": "591b9c01618b191d81293cd4ec8dea5d",
+    "semantic_hash": ""
+  },
+  "fityat/img/t/car-1.jpg": {
+    "mtime": 1795433153.6897554,
+    "seen": 1795433195.8827374,
+    "ast_hash": "ef06e7cdfbc1303e34b299cd7b1ff042",
+    "semantic_hash": ""
+  },
+  "fityat/img/t/car-2.jpg": {
+    "mtime": 1795433153.6897554,
+    "seen": 1795433195.8827388,
+    "ast_hash": "e37e550364fb41ccda040476e6d1829e",
+    "semantic_hash": ""
+  },
+  "fityat/img/t/car-3.jpg": {
+    "mtime": 1795433153.6897554,
+    "seen": 1795433195.882741,
+    "ast_hash": "96bd1aaf6fe59a903c31b2a29bb12421",
+    "semantic_hash": ""
+  },
+  "fityat/img/t/car-4.jpg": {
+    "mtime": 1795433153.6897554,
+    "seen": 1795433195.882743,
+    "ast_hash": "94633ae5a4ebeff70bcd448ca0a28a0e",
+    "semantic_hash": ""
+  },
+  "fityat/img/t/car-5.jpg": {
+    "mtime": 1795433153.6897554,
+    "seen": 1795433195.8827443,
+    "ast_hash": "77f8b02e142ea7197e588a10c1a818ee",
+    "semantic_hash": ""
+  },
+  "fursan/letterhead-a4.jpg": {
+    "mtime": 1795433153.7288918,
+    "seen": 1795433195.8827457,
+    "ast_hash": "78c079b8cc6df9f550eda7dbf22e170b",
+    "semantic_hash": ""
+  },
+  "fursan/logo-white.png": {
+    "mtime": 1795433153.7288918,
+    "seen": 1795433195.882748,
+    "ast_hash": "046d453d8a50798439f7416cf1fef8b9",
+    "semantic_hash": ""
+  },
+  "fursan/logo.png": {
+    "mtime": 1795433153.7288918,
+    "seen": 1795433195.88275,
+    "ast_hash": "4d7ae7edb32110835e28457db400cc25",
+    "semantic_hash": ""
+  },
+  "fursan/name-white.png": {
+    "mtime": 1795433153.7288918,
+    "seen": 1795433195.8827517,
+    "ast_hash": "8498b933c6dc4c4282597016df2be3a8",
+    "semantic_hash": ""
+  },
+  "fursan/name.png": {
+    "mtime": 1795433153.7288918,
+    "seen": 1795433195.8827536,
+    "ast_hash": "f50a83becb792869431102530eb133e1",
+    "semantic_hash": ""
+  },
+  "kafala/thumb-abu-auf.jpg": {
+    "mtime": 1795433153.796892,
+    "seen": 1795433195.8827555,
+    "ast_hash": "cda3dbb1b7199e7b71df947b9d51220d",
+    "semantic_hash": ""
+  },
+  "kafala/thumb-assalam.jpg": {
+    "mtime": 1795433153.8008919,
+    "seen": 1795433195.8827572,
+    "ast_hash": "e375640bca19144d2bb3277d8165ce38",
+    "semantic_hash": ""
+  },
+  "kafala/thumb-ibn-taymiyyah.jpg": {
+    "mtime": 1795433153.8008919,
+    "seen": 1795433195.8827586,
+    "ast_hash": "50287344926fac3f5518e8ffac59a0a2",
+    "semantic_hash": ""
+  },
+  "kafala/thumb-ibn-uthaymeen.jpg": {
+    "mtime": 1795433153.8008919,
+    "seen": 1795433195.8827605,
+    "ast_hash": "85bc8e9d9178a7c30288f038beddefaf",
+    "semantic_hash": ""
+  },
+  "kafala/thumb-taahadu.jpg": {
+    "mtime": 1795433153.8008919,
+    "seen": 1795433195.882762,
+    "ast_hash": "4d184952694618867b1adab31c45253e",
+    "semantic_hash": ""
+  },
+  "kafala/thumb-tathbeet.jpg": {
+    "mtime": 1795433153.8008919,
+    "seen": 1795433195.8827643,
+    "ast_hash": "7440870f5b122305cc8ffb2929debc3b",
+    "semantic_hash": ""
+  },
+  "majd/logo.png": {
+    "mtime": 1795433153.812892,
+    "seen": 1795433195.8827658,
+    "ast_hash": "b8977f2e3ebd4030e3652eab8e9ce4e9",
+    "semantic_hash": ""
+  },
+  "rajhi/assets/thumb-khatma.jpg": {
+    "mtime": 1795433153.9055214,
+    "seen": 1795433195.8827674,
+    "ast_hash": "428113bd5327df582af1dacf6e1a18f8",
+    "semantic_hash": ""
+  },
+  "rajhi/assets/thumb-khuluq.jpg": {
+    "mtime": 1795433153.905905,
+    "seen": 1795433195.8827693,
+    "ast_hash": "65215acee4543fa7d90684244ddaeadf",
+    "semantic_hash": ""
+  },
+  "rajhi/assets/thumb-manarat.jpg": {
+    "mtime": 1795433153.905905,
+    "seen": 1795433195.882771,
+    "ast_hash": "67d8b68fe52bb3b1db58b05a76e2f759",
+    "semantic_hash": ""
+  },
+  "rebdi/assets/thumb-muallim.jpg": {
+    "mtime": 1795433153.9089222,
+    "seen": 1795433195.8827724,
+    "ast_hash": "9de8cdf881200b44d0d4373341657c1a",
+    "semantic_hash": ""
+  },
+  "rebdi/assets/thumb-nour-alqura.jpg": {
+    "mtime": 1795433153.9092784,
+    "seen": 1795433195.882774,
+    "ast_hash": "fe0c50d20bc8865f3b997c2e0ea35292",
+    "semantic_hash": ""
+  },
+  "rebdi/assets/thumb-sanad.jpg": {
+    "mtime": 1795433153.9092784,
+    "seen": 1795433195.882776,
+    "ast_hash": "4accd419ea2561d8df409e88d7a0de67",
+    "semantic_hash": ""
+  }
+}
