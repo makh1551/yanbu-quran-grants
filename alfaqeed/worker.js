@@ -45,7 +45,7 @@ async function notify(env, c) {
   if (!env.WA) return;
   const msg = [
     'طلب صدقة جارية جديد',
-    'الفقيد: ' + c.name + ' ' + c.suffix,
+    'العزيز: ' + c.name + ' ' + c.suffix,
     'المشروع: ' + (PROJECT_NAMES[c.project] || c.project),
     c.qty ? 'الكمية: ' + c.qty + ' ' + (UNITS[c.project] || '') + ' — ' + c.goal + ' ريال' : '',
     'مقدّم الطلب: ' + c.requester + (c.relation ? ' (' + c.relation + ')' : ''),
@@ -82,7 +82,7 @@ async function createRequest(req, env, ip, ctx) {
   }
   if (c.requester.length < 3) return json({ error: 'اكتب اسمك.' }, 400);
   if (!/^05\d{8}$/.test(c.phone)) return json({ error: 'اكتب رقم الجوال بصيغة 05xxxxxxxx.' }, 400);
-  if (!c.commit) return json({ error: 'الالتزام بالحد الأدنى للحملة شرط لإنشائها.' }, 400);
+  if (!c.commit) return json({ error: 'الموافقة على مدة الحملة وآلية تخصيص المبلغ شرط لتقديم الطلب.' }, 400);
   if (await limited(env, 'req:' + ip, 5)) return json({ error: 'تجاوزت عدد الطلبات المسموح به مؤقتًا.' }, 429);
   let id = newId();
   while (await env.CAMPAIGNS.get('c:' + id)) id = newId();
