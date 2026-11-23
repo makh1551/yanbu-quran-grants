@@ -8,120 +8,164 @@
 <meta property="og:title" content="صدقة جارية لعزيز عليك">
 <meta property="og:description" content="صدقاتٌ جارية.. وأثرٌ يتجدّد مع القرآن">
 <meta property="og:image" content="https://sadaqa.yanbuquran.app/waqf.jpg">
+<meta name="theme-color" content="#142f47">
 <link rel="icon" href="/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 <style>
-  .doors { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
-  .doors li { background: #fff; border: 1px solid #e3ecef; border-radius: 14px; padding: 14px 16px; line-height: 1.9; }
-  .doors b { color: var(--navy); }
-  .doors .v { display: inline-block; margin-top: 4px; font-weight: 600; color: var(--navy); }
-  .hadith { font-family: Amiri, serif; font-size: 1.12em; }
+  body { background: var(--sand); }
+  header.top .wrap { justify-content: center; }
+  .head { background: var(--navy-deep); color: #fff; text-align: center; padding: 34px 20px 64px; }
+  .head h1 { font-size: clamp(30px, 7vw, 46px); line-height: 1.3; margin: 0; }
+  .head .sub { font-family: Amiri, serif; color: var(--gold-soft); font-size: clamp(22px, 5vw, 28px); margin: 6px 0 0; }
+  .head .hd { max-width: 560px; margin: 16px auto 0; color: #d9ebf2; font-size: 15px; line-height: 1.9; }
+  .head .hd q { font-family: Amiri, serif; font-size: 18px; color: #fff; quotes: "«" "»"; }
+  .form { max-width: 620px; margin: -40px auto 0; padding: 0 16px 120px; position: relative; }
+  .step { background: #fff; border-radius: 20px; padding: 20px 18px; margin-bottom: 14px; box-shadow: 0 6px 24px #142f4712; }
+  .step h2 { font-size: 18px; margin: 0 0 14px; color: var(--navy); display: flex; align-items: center; gap: 10px; }
+  .step h2 i { font-style: normal; width: 28px; height: 28px; border-radius: 50%; background: var(--navy); color: #fff; display: inline-grid; place-items: center; font-size: 15px; flex: none; }
+  .types { display: grid; gap: 10px; }
+  .type { display: flex; gap: 12px; align-items: flex-start; border: 2px solid #e3ecef; border-radius: 16px; padding: 14px; cursor: pointer; text-align: right; background: #fff; font: inherit; color: inherit; width: 100%; }
+  .type .ic { font-size: 26px; line-height: 1; flex: none; margin-top: 2px; }
+  .type b { display: block; color: var(--navy); font-size: 16.5px; }
+  .type small { display: block; color: #5b6b75; font-size: 14px; line-height: 1.7; }
+  .type .pr { display: inline-block; margin-top: 4px; font-size: 13.5px; font-weight: 700; color: var(--green-text); background: #eaf5ec; border-radius: 999px; padding: 1px 10px; }
+  .type[aria-pressed="true"] { border-color: var(--green); background: #f4faf5; box-shadow: 0 0 0 3px #35814122; }
+  .pkgs { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
+  .pkg { border: 2px solid #e3ecef; border-radius: 14px; padding: 12px 8px; background: #fff; cursor: pointer; font: inherit; color: inherit; text-align: center; }
+  .pkg b { display: block; color: var(--navy); font-size: 16px; }
+  .pkg span { display: block; color: var(--green-text); font-weight: 700; font-size: 15px; }
+  .pkg[aria-pressed="true"] { border-color: var(--green); background: #f4faf5; box-shadow: 0 0 0 3px #35814122; }
+  .in { margin-bottom: 12px; }
+  .in label { display: block; font-weight: 600; font-size: 15px; margin-bottom: 6px; color: var(--navy); }
+  .in input { width: 100%; font: inherit; font-size: 17px; padding: 12px 14px; border: 2px solid #e3ecef; border-radius: 12px; background: #fbfcfd; }
+  .in input:focus { outline: none; border-color: var(--sky); background: #fff; }
+  .note { font-size: 13.5px; color: #5b6b75; margin: 4px 0 0; line-height: 1.8; }
+  .agree { display: flex; gap: 10px; align-items: flex-start; font-size: 14.5px; line-height: 1.8; margin-top: 6px; }
+  .agree input { width: 20px; height: 20px; margin-top: 4px; accent-color: var(--green); flex: none; }
+  .bar-send { position: fixed; bottom: 0; left: 0; right: 0; background: #fff; border-top: 1px solid #e3ecef; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); z-index: 6; }
+  .bar-send .in2 { max-width: 620px; margin: 0 auto; display: flex; align-items: center; gap: 12px; }
+  .bar-send .sum { flex: 1; line-height: 1.4; }
+  .bar-send .sum small { display: block; color: #5b6b75; font-size: 13px; }
+  .bar-send .sum b { color: var(--navy); font-size: 19px; }
+  .bar-send .btn { padding: 12px 28px; }
+  .err { background: #fdecec; color: #9b1c1c; border-radius: 12px; padding: 10px 14px; font-size: 15px; margin: 0 0 14px; }
+  .done { text-align: center; }
+  .done .ok { width: 64px; height: 64px; border-radius: 50%; background: #eaf5ec; color: var(--green); display: grid; place-items: center; font-size: 34px; margin: 0 auto 12px; }
+  .done h2 { justify-content: center; }
+  .done .sumbox { background: var(--sand); border-radius: 14px; padding: 12px 14px; text-align: right; font-size: 15px; line-height: 2; margin: 14px 0; }
+  .hp { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); opacity: 0; }
+  footer { padding-bottom: 100px; }
+  footer a { color: var(--gold-soft); }
 </style>
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap">
-    <img src="/logo.png" alt="شعار الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع">
-  </div>
-</header>
+<header class="top"><div class="wrap"><img src="/logo.png" alt="الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع"></div></header>
 
-<div class="hero">
-  <div class="wrap">
-    <p class="eyebrow">الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع</p>
-    <h1>صدقة جارية لعزيز عليك</h1>
-    <p class="sub">صدقاتٌ جارية.. وأثرٌ يتجدّد مع القرآن</p>
-    <div class="bar"></div>
-    <p class="lead">تُقدّم الجمعية ثلاثة أبواب للعطاء، يمتدّ نفعها ويُرجى استمرار أجرها. اختر ما يناسبكم، وسنفتح لكم رابطًا في متجر الجمعية باسم عزيزكم.</p>
+<div class="head">
+  <h1>صدقة جارية لعزيز عليك</h1>
+  <p class="sub">صدقاتٌ جارية.. وأثرٌ يتجدّد مع القرآن</p>
+  <p class="hd">قال ﷺ: <q>من قرأ حرفًا من كتاب الله فله به حسنة، والحسنة بعشر أمثالها</q> رواه الترمذي.</p>
+</div>
+
+<form class="form" id="f" novalidate>
+  <div class="err" id="err" hidden role="alert"></div>
+
+  <div class="step">
+    <h2><i>١</i>اختر الصدقة الجارية</h2>
+    <div class="types" id="types">
+      <button type="button" class="type" data-p="halaqa" aria-pressed="true"><span class="ic">📖</span><span><b>كفالة حلقة لتحفيظ القرآن الكريم</b><small>يُرجى لكم أجر ما يتعلّمه طلابها عامًا دراسيًا كاملًا.</small><span class="pr">٧٬٠٠٠ ريال للحلقة</span></span></button>
+      <button type="button" class="type" data-p="mushaf" aria-pressed="false"><span class="ic">📗</span><span><b>ورِّث مصحفًا</b><small>مصاحف يُتلى فيها كتاب الله ويُحفظ، يُرجى بقاء أجرها ما دام الانتفاع بها.</small><span class="pr">٣٠ ريالًا للمصحف — مطبعة الملك فهد</span></span></button>
+      <button type="button" class="type" data-p="waqf" aria-pressed="false"><span class="ic">🏛️</span><span><b>أسهم في «وقف الأم»</b><small>وقفٌ يُخصَّص ريعه لكفالة ٦٠ حلقة؛ يبقى أصله ويتجدّد نفعه.</small><span class="pr">١٠٠ ريال للسهم</span></span></button>
+    </div>
+  </div>
+
+  <div class="step">
+    <h2><i>٢</i>اختر الكمية</h2>
+    <div class="pkgs" id="pkgs"></div>
+  </div>
+
+  <div class="step">
+    <h2><i>٣</i>بياناتكم</h2>
+    <div class="in"><label for="fName">اسم المتوفى ثلاثيًا</label><input id="fName" maxlength="60" autocomplete="off" placeholder="مثال: محمد بن أحمد الجهني"></div>
+    <div class="in"><label for="fReq">اسمك</label><input id="fReq" maxlength="60" autocomplete="name"></div>
+    <div class="in"><label for="fPhone">رقم جوالك</label><input id="fPhone" inputmode="tel" maxlength="14" autocomplete="tel" placeholder="05xxxxxxxx" dir="ltr" style="text-align:right"><p class="note">نرسل لك عليه رابط الصدقة في المتجر باسم عزيزك.</p></div>
+    <label class="agree"><input type="checkbox" id="fCommit"><span id="fCommitL"></span></label>
+    <div class="hp" aria-hidden="true"><input id="fWeb" tabindex="-1" autocomplete="off"></div>
+  </div>
+</form>
+
+<div class="form" id="done" hidden>
+  <div class="step done">
+    <div class="ok">✓</div>
+    <h2>استلمنا طلبك، تقبّل الله منكم</h2>
+    <p style="margin:0">سنجهّز رابط الصدقة في متجر الجمعية باسم عزيزكم، ونرسله لكم على واتساب لتنشروه بين أهله ومحبيه.</p>
+    <div class="sumbox" id="sumbox"></div>
+    <a class="btn" id="wa" target="_blank" rel="noopener" href="#">أكّد طلبك عبر واتساب</a>
   </div>
 </div>
 
-<section>
-  <div class="wrap">
-    <ul class="doors">
-      <li><b>١. كفالة حلقة لتحفيظ القرآن الكريم</b><br>يُرجى للكافل أجر ما أسهم في تعليمه؛ قال ﷺ: <span class="hadith">«من قرأ حرفًا من كتاب الله فله به حسنة، والحسنة بعشر أمثالها»</span> رواه الترمذي.<br><span class="v">قيمة الحلقة: ٧٠٠٠ ريال للعام الدراسي</span></li>
-      <li><b>٢. ورِّث مصحفًا</b><br>وقف مصحف يُنتفع به في التلاوة والحفظ، صدقةٌ جارية يُرجى استمرار أجرها ما دام الانتفاع به قائمًا؛ وقد ورد المصحف ضمن الأعمال التي تلحق المؤمن بعد موته.<br><span class="v">قيمة المصحف: ٣٠ ريالًا (مطبعة الملك فهد)</span></li>
-      <li><b>٣. المساهمة في «وقف الأم»</b><br>وقفٌ يُخصَّص ريعه لكفالة ٦٠ حلقة لتحفيظ القرآن الكريم؛ يبقى أصله، ويتجدّد نفعه في تعليم كتاب الله.<br><span class="v">قيمة السهم: ١٠٠ ريال</span></li>
-    </ul>
+<div class="bar-send" id="bar">
+  <div class="in2">
+    <div class="sum"><small id="sumL"></small><b id="sumV"></b></div>
+    <button class="btn" type="submit" form="f" id="send">أرسل الطلب</button>
   </div>
-</section>
-
-<section id="create" class="alt">
-  <div class="wrap">
-    <h2>قدّم طلبك</h2>
-    <p class="sec-lead">املأ الطلب، وستتواصل معك الجمعية للتحقق، ثم يصلك رابط الصدقة في المتجر باسم عزيزك لتنشره بين أهلك ومحبيه.</p>
-    <form class="box" id="reqForm" novalidate>
-      <div class="fields">
-        <div class="f"><label for="fReq">اسم مقدّم الطلب</label><input id="fReq" name="requester" required maxlength="60" autocomplete="name"></div>
-        <div class="f"><label for="fPhone">رقم الجوال</label><input id="fPhone" name="phone" required inputmode="tel" maxlength="14" autocomplete="tel" placeholder="05xxxxxxxx" dir="ltr" style="text-align:right"></div>
-        <div class="f"><label for="fName">اسم العزيز الذي تكون الصدقة الجارية له (ثلاثيًا)</label><input id="fName" name="name" required maxlength="60" autocomplete="off" placeholder="فلان بن فلان الفلاني"></div>
-        <div class="f"><label for="fRel">صلتك به</label><select id="fRel" name="relation"><option>ابن أو ابنة</option><option>زوج أو زوجة</option><option>أخ أو أخت</option><option>أب أو أم</option><option>حفيد أو حفيدة</option><option>قريب آخر</option><option>صديق</option></select></div>
-        <div class="f full"><label for="fProject">أرغب أن تكون الصدقة الجارية</label><select id="fProject" name="project">
-          <option value="halaqa">كفالة حلقة لتحفيظ القرآن الكريم — ٧٠٠٠ ريال للعام الدراسي</option>
-          <option value="mushaf">ورِّث مصحفًا — ٣٠ ريالًا للمصحف (مطبعة الملك فهد)</option>
-          <option value="waqf">أسهم في وقف الأم — ١٠٠ ريال للسهم</option>
-        </select></div>
-        <div class="f full"><label for="fPkg">اختر الصدقة الجارية المناسبة لكم</label><select id="fPkg" name="pkg"></select></div>
-        <div class="check"><input type="checkbox" id="fCommit" name="commit" required><label for="fCommit" id="fCommitL"></label></div>
-        <div class="check"><input type="checkbox" id="fRemind" name="remind" checked><label for="fRemind">ذكّروني مرة كل عام بتجديد الصدقة عنه</label></div>
-        <div class="hp" aria-hidden="true"><label for="fWeb">الموقع</label><input id="fWeb" name="website" tabindex="-1" autocomplete="off"></div>
-      </div>
-      <div class="btns" style="margin-top:22px"><button class="btn" type="submit" id="reqBtn">أرسل الطلب</button></div>
-      <p class="hint">تُستخدم بياناتك للتواصل معك وفتح الرابط فقط.</p>
-      <div class="msg err" id="reqErr" hidden role="alert"></div>
-    </form>
-    <div class="box" id="reqDone" hidden>
-      <h3 style="margin:0 0 6px;color:var(--navy)">استلمنا طلبك، تقبّل الله منكم</h3>
-      <p style="margin:0 0 16px">رقم الطلب: <b id="reqId" dir="ltr"></b>. ستتواصل معك الجمعية، ويصلك رابط الصدقة في المتجر باسم عزيزك. ولتعجيل ذلك، أكّد طلبك عبر واتساب.</p>
-      <div class="btns"><a class="btn" id="reqWa" target="_blank" rel="noopener" href="#">أكّد الطلب عبر واتساب</a></div>
-    </div>
-    <p class="hint" style="margin-top:18px">للاستفسار: واتساب الجمعية <a href="https://wa.me/966553671414" dir="ltr">0553671414</a></p>
-  </div>
-</section>
+</div>
 
 <footer>
   <img src="/logo.png" alt="">
   <div>الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع</div>
-  <div>مسجلة لدى المركز الوطني لتنمية القطاع غير الربحي برقم ٣١٦٥</div>
+  <div>للاستفسار: واتساب <a href="https://wa.me/966553671414" dir="ltr">0553671414</a></div>
 </footer>
 
 <script src="/app.js"></script>
 <script>
 const $ = (id) => document.getElementById(id);
-const pkgNow = () => PACKAGES[$('fProject').value][+$('fPkg').value || 0];
-const fillPkg = () => { const pr = $('fProject').value; $('fPkg').innerHTML = PACKAGES[pr].map(([q, a], i) => '<option value="' + i + '">' + pkgLabel(pr, q, a) + '</option>').join(''); };
-const commitLabel = () => { $('fCommitL').textContent = 'ألتزم بألا تقل حصيلة الصدقة عن ' + ar(pkgNow()[1]) + ' ريال، وأُكمل الفرق إن نقصت عنه'; };
-$('fProject').addEventListener('change', () => { fillPkg(); commitLabel(); });
-$('fPkg').addEventListener('change', commitLabel);
-fillPkg(); commitLabel();
+const S = { project: 'halaqa', i: 0 };
+const pkg = () => PACKAGES[S.project][S.i];
+const unitText = (p, q) => p === 'halaqa' ? (q === 1 ? 'حلقة واحدة' : q === 2 ? 'حلقتان' : ar(q) + ' حلقات') : ar(q) + ' ' + (p === 'mushaf' ? (q % 100 ? 'مصحفًا' : 'مصحف') : (q % 100 ? 'سهمًا' : 'سهم'));
 
-$('reqForm').addEventListener('submit', async (e) => {
+function render() {
+  document.querySelectorAll('.type').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.p === S.project)));
+  $('pkgs').innerHTML = PACKAGES[S.project].map(([q, a], i) => '<button type="button" class="pkg" data-i="' + i + '" aria-pressed="' + (i === S.i) + '"><b>' + unitText(S.project, q) + '</b><span>' + ar(a) + ' ريال</span></button>').join('');
+  const [q, a] = pkg();
+  $('sumL').textContent = PROJECTS[S.project].name + ' — ' + unitText(S.project, q);
+  $('sumV').textContent = ar(a) + ' ريال';
+  $('fCommitL').textContent = 'نلتزم بأن تبلغ حصيلة الصدقة ' + ar(a) + ' ريال، ونُكمل ما نقص منها.';
+}
+$('types').addEventListener('click', (e) => { const b = e.target.closest('.type'); if (!b) return; S.project = b.dataset.p; S.i = 0; render(); });
+$('pkgs').addEventListener('click', (e) => { const b = e.target.closest('.pkg'); if (!b) return; S.i = +b.dataset.i; render(); });
+render();
+
+$('f').addEventListener('submit', async (e) => {
   e.preventDefault();
-  const err = $('reqErr'); err.hidden = true;
-  const [qty, goal] = pkgNow();
+  const err = $('err'); err.hidden = true;
+  const [qty, goal] = pkg();
   const d = {
-    name: $('fName').value.trim(), project: $('fProject').value, qty, goal,
-    requester: $('fReq').value.trim(), relation: $('fRel').value, phone: latinDigits($('fPhone').value).replace(/[^\d]/g, ''),
-    remind: $('fRemind').checked, commit: $('fCommit').checked, website: $('fWeb').value,
+    name: $('fName').value.trim(), suffix: '', project: S.project, qty, goal,
+    requester: $('fReq').value.trim(), relation: '', phone: latinDigits($('fPhone').value).replace(/[^\d]/g, ''),
+    remind: true, commit: $('fCommit').checked, website: $('fWeb').value,
   };
-  const fail = (m) => { err.textContent = m; err.hidden = false; };
-  if (d.requester.length < 3) return fail('اكتب اسم مقدّم الطلب.');
-  if (!/^05\d{8}$/.test(d.phone)) return fail('اكتب رقم الجوال بصيغة 05xxxxxxxx.');
-  if (d.name.split(/\s+/).length < 2) return fail('اكتب اسم عزيزك ثلاثيًا.');
-  if (!d.commit) return fail('أشّر على خانة الالتزام لإكمال الطلب.');
-  const btn = $('reqBtn'); btn.disabled = true; btn.textContent = 'جارٍ الإرسال…';
+  const fail = (m, id) => { err.textContent = m; err.hidden = false; err.scrollIntoView({ block: 'center', behavior: 'smooth' }); if (id) $(id).focus({ preventScroll: true }); };
+  if (d.name.split(/\s+/).length < 2) return fail('اكتب اسم المتوفى ثلاثيًا.', 'fName');
+  if (d.requester.length < 3) return fail('اكتب اسمك.', 'fReq');
+  if (!/^05\d{8}$/.test(d.phone)) return fail('اكتب رقم الجوال بصيغة 05xxxxxxxx.', 'fPhone');
+  if (!d.commit) return fail('أشّر على خانة الالتزام لإكمال الطلب.', 'fCommit');
+  const btn = $('send'); btn.disabled = true; btn.textContent = 'جارٍ الإرسال…';
   try {
     const r = await fetch('/api/request', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(d) });
     const j = await r.json();
     if (!r.ok) throw new Error(j.error || 'تعذّر إرسال الطلب.');
-    $('reqId').textContent = j.id;
-    $('reqWa').href = waLink('السلام عليكم، قدّمت طلب «صدقة جارية لعزيز عليك» رقم ' + j.id + '\nالعزيز: ' + d.name + '\nالصدقة: ' + PROJECTS[d.project].name + ' (' + pkgLabel(d.project, qty, goal) + ')' + '\nمقدّم الطلب: ' + d.requester + ' (' + d.relation + ')');
-    $('reqForm').hidden = true; $('reqDone').hidden = false;
-    $('reqDone').scrollIntoView({ block: 'center' });
+    const what = PROJECTS[S.project].name + ' — ' + unitText(S.project, qty) + ' (' + ar(goal) + ' ريال)';
+    $('sumbox').innerHTML = '';
+    [['رقم الطلب', j.id], ['المتوفى', d.name], ['الصدقة', what]].forEach(([k, v]) => { const p = document.createElement('div'); const b = document.createElement('b'); b.textContent = k + ': '; p.append(b, v); $('sumbox').append(p); });
+    $('wa').href = waLink('السلام عليكم، قدّمت طلب «صدقة جارية لعزيز عليك» رقم ' + j.id + '\nالمتوفى: ' + d.name + '\nالصدقة: ' + what + '\nمقدّم الطلب: ' + d.requester);
+    $('f').hidden = true; $('bar').hidden = true; $('done').hidden = false;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   } catch (x) {
-    fail(x.message + ' يمكنك التواصل مع الجمعية عبر واتساب: 0553671414');
+    fail(x.message + ' أو تواصل مع الجمعية عبر واتساب: 0553671414');
     btn.disabled = false; btn.textContent = 'أرسل الطلب';
   }
 });
