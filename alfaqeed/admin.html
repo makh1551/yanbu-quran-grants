@@ -8,6 +8,27 @@
 <link rel="icon" href="/logo.png">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
+<style>
+  .proj { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-bottom: 24px; }
+  .proj div { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; }
+  .proj b { display: block; color: var(--navy); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .proj span { font-size: 14px; color: #5b6b75; }
+  .reqs { display: grid; gap: 14px; }
+  .req { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 16px; }
+  .req .hd { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 10px; }
+  .req .hd h3 { margin: 0; font-size: 19px; color: var(--navy); line-height: 1.5; }
+  .req .hd small { display: block; color: #5b6b75; font-size: 13px; }
+  .req .meta { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 12px; font-size: 14px; color: #3d4b54; margin-bottom: 12px; }
+  .req .meta span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .req .meta em { font-style: normal; color: #8a9aa3; }
+  .req .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .req .grid .full { grid-column: 1 / -1; }
+  .req label { display: block; font-size: 13px; color: #5b6b75; margin-bottom: 4px; }
+  .req input, .req select { width: 100%; font: inherit; font-size: 15px; padding: 9px 11px; border: 1.5px solid #d5e1e6; border-radius: 10px; background: #fbfcfd; }
+  .req .acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .req .acts .chip { white-space: nowrap; }
+  .badge { white-space: nowrap; }
+</style>
 </head>
 <body>
 <header class="top"><div class="wrap"><img src="/logo.png" alt="شعار الجمعية"><nav><a href="/">الموقع</a><a href="/majlis">ملف المجلس</a></nav></div></header>
@@ -24,7 +45,7 @@
 
 <section id="panel" hidden><div class="wrap" style="max-width:1280px">
   <h2>لوحة متابعة الحملات</h2>
-  <p class="sec-lead">اعتمد الطلب بعد التحقق من صلة مقدّمه بالفقيد، ثم أدخل رابط الحملة في المتجر وحدّث الحصيلة.</p>
+  <p class="sec-lead">تواصل مع مقدّم الطلب، ثم ضع رابط المتجر واجعل الحالة «معتمدة» ليبدأ العدّاد، وأرسل للأسرة صفحتها.</p>
   <div class="kpis">
     <div class="stat"><b id="kActive">٠</b><span>حملة معتمدة</span></div>
     <div class="stat"><b id="kPending">٠</b><span>طلب بانتظار الاعتماد</span></div>
@@ -32,11 +53,8 @@
     <div class="stat"><b id="kAvg">٠</b><span>متوسط المتبرعين للحملة</span></div>
   </div>
   <div class="due" id="due" hidden><h3>تذكيرات الذكرى السنوية</h3><p style="margin:0">حملات اقترب مرور عام عليها، ووافق أصحابها على التذكير. أرسل التذكير، ثم جدّد الحملة إن رغب أهلها.</p><div id="dueRows"></div></div>
-  <div class="tbl" style="margin-bottom:24px"><table><tr><th>المشروع</th><th>الحملات</th><th>الحصيلة (ريال)</th><th>ما يعادلها</th></tr><tbody id="byProject"></tbody></table></div>
-  <div class="tbl adm"><table>
-    <tr><th>الطلب</th><th>الفقيد</th><th>المشروع</th><th>مقدّم الطلب</th><th>الحالة</th><th>رابط المتجر</th><th>الحصيلة</th><th>المتبرعون</th><th>إجراءات</th></tr>
-    <tbody id="rows"></tbody>
-  </table></div>
+  <div class="proj" id="byProject"></div>
+  <div class="reqs" id="rows"></div>
   <p class="hint" id="empty" hidden>لا توجد طلبات بعد.</p>
   <div class="msg ok" id="note" hidden role="status"></div>
 </div></section>
@@ -66,7 +84,7 @@ async function load() {
   $('kAvg').textContent = ar(live.length ? Math.round(donors / live.length) : 0);
   $('byProject').innerHTML = Object.entries(PROJECTS).map(([k, p]) => {
     const cs = live.filter((c) => c.project === k), t = cs.reduce((s, c) => s + (c.total || 0), 0);
-    return '<tr><td>' + p.name + '</td><td>' + ar(cs.length) + '</td><td>' + ar(t) + '</td><td>' + p.countLabel + ': ' + ar(Math.floor(t / p.unit)) + '</td></tr>';
+    return '<div><b>' + p.name + '</b><span>' + ar(cs.length) + ' حملة · ' + ar(t) + ' ريال · ' + p.countLabel + ': ' + ar(Math.floor(t / p.unit)) + '</span></div>';
   }).join('');
   const dues = items.filter((c) => anniversary(c).due);
   $('due').hidden = dues.length === 0;
@@ -81,20 +99,31 @@ async function load() {
     const who = c.name + (c.suffix ? ' ' + c.suffix : '');
     const msg = 'السلام عليكم ' + c.requester + '، تقبّل الله منكم.\n' + (c.link ? 'فُتح رابط الصدقة الجارية عن ' + who + '.\n\nرابط التبرع للنشر:\n' + c.link + '\n\n' : 'استلمنا طلب الصدقة الجارية عن ' + who + '، ونجهّز رابطها.\n\n') + 'صفحتكم الخاصة (العدّاد والنصوص والصور الجاهزة) — لا تُنشر:\n' + ahl + '\n\nجزاكم الله خيرًا.';
     const left = c.started && c.status === 'active' ? Math.ceil((new Date(c.started).getTime() + (c.project === 'halaqa' ? 45 : 30) * 864e5 - Date.now()) / 864e5) : null;
-    return '<tr data-id="' + esc(c.id) + '">' +
-      '<td><b dir="ltr">' + esc(c.id) + '</b><br><small>' + esc((c.created || '').slice(0, 10)) + '</small></td>' +
-      '<td>' + esc(c.name) + '<br><small>' + esc(c.suffix) + '</small></td>' +
-      '<td>' + esc((PROJECTS[c.project] || {}).name) + (c.qty ? '<br><small>' + esc(pkgLabel(c.project, c.qty, c.goal)) + '</small>' : '') + '</td>' +
-      '<td>' + esc(c.requester) + '<br><small>' + esc(c.relation) + ' · <span dir="ltr">' + esc(c.phone) + '</span><br>الموافقة على الآلية: ' + (c.commit ? 'نعم' : 'لا') + '<br>التذكير السنوي: ' + (c.remind ? 'نعم' : 'لا') + ((c.year || 1) > 1 ? ' · العام ' + ar(c.year) : '') + '</small></td>' +
-      '<td><span class="badge ' + esc(c.status) + '">' + STATUS[c.status] + '</span>' + (left !== null ? '<br><small>' + (left > 0 ? 'متبقٍ ' + ar(left) + ' يومًا' : 'انتهت المدة') + '</small>' : '') + '<br><select class="st" aria-label="الحالة">' + Object.entries(STATUS).map(([k, v]) => '<option value="' + k + '"' + (k === c.status ? ' selected' : '') + '>' + v + '</option>').join('') + '</select></td>' +
-      '<td><input class="lk" dir="ltr" aria-label="رابط المتجر" placeholder="https://store.yq.org.sa/…" value="' + esc(c.link) + '"><input class="ph" dir="ltr" aria-label="صورة التنفيذ" placeholder="رابط صورة التنفيذ (اختياري)" value="' + esc(c.photo || '') + '" style="margin-top:6px"><input class="rs" aria-label="نتيجة التخصيص" placeholder="نتيجة التخصيص، مثل: سُمّيت الحلقة باسمه" value="' + esc(c.result || '') + '" style="margin-top:6px"></td>' +
-      '<td><input class="tt" inputmode="numeric" aria-label="الحصيلة" value="' + esc(c.total || 0) + '"></td>' +
-      '<td><input class="dn" inputmode="numeric" aria-label="المتبرعون" value="' + esc(c.donors || 0) + '"></td>' +
-      '<td><div class="btns"><button class="chip save" type="button">حفظ</button><a class="chip" style="text-decoration:none" target="_blank" rel="noopener" href="' + esc(url) + '">صفحة المتبرعين</a><a class="chip" style="text-decoration:none" target="_blank" rel="noopener" href="' + esc(ahl) + '">صفحة الأسرة</a><a class="chip" style="text-decoration:none" target="_blank" rel="noopener" href="' + esc(waLink(msg, '966' + String(c.phone).slice(1))) + '">أرسل للأسرة</a><button class="chip del" type="button">حذف</button></div></td></tr>';
+    const st = Object.entries(STATUS).map(([k, v]) => '<option value="' + k + '"' + (k === c.status ? ' selected' : '') + '>' + v + '</option>').join('');
+    return '<div class="req" data-id="' + esc(c.id) + '">' +
+      '<div class="hd"><div><h3>' + esc(c.name) + (c.suffix ? ' <small style="display:inline">' + esc(c.suffix) + '</small>' : '') + '</h3><small>' + esc((PROJECTS[c.project] || {}).name || '') + (c.qty ? ' · ' + esc(pkgLabel(c.project, c.qty, c.goal)) : '') + '</small></div>' +
+      '<div style="text-align:left"><span class="badge ' + esc(c.status) + '">' + STATUS[c.status] + '</span>' + (left !== null ? '<small>' + (left > 0 ? 'متبقٍ ' + ar(left) + ' يومًا' : 'انتهت المدة') + '</small>' : '') + '</div></div>' +
+      '<div class="meta"><span><em>الطلب:</em> <b dir="ltr">' + esc(c.id) + '</b></span><span><em>التاريخ:</em> ' + esc((c.created || '').slice(0, 10)) + '</span>' +
+      '<span><em>مقدّم الطلب:</em> ' + esc(c.requester) + '</span><span><em>الجوال:</em> <a dir="ltr" href="tel:' + esc(c.phone) + '">' + esc(c.phone) + '</a></span>' +
+      '<span><em>الموافقة:</em> ' + (c.commit ? 'نعم' : 'لا') + '</span><span><em>التذكير:</em> ' + (c.remind ? 'نعم' : 'لا') + ((c.year || 1) > 1 ? ' · العام ' + ar(c.year) : '') + '</span></div>' +
+      '<div class="grid">' +
+      '<div><label>الحالة</label><select class="st">' + st + '</select></div>' +
+      '<div><label>المتبرعون</label><input class="dn" inputmode="numeric" value="' + esc(c.donors || 0) + '"></div>' +
+      '<div class="full"><label>رابط المتجر</label><input class="lk" dir="ltr" placeholder="https://store.yq.org.sa/p/…" value="' + esc(c.link) + '"></div>' +
+      '<div><label>الحصيلة (يدوي)</label><input class="tt" inputmode="numeric" value="' + esc(c.total || 0) + '"></div>' +
+      '<div><label>صورة التنفيذ</label><input class="ph" dir="ltr" placeholder="رابط (اختياري)" value="' + esc(c.photo || '') + '"></div>' +
+      '<div class="full"><label>نتيجة التخصيص</label><input class="rs" placeholder="مثل: سُمّيت الحلقة باسمه" value="' + esc(c.result || '') + '"></div>' +
+      '</div>' +
+      '<div class="acts"><button class="chip save" type="button">حفظ</button>' +
+      '<a class="chip" style="text-decoration:none" target="_blank" rel="noopener" href="' + esc(waLink(msg, '966' + String(c.phone).slice(1))) + '">أرسل للأسرة</a>' +
+      '<a class="chip" style="text-decoration:none" target="_blank" rel="noopener" href="' + esc(ahl) + '">صفحة الأسرة</a>' +
+      '<a class="chip" style="text-decoration:none" target="_blank" rel="noopener" href="' + esc(url) + '">صفحة المتبرعين</a>' +
+      '<button class="chip del" type="button">حذف</button></div>' +
+      '</div>';
   }).join('');
 }
 $('rows').addEventListener('click', async (e) => {
-  const tr = e.target.closest('tr'); if (!tr) return;
+  const tr = e.target.closest('.req'); if (!tr) return;
   const id = tr.dataset.id, num = (s) => parseInt(latinDigits(tr.querySelector(s).value).replace(/[^\d]/g, ''), 10) || 0;
   try {
     if (e.target.classList.contains('save')) {
