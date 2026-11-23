@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>صفحة الأسرة — صدقة جارية | جمعية تحفيظ القرآن بينبع</title>
+<meta name="theme-color" content="#0b3441">
+<link rel="icon" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<style>
+  body { background: var(--sand); }
+  header.top .wrap { justify-content: center; }
+  .head { background: #0b3441; color: #fff; text-align: center; padding: 30px 20px 70px; }
+  .head .a { color: #d9ebf2; font-size: 17px; margin: 0; }
+  .head h1 { color: #E8C36A; font-size: clamp(30px, 8vw, 48px); line-height: 1.35; margin: 4px 0 0; }
+  .head .sfx { color: #d9ebf2; font-size: 18px; margin: 2px 0 0; min-height: 1em; }
+  .pills { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 14px; }
+  .pill { background: #ffffff1a; border: 1px solid #ffffff33; border-radius: 999px; padding: 3px 14px; font-size: 14px; font-weight: 600; }
+  .pill.st-active { background: #358141; border-color: #358141; }
+  .pill.st-pending { background: #C8A24A; border-color: #C8A24A; color: #142f47; }
+  .pill.st-ended, .pill.st-closed { background: #fff; color: #0b3441; }
+  main { max-width: 640px; margin: -46px auto 0; padding: 0 16px 30px; position: relative; }
+  .box { background: #fff; border-radius: 20px; padding: 20px 18px; margin-bottom: 14px; box-shadow: 0 6px 24px #142f4712; }
+  .box h2 { font-size: 18px; color: var(--navy); margin: 0 0 12px; }
+  .muted { color: #5b6b75; font-size: 14px; line-height: 1.8; margin: 0; }
+  .count { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .count > div { background: var(--sand); border-radius: 14px; padding: 12px; text-align: center; }
+  .count b { display: block; font-size: 30px; color: var(--navy); line-height: 1.3; }
+  .count span { font-size: 13.5px; color: #5b6b75; }
+  .bar2 { height: 14px; background: #e8eef1; border-radius: 999px; overflow: hidden; margin: 14px 0 6px; }
+  .bar2 i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #358141, #4fa35c); border-radius: 999px; transition: width .8s; }
+  .row2 { display: flex; justify-content: space-between; font-size: 14px; color: #5b6b75; }
+  .impact { background: #f4faf5; border: 1px solid #cfe6d3; border-radius: 14px; padding: 14px; font-size: 16px; line-height: 1.9; color: #24532c; }
+  .impact b { color: #1f4566; }
+  .linkbox { display: flex; gap: 8px; align-items: center; background: var(--sand); border-radius: 12px; padding: 8px 10px; margin-bottom: 10px; }
+  .linkbox code { flex: 1; direction: ltr; text-align: left; font-size: 13.5px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--navy); }
+  .b { display: inline-flex; align-items: center; justify-content: center; gap: 6px; border: 0; border-radius: 999px; padding: 9px 16px; font: inherit; font-size: 14.5px; font-weight: 700; cursor: pointer; text-decoration: none; background: var(--navy); color: #fff; }
+  .b.g { background: var(--green); }
+  .b.l { background: #fff; color: var(--navy); border: 2px solid #d5e1e6; }
+  .b.sm { padding: 6px 12px; font-size: 13.5px; }
+  .bs { display: flex; gap: 8px; flex-wrap: wrap; }
+  .txt { border: 1px solid #e3ecef; border-radius: 14px; padding: 12px; margin-bottom: 10px; }
+  .txt h3 { font-size: 15px; margin: 0 0 6px; color: var(--navy); }
+  .txt p { white-space: pre-line; font-size: 14.5px; line-height: 1.9; margin: 0 0 10px; color: #3d4b54; word-break: break-word; }
+  .cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .cards figure { margin: 0; text-align: center; }
+  .cards canvas { width: 100%; height: auto; border-radius: 12px; display: block; margin-bottom: 8px; background: #0b3441; }
+  .cards figcaption { font-size: 13px; color: #5b6b75; margin-bottom: 6px; }
+  .steps { list-style: none; margin: 0; padding: 0; }
+  .steps li { display: flex; gap: 12px; align-items: flex-start; padding: 0 0 14px; position: relative; }
+  .steps li::before { content: ""; position: absolute; right: 13px; top: 28px; bottom: 0; width: 2px; background: #e3ecef; }
+  .steps li:last-child::before { display: none; }
+  .steps i { flex: none; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: 14px; font-weight: 700; background: #e8eef1; color: #8a9aa3; position: relative; z-index: 1; }
+  .steps li.done i { background: var(--green); color: #fff; }
+  .steps li.now i { background: #C8A24A; color: #142f47; box-shadow: 0 0 0 4px #c8a24a33; }
+  .steps b { display: block; color: var(--navy); font-size: 15px; }
+  .steps small { color: #5b6b75; font-size: 13px; }
+  .res img { width: 100%; border-radius: 14px; margin-top: 10px; }
+  .tog { display: flex; gap: 10px; align-items: center; font-size: 15px; }
+  .tog input { width: 22px; height: 22px; accent-color: var(--green); }
+  .center { text-align: center; padding: 40px 10px; }
+  .toast { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); background: #142f47; color: #fff; padding: 8px 18px; border-radius: 999px; font-size: 14px; z-index: 9; }
+  footer a { color: var(--gold-soft); }
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap"><img src="/logo.png" alt="الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع"></div></header>
+
+<div class="head">
+  <p class="a">صفحة أسرة الصدقة الجارية عن</p>
+  <h1 id="hName">…</h1>
+  <p class="sfx" id="hSfx"></p>
+  <div class="pills"><span class="pill" id="hTrack"></span><span class="pill" id="hState"></span></div>
+</div>
+
+<main id="main">
+  <div class="box center" id="loading"><p class="muted">جارٍ تحميل الصفحة…</p></div>
+  <div class="box center" id="missing" hidden><h2>الرابط غير صحيح</h2><p class="muted">تأكد من الرابط المرسل لك، أو تواصل مع الجمعية.</p><p style="margin-top:14px"><a class="b g" href="https://wa.me/966553671414">واتساب الجمعية</a></p></div>
+
+  <div id="body" hidden>
+    <div class="box" id="pendingBox" hidden>
+      <h2>طلبكم قيد التجهيز</h2>
+      <p class="muted">استلمنا طلبكم، وسنتواصل معكم عبر واتساب، ثم نفتح رابط التبرع في متجر الجمعية. تظهر هنا حقيبة النشر والعدّاد فور فتحه.</p>
+    </div>
+
+    <div class="box" id="statBox">
+      <div class="count">
+        <div><b id="cDays">–</b><span id="cDaysL">يومًا متبقية</span></div>
+        <div><b id="cTotal">٠</b><span>ريالًا مجموعة</span></div>
+      </div>
+      <div class="bar2" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="bar"><i id="fill"></i></div>
+      <div class="row2"><span id="cPct"></span><span id="cGoal"></span></div>
+      <p class="muted" id="cNote" style="margin-top:8px"></p>
+    </div>
+
+    <div class="box" id="impactBox">
+      <h2>أثركم حتى الآن</h2>
+      <div class="impact" id="impact"></div>
+    </div>
+
+    <div class="box" id="kit">
+      <h2>حقيبة النشر</h2>
+      <p class="muted" style="margin-bottom:10px">انشروا الرابط بين الأهل والمحبين؛ كل ريال يُكتب أجره بإذن الله.</p>
+      <div class="linkbox"><code id="lk"></code><button class="b sm l" type="button" id="copyLk">نسخ</button></div>
+      <div class="bs" style="margin-bottom:16px"><a class="b g" id="openLk" target="_blank" rel="noopener">صفحة التبرع</a><a class="b" id="waLk" target="_blank" rel="noopener">أرسله واتساب</a></div>
+      <div id="texts"></div>
+      <h2 style="margin-top:18px">صور جاهزة باسمه</h2>
+      <div class="cards">
+        <figure><canvas id="cvSq" width="1080" height="1080"></canvas><figcaption>منشور مربع</figcaption><button class="b sm" type="button" data-dl="cvSq">تحميل</button></figure>
+        <figure><canvas id="cvSt" width="1080" height="1920"></canvas><figcaption>حالة واتساب</figcaption><button class="b sm" type="button" data-dl="cvSt">تحميل</button></figure>
+      </div>
+      <h2 style="margin-top:18px">رمز للطباعة</h2>
+      <p class="muted" style="margin-bottom:10px">بطاقة برمز QR تُطبع وتوضع في المجلس؛ يمسحها الحاضر فيفتح صفحة التبرع.</p>
+      <div class="cards"><figure><canvas id="cvQr" width="1240" height="1754"></canvas><button class="b sm" type="button" data-dl="cvQr">تحميل للطباعة</button></figure><div></div></div>
+    </div>
+
+    <div class="box">
+      <h2>مراحل الحملة</h2>
+      <ol class="steps" id="steps"></ol>
+    </div>
+
+    <div class="box res" id="resBox" hidden>
+      <h2>بيان الحصيلة</h2>
+      <div class="impact" id="resText"></div>
+      <img id="resImg" alt="صورة التنفيذ" hidden>
+      <h2 style="margin-top:18px">شهادة الصدقة</h2>
+      <canvas id="cvCert" width="1754" height="1240" style="width:100%;height:auto;border-radius:10px;border:1px solid #e3ecef"></canvas>
+      <div class="bs" style="margin-top:10px"><button class="b g" type="button" data-dl="cvCert">تحميل الشهادة</button></div>
+    </div>
+
+    <div class="box">
+      <h2>تواصل وتذكير</h2>
+      <label class="tog"><input type="checkbox" id="remind"><span>ذكّروني مرة كل عام بتجديد الصدقة عنه</span></label>
+      <div class="bs" style="margin-top:14px"><a class="b g" id="contact" target="_blank" rel="noopener" href="https://wa.me/966553671414">تواصل مع الجمعية</a></div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <img src="/logo.png" alt="">
+  <div>الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع</div>
+  <div>هذه الصفحة خاصة بكم؛ لا تشاركوا رابطها، وشاركوا رابط التبرع.</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script src="/app.js"></script>
+<script>
+const $ = (id) => document.getElementById(id);
+const [, , ID, KEY] = location.pathname.split('/');
+const API = '/api/ahl/' + ID + '/' + KEY;
+const toast = (m) => { const t = document.createElement('div'); t.className = 'toast'; t.textContent = m; document.body.append(t); setTimeout(() => t.remove(), 1800); };
+const copy = async (s) => { try { await navigator.clipboard.writeText(s); toast('نُسخ'); } catch (e) { prompt('انسخ النص:', s); } };
+const hijri = (iso) => new Date(iso).toLocaleDateString('ar-SA', { day: 'numeric', month: 'long', year: 'numeric' });
+const TRACK = { halaqa: 'كفالة حلقة', mushaf: 'ورِّث مصحفًا', waqf: 'وقف الأم', student: 'كفالة طالب' };
+let C = null, G = 'ه';
+const P = (s) => s.replace(/\{h\}/g, G);
+const lines = () => ({
+  halaqa: ['حلقةٌ قرآنية باسم{h}', 'يُتلى فيها كتاب الله.. ويبقى أجرها ل{h} بإذن الله', 'حلقة قرآنية باسم{h} لتحفيظ القرآن الكريم'],
+  mushaf: ['مصاحف تُوقف عن{h}', 'يُتلى فيها كتاب الله.. ويبقى أجرها ل{h} بإذن الله', 'مصاحف تُوقف عن{h} يُتلى فيها كتاب الله'],
+  waqf: ['أسهمٌ في وقف الأم عن{h}', 'وقفٌ يبقى أصله.. ويجري أجره ل{h} بإذن الله', 'أسهم في «وقف الأم» عن{h}، وقف يُكفل من ريعه ٦٠ حلقة'],
+  student: ['كفالة طالب باسم{h}', 'يحفظ كتاب الله.. ويبقى أجره ل{h} بإذن الله', 'كفالة طالب يحفظ كتاب الله باسم{h}'],
+})[C.project].map(P);
+
+async function load() {
+  let r;
+  try { r = await fetch(API, { cache: 'no-store' }); } catch (e) {}
+  $('loading').hidden = true;
+  if (!r || !r.ok) { $('missing').hidden = false; $('hName').textContent = 'صفحة الأسرة'; return; }
+  C = await r.json();
+  G = /ها/.test(C.suffix || '') ? 'ها' : 'ه';
+  render();
+}
+
+function phase() {
+  if (C.status === 'closed') return 'closed';
+  if (C.status === 'pending' || !C.link) return 'pending';
+  if (C.ends && Date.now() > new Date(C.ends).getTime()) return 'ended';
+  return 'active';
+}
+
+function render() {
+  const ph = phase(), L = lines();
+  document.title = 'صدقة جارية عن ' + C.name;
+  $('hName').textContent = C.name; $('hSfx').textContent = C.suffix || '';
+  $('hTrack').textContent = TRACK[C.project] + (C.qty ? ' · ' + pkgLabel(C.project, C.qty, C.goal).split(' — ')[0] : '');
+  const ST = { pending: 'قيد التجهيز', active: 'الحملة جارية', ended: 'انتهت المدة', closed: 'اكتملت' };
+  $('hState').textContent = ST[ph]; $('hState').className = 'pill st-' + ph;
+  $('body').hidden = false;
+  $('pendingBox').hidden = ph !== 'pending';
+  ['statBox', 'impactBox', 'kit'].forEach((k) => { $(k).hidden = ph === 'pending'; });
+  $('kit').hidden = ph !== 'active';
+  document.querySelectorAll('.tog span')[0].textContent = 'ذكّروني مرة كل عام بتجديد الصدقة عن' + G;
+  $('remind').checked = !!C.remind;
+
+  // العدّاد
+  const goal = C.goal || (PROJECTS[C.project] || {}).goal || 0, total = C.total || 0, pct = goal ? Math.min(100, Math.round(total / goal * 100)) : 0;
+  if (C.ends) {
+    const left = Math.max(0, Math.ceil((new Date(C.ends) - Date.now()) / 864e5));
+    $('cDays').textContent = ar(left); $('cDaysL').textContent = 'يومًا متبقية من ' + ar(C.days);
+    $('cNote').textContent = 'بدأت ' + hijri(C.started) + '، وتنتهي ' + hijri(C.ends) + '.' + (C.live ? ' المبلغ يتحدث تلقائيًا من المتجر.' : '');
+  } else { $('cDays').textContent = ar(C.days); $('cDaysL').textContent = 'يومًا مدة الحملة'; }
+  $('cTotal').textContent = ar(total);
+  $('fill').style.width = pct + '%'; $('bar').setAttribute('aria-valuenow', pct);
+  $('cPct').textContent = ar(pct) + '٪ من الهدف' + (C.donors ? ' · ' + ar(C.donors) + ' متبرعًا' : '');
+  $('cGoal').textContent = 'الهدف ' + ar(goal) + ' ريال';
+
+  // الأثر
+  let im = '';
+  if (C.project === 'halaqa') im = total >= 7000 ? '<b>اكتمل مبلغ الكفالة</b>، وستُسمّى الحلقة باسم' + G + ' بإذن الله.' : 'بلغ المجموع <b>' + ar(Math.round(total / 7000 * 100)) + '٪</b> من كفالة حلقة كاملة (٧٬٠٠٠ ريال). عند اكتماله تُسمّى الحلقة باسم' + G + '، وإن لم يكتمل يُخصَّص المبلغ لكفالة حلقات قائمة عددًا من الأشهر بحسبه.';
+  else if (C.project === 'mushaf') im = 'المبلغ المجموع يعادل <b>' + ar(Math.floor(total / 30)) + ' مصحفًا</b> تُوقف عن' + G + ' بنهاية الحملة.';
+  else if (C.project === 'waqf') im = 'المبلغ المجموع يعادل <b>' + ar(Math.floor(total / 100)) + ' سهمًا</b> في وقف الأم عن' + G + ' بنهاية الحملة.';
+  else im = 'المبلغ المجموع <b>' + ar(total) + ' ريال</b>.';
+  $('impact').innerHTML = im;
+
+  // حقيبة النشر
+  if (C.link) {
+    $('lk').textContent = C.link; $('openLk').href = C.link;
+    const who = C.name + (C.suffix ? ' ' + C.suffix : ''), days = C.days === 45 ? '٤٥ يومًا' : 'شهرًا كاملًا';
+    const T = [
+      ['رسالة للمجموعات', 'السلام عليكم ورحمة الله\nفتحنا صدقةً جاريةً عن ' + who + ': ' + L[2] + '، لدى جمعية تحفيظ القرآن الكريم بينبع.\nتستمر الحملة ' + days + '، وكل ريال يُكتب أجره بإذن الله.\nرابط التبرع:\n' + C.link + '\nجزاكم الله خيرًا على المشاركة والنشر.'],
+      ['حالة واتساب', 'صدقةٌ جارية عن ' + who + '\n' + L[0] + '\nللتبرع:\n' + C.link],
+      ['رسالة للمعزّين والمحبين', 'بدل الورد والهدايا.. شاركونا صدقةً جاريةً عن ' + who + '؛ ' + L[2] + ' لدى جمعية تحفيظ القرآن الكريم بينبع:\n' + C.link],
+    ];
+    $('texts').innerHTML = '';
+    T.forEach(([h, t]) => {
+      const d = document.createElement('div'); d.className = 'txt';
+      d.innerHTML = '<h3></h3><p></p><div class="bs"><button class="b sm l" type="button">نسخ</button><a class="b sm g" target="_blank" rel="noopener">واتساب</a></div>';
+      d.querySelector('h3').textContent = h; d.querySelector('p').textContent = t;
+      d.querySelector('button').onclick = () => copy(t); d.querySelector('a').href = shareLink(t);
+      $('texts').append(d);
+    });
+    $('waLk').href = shareLink(T[0][1]);
+    $('copyLk').onclick = () => copy(C.link);
+    drawAll();
+  }
+
+  // المراحل
+  const S = [
+    ['استلام الطلب', hijri(C.created), true],
+    ['فتح رابط التبرع', C.started ? hijri(C.started) : 'بعد التواصل معكم', !!C.started],
+    ['الحملة جارية', C.ends ? 'حتى ' + hijri(C.ends) : (C.days === 45 ? '٤٥ يومًا' : 'شهر كامل'), ph === 'ended' || ph === 'closed'],
+    ['انتهاء المدة', C.ends ? hijri(C.ends) : '', ph === 'ended' || ph === 'closed'],
+    ['تخصيص المبلغ', 'وفق المسار المختار', ph === 'closed'],
+    ['بيان الحصيلة', 'يُرسل لكم ويظهر هنا', ph === 'closed'],
+  ];
+  const nowI = S.findIndex((s) => !s[2]);
+  $('steps').innerHTML = '';
+  S.forEach(([t, sub, done], i) => {
+    const li = document.createElement('li'); li.className = done ? 'done' : i === nowI ? 'now' : '';
+    li.innerHTML = '<i></i><div><b></b><small></small></div>';
+    li.querySelector('i').textContent = done ? '✓' : ar(i + 1); li.querySelector('b').textContent = t; li.querySelector('small').textContent = sub;
+    $('steps').append(li);
+  });
+
+  // بعد الانتهاء
+  $('resBox').hidden = !(ph === 'closed' || ph === 'ended');
+  if (!$('resBox').hidden) {
+    const tx = ph === 'closed'
+      ? 'جُمع في الحملة <b>' + ar(total) + ' ريال</b>' + (C.donors ? ' من <b>' + ar(C.donors) + '</b> متبرعًا' : '') + '. ' + (C.result ? '' : 'خُصِّص المبلغ وفق المسار المختار.') + ' تقبّل الله منكم.'
+      : 'انتهت مدة الحملة، وجُمع فيها <b>' + ar(total) + ' ريال</b>. نعمل الآن على تخصيص المبلغ، وسيظهر البيان هنا.';
+    $('resText').innerHTML = tx;
+    if (C.result) { const p = document.createElement('div'); p.style.marginTop = '6px'; p.textContent = C.result; $('resText').append(p); }
+    if (C.photo) { $('resImg').src = C.photo; $('resImg').hidden = false; }
+    drawCert();
+  }
+}
+
+// ---------- الرسم ----------
+const IMG = {};
+const getImg = (k, src) => new Promise((ok) => { const i = new Image(); i.onload = () => { IMG[k] = i; ok(); }; i.onerror = ok; i.src = src; });
+const ready = Promise.all([
+  getImg('photo', '/ahl-photo.jpg'), getImg('logoW', '/ahl-logo.png'), getImg('logo', '/logo.png'),
+  document.fonts ? Promise.all(['400 40px "IBM Plex Sans Arabic"', '700 40px "IBM Plex Sans Arabic"', '700 40px Amiri']).then(() => Promise.all(['400 40px "IBM Plex Sans Arabic"', '700 40px "IBM Plex Sans Arabic"', '700 40px Amiri'].map((f) => document.fonts.load(f)))) : 0,
+]);
+const F = (w, s) => w + ' ' + s + 'px "IBM Plex Sans Arabic", sans-serif';
+function fitText(x, t, w, max, min, weight) { let s = max; for (; s > min; s -= 2) { x.font = F(weight, s); if (x.measureText(t).width <= w) break; } return s; }
+function round(x, a, b, w, h, r) { x.beginPath(); x.moveTo(a + r, b); x.arcTo(a + w, b, a + w, b + h, r); x.arcTo(a + w, b + h, a, b + h, r); x.arcTo(a, b + h, a, b, r); x.arcTo(a, b, a + w, b, r); x.closePath(); }
+function qrDraw(x, text, cx, top, size) {
+  const q = qrcode(0, 'M'); q.addData(text); q.make();
+  const n = q.getModuleCount(), cell = Math.floor((size - 40) / n), real = cell * n, pad = (size - real) / 2, left = cx - size / 2;
+  x.fillStyle = '#fff'; round(x, left, top, size, size, 18); x.fill();
+  x.fillStyle = '#0b3441';
+  for (let r = 0; r < n; r++) for (let c = 0; c < n; c++) if (q.isDark(r, c)) x.fillRect(left + pad + c * cell, top + pad + r * cell, cell, cell);
+}
+function base(x, W, H) {
+  x.fillStyle = '#0b3441'; x.fillRect(0, 0, W, H);
+  if (IMG.photo) { const ph = IMG.photo.height * W / IMG.photo.width; x.drawImage(IMG.photo, 0, H - ph, W, ph); const g = x.createLinearGradient(0, H - ph, 0, H - ph + 150); g.addColorStop(0, '#0b3441'); g.addColorStop(1, 'rgba(11,52,65,0)'); x.fillStyle = g; x.fillRect(0, H - ph, W, 150); }
+  x.strokeStyle = '#C8A24A99'; x.lineWidth = 2; round(x, 24, 24, W - 48, H - 48, 30); x.stroke();
+  if (IMG.logoW) x.drawImage(IMG.logoW, W / 2 - 185, 60, 370, 80);
+}
+function paintCard(cv, story) {
+  const x = cv.getContext('2d'), W = cv.width, H = cv.height, L = lines();
+  base(x, W, H); x.textAlign = 'center'; x.direction = 'rtl'; x.textBaseline = 'alphabetic';
+  let y = story ? 380 : 230;
+  x.fillStyle = '#e9eef0'; x.font = F(400, story ? 52 : 44); x.fillText('صدقةٌ جارية عن', W / 2, y);
+  y += story ? 140 : 110;
+  const s = fitText(x, C.name, W - 150, story ? 120 : 104, 52, 700); x.fillStyle = '#E8C36A'; x.font = F(700, s); x.fillText(C.name, W / 2, y);
+  if (C.suffix) { y += story ? 80 : 66; x.fillStyle = '#e9eef0'; x.font = F(400, story ? 46 : 40); x.fillText(C.suffix, W / 2, y); }
+  y += story ? 70 : 56; x.fillStyle = '#E8C36A'; round(x, W / 2 - 65, y, 130, 5, 2); x.fill();
+  y += story ? 100 : 82; x.fillStyle = '#fff'; x.font = F(700, fitText(x, L[0], W - 140, story ? 60 : 52, 30, 700)); x.fillText(L[0], W / 2, y);
+  y += story ? 70 : 58; x.fillStyle = '#e9eef0'; x.font = F(400, fitText(x, L[1], W - 140, story ? 38 : 32, 22, 400)); x.fillText(L[1], W / 2, y);
+  if (story) {
+    qrDraw(x, C.link, W / 2, y + 70, 300);
+    x.fillStyle = '#e9eef0'; x.font = F(600, 36); x.fillText('امسح الرمز للتبرع', W / 2, y + 430);
+  }
+}
+function drawQr(cv) {
+  const x = cv.getContext('2d'), W = cv.width, H = cv.height, L = lines();
+  x.fillStyle = '#fff'; x.fillRect(0, 0, W, H);
+  x.strokeStyle = '#C8A24A'; x.lineWidth = 6; round(x, 50, 50, W - 100, H - 100, 40); x.stroke();
+  if (IMG.logo) { const lw = 520, lh = IMG.logo.height * lw / IMG.logo.width; x.drawImage(IMG.logo, W / 2 - lw / 2, 120, lw, lh); }
+  x.textAlign = 'center'; x.direction = 'rtl';
+  x.fillStyle = '#5b6b75'; x.font = F(400, 54); x.fillText('صدقةٌ جارية عن', W / 2, 470);
+  x.fillStyle = '#b8902f'; x.font = F(700, fitText(x, C.name, W - 200, 120, 60, 700)); x.fillText(C.name, W / 2, 610);
+  if (C.suffix) { x.fillStyle = '#5b6b75'; x.font = F(400, 50); x.fillText(C.suffix, W / 2, 690); }
+  x.fillStyle = '#0b3441'; x.font = F(700, fitText(x, L[0], W - 200, 64, 36, 700)); x.fillText(L[0], W / 2, 790);
+  x.save(); x.fillStyle = '#0b3441'; round(x, W / 2 - 330, 850, 660, 660, 30); x.fill(); x.restore();
+  qrDraw(x, C.link, W / 2, 880, 600);
+  x.fillStyle = '#0b3441'; x.font = F(700, 60); x.fillText('امسح الرمز للتبرع', W / 2, 1610);
+  x.fillStyle = '#5b6b75'; x.font = F(400, 36); x.fillText('الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع', W / 2, 1680);
+}
+function drawCert() {
+  ready.then(() => {
+    const cv = $('cvCert'), x = cv.getContext('2d'), W = cv.width, H = cv.height, L = lines();
+    x.fillStyle = '#fbf8f0'; x.fillRect(0, 0, W, H);
+    x.strokeStyle = '#C8A24A'; x.lineWidth = 8; x.strokeRect(40, 40, W - 80, H - 80); x.lineWidth = 2; x.strokeRect(62, 62, W - 124, H - 124);
+    if (IMG.logo) { const lh = 150, lw = IMG.logo.width * lh / IMG.logo.height; x.drawImage(IMG.logo, W / 2 - lw / 2, 95, lw, lh); }
+    x.textAlign = 'center'; x.direction = 'rtl';
+    x.fillStyle = '#0b3441'; x.font = '700 92px Amiri, serif'; x.fillText('شهادة صدقة جارية', W / 2, 370);
+    x.fillStyle = '#3d4b54'; x.font = F(400, 38); x.fillText('تشهد الجمعية الخيرية لتحفيظ القرآن الكريم بمحافظة ينبع بأن حملة الصدقة الجارية عن', W / 2, 470);
+    x.fillStyle = '#b8902f'; x.font = F(700, fitText(x, C.name, W - 300, 110, 60, 700)); x.fillText(C.name, W / 2, 610);
+    if (C.suffix) { x.fillStyle = '#3d4b54'; x.font = F(400, 40); x.fillText(C.suffix, W / 2, 680); }
+    const line = 'في مسار «' + TRACK[C.project] + '» جُمع فيها ' + ar(C.total) + ' ريال' + (C.donors ? ' من ' + ar(C.donors) + ' متبرعًا' : '');
+    x.fillStyle = '#0b3441'; x.font = F(600, fitText(x, line, W - 260, 44, 28, 600)); x.fillText(line, W / 2, 790);
+    const r2 = C.result || L[1];
+    x.fillStyle = '#3d4b54'; x.font = F(400, fitText(x, r2, W - 260, 38, 26, 400)); x.fillText(r2, W / 2, 870);
+    x.fillStyle = '#0b3441'; x.font = '700 54px Amiri, serif'; x.fillText('تقبّل الله منكم، وجعلها في ميزان حسنات' + G, W / 2, 990);
+    x.fillStyle = '#5b6b75'; x.font = F(400, 32); x.fillText(hijri(C.closedAt || C.ends || Date.now()), W / 2, 1090);
+  });
+}
+function drawAll() { ready.then(() => { paintCard($('cvSq'), false); paintCard($('cvSt'), true); drawQr($('cvQr')); }); }
+
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-dl]'); if (!b) return;
+  const cv = $(b.dataset.dl), names = { cvSq: 'منشور', cvSt: 'حالة', cvQr: 'رمز-للطباعة', cvCert: 'شهادة' };
+  const a = document.createElement('a'); a.download = names[b.dataset.dl] + '-' + C.name.replace(/\s+/g, '-') + '.png'; a.href = cv.toDataURL('image/png'); a.click();
+});
+$('remind').addEventListener('change', async () => {
+  try { const r = await fetch(API + '/remind', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ remind: $('remind').checked }) }); if (!r.ok) throw 0; toast($('remind').checked ? 'سنذكّركم بإذن الله' : 'أُلغي التذكير'); } catch (x) { toast('تعذّر الحفظ'); $('remind').checked = !$('remind').checked; }
+});
+load();
+</script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 // الصفحات من مستودع الجمعية، والحملات في مخزن KV (الربط: CAMPAIGNS)، ورمز الإدارة في ADMIN_CODE.
 // تنبيه تيليجرام لكل طلب جديد عبر مخزن واتسابي (الربط: WA، المفتاح tg_out).
 const BASE = 'https://raw.githubusercontent.com/makh1551/yanbu-quran-grants/main/alfaqeed';
-const FILES = { '/': 'index.html', '/majlis': 'majlis.html', '/admin': 'admin.html', '/talab': 'talab.html', '/style.css': 'style.css', '/app.js': 'app.js', '/logo.png': 'logo.png', '/waqf.jpg': 'waqf.jpg', '/talab.jpg': 'talab.jpg' };
+const FILES = { '/': 'index.html', '/majlis': 'majlis.html', '/admin': 'admin.html', '/talab': 'talab.html', '/style.css': 'style.css', '/app.js': 'app.js', '/logo.png': 'logo.png', '/waqf.jpg': 'waqf.jpg', '/talab.jpg': 'talab.jpg', '/ahl-photo.jpg': 'ahl-photo.jpg', '/ahl-logo.png': 'ahl-logo.png' };
 const TYPES = { html: 'text/html; charset=utf-8', css: 'text/css; charset=utf-8', js: 'text/javascript; charset=utf-8', png: 'image/png', jpg: 'image/jpeg' };
 const PROJECTS = ['halaqa', 'mushaf', 'student', 'waqf'];
 const PROJECT_NAMES = { halaqa: 'كفالة حلقة', mushaf: 'ورّث مصحفًا', student: 'كفالة طالب', waqf: 'أسهم في وقف الأم' };
@@ -18,6 +18,31 @@ const clean = (v, n) => String(v ?? '').replace(/[\u0000-\u001f<>]/g, '').replac
 const digits = (v) => String(v ?? '').replace(/[٠-٩]/g, (d) => '٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[^\d]/g, '');
 const newId = () => { const a = 'abcdefghjkmnpqrstuvwxyz23456789'; return [...crypto.getRandomValues(new Uint8Array(6))].map((x) => a[x % a.length]).join(''); };
 const validId = (id) => /^[a-z0-9]{6}$/.test(id || '');
+const newKey = () => { const a = 'abcdefghjkmnpqrstuvwxyz23456789'; return [...crypto.getRandomValues(new Uint8Array(10))].map((x) => a[x % a.length]).join(''); };
+const validKey = (k) => /^[a-z0-9]{10}$/.test(k || '');
+const DAYS = (project) => (project === 'halaqa' ? 45 : 30);
+const addDays = (iso, d) => new Date(new Date(iso).getTime() + d * 864e5).toISOString();
+
+// الحصيلة الحيّة من صفحة المشروع في المتجر (المبلغ المجموع والمستهدف والنسبة)، مع ذاكرة مؤقتة دقيقة واحدة
+async function storeLive(link, ctx) {
+  const m = String(link || '').match(/^https:\/\/store\.yq\.org\.sa\/p\/(\d{3,9})/);
+  if (!m) return null;
+  const key = new Request('https://cache.alfaqeed/store/' + m[1]);
+  const hit = await caches.default.match(key);
+  if (hit) return hit.json();
+  let st = { ok: false, collected: 0, target: 0, pct: 0 };
+  try {
+    const r = await fetch('https://store.yq.org.sa/p/' + m[1], { headers: { 'user-agent': 'Mozilla/5.0 (alfaqeed status)', 'accept-language': 'ar' }, cf: { cacheTtl: 0 } });
+    const h = await r.text();
+    const x = h.match(/<div class="col-4">\s*([\d,.]+)\s*<i class='iconf-sar'><\/i>\s*<\/div>\s*<div class="col-4 text-center">\s*%\s*(\d+)\s*<\/div>\s*<div class="col-4 text-end">\s*([\d,.]+)/);
+    const n = (v) => Number(String(v).replace(/,/g, '')) || 0;
+    if (r.ok && x) st = { ok: true, collected: n(x[1]), pct: Number(x[2]), target: n(x[3]) };
+  } catch (e) {}
+  const res = new Response(JSON.stringify(st), { headers: { 'content-type': 'application/json', 'cache-control': 'max-age=60' } });
+  if (ctx) ctx.waitUntil(caches.default.put(key, res.clone())); else await caches.default.put(key, res.clone());
+  return st;
+}
+const liveTotal = (c, st) => Math.max(c.total || 0, st && st.ok ? Math.round(st.collected) : 0);
 
 async function serveFile(file) {
   const r = await fetch(BASE + '/' + file, { cf: { cacheTtl: 120, cacheEverything: true } });
@@ -87,18 +112,41 @@ async function createRequest(req, env, ip, ctx) {
   let id = newId();
   while (await env.CAMPAIGNS.get('c:' + id)) id = newId();
   const now = new Date().toISOString();
-  Object.assign(c, { id, status: 'pending', link: '', total: 0, donors: 0, year: 1, reminded: '', created: now, updated: now });
+  Object.assign(c, { id, key: newKey(), status: 'pending', link: '', total: 0, donors: 0, year: 1, reminded: '', created: now, updated: now });
   await env.CAMPAIGNS.put('c:' + id, JSON.stringify(c));
   ctx.waitUntil(notify(env, c).catch(() => {}));
   return json({ id });
 }
 
-async function publicCampaign(env, id) {
+async function publicCampaign(env, id, ctx) {
   if (!validId(id)) return json({ error: 'غير موجودة' }, 404);
   const c = await env.CAMPAIGNS.get('c:' + id, 'json');
   if (!c || !['active', 'closed'].includes(c.status)) return json({ error: 'غير موجودة' }, 404);
-  const { name, suffix, project, status, link, total, donors } = c;
+  const { name, suffix, project, status, link, donors } = c;
+  const total = liveTotal(c, await storeLive(link, ctx));
   return json({ id, name, suffix, project, status, link, total, donors, goal: c.goal || 0, qty: c.qty || 0, year: c.year || 1 });
+}
+
+// صفحة الأسرة: رابط خاص /ahl/<id>/<key>
+async function family(req, env, id, key, action, ctx) {
+  if (!validId(id) || !validKey(key)) return json({ error: 'الرابط غير صحيح.' }, 404);
+  const c = await env.CAMPAIGNS.get('c:' + id, 'json');
+  if (!c || c.key !== key || c.status === 'rejected') return json({ error: 'الرابط غير صحيح.' }, 404);
+  if (action === 'remind') {
+    if (req.method !== 'POST') return json({ error: 'غير مسموح' }, 405);
+    const b = await readBody(req);
+    c.remind = !!(b && b.remind === true); c.updated = new Date().toISOString();
+    await env.CAMPAIGNS.put('c:' + id, JSON.stringify(c));
+    return json({ ok: true, remind: c.remind });
+  }
+  if (action) return json({ error: 'غير موجود' }, 404);
+  const st = await storeLive(c.link, ctx);
+  const days = DAYS(c.project), ends = c.started ? addDays(c.started, days) : '';
+  return json({
+    id, name: c.name, suffix: c.suffix || '', project: c.project, qty: c.qty || 0, goal: c.goal || 0, requester: c.requester,
+    status: c.status, link: c.link || '', total: liveTotal(c, st), donors: c.donors || 0, live: !!(st && st.ok),
+    created: c.created, started: c.started || '', days, ends, remind: !!c.remind, photo: c.photo || '', result: c.result || '', year: c.year || 1,
+  });
 }
 
 async function admin(req, env, action, ip) {
@@ -112,6 +160,7 @@ async function admin(req, env, action, ip) {
     do {
       const l = await env.CAMPAIGNS.list({ prefix: 'c:', cursor });
       const vals = await Promise.all(l.keys.map((k) => env.CAMPAIGNS.get(k.name, 'json')));
+      for (const v of vals) { if (v && !v.key) { v.key = newKey(); await env.CAMPAIGNS.put('c:' + v.id, JSON.stringify(v)); } }
       items.push(...vals.filter(Boolean));
       cursor = l.list_complete ? null : l.cursor;
     } while (cursor);
@@ -125,7 +174,15 @@ async function admin(req, env, action, ip) {
   if (!c) return json({ error: 'الطلب غير موجود.' }, 404);
   if (action === 'delete') { await env.CAMPAIGNS.delete(key); return json({ ok: true }); }
   if (action === 'update') {
-    if (b.status !== undefined) { if (!STATUSES.includes(b.status)) return json({ error: 'حالة غير صالحة.' }, 400); c.status = b.status; }
+    if (b.status !== undefined) {
+      if (!STATUSES.includes(b.status)) return json({ error: 'حالة غير صالحة.' }, 400);
+      c.status = b.status;
+      if (b.status === 'active' && !c.started) c.started = new Date().toISOString();
+      if (b.status === 'closed' && !c.closedAt) c.closedAt = new Date().toISOString();
+    }
+    if (b.started !== undefined) { const d = new Date(String(b.started)); c.started = isNaN(d) ? '' : d.toISOString(); }
+    if (b.photo !== undefined) { let ok = ''; try { const u = new URL(clean(b.photo, 400)); if (u.protocol === 'https:') ok = u.href; } catch (e) {} c.photo = ok; }
+    if (b.result !== undefined) c.result = clean(b.result, 300);
     if (b.link !== undefined) {
       const link = clean(b.link, 300);
       if (link) {
@@ -144,7 +201,7 @@ async function admin(req, env, action, ip) {
   // الذكرى السنوية: تسجيل التذكير، أو تجديد الحملة لعام جديد
   if (action === 'reminded' || action === 'renew') {
     c.reminded = new Date().toISOString();
-    if (action === 'renew') { c.year = (c.year || 1) + 1; c.status = 'active'; }
+    if (action === 'renew') { c.year = (c.year || 1) + 1; c.status = 'active'; c.started = new Date().toISOString(); c.closedAt = ''; c.result = ''; }
     c.updated = c.reminded;
     await env.CAMPAIGNS.put(key, JSON.stringify(c));
     return json({ ok: true });
@@ -159,13 +216,15 @@ export default {
     try {
       if (p.startsWith('/api/')) {
         if (p === '/api/request' && req.method === 'POST') return await createRequest(req, env, ip, ctx);
-        if (p.startsWith('/api/c/') && req.method === 'GET') return await publicCampaign(env, p.slice(7));
+        if (p.startsWith('/api/c/') && req.method === 'GET') return await publicCampaign(env, p.slice(7), ctx);
+        if (p.startsWith('/api/ahl/')) { const [id, key, action] = p.slice(9).split('/'); return await family(req, env, id, key, action || '', ctx); }
         if (p.startsWith('/api/admin/')) return await admin(req, env, p.slice(11), ip);
         return json({ error: 'غير موجود' }, 404);
       }
       if (!['GET', 'HEAD'].includes(req.method)) return new Response('غير مسموح', { status: 405, headers: NOINDEX });
       if (FILES[p]) return await serveFile(FILES[p]);
       if (/^\/c\/[a-z0-9]{6}$/.test(p)) return await serveFile('c.html');
+      if (/^\/ahl\/[a-z0-9]{6}\/[a-z0-9]{10}$/.test(p)) return await serveFile('ahl.html');
       return Response.redirect(u.origin + '/', 302);
     } catch (e) {
       return json({ error: 'حدث خطأ غير متوقع.' }, 500);
