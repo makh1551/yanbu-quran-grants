@@ -2,7 +2,7 @@
 // الصفحات من مستودع الجمعية، والحملات في مخزن KV (الربط: CAMPAIGNS)، ورمز الإدارة في ADMIN_CODE.
 // تنبيه تيليجرام لكل طلب جديد عبر مخزن واتسابي (الربط: WA، المفتاح tg_out).
 const BASE = 'https://raw.githubusercontent.com/makh1551/yanbu-quran-grants/main/alfaqeed';
-const FILES = { '/': 'index.html', '/majlis': 'majlis.html', '/admin': 'admin.html', '/talab': 'talab.html', '/style.css': 'style.css', '/app.js': 'app.js', '/logo.png': 'logo.png', '/waqf.jpg': 'waqf.jpg' };
+const FILES = { '/': 'index.html', '/majlis': 'majlis.html', '/admin': 'admin.html', '/talab': 'talab.html', '/style.css': 'style.css', '/app.js': 'app.js', '/logo.png': 'logo.png', '/waqf.jpg': 'waqf.jpg', '/talab.jpg': 'talab.jpg' };
 const TYPES = { html: 'text/html; charset=utf-8', css: 'text/css; charset=utf-8', js: 'text/javascript; charset=utf-8', png: 'image/png', jpg: 'image/jpeg' };
 const PROJECTS = ['halaqa', 'mushaf', 'student', 'waqf'];
 const PROJECT_NAMES = { halaqa: 'كفالة حلقة', mushaf: 'ورّث مصحفًا', student: 'كفالة طالب', waqf: 'أسهم في وقف الأم' };
