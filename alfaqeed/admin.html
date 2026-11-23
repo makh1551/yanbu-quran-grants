@@ -135,7 +135,7 @@ function draw() {
     const left = c.started && c.status === 'active' ? Math.ceil((ENDS(c) - Date.now()) / 864e5) : null;
     const ph = PH(c), sum = SUM(c), goal = c.goal || 0;
     const nearMsg = 'السلام عليكم ' + c.requester + '،\nبقيت ' + ar(left) + ' أيام على ختام الصدقة الجارية عن ' + who + '، وبلغ المجموع ' + ar(sum) + ' ريال' + (goal ? ' من ' + ar(goal) : '') + '.\nشاركوا الرابط مرة أخيرة مع الأهل والمحبين:\n' + (c.link || '') + '\n\nتقبّل الله منكم.';
-    const gen = c.project === 'halaqa' ? GEN + '?name=' + encodeURIComponent(c.name) + (c.link ? '&link=' + encodeURIComponent(c.link) : '') : '';
+    const gen = ['halaqa', 'mushaf', 'waqf'].includes(c.project) ? GEN + '?track=' + c.project + '&name=' + encodeURIComponent(c.name) + (c.link ? '&link=' + encodeURIComponent(c.link) : '') : '';
     const st = Object.entries(STATUS).map(([k, v]) => '<option value="' + k + '"' + (k === c.status ? ' selected' : '') + '>' + v + '</option>').join('');
     return '<div class="req" data-id="' + esc(c.id) + '">' +
       '<div class="hd"><div><h3>' + esc(c.name) + (c.suffix ? ' <small style="display:inline">' + esc(c.suffix) + '</small>' : '') + '</h3><small>' + esc((PROJECTS[c.project] || {}).name || '') + (c.qty ? ' · ' + esc(pkgLabel(c.project, c.qty, c.goal)) : '') + '</small></div>' +

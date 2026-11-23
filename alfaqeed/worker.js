@@ -81,7 +81,7 @@ async function notify(env, c) {
     'https://sadaqa.yanbuquran.app/admin',
     '',
     'تصاميم صور المتجر:',
-    c.project === 'halaqa' ? 'https://tasmim.yanbuquran.app/?name=' + encodeURIComponent(c.name) : 'https://tasmim.yanbuquran.app',
+    'https://tasmim.yanbuquran.app/?track=' + c.project + '&name=' + encodeURIComponent(c.name),
   ].filter((x, i) => x !== '' || i > 6).join('\n');
   const prev = await env.WA.get('tg_out');
   await env.WA.put('tg_out', prev ? prev + '\n\n— — —\n\n' + msg : msg);
