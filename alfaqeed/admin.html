@@ -142,7 +142,7 @@ function draw() {
       '<div style="text-align:left"><span class="badge ' + (ph === 'ended' ? 'ended' : esc(c.status)) + '">' + (ph === 'ended' ? 'انتهت المدة' : STATUS[c.status]) + '</span>' + (left !== null ? '<small>' + (left > 0 ? 'متبقٍ ' + ar(left) + ' يومًا' : 'انتهت المدة') + '</small>' : '') + '</div></div>' +
       (ph === 'ended' ? '<div class="alert red">انتهت مدة الحملة؛ خصّص المبلغ (' + ar(sum) + ' ريال)، واكتب النتيجة، ثم اجعل الحالة «مغلقة».</div>' : '') +
       (ph === 'active' && left !== null && left <= 3 ? '<div class="alert">بقيت ' + ar(left) + ' أيام على النهاية؛ أرسل للأسرة تذكير النشر الأخير.</div>' : '') +
-      (c.status !== 'pending' && c.live ? '<div class="meta" style="margin-bottom:6px"><span><em>المجموع الحي من المتجر:</em> <b>' + ar(c.live) + '</b> ريال' + (goal ? ' من ' + ar(goal) : '') + '</span></div>' : '') +
+      (c.status !== 'pending' && c.live ? '<div class="alert" style="background:#f4faf5;color:#24532c">المجموع الحي من المتجر: <b>' + ar(c.live) + '</b> ريال' + (goal ? ' من ' + ar(goal) : '') + '</div>' : '') +
       '<div class="meta"><span><em>الطلب:</em> <b dir="ltr">' + esc(c.id) + '</b></span><span><em>التاريخ:</em> ' + esc((c.created || '').slice(0, 10)) + '</span>' +
       '<span><em>مقدّم الطلب:</em> ' + esc(c.requester) + '</span><span><em>الجوال:</em> <a dir="ltr" href="tel:' + esc(c.phone) + '">' + esc(c.phone) + '</a></span>' +
       '<span><em>الموافقة:</em> ' + (c.commit ? 'نعم' : 'لا') + '</span><span><em>التذكير:</em> ' + (c.remind ? 'نعم' : 'لا') + ((c.year || 1) > 1 ? ' · العام ' + ar(c.year) : '') + '</span></div>' +
