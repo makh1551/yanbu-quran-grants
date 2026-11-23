@@ -60,6 +60,9 @@ async function notify(env, c) {
   ].filter((x, i) => x !== '' || i > 6).join('\n');
   const prev = await env.WA.get('tg_out');
   await env.WA.put('tg_out', prev ? prev + '\n\n— — —\n\n' + msg : msg);
+  // تنبيه واتساب للأرقام المحددة (المفتاح alert_phones في مخزن الحملات)، يرسله «واتسابي» خلال دقيقة
+  const phones = (await env.CAMPAIGNS.get('alert_phones', 'json')) || [];
+  await Promise.all(phones.slice(0, 10).map((ph, i) => env.WA.put('wa_out:sadaqa-' + c.id + '-' + i, JSON.stringify({ phone: String(ph), text: msg }))));
 }
 
 async function createRequest(req, env, ip, ctx) {
