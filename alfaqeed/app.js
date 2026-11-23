@@ -2,7 +2,7 @@
 const SITE = 'https://sadaqa.yanbuquran.app';
 const WA = '966553671414';
 const PROJECTS = {
-  halaqa: { name: 'كفالة حلقة قرآنية', unit: 6600, goal: 6600, unitLabel: 'حلقة سنويًا', countLabel: 'الحلقات المكفولة', desc: 'حلقةٌ يُحفظ فيها كتاب الله عامًا دراسيًا كاملًا.', link: 'https://store.yq.org.sa' },
+  halaqa: { name: 'كفالة حلقة قرآنية', unit: 7000, goal: 7000, unitLabel: 'حلقة سنويًا', countLabel: 'الحلقات المكفولة', desc: 'حلقةٌ يُحفظ فيها كتاب الله عامًا دراسيًا كاملًا.', link: 'https://store.yq.org.sa' },
   mushaf: { name: 'ورِّث مصحفًا', unit: 30, goal: 3000, unitLabel: 'مصحف', countLabel: 'المصاحف', desc: 'مصاحف يُتلى فيها كتاب الله آناء الليل وأطراف النهار.', link: 'https://store.yq.org.sa' },
   student: { name: 'كفالة طالب أو طالبة', unit: 300, goal: 3000, unitLabel: 'طالب سنويًا', countLabel: 'الطلاب المكفولون', desc: 'طالبٌ يحفظ كتاب الله عامًا دراسيًا كاملًا.', link: 'https://store.yq.org.sa' },
   waqf: { name: 'سهم في وقف الأم', unit: 100, goal: 3000, unitLabel: 'سهم', countLabel: 'أسهم الوقف', desc: 'وقفٌ قائم ينفع ما بقي.', link: 'https://store.yq.org.sa/p/173745' },
