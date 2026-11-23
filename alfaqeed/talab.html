@@ -93,6 +93,7 @@
     <div class="in"><label for="fReq">اسمك</label><input id="fReq" maxlength="60" autocomplete="name"></div>
     <div class="in"><label for="fPhone">رقم جوالك</label><input id="fPhone" inputmode="tel" maxlength="14" autocomplete="tel" placeholder="05xxxxxxxx" dir="ltr" style="text-align:right"><p class="note">نرسل لك عليه رابط الصدقة في المتجر باسم عزيزك.</p></div>
     <label class="agree"><input type="checkbox" id="fCommit"><span id="fCommitL"></span></label>
+    <label class="agree"><input type="checkbox" id="fRemind" checked><span>ذكّروني مرة كل عام بتجديد الصدقة عنه</span></label>
     <div class="hp" aria-hidden="true"><input id="fWeb" tabindex="-1" autocomplete="off"></div>
   </div>
 </form>
@@ -146,7 +147,7 @@ $('f').addEventListener('submit', async (e) => {
   const d = {
     name: $('fName').value.trim(), suffix: '', project: S.project, qty, goal,
     requester: $('fReq').value.trim(), relation: '', phone: latinDigits($('fPhone').value).replace(/[^\d]/g, ''),
-    remind: true, commit: $('fCommit').checked, website: $('fWeb').value,
+    remind: $('fRemind').checked, commit: $('fCommit').checked, website: $('fWeb').value,
   };
   const fail = (m, id) => { err.textContent = m; err.hidden = false; err.scrollIntoView({ block: 'center', behavior: 'smooth' }); if (id) $(id).focus({ preventScroll: true }); };
   if (d.name.split(/\s+/).length < 2) return fail('اكتب اسم المتوفى ثلاثيًا.', 'fName');
