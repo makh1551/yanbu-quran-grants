@@ -135,17 +135,17 @@
 <section id="create">
   <div class="wrap">
     <h2>أنشئ حملة فقيدك</h2>
-    <p class="sec-lead">املأ الطلب، وستتواصل معك الجمعية للتحقق واعتماد الحملة، ثم يصلك رابط صفحتها. الحد الأدنى للحملة ٣٠٠٠ ريال، ولحملة كفالة الحلقة ٧٠٠٠ ريال، وتلتزم به الأسرة عند إنشائها.</p>
+    <p class="sec-lead">املأ الطلب، وستتواصل معك الجمعية للتحقق واعتماد الحملة، ثم يصلك رابط صفحتها. اختر الصدقة الجارية والمبلغ المناسب لكم، وتلتزم الأسرة ببلوغه عند إنشاء الحملة.</p>
     <form class="box" id="reqForm" novalidate>
       <div class="fields">
         <div class="f"><label for="fName">اسم الفقيد الثلاثي</label><input id="fName" name="name" required maxlength="60" autocomplete="off" placeholder="فلان بن فلان الفلاني"></div>
         <div class="f"><label for="fSuffix">الدعاء له</label><select id="fSuffix" name="suffix"><option>رحمه الله</option><option>رحمها الله</option></select></div>
-        <div class="f full"><label for="fProject">مشروع الحملة</label><select id="fProject" name="project">
-          <option value="mushaf">ورِّث مصحفًا — ٣٠ ريالًا للمصحف</option>
-          <option value="student">كفالة طالب أو طالبة — ٣٠٠ ريال سنويًا</option>
-          <option value="halaqa">كفالة حلقة قرآنية — ٧٠٠٠ ريال سنويًا</option>
-          <option value="waqf">سهم في وقف الأم — ١٠٠ ريال للسهم</option>
+        <div class="f full"><label for="fProject">أرغب أن تكون الصدقة الجارية</label><select id="fProject" name="project">
+          <option value="halaqa">كفالة حلقة لتحفيظ القرآن الكريم — ٧٠٠٠ ريال للعام الدراسي</option>
+          <option value="mushaf">ورِّث مصحفًا — ٣٠ ريالًا للمصحف (مطبعة الملك فهد)</option>
+          <option value="waqf">أسهم في وقف الأم — ١٠٠ ريال للسهم</option>
         </select></div>
+        <div class="f full"><label for="fPkg">اختر الصدقة الجارية المناسبة لكم</label><select id="fPkg" name="pkg"></select></div>
         <div class="f"><label for="fReq">اسمك</label><input id="fReq" name="requester" required maxlength="60" autocomplete="name"></div>
         <div class="f"><label for="fRel">صلتك بالفقيد</label><select id="fRel" name="relation"><option>ابن أو ابنة</option><option>زوج أو زوجة</option><option>أخ أو أخت</option><option>أب أو أم</option><option>حفيد أو حفيدة</option><option>قريب آخر</option></select></div>
         <div class="f"><label for="fPhone">رقم جوالك</label><input id="fPhone" name="phone" required inputmode="tel" maxlength="14" autocomplete="tel" placeholder="05xxxxxxxx" dir="ltr" style="text-align:right"></div>
@@ -270,13 +270,16 @@ refreshCard();
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(refreshCard);
 
 // طلب الحملة
-const commitLabel = () => { $('fCommitL').textContent = 'ألتزم بألا تقل حصيلة الحملة عن ' + ar(PROJECTS[$('fProject').value].goal) + ' ريال، وأُكمل الفرق إن نقصت عنه'; };
-$('fProject').addEventListener('change', commitLabel); commitLabel();
+const pkgNow = () => PACKAGES[$('fProject').value][+$('fPkg').value || 0];
+const fillPkg = () => { const pr = $('fProject').value; $('fPkg').innerHTML = PACKAGES[pr].map(([q, a], i) => '<option value="' + i + '">' + pkgLabel(pr, q, a) + '</option>').join(''); };
+const commitLabel = () => { $('fCommitL').textContent = 'ألتزم بألا تقل حصيلة الحملة عن ' + ar(pkgNow()[1]) + ' ريال، وأُكمل الفرق إن نقصت عنه'; };
+$('fProject').addEventListener('change', () => { fillPkg(); commitLabel(); });
+$('fPkg').addEventListener('change', commitLabel); fillPkg(); commitLabel();
 $('reqForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const err = $('reqErr'); err.hidden = true;
   const d = {
-    name: $('fName').value.trim(), suffix: $('fSuffix').value, project: $('fProject').value,
+    name: $('fName').value.trim(), suffix: $('fSuffix').value, project: $('fProject').value, qty: pkgNow()[0], goal: pkgNow()[1],
     requester: $('fReq').value.trim(), relation: $('fRel').value, phone: latinDigits($('fPhone').value).replace(/[^\d]/g, ''), remind: $('fRemind').checked, commit: $('fCommit').checked, website: $('fWeb').value,
   };
   const fail = (m) => { err.textContent = m; err.hidden = false; };
@@ -290,7 +293,7 @@ $('reqForm').addEventListener('submit', async (e) => {
     const j = await r.json();
     if (!r.ok) throw new Error(j.error || 'تعذّر إرسال الطلب.');
     $('reqId').textContent = j.id;
-    $('reqWa').href = waLink('السلام عليكم، قدّمت طلب «حملة الفقيد» رقم ' + j.id + '\nالفقيد: ' + d.name + ' ' + d.suffix + '\nالمشروع: ' + PROJECTS[d.project].name + '\nمقدّم الطلب: ' + d.requester + ' (' + d.relation + ')');
+    $('reqWa').href = waLink('السلام عليكم، قدّمت طلب «حملة الفقيد» رقم ' + j.id + '\nالفقيد: ' + d.name + ' ' + d.suffix + '\nالمشروع: ' + PROJECTS[d.project].name + ' (' + pkgLabel(d.project, d.qty, d.goal) + ')' + '\nمقدّم الطلب: ' + d.requester + ' (' + d.relation + ')');
     $('reqForm').hidden = true; $('reqDone').hidden = false;
     $('cName').value = d.name; $('cSuffix').value = d.suffix; $('cProject').value = d.project; refreshCard();
     $('reqDone').scrollIntoView({ block: 'center' });

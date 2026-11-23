@@ -7,6 +7,13 @@ const PROJECTS = {
   student: { name: 'كفالة طالب أو طالبة', unit: 300, goal: 3000, unitLabel: 'طالب سنويًا', countLabel: 'الطلاب المكفولون', desc: 'طالبٌ يحفظ كتاب الله عامًا دراسيًا كاملًا.', link: 'https://store.yq.org.sa' },
   waqf: { name: 'سهم في وقف الأم', unit: 100, goal: 3000, unitLabel: 'سهم', countLabel: 'أسهم الوقف', desc: 'وقفٌ قائم ينفع ما بقي.', link: 'https://store.yq.org.sa/p/173745' },
 };
+// باقات الطلب (مطابقة لنموذج «صدقة جارية لعزيز عليك»): [الكمية، المبلغ]
+const PACKAGES = {
+  halaqa: [[1, 7000], [2, 14000]],
+  mushaf: [[50, 1500], [100, 3000], [150, 4500], [200, 6000]],
+  waqf: [[30, 3000], [50, 5000], [100, 10000]],
+};
+const pkgLabel = (project, q, amount) => (project === 'halaqa' ? (q === 1 ? 'حلقة واحدة' : q === 2 ? 'حلقتان' : ar(q) + ' حلقات') : ar(q) + ' ' + (project === 'mushaf' ? (q % 100 ? 'مصحفًا' : 'مصحف') : (q % 100 ? 'سهمًا' : 'سهم'))) + ' — ' + ar(amount) + ' ريال';
 const ar = (n) => Number(n || 0).toLocaleString('ar-SA', { maximumFractionDigits: 0 });
 const latinDigits = (s) => String(s || '').replace(/[٠-٩]/g, (d) => '٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[۰-۹]/g, (d) => '۰۱۲۳۴۵۶۷۸۹'.indexOf(d));
 const waLink = (text, to) => 'https://wa.me/' + (to || WA) + '?text=' + encodeURIComponent(text);
@@ -85,9 +92,9 @@ function downloadCanvas(canvas, filename) {
 }
 
 // هدف الحملة: ٣٠٠٠ ريال حدًّا أدنى مستهدفًا (وكفالة الحلقة: قيمة الحلقة)، والمتبقي لبلوغه
-function campaignGoal(projectKey, total) {
-  const p = PROJECTS[projectKey] || PROJECTS.mushaf, t = total || 0;
-  return { p, goal: p.goal, reached: t >= p.goal, remaining: Math.max(0, p.goal - t), over: Math.max(0, t - p.goal), pct: Math.min(100, Math.round(t / p.goal * 100)), units: Math.floor(p.goal / p.unit) };
+function campaignGoal(projectKey, total, goal) {
+  const p = PROJECTS[projectKey] || PROJECTS.mushaf, t = total || 0, g = goal > 0 ? goal : p.goal;
+  return { p, goal: g, reached: t >= g, remaining: Math.max(0, g - t), over: Math.max(0, t - g), pct: Math.min(100, Math.round(t / g * 100)), units: Math.floor(g / p.unit) };
 }
 // الذكرى السنوية: تاريخ الذكرى القادمة للحملة، وهل حان وقت التذكير (قبلها بأسبوعين)
 function anniversary(c, now) {
