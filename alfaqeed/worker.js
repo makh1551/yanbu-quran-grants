@@ -90,6 +90,40 @@ async function notify(env, c) {
   await Promise.all(phones.slice(0, 10).map((ph, i) => env.WA.put('wa_out:sadaqa-' + c.id + '-' + i, JSON.stringify({ phone: String(ph), text: msg }))));
 }
 
+// إرسال «طلب يحتاج اعتماد» إلى قروب لجنة التنمية عبر خادم الواتساب (evo.wasl.uk) — السر WA_API_KEY
+const WA_API = 'https://evo.wasl.uk/v1';
+const WA_GROUP = 'لجنة التنمية';
+async function groupNotify(env, c) {
+  if (!env.WA_API_KEY) return;
+  const h = { 'content-type': 'application/json', 'x-api-key': env.WA_API_KEY };
+  let gid = await env.CAMPAIGNS.get('wa_group_id');
+  if (!gid) {
+    const r = await fetch(WA_API + '/groups', { headers: h });
+    const d = await r.json().catch(() => ({}));
+    const n = (s) => String(s || '').replace(/[أإآ]/g, 'ا').replace(/ة/g, 'ه').replace(/ى/g, 'ي');
+    const toks = n(WA_GROUP).split(' ').filter(Boolean).map((t) => t.replace(/^ال/, ''));
+    const g = (d.groups || []).find((x) => toks.every((t) => n(x.name).includes(t)));
+    if (!g) { const prev = await env.WA.get('tg_out'); await env.WA.put('tg_out', (prev ? prev + '\n\n— — —\n\n' : '') + 'تنبيه: لم أجد قروب «' + WA_GROUP + '» في رقم خادم الواتساب، فلم يُرسل طلب ' + c.name + ' للقروب.'); return; }
+    gid = g.id;
+    await env.CAMPAIGNS.put('wa_group_id', gid, { expirationTtl: 7 * 86400 });
+  }
+  const text = [
+    '📌 *طلب يحتاج اعتماد*',
+    '━━━━━━━━━━',
+    '*النوع:* صدقة جارية — ' + (PROJECT_NAMES[c.project] || c.project),
+    '*العزيز:* ' + c.name + (c.suffix ? ' ' + c.suffix : ''),
+    c.qty ? '*الكمية:* ' + c.qty + ' ' + (UNITS[c.project] || '') + ' — ' + c.goal + ' ريال' : '',
+    '*مقدّم الطلب:* ' + c.requester + (c.relation ? ' (' + c.relation + ')' : ''),
+    '*الجوال:* ' + c.phone,
+    '*التذكير السنوي:* ' + (c.remind ? 'نعم' : 'لا'),
+    '━━━━━━━━━━',
+    'للاعتماد ووضع رابط المتجر:',
+    'https://sadaqa.yanbuquran.app/admin#c-' + c.id,
+  ].filter(Boolean).join('\n');
+  const r = await fetch(WA_API + '/send', { method: 'POST', headers: h, body: JSON.stringify({ to: gid, text, sms: false }) });
+  if (r.status === 502) await env.CAMPAIGNS.delete('wa_group_id');
+}
+
 async function createRequest(req, env, ip, ctx) {
   const b = await readBody(req);
   if (!b) return json({ error: 'بيانات الطلب غير صالحة.' }, 400);
@@ -115,6 +149,7 @@ async function createRequest(req, env, ip, ctx) {
   Object.assign(c, { id, key: newKey(), status: 'pending', link: '', total: 0, donors: 0, year: 1, reminded: '', created: now, updated: now });
   await env.CAMPAIGNS.put('c:' + id, JSON.stringify(c));
   ctx.waitUntil(notify(env, c).catch(() => {}));
+  ctx.waitUntil(groupNotify(env, c).catch(() => {}));
   return json({ id });
 }
 
