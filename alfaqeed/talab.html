@@ -166,7 +166,7 @@
 <script src="/app.js"></script>
 <script>
 const $ = (id) => document.getElementById(id);
-const S = { project: 'halaqa', i: 0 };
+const S = { project: ['halaqa', 'mushaf', 'waqf'].includes(new URLSearchParams(location.search).get('track')) ? new URLSearchParams(location.search).get('track') : 'halaqa', i: 0 };
 const pkg = () => PACKAGES[S.project][S.i];
 const unitText = (p, q) => p === 'halaqa' ? (q === 1 ? 'حلقة واحدة' : q === 2 ? 'حلقتان' : ar(q) + ' حلقات') : ar(q) + ' ' + (p === 'mushaf' ? (q % 100 ? 'مصحفًا' : 'مصحف') : (q % 100 ? 'سهمًا' : 'سهم'));
 

@@ -261,6 +261,8 @@ export default {
         return json({ error: 'غير موجود' }, 404);
       }
       if (!['GET', 'HEAD'].includes(req.method)) return new Response('غير مسموح', { status: 405, headers: NOINDEX });
+      const GO = { '/admin/tasmim': 'https://tasmim.yanbuquran.app/', '/admin/muktamila': 'https://tasmim.yanbuquran.app/muktamila', '/admin/halaqat': 'https://halqa.yanbuquran.app/lawha' };
+      if (GO[p]) return Response.redirect(GO[p] + u.search, 302);
       if (FILES[p]) return await serveFile(FILES[p]);
       if (/^\/c\/[a-z0-9]{6}$/.test(p)) return await serveFile('c.html');
       if (/^\/ahl\/[a-z0-9]{6}\/[a-z0-9]{10}$/.test(p)) return await serveFile('ahl.html');
