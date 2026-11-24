@@ -96,7 +96,7 @@ const WA_GROUP = 'لجنة التنمية';
 async function groupNotify(env, c) {
   if (!env.WA_API_KEY) return;
   const h = { 'content-type': 'application/json', 'x-api-key': env.WA_API_KEY };
-  let gid = await env.CAMPAIGNS.get('wa_group_id');
+  let gid = (await env.CAMPAIGNS.get('wa_group_id')) || '120363403219823007@g.us';
   if (!gid) {
     const r = await fetch(WA_API + '/groups', { headers: h });
     const d = await r.json().catch(() => ({}));
@@ -120,8 +120,8 @@ async function groupNotify(env, c) {
     'للاعتماد ووضع رابط المتجر:',
     'https://sadaqa.yanbuquran.app/admin#c-' + c.id,
   ].filter(Boolean).join('\n');
-  const r = await fetch(WA_API + '/send', { method: 'POST', headers: h, body: JSON.stringify({ to: gid, text, sms: false }) });
-  if (r.status === 502) await env.CAMPAIGNS.delete('wa_group_id');
+  const r = await fetch(WA_API + '/send', { method: 'POST', headers: h, body: JSON.stringify({ to: gid, text, sms: false, queue: true, min_delay: 1, max_delay: 3, name_campaign: 'طلب يحتاج اعتماد — ' + c.name }) });
+  if (!r.ok) { const prev = await env.WA.get('tg_out'); await env.WA.put('tg_out', (prev ? prev + '\n\n— — —\n\n' : '') + 'تنبيه: تعذّر إرسال طلب ' + c.name + ' لقروب لجنة التنمية (رمز ' + r.status + ').'); }
 }
 
 async function createRequest(req, env, ip, ctx) {
