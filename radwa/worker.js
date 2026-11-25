@@ -1,6 +1,6 @@
 // عامل موقع «شراكة نادي رضوى — مسابقة رضوى لإتقان القرآن» — radwa.yanbuquran.app
 // يقرأ الملفات من نسخة مثبّتة (commit) في المستودع، ويحفظها في ذاكرة الحافة؛ عند التحديث يُغيَّر REV إلى آخر commit ويُعاد رفع العامل.
-const REV = '0406fd7a9ec5dcf58019e2aaf1c5351ae1d9103b';
+const REV = '26d81a0974908ff4c62c9f3585fb284d35581f87';
 const BASE = 'https://raw.githubusercontent.com/makh1551/yanbu-quran-grants/' + REV + '/radwa';
 const FILES = { '/': 'index.html', '/logo.png': 'logo.png', '/name.png': 'name.png', '/logo-white.png': 'logo-white.png', '/name-white.png': 'name-white.png', '/sharaka.pdf': 'sharaka.pdf', '/letter.pdf': 'letter.pdf', '/agreement.pdf': 'agreement.pdf', '/agreement.docx': 'agreement.docx', '/athar.pdf': 'athar.pdf', '/radwa-logo.png': 'radwa-logo.png' };
 const TYPES = { html: 'text/html; charset=utf-8', css: 'text/css; charset=utf-8', png: 'image/png', pdf: 'application/pdf', docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' };
