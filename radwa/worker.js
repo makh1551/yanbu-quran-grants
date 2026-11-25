@@ -2,7 +2,7 @@
 // يقرأ الملفات من نسخة مثبّتة (commit) في المستودع، ويحفظها في ذاكرة الحافة؛ عند التحديث يُغيَّر REV إلى آخر commit ويُعاد رفع العامل.
 const REV = '0406fd7a9ec5dcf58019e2aaf1c5351ae1d9103b';
 const BASE = 'https://raw.githubusercontent.com/makh1551/yanbu-quran-grants/' + REV + '/radwa';
-const FILES = { '/': 'index.html', '/logo.png': 'logo.png', '/name.png': 'name.png', '/logo-white.png': 'logo-white.png', '/name-white.png': 'name-white.png', '/sharaka.pdf': 'sharaka.pdf', '/letter.pdf': 'letter.pdf', '/agreement.pdf': 'agreement.pdf', '/agreement.docx': 'agreement.docx', '/athar.pdf': 'athar.pdf' };
+const FILES = { '/': 'index.html', '/logo.png': 'logo.png', '/name.png': 'name.png', '/logo-white.png': 'logo-white.png', '/name-white.png': 'name-white.png', '/sharaka.pdf': 'sharaka.pdf', '/letter.pdf': 'letter.pdf', '/agreement.pdf': 'agreement.pdf', '/agreement.docx': 'agreement.docx', '/athar.pdf': 'athar.pdf', '/radwa-logo.png': 'radwa-logo.png' };
 const TYPES = { html: 'text/html; charset=utf-8', css: 'text/css; charset=utf-8', png: 'image/png', pdf: 'application/pdf', docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' };
 const H = { 'x-robots-tag': 'noindex, nofollow', 'x-content-type-options': 'nosniff', 'referrer-policy': 'strict-origin-when-cross-origin' };
 const ALIAS = { '/index.html': '/' };
